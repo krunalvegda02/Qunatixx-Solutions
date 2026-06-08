@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion , AnimatePresence } from 'framer-motion';
 import { ArrowRight, Cpu, Globe, Database, Smartphone, Palette, Zap, TrendingUp, CheckCircle2, ChevronRight, Quote, Bot, Cloud, CheckCircle } from 'lucide-react';
+import { Counter } from '../components/animations/Counter';
 import { useModal } from '../context/ModalContext';
 import { useTheme } from '../context/ThemeContext';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -1177,7 +1178,7 @@ export default function Home() {
                 
                 <div className="my-8">
                   <div className="text-4xl sm:text-5xl font-display font-extrabold text-text-primary tracking-tight">
-                    99.99%
+                    <Counter value="99.99%" />
                   </div>
                   <div className="text-sm font-semibold text-text-primary mt-2">
                     Infrastructure Uptime
@@ -1214,7 +1215,7 @@ export default function Home() {
 
                 <div className="my-8">
                   <div className="text-4xl sm:text-5xl font-display font-extrabold text-text-primary tracking-tight">
-                    80%
+                    <Counter value="80%" />
                   </div>
                   <div className="text-sm font-semibold text-text-primary mt-2">
                     Manual Workflows Cut
@@ -1253,7 +1254,7 @@ export default function Home() {
 
                 <div className="my-8">
                   <div className="text-4xl sm:text-5xl font-display font-extrabold text-text-primary tracking-tight">
-                    +35%
+                    <Counter value="+35%" />
                   </div>
                   <div className="text-sm font-semibold text-text-primary mt-2">
                     Conversion Lift

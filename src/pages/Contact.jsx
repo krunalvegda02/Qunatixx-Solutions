@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatedText } from '../components/animations/AnimatedText';
+import { AnimatedSubText } from '../components/animations/AnimatedSubText';
 import { Mail, Phone, MapPin, Send, HelpCircle, ChevronDown, CheckCircle, Clock, Zap, Shield, ArrowUpRight, Terminal } from 'lucide-react';
 import clsx from 'clsx';
 
@@ -60,13 +62,18 @@ export default function Contact() {
           <Zap size={14} className={clsx('text-highlight', 'animate-pulse')} />
           Get In Touch
         </span>
-        <h1 className={clsx('text-5xl', 'sm:text-7xl', 'font-display', 'font-bold', 'text-text-primary', 'mt-3', 'leading-[1.1]', 'tracking-tight')}>
-          Let's Engineer Your <br />
-          <span className={clsx('text-transparent', 'bg-clip-text', 'bg-gradient-to-r', 'from-accent', 'via-highlight', 'to-accent', 'bg-300%', 'animate-gradient-flow')}>Next Breakthrough</span>
-        </h1>
-        <p className={clsx('text-text-secondary', 'text-base', 'sm:text-lg', 'max-w-2xl', 'mx-auto', 'mt-6', 'leading-relaxed', 'font-sans', 'font-light')}>
-          Request a scoping workshop with our technical leads. We will review your product parameters and deliver a structured initial architecture plan.
-        </p>
+        <AnimatedText 
+          as="h1"
+          segments={[
+            { text: "Let's Engineer Your " },
+            { text: "Next Breakthrough", className: "text-transparent bg-clip-text bg-gradient-to-r from-accent via-highlight to-accent bg-300% animate-gradient-flow block mt-2" }
+          ]}
+          className={clsx('text-5xl', 'sm:text-7xl', 'font-display', 'font-bold', 'text-text-primary', 'mt-3', 'leading-[1.1]', 'tracking-tight')}
+        />
+        <AnimatedSubText 
+          text="Request a scoping workshop with our technical leads. We will review your product parameters and deliver a structured initial architecture plan."
+          className={clsx('text-text-secondary', 'text-base', 'sm:text-lg', 'max-w-2xl', 'mx-auto', 'mt-6', 'leading-relaxed', 'font-sans', 'font-light')}
+        />
       </section>
 
       {/* Main Layout */}

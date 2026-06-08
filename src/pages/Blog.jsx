@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatedText } from '../components/animations/AnimatedText';
+import { AnimatedSubText } from '../components/animations/AnimatedSubText';
 import { Search, Calendar, Clock, ArrowRight, BookOpen, Tag, Sparkles } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import clsx from 'clsx';
@@ -36,13 +38,18 @@ export default function Blog() {
           <Sparkles size={14} className="text-highlight animate-pulse" />
           Quantixx Insights
         </span>
-        <h1 className="text-5xl sm:text-7xl font-display font-bold text-text-primary mt-3 leading-[1.1] tracking-tight">
-          Technology & <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-highlight to-accent bg-300% animate-gradient-flow">Architecture Trends</span>
-        </h1>
-        <p className="text-text-secondary text-base sm:text-lg max-w-2xl mx-auto mt-6 leading-relaxed font-sans font-light">
-          In-depth technical analysis, system blueprints, and architectural strategies from our senior engineering team.
-        </p>
+        <AnimatedText 
+          as="h1"
+          segments={[
+            { text: "Technology & " },
+            { text: "Architecture Trends", className: "text-transparent bg-clip-text bg-gradient-to-r from-accent via-highlight to-accent bg-300% animate-gradient-flow block mt-2" }
+          ]}
+          className="text-5xl sm:text-7xl font-display font-bold text-text-primary mt-3 leading-[1.1] tracking-tight"
+        />
+        <AnimatedSubText 
+          text="In-depth technical analysis, system blueprints, and architectural strategies from our senior engineering team."
+          className="text-text-secondary text-base sm:text-lg max-w-2xl mx-auto mt-6 leading-relaxed font-sans font-light"
+        />
       </section>
 
       {/* Search and Category Filters */}

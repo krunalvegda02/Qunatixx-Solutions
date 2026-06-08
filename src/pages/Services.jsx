@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatedText } from '../components/animations/AnimatedText';
+import { AnimatedSubText } from '../components/animations/AnimatedSubText';
 import { useLocation } from 'react-router-dom';
 import { 
   Cpu, Globe, Database, Smartphone, Palette, Zap, 
@@ -157,12 +159,18 @@ export default function Services() {
         <span className="text-xs uppercase tracking-[0.25em] font-extrabold text-accent bg-accent/10 px-3.5 py-1.5 rounded-sm inline-block">
           Core Capabilities
         </span>
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold text-text-primary mt-4 max-w-4xl mx-auto leading-tight tracking-tight text-balance">
-          Enterprise Engineering Services Built for <span className="accent-text-gradient">Business Growth</span>
-        </h1>
-        <p className="text-sm sm:text-base text-text-secondary max-w-2xl mx-auto mt-5 leading-relaxed font-light font-sans text-balance">
-          Explore our range of engineering capabilities. We build secure software architectures, AI agent systems, fast web apps, and modern mobile platforms.
-        </p>
+        <AnimatedText 
+          as="h1"
+          segments={[
+            { text: "Enterprise Engineering Services Built for " },
+            { text: "Business Growth", className: "accent-text-gradient" }
+          ]}
+          className="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold text-text-primary mt-4 max-w-4xl mx-auto leading-tight tracking-tight text-balance"
+        />
+        <AnimatedSubText 
+          text="Explore our range of engineering capabilities. We build secure software architectures, AI agent systems, fast web apps, and modern mobile platforms."
+          className="text-sm sm:text-base text-text-secondary max-w-2xl mx-auto mt-5 leading-relaxed font-light font-sans text-balance"
+        />
 
         {/* Dynamic Category Filters & Interactive Search Control Center */}
         <div className="flex flex-col md:flex-row gap-4 justify-between items-center mt-10 max-w-4xl mx-auto border border-border-primary bg-bg-card/25 backdrop-blur-md p-3 rounded-lg shadow-lg">

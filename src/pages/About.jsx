@@ -1,4 +1,6 @@
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatedText } from '../components/animations/AnimatedText';
+import { AnimatedSubText } from '../components/animations/AnimatedSubText';
 import { Target, Shield, Users, Flame, Cpu, ArrowUpRight, CheckCircle2, ShieldAlert, MessageSquare, Key, RefreshCw, Terminal, Globe } from 'lucide-react';
 import { useModal } from '../context/ModalContext';
 import clsx from 'clsx';
@@ -67,12 +69,18 @@ export default function About() {
         <span className={clsx('text-xs', 'uppercase', 'tracking-[0.25em]', 'font-extrabold', 'text-accent', 'bg-accent/10', 'px-3.5', 'py-1.5', 'rounded-sm', 'inline-block')}>
           Company Profile
         </span>
-        <h1 className={clsx('text-4xl', 'sm:text-5xl', 'lg:text-6xl', 'font-display', 'font-extrabold', 'text-text-primary', 'mt-4', 'max-w-4xl', 'mx-auto', 'leading-tight', 'tracking-tight', 'text-balance')}>
-          Senior Engineers Building for <span className="accent-text-gradient">Reliability & Scale</span>
-        </h1>
-        <p className={clsx('text-sm', 'sm:text-base', 'text-text-secondary', 'max-w-2xl', 'mx-auto', 'mt-5', 'leading-relaxed', 'font-light', 'font-sans', 'text-balance', 'text-center')}>
-          We are a remote-first, virtual systems engineering studio. We partner with teams globally to deploy secure software architectures, cloud infrastructures, and automated AI workflows.
-        </p>
+        <AnimatedText 
+          as="h1"
+          segments={[
+            { text: "Senior Engineers Building for " },
+            { text: "Reliability & Scale", className: "accent-text-gradient" }
+          ]}
+          className={clsx('text-4xl', 'sm:text-5xl', 'lg:text-6xl', 'font-display', 'font-extrabold', 'text-text-primary', 'mt-4', 'max-w-4xl', 'mx-auto', 'leading-tight', 'tracking-tight', 'text-balance')}
+        />
+        <AnimatedSubText 
+          text="We are a remote-first, virtual systems engineering studio. We partner with teams globally to deploy secure software architectures, cloud infrastructures, and automated AI workflows."
+          className={clsx('text-sm', 'sm:text-base', 'text-text-secondary', 'max-w-2xl', 'mx-auto', 'mt-5', 'leading-relaxed', 'font-light', 'font-sans', 'text-balance', 'text-center')}
+        />
       </section>
 
       {/* Story & Philosophy Section */}
