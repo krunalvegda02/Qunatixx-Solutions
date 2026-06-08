@@ -66,7 +66,8 @@ export default function About() {
 
       {/* 1. HERO HEADER FOLD */}
       <section className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'py-14', 'text-center', 'relative', 'z-10')}>
-        <span className={clsx('text-xs', 'uppercase', 'tracking-[0.25em]', 'font-extrabold', 'text-accent', 'bg-accent/10', 'px-3.5', 'py-1.5', 'rounded-sm', 'inline-block')}>
+        <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.08] text-sm uppercase tracking-[0.2em] font-extrabold text-accent font-mono mb-6 backdrop-blur-md">
+          <Globe size={14} className="text-highlight animate-pulse" />
           Company Profile
         </span>
         <AnimatedText 

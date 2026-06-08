@@ -6,7 +6,7 @@ import { Counter } from '../components/animations/Counter';
 import { 
   Filter, Calendar, BarChart3, Settings, ShieldCheck, ArrowUpRight, X, Clock, 
   HelpCircle, Lightbulb, CheckCircle2, Search, Cpu, Database, Terminal, 
-  Activity, Sparkles, TrendingUp
+  Activity, Sparkles, TrendingUp, Target
 } from 'lucide-react';
 import { useModal } from '../context/ModalContext';
 
@@ -269,7 +269,8 @@ export default function Portfolio() {
 
       {/* 1. HERO HEADER FOLD */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 text-center relative z-10">
-        <span className="text-xs uppercase tracking-[0.25em] font-extrabold text-accent bg-accent/10 px-3.5 py-1.5 rounded-sm inline-block">
+        <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.08] text-sm uppercase tracking-[0.2em] font-extrabold text-accent font-mono mb-6 backdrop-blur-md">
+          <Target size={14} className="text-highlight animate-pulse" />
           Case Studies
         </span>
         <AnimatedText 
