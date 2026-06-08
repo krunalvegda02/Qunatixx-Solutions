@@ -19,6 +19,7 @@ import About from './pages/About';
 import Careers from './pages/Careers';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
 
 // Animated Route Wrapper
 function PageWrapper({ children }) {
@@ -49,6 +50,7 @@ function AnimatedRoutes() {
         <Route path="/careers" element={<PageWrapper><Careers /></PageWrapper>} />
         <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
         <Route path="/blog" element={<PageWrapper><Blog /></PageWrapper>} />
+        <Route path="/blog/:id" element={<PageWrapper><BlogPost /></PageWrapper>} />
         {/* Fallback to Home */}
         <Route path="*" element={<PageWrapper><Home /></PageWrapper>} />
       </Routes>
