@@ -1,0 +1,229 @@
+import { Link } from 'react-router-dom';
+import clsx from 'clsx';
+import { Mail, Phone, MapPin, Send, ShieldCheck, Activity } from 'lucide-react';
+import { FaGithub, FaTwitter, FaLinkedin, FaFacebook } from 'react-icons/fa';
+import { useModal } from '../../context/ModalContext';
+
+export default function Footer() {
+  const { openModal } = useModal();
+  const currentYear = new Date().getFullYear();
+
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    alert('Subscription received! Thank you for staying tuned with Quantixx Solutions.');
+    e.target.reset();
+  };
+
+  return (
+    <footer className={clsx('relative', 'bg-bg-card/15', 'backdrop-blur-2xl', 'border-t', 'border-border-primary', 'pt-20', 'pb-12', 'overflow-hidden', 'theme-transition', 'font-sans')}>
+      
+      {/* Subtle Grid overlay */}
+      <div className={clsx('absolute', 'inset-0', 'bg-[linear-gradient(rgba(255,255,255,0.003)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.003)_1px,transparent_1px)]', 'bg-[size:40px_40px]', 'pointer-events-none', 'opacity-35')} />
+
+      {/* Background radial glow accents */}
+      <div className={clsx('absolute', 'top-0', 'left-1/4', 'w-[500px]', 'h-[500px]', 'bg-accent/5', 'rounded-full', 'blur-[130px]', 'pointer-events-none', '-z-10', 'animate-pulse-slow')} />
+      <div className={clsx('absolute', 'bottom-0', 'right-1/4', 'w-[600px]', 'h-[600px]', 'bg-highlight/3', 'rounded-full', 'blur-[150px]', 'pointer-events-none', '-z-10')} />
+
+      <div className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'relative', 'z-10')}>
+        
+        {/* Upper Footer: Main Sitemap Columns */}
+        <div className={clsx('grid', 'grid-cols-1', 'md:grid-cols-2', 'lg:grid-cols-12', 'gap-12', 'pb-16', 'border-b', 'border-border-primary/60')}>
+          
+          {/* Column 1: Brand Info & Compliance Badges (col-span-5) */}
+          <div className={clsx('lg:col-span-5', 'space-y-6')}>
+            <Link to="/" className={clsx('flex', 'items-center', 'gap-2.5', 'group')}>
+              <div className={clsx('w-9', 'h-9', 'rounded-sm', 'bg-gradient-to-br', 'from-accent', 'to-highlight', 'flex', 'items-center', 'justify-center', 'font-bold', 'text-base', 'text-white', 'shadow-[0_0_15px_var(--accent-glow)]', 'group-hover:scale-105', 'transition-transform')}>
+                Q
+              </div>
+              <div>
+                <span className={clsx('font-display', 'font-extrabold', 'text-lg', 'tracking-tight', 'text-text-primary')}>QUANTIXX</span>
+                <span className={clsx('block', 'text-[8px]', 'uppercase', 'tracking-[0.28em]', 'text-highlight', 'font-bold', '-mt-0.5')}>Solutions</span>
+              </div>
+            </Link>
+            
+            <p className={clsx('text-sm', 'text-text-secondary', 'max-w-sm', 'leading-relaxed', 'font-light')}>
+              Engineering enterprise-grade software products, bespoke cloud infrastructures, and custom digital platforms built under compliance-ready structures.
+            </p>
+
+            {/* Compliance & Audit Badges */}
+            <div className={clsx('space-y-2.5', 'pt-2')}>
+              <span className={clsx('block', 'text-[9px]', 'font-mono', 'text-text-muted', 'uppercase', 'tracking-widest')}>
+                Compliance & Security Framework
+              </span>
+              <div className={clsx('flex', 'flex-wrap', 'gap-2')}>
+                {[
+                  { name: 'SOC2 Type II', active: true },
+                  { name: 'ISO 27001', active: true },
+                  { name: 'GDPR Compliant', active: true },
+                  { name: 'HIPAA Ready', active: false }
+                ].map((badge, idx) => (
+                  <span 
+                    key={idx}
+                    className={`px-2.5 py-1 rounded-sm text-[9px] font-mono font-bold border flex items-center gap-1.5 ${
+                      badge.active 
+                        ? 'bg-bg-secondary/60 border-border-primary/80 text-text-secondary' 
+                        : 'bg-transparent border-dashed border-border-primary/40 text-text-muted'
+                    }`}
+                  >
+                    <ShieldCheck size={10} className={badge.active ? 'text-highlight' : 'text-text-muted'} />
+                    {badge.name}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Column 2: Services (col-span-2) */}
+          <div className={clsx('lg:col-span-2', 'lg:pl-4')}>
+            <h4 className={clsx('text-[10px]', 'font-extrabold', 'uppercase', 'tracking-[0.2em]', 'text-text-primary', 'mb-6', 'font-display', 'flex', 'items-center', 'gap-1.5')}>
+              <span className={clsx('w-1.5', 'h-1.5', 'rounded-full', 'bg-accent')} />
+              Services
+            </h4>
+            <ul className="space-y-3.5">
+              {[
+                { name: 'Custom Software', href: '/services#custom-software' },
+                { name: 'Web Applications', href: '/services#web-apps' },
+                { name: 'Mobile App Dev', href: '/services#mobile-apps' },
+                { name: 'AI Engineering', href: '/services#ai' },
+                { name: 'Cloud & DevOps', href: '/services#cloud' },
+                { name: 'UI/UX Design', href: '/services#ui-ux' }
+              ].map((item, idx) => (
+                <li key={idx}>
+                  <Link to={item.href} className={clsx('text-xs', 'sm:text-sm', 'text-text-secondary', 'hover:text-accent', 'hover:translate-x-1', 'transition-all', 'inline-block', 'font-light')}>
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 3: Company (col-span-2) */}
+          <div className="lg:col-span-2">
+            <h4 className={clsx('text-[10px]', 'font-extrabold', 'uppercase', 'tracking-[0.2em]', 'text-text-primary', 'mb-6', 'font-display', 'flex', 'items-center', 'gap-1.5')}>
+              <span className={clsx('w-1.5', 'h-1.5', 'rounded-full', 'bg-highlight')} />
+              Company
+            </h4>
+            <ul className="space-y-3.5">
+              {[
+                { name: 'About Us', href: '/about' },
+                { name: 'Portfolio', href: '/portfolio' },
+                // { name: 'Careers', href: '/careers', badge: 'Hiring' },
+                { name: 'Insights Blog', href: '/blog' },
+                { name: 'Contact Architects', href: '/contact' }
+              ].map((item, idx) => (
+                <li key={idx}>
+                  <Link to={item.href} className={clsx('text-xs', 'sm:text-sm', 'text-text-secondary', 'hover:text-accent', 'hover:translate-x-1', 'transition-all', 'inline-flex', 'items-center', 'gap-2', 'font-light')}>
+                    <span>{item.name}</span>
+                    {item.badge && (
+                      <span className={clsx('px-1.5', 'py-0.25', 'rounded-sm', 'text-[8px]', 'font-mono', 'font-bold', 'bg-highlight/10', 'text-highlight', 'border', 'border-highlight/25')}>
+                        {item.badge}
+                      </span>
+                    )}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 4: Newsletter & Contact Widget (col-span-3) */}
+          <div className={clsx('lg:col-span-3', 'space-y-6')}>
+            <div className="space-y-2">
+              <h4 className={clsx('text-[10px]', 'font-extrabold', 'uppercase', 'tracking-[0.2em]', 'text-text-primary', 'font-display', 'flex', 'items-center', 'gap-1.5')}>
+                <span className={clsx('w-1.5', 'h-1.5', 'rounded-full', 'bg-accent')} />
+                Stay Connected
+              </h4>
+              <p className={clsx('text-xs', 'text-text-secondary', 'leading-relaxed', 'font-light')}>
+                Subscribe to receive our technical blueprints and quarterly industry reports.
+              </p>
+            </div>
+
+            <form onSubmit={handleSubscribe} className={clsx('relative', 'flex', 'items-center')}>
+              <input
+                type="email"
+                required
+                placeholder="work@company.com"
+                className={clsx('w-full', 'bg-bg-primary/50', 'border', 'border-border-primary', 'focus:border-accent', 'rounded-sm', 'py-2.5', 'pl-3', 'pr-10', 'text-xs', 'text-text-primary', 'placeholder-text-muted', 'outline-none', 'transition-all', 'focus:ring-1', 'focus:ring-accent')}
+              />
+              <button
+                type="submit"
+                className={clsx('absolute', 'right-1.5', 'p-1.5', 'bg-accent/10', 'text-accent', 'hover:bg-accent', 'hover:text-white', 'rounded-sm', 'transition-all', 'cursor-pointer', 'flex', 'items-center', 'justify-center', 'border', 'border-accent/20')}
+                aria-label="Subscribe"
+              >
+                <Send size={12} />
+              </button>
+            </form>
+
+            {/* Social Channels with Hover Glows */}
+            <div className="space-y-2">
+              <span className={clsx('block', 'text-[8px]', 'font-mono', 'text-text-muted', 'uppercase', 'tracking-widest')}>
+                Secure Communication Nodes
+              </span>
+              <div className={clsx('flex', 'items-center', 'gap-2.5')}>
+                {[
+                  { icon: FaLinkedin, url: 'https://linkedin.com', label: 'LinkedIn' },
+                  { icon: FaGithub, url: 'https://github.com', label: 'GitHub' },
+                  { icon: FaTwitter, url: 'https://twitter.com', label: 'Twitter' },
+                  { icon: FaFacebook, url: 'https://facebook.com', label: 'Facebook' }
+                ].map((social, idx) => {
+                  const Icon = social.icon;
+                  return (
+                    <a 
+                      key={idx}
+                      href={social.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className={clsx('p-2', 'bg-bg-secondary/40', 'hover:bg-accent/10', 'border', 'border-border-primary', 'hover:border-accent/40', 'text-text-secondary', 'hover:text-accent', 'rounded-sm', 'transition-all', 'flex', 'items-center', 'justify-center', 'shadow-sm')}
+                      aria-label={social.label}
+                    >
+                      <Icon size={14} />
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        {/* Lower Footer: Copyright, Status Indicator, Legal Links */}
+        <div className={clsx('flex', 'flex-col', 'lg:flex-row', 'justify-between', 'items-center', 'gap-6', 'pt-10', 'text-xs', 'text-text-secondary/70')}>
+          
+          {/* Copyright & Core Location */}
+          <div className={clsx('flex', 'flex-col', 'sm:flex-row', 'items-center', 'gap-4', 'text-center', 'sm:text-left', 'font-light')}>
+            <span>
+              &copy; {currentYear} Quantixx Solutions Inc. All rights reserved.
+            </span>
+            <span className={clsx('hidden', 'sm:inline', 'text-text-muted')}>//</span>
+            <div className={clsx('flex', 'items-center', 'gap-1.5', 'text-text-secondary/80')}>
+              <MapPin size={12} className="text-highlight" />
+              <span>San Francisco, CA HQ</span>
+            </div>
+          </div>
+
+          {/* Live System Status Widget (Professional and Standard placement) */}
+          <div className={clsx('inline-flex', 'items-center', 'gap-3', 'bg-bg-secondary/60', 'border', 'border-border-primary/80', 'px-4', 'py-2', 'rounded-sm', 'shadow-sm', 'font-mono', 'text-[10px]', 'select-none')}>
+            <span className={clsx('flex', 'h-2', 'w-2', 'relative')}>
+              <span className={clsx('animate-ping', 'absolute', 'inline-flex', 'h-full', 'w-full', 'rounded-full', 'bg-emerald-400', 'opacity-75')}></span>
+              <span className={clsx('relative', 'inline-flex', 'rounded-full', 'h-2', 'w-2', 'bg-emerald-500')}></span>
+            </span>
+            <span className={clsx('text-text-secondary', 'font-bold')}>ALL SYSTEMS OPERATIONAL</span>
+            <span className="text-text-muted">//</span>
+            <span className={clsx('text-[9px]', 'text-accent', 'font-semibold', 'flex', 'items-center', 'gap-1')}>
+              <Activity size={10} className="animate-pulse" />
+              99.99% UPTIME
+            </span>
+          </div>
+
+          {/* Quick Legal links */}
+          <div className={clsx('flex', 'gap-6', 'font-light')}>
+            <a href="#" className={clsx('hover:text-accent', 'transition-colors')}>Privacy Policy</a>
+            <a href="#" className={clsx('hover:text-accent', 'transition-colors')}>Terms of Service</a>
+            <a href="#" className={clsx('hover:text-accent', 'transition-colors')}>Security</a>
+          </div>
+
+        </div>
+
+      </div>
+    </footer>
+  );
+}
