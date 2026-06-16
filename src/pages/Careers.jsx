@@ -108,11 +108,11 @@ export default function Careers() {
           Join Our Mission
         </span>
         <h1 className="text-4xl sm:text-5xl font-display font-bold text-text-primary mt-3 leading-tight">
-          Shape the Future of <br />
-          <span className="secondary-text-gradient text-glow">Digital Architecture</span>
+          Build the Future With Us <br />
+          <span className="secondary-text-gradient text-glow">Join Our Team</span>
         </h1>
         <p className="text-text-secondary text-sm sm:text-base max-w-2xl mx-auto mt-4 leading-relaxed font-sans">
-          We are a team of passionate developers, designers, and systems architects. We value technical autonomy, clean deliverables, and async remote-first work.
+          We are a passionate team of builders, designers, and problem-solvers. We value creativity, collaboration, and the freedom to work from anywhere.
         </p>
       </section>
 

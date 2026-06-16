@@ -163,13 +163,13 @@ export default function Services() {
         <AnimatedText 
           as="h1"
           segments={[
-            { text: "Enterprise Engineering Services Built for " },
-            { text: "Business Growth", className: "accent-text-gradient" }
+            { text: "Software Solutions Built to " },
+            { text: "Grow Your Business", className: "accent-text-gradient" }
           ]}
           className="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold text-text-primary mt-4 max-w-4xl mx-auto leading-tight tracking-tight text-balance"
         />
         <AnimatedSubText 
-          text="Explore our range of engineering capabilities. We build secure software architectures, AI agent systems, fast web apps, and modern mobile platforms."
+          text="Explore our range of services. We partner with you to build reliable software, intelligent AI tools, and beautiful web applications that solve real challenges."
           className="text-sm sm:text-base text-text-secondary max-w-2xl mx-auto mt-5 leading-relaxed font-light font-sans text-balance"
         />
 

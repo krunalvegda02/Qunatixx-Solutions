@@ -168,8 +168,8 @@ export default function Portfolio() {
       category: ['Web Apps', 'Automation', 'SaaS'],
       metric: 'Reduced manual work by 80%',
       shortDesc: 'Automated global cargo dispatch schedule tracking and vendor invoicing.',
-      problem: 'LogiRoute was managing cargo schedules using shared Excel spreadsheets and email chains, resulting in critical scheduling errors and billing delays.',
-      solution: 'Designed and built a real-time dispatch dashboard featuring auto-allocation scripts, carrier GPS integrations, and automated PDF invoice generation.',
+      problem: 'LogiRoute was managing cargo schedules using shared Excel spreadsheets and email chains, which caused scheduling errors and billing delays.',
+      solution: 'We built a custom dispatch dashboard with GPS tracking and automated PDF invoice generation.',
       techStack: ['React', 'Node.js', 'PostgreSQL', 'AWS', 'TailwindCSS'],
       impact: [
         'Automated 80% of manual scheduling tasks',
@@ -185,8 +185,8 @@ export default function Portfolio() {
       category: ['Mobile Apps', 'SaaS', 'Enterprise'],
       metric: 'Increased conversion rate by 35%',
       shortDesc: 'Next-generation biometric payments wallet with streamlined onboarding.',
-      problem: 'Finova experienced a 54% customer drop-off during the KYC registration phase on their mobile landing pages due to a cumbersome verification process.',
-      solution: 'Created a cross-platform React Native wallet app with integrated OCR photo scanning, biometric sign-ins, and a 4-step user onboarding layout.',
+      problem: 'Finova noticed a huge drop-off of customers during the registration phase because the verification process was too complicated.',
+      solution: 'We created a fast, beautiful mobile app with simple photo scanning and secure FaceID sign-ins to make signing up effortless.',
       techStack: ['React Native', 'TypeScript', 'Node.js', 'Supabase', 'Stripe'],
       impact: [
         'Increased user conversion rates by 35%',
@@ -202,8 +202,8 @@ export default function Portfolio() {
       category: ['Automation', 'SaaS'],
       metric: 'Automated 90% of repetitive tasks',
       shortDesc: 'AI email parsing engine and automated CRM routing system.',
-      problem: 'Customer service staff spent over 20 hours per week manually reading attachment invoices and copying billing data fields into their Salesforce CRM system.',
-      solution: 'Developed an automated pipeline utilizing LLMs that extracts structured JSON data from incoming documents and routes records directly to CRM endpoints.',
+      problem: 'Customer service staff spent 20 hours a week manually reading invoices and copying data into their CRM system by hand.',
+      solution: 'We developed a smart AI tool that instantly reads incoming documents and automatically enters the data perfectly every time.',
       techStack: ['Python', 'LangChain', 'OpenAI GPT-4', 'Docker', 'FastAPI'],
       impact: [
         '90% of intake clerical work automated',
@@ -219,8 +219,8 @@ export default function Portfolio() {
       category: ['Cloud', 'Enterprise'],
       metric: 'Reduced server costs by 40%',
       shortDesc: 'Refactored monolithic hosting into highly scalable serverless nodes.',
-      problem: 'Apex operated an oversized virtual machine cluster that stayed idle 70% of the day, resulting in high hosting costs.',
-      solution: 'Refactored their monolithic core into an event-driven serverless architecture using AWS Lambda and automated infrastructure orchestration via Terraform.',
+      problem: 'Apex was paying for oversized server hosting that sat idle for most of the day, wasting thousands of dollars a month.',
+      solution: 'We moved their application to a smart cloud infrastructure that automatically scales up when busy and turns down when quiet, saving money.',
       techStack: ['AWS Lambda', 'Terraform', 'DynamoDB', 'API Gateway', 'Docker'],
       impact: [
         'Reduced monthly cloud hosting billing by 40%',
@@ -236,8 +236,8 @@ export default function Portfolio() {
       category: ['Web Apps', 'Enterprise'],
       metric: 'Scheduling speeds improved by 70%',
       shortDesc: 'Compliance-ready patient medical portal and appointment router.',
-      problem: 'Clinic staff spent an average of 12 minutes per call verifying insurance coverage and coordinating doctor calendars.',
-      solution: 'Engineered a secure scheduling platform that integrates direct insurance API checks and routes appointments to specialists.',
+      problem: 'Clinic staff spent an average of 12 minutes per call checking insurance coverage and coordinating doctor calendars.',
+      solution: 'We built a secure, HIPAA-compliant scheduling platform that checks insurance instantly and automatically routes patients to the right specialist.',
       techStack: ['Next.js', 'GraphQL', 'PostgreSQL', 'Docker', 'TailwindCSS'],
       impact: [
         '70% faster patient onboarding and scheduling',
@@ -276,13 +276,13 @@ export default function Portfolio() {
         <AnimatedText 
           as="h1"
           segments={[
-            { text: "Enterprise Systems Built for " },
+            { text: "Success Stories Built for " },
             { text: "Real Business Impact", className: "accent-text-gradient" }
           ]}
           className="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold text-text-primary mt-4 max-w-4xl mx-auto leading-tight tracking-tight text-balance"
         />
         <AnimatedSubText 
-          text="Explore the tangible business outcomes, technical architectures, and metrics behind our successful digital transformations."
+          text="Explore the real business outcomes and measurable growth behind our successful client partnerships."
           className="text-sm sm:text-base text-text-secondary max-w-2xl mx-auto mt-5 leading-relaxed font-light font-sans text-balance text-center"
         />
       </section>

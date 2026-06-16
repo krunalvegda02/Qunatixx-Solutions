@@ -15,7 +15,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className={clsx('relative', 'bg-bg-card/15', 'backdrop-blur-2xl', 'border-t', 'border-border-primary', 'pt-20', 'pb-12', 'overflow-hidden', 'theme-transition', 'font-sans')}>
+    <footer className={clsx('relative', 'bg-bg-secondary/50', 'backdrop-blur-2xl', 'border-t', 'border-border-primary', 'pt-16', 'sm:pt-20', 'pb-10', 'sm:pb-12', 'overflow-hidden', 'theme-transition', 'font-sans')}>
       
       {/* Subtle Grid overlay */}
       <div className={clsx('absolute', 'inset-0', 'bg-[linear-gradient(rgba(255,255,255,0.003)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.003)_1px,transparent_1px)]', 'bg-[size:40px_40px]', 'pointer-events-none', 'opacity-35')} />
@@ -27,7 +27,7 @@ export default function Footer() {
       <div className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'relative', 'z-10')}>
         
         {/* Upper Footer: Main Sitemap Columns */}
-        <div className={clsx('grid', 'grid-cols-1', 'md:grid-cols-2', 'lg:grid-cols-12', 'gap-12', 'pb-16', 'border-b', 'border-border-primary/60')}>
+        <div className={clsx('grid', 'grid-cols-1', 'sm:grid-cols-2', 'lg:grid-cols-12', 'gap-10', 'lg:gap-12', 'pb-12', 'sm:pb-16', 'border-b', 'border-border-primary/60')}>
           
           {/* Column 1: Brand Info & Compliance Badges (col-span-5) */}
           <div className={clsx('lg:col-span-5', 'space-y-6')}>
@@ -41,13 +41,13 @@ export default function Footer() {
               </div>
             </Link>
             
-            <p className={clsx('text-sm', 'text-text-secondary', 'max-w-sm', 'leading-relaxed', 'font-light')}>
+            <p className={clsx('text-base', 'text-text-secondary', 'max-w-sm', 'leading-relaxed', 'font-sans')}>
               Engineering enterprise-grade software products, bespoke cloud infrastructures, and custom digital platforms built under compliance-ready structures.
             </p>
 
             {/* Compliance & Audit Badges */}
             <div className={clsx('space-y-2.5', 'pt-2')}>
-              <span className={clsx('block', 'text-[9px]', 'font-mono', 'text-text-muted', 'uppercase', 'tracking-widest')}>
+              <span className={clsx('block', 'text-xs', 'font-mono', 'text-text-muted', 'uppercase', 'tracking-widest', 'font-semibold')}>
                 Compliance & Security Framework
               </span>
               <div className={clsx('flex', 'flex-wrap', 'gap-2')}>
@@ -59,13 +59,13 @@ export default function Footer() {
                 ].map((badge, idx) => (
                   <span 
                     key={idx}
-                    className={`px-2.5 py-1 rounded-sm text-[9px] font-mono font-bold border flex items-center gap-1.5 ${
+                    className={`px-3 py-1.5 rounded-sm text-xs font-mono font-medium border flex items-center gap-2 ${
                       badge.active 
                         ? 'bg-bg-secondary/60 border-border-primary/80 text-text-secondary' 
                         : 'bg-transparent border-dashed border-border-primary/40 text-text-muted'
                     }`}
                   >
-                    <ShieldCheck size={10} className={badge.active ? 'text-highlight' : 'text-text-muted'} />
+                    <ShieldCheck size={12} className={badge.active ? 'text-highlight' : 'text-text-muted'} />
                     {badge.name}
                   </span>
                 ))}
@@ -75,8 +75,8 @@ export default function Footer() {
 
           {/* Column 2: Services (col-span-2) */}
           <div className={clsx('lg:col-span-2', 'lg:pl-4')}>
-            <h4 className={clsx('text-[10px]', 'font-extrabold', 'uppercase', 'tracking-[0.2em]', 'text-text-primary', 'mb-6', 'font-display', 'flex', 'items-center', 'gap-1.5')}>
-              <span className={clsx('w-1.5', 'h-1.5', 'rounded-full', 'bg-accent')} />
+            <h4 className={clsx('text-sm', 'font-bold', 'uppercase', 'tracking-wider', 'text-text-primary', 'mb-6', 'font-display', 'flex', 'items-center', 'gap-2')}>
+              <span className={clsx('w-2', 'h-2', 'rounded-full', 'bg-accent')} />
               Services
             </h4>
             <ul className="space-y-3.5">
@@ -89,7 +89,7 @@ export default function Footer() {
                 { name: 'UI/UX Design', href: '/services#ui-ux' }
               ].map((item, idx) => (
                 <li key={idx}>
-                  <Link to={item.href} className={clsx('text-xs', 'sm:text-sm', 'text-text-secondary', 'hover:text-accent', 'hover:translate-x-1', 'transition-all', 'inline-block', 'font-light')}>
+                  <Link to={item.href} className={clsx('text-sm', 'text-text-secondary', 'hover:text-accent', 'hover:translate-x-1', 'transition-all', 'inline-block', 'font-medium')}>
                     {item.name}
                   </Link>
                 </li>
@@ -99,8 +99,8 @@ export default function Footer() {
 
           {/* Column 3: Company (col-span-2) */}
           <div className="lg:col-span-2">
-            <h4 className={clsx('text-[10px]', 'font-extrabold', 'uppercase', 'tracking-[0.2em]', 'text-text-primary', 'mb-6', 'font-display', 'flex', 'items-center', 'gap-1.5')}>
-              <span className={clsx('w-1.5', 'h-1.5', 'rounded-full', 'bg-highlight')} />
+            <h4 className={clsx('text-sm', 'font-bold', 'uppercase', 'tracking-wider', 'text-text-primary', 'mb-6', 'font-display', 'flex', 'items-center', 'gap-2')}>
+              <span className={clsx('w-2', 'h-2', 'rounded-full', 'bg-highlight')} />
               Company
             </h4>
             <ul className="space-y-3.5">
@@ -112,10 +112,10 @@ export default function Footer() {
                 { name: 'Contact Architects', href: '/contact' }
               ].map((item, idx) => (
                 <li key={idx}>
-                  <Link to={item.href} className={clsx('text-xs', 'sm:text-sm', 'text-text-secondary', 'hover:text-accent', 'hover:translate-x-1', 'transition-all', 'inline-flex', 'items-center', 'gap-2', 'font-light')}>
+                  <Link to={item.href} className={clsx('text-sm', 'text-text-secondary', 'hover:text-accent', 'hover:translate-x-1', 'transition-all', 'inline-flex', 'items-center', 'gap-2', 'font-medium')}>
                     <span>{item.name}</span>
                     {item.badge && (
-                      <span className={clsx('px-1.5', 'py-0.25', 'rounded-sm', 'text-[8px]', 'font-mono', 'font-bold', 'bg-highlight/10', 'text-highlight', 'border', 'border-highlight/25')}>
+                      <span className={clsx('px-2', 'py-0.5', 'rounded-sm', 'text-[10px]', 'font-mono', 'font-bold', 'bg-highlight/10', 'text-highlight', 'border', 'border-highlight/25')}>
                         {item.badge}
                       </span>
                     )}
@@ -128,11 +128,11 @@ export default function Footer() {
           {/* Column 4: Newsletter & Contact Widget (col-span-3) */}
           <div className={clsx('lg:col-span-3', 'space-y-6')}>
             <div className="space-y-2">
-              <h4 className={clsx('text-[10px]', 'font-extrabold', 'uppercase', 'tracking-[0.2em]', 'text-text-primary', 'font-display', 'flex', 'items-center', 'gap-1.5')}>
-                <span className={clsx('w-1.5', 'h-1.5', 'rounded-full', 'bg-accent')} />
+              <h4 className={clsx('text-sm', 'font-bold', 'uppercase', 'tracking-wider', 'text-text-primary', 'font-display', 'flex', 'items-center', 'gap-2')}>
+                <span className={clsx('w-2', 'h-2', 'rounded-full', 'bg-accent')} />
                 Stay Connected
               </h4>
-              <p className={clsx('text-xs', 'text-text-secondary', 'leading-relaxed', 'font-light')}>
+              <p className={clsx('text-sm', 'text-text-secondary', 'leading-relaxed')}>
                 Subscribe to receive our technical blueprints and quarterly industry reports.
               </p>
             </div>
@@ -142,20 +142,20 @@ export default function Footer() {
                 type="email"
                 required
                 placeholder="work@company.com"
-                className={clsx('w-full', 'bg-bg-primary/50', 'border', 'border-border-primary', 'focus:border-accent', 'rounded-sm', 'py-2.5', 'pl-3', 'pr-10', 'text-xs', 'text-text-primary', 'placeholder-text-muted', 'outline-none', 'transition-all', 'focus:ring-1', 'focus:ring-accent')}
+                className={clsx('w-full', 'bg-bg-primary/50', 'border', 'border-border-primary', 'focus:border-accent', 'rounded-sm', 'py-3', 'pl-4', 'pr-12', 'text-sm', 'text-text-primary', 'placeholder-text-muted', 'outline-none', 'transition-all', 'focus:ring-1', 'focus:ring-accent')}
               />
               <button
                 type="submit"
-                className={clsx('absolute', 'right-1.5', 'p-1.5', 'bg-accent/10', 'text-accent', 'hover:bg-accent', 'hover:text-white', 'rounded-sm', 'transition-all', 'cursor-pointer', 'flex', 'items-center', 'justify-center', 'border', 'border-accent/20')}
+                className={clsx('absolute', 'right-1.5', 'p-2', 'bg-accent/10', 'text-accent', 'hover:bg-accent', 'hover:text-white', 'rounded-sm', 'transition-all', 'cursor-pointer', 'flex', 'items-center', 'justify-center', 'border', 'border-accent/20')}
                 aria-label="Subscribe"
               >
-                <Send size={12} />
+                <Send size={16} />
               </button>
             </form>
 
             {/* Social Channels with Hover Glows */}
             <div className="space-y-2">
-              <span className={clsx('block', 'text-[8px]', 'font-mono', 'text-text-muted', 'uppercase', 'tracking-widest')}>
+              <span className={clsx('block', 'text-xs', 'font-mono', 'text-text-muted', 'uppercase', 'tracking-widest', 'font-semibold', 'mt-8')}>
                 Secure Communication Nodes
               </span>
               <div className={clsx('flex', 'items-center', 'gap-2.5')}>
@@ -172,10 +172,10 @@ export default function Footer() {
                       href={social.url} 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className={clsx('p-2', 'bg-bg-secondary/40', 'hover:bg-accent/10', 'border', 'border-border-primary', 'hover:border-accent/40', 'text-text-secondary', 'hover:text-accent', 'rounded-sm', 'transition-all', 'flex', 'items-center', 'justify-center', 'shadow-sm')}
+                      className={clsx('p-2.5', 'bg-bg-secondary/40', 'hover:bg-accent/10', 'border', 'border-border-primary', 'hover:border-accent/40', 'text-text-secondary', 'hover:text-accent', 'rounded-sm', 'transition-all', 'flex', 'items-center', 'justify-center', 'shadow-sm')}
                       aria-label={social.label}
                     >
-                      <Icon size={14} />
+                      <Icon size={18} />
                     </a>
                   );
                 })}
@@ -186,36 +186,23 @@ export default function Footer() {
         </div>
 
         {/* Lower Footer: Copyright, Status Indicator, Legal Links */}
-        <div className={clsx('flex', 'flex-col', 'lg:flex-row', 'justify-between', 'items-center', 'gap-6', 'pt-10', 'text-xs', 'text-text-secondary/70')}>
+        <div className={clsx('flex', 'flex-col', 'lg:flex-row', 'justify-between', 'items-center', 'gap-6', 'pt-8', 'sm:pt-10', 'text-sm', 'text-text-secondary/80')}>
           
           {/* Copyright & Core Location */}
-          <div className={clsx('flex', 'flex-col', 'sm:flex-row', 'items-center', 'gap-4', 'text-center', 'sm:text-left', 'font-light')}>
+          <div className={clsx('flex', 'flex-col', 'sm:flex-row', 'items-center', 'gap-4', 'text-center', 'lg:text-left')}>
             <span>
               &copy; {currentYear} Quantixx Solutions Inc. All rights reserved.
             </span>
-            <span className={clsx('hidden', 'sm:inline', 'text-text-muted')}>//</span>
-            <div className={clsx('flex', 'items-center', 'gap-1.5', 'text-text-secondary/80')}>
-              <MapPin size={12} className="text-highlight" />
-              <span>San Francisco, CA HQ</span>
-            </div>
           </div>
 
-          {/* Live System Status Widget (Professional and Standard placement) */}
-          <div className={clsx('inline-flex', 'items-center', 'gap-3', 'bg-bg-secondary/60', 'border', 'border-border-primary/80', 'px-4', 'py-2', 'rounded-sm', 'shadow-sm', 'font-mono', 'text-[10px]', 'select-none')}>
-            <span className={clsx('flex', 'h-2', 'w-2', 'relative')}>
-              <span className={clsx('animate-ping', 'absolute', 'inline-flex', 'h-full', 'w-full', 'rounded-full', 'bg-emerald-400', 'opacity-75')}></span>
-              <span className={clsx('relative', 'inline-flex', 'rounded-full', 'h-2', 'w-2', 'bg-emerald-500')}></span>
-            </span>
-            <span className={clsx('text-text-secondary', 'font-bold')}>ALL SYSTEMS OPERATIONAL</span>
-            <span className="text-text-muted">//</span>
-            <span className={clsx('text-[9px]', 'text-accent', 'font-semibold', 'flex', 'items-center', 'gap-1')}>
-              <Activity size={10} className="animate-pulse" />
-              99.99% UPTIME
-            </span>
+    
+          <div className={clsx('flex', 'items-center', 'gap-2', 'text-text-secondary', 'text-xs', 'font-medium')}>
+            <MapPin size={14} className="text-highlight" />
+            <span>San Francisco, CA HQ</span>
           </div>
 
           {/* Quick Legal links */}
-          <div className={clsx('flex', 'gap-6', 'font-light')}>
+          <div className={clsx('flex', 'flex-wrap', 'justify-center', 'gap-4', 'sm:gap-6', 'font-medium', 'text-sm')}>
             <a href="#" className={clsx('hover:text-accent', 'transition-colors')}>Privacy Policy</a>
             <a href="#" className={clsx('hover:text-accent', 'transition-colors')}>Terms of Service</a>
             <a href="#" className={clsx('hover:text-accent', 'transition-colors')}>Security</a>

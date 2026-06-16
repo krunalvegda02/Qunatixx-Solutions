@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { AnimatedText } from '../components/animations/AnimatedText';
 import { AnimatedSubText } from '../components/animations/AnimatedSubText';
-import { Mail, Phone, MapPin, Send, HelpCircle, ChevronDown, CheckCircle, Clock, Zap, Shield, ArrowUpRight, Terminal } from 'lucide-react';
+import { Mail, Phone, MapPin, ChevronDown, CheckCircle, Clock, Zap, ArrowUpRight, HelpCircle } from 'lucide-react';
 import clsx from 'clsx';
 
 export default function Contact() {
@@ -51,137 +51,157 @@ export default function Contact() {
       
       {/* Premium Ambient Background Effects */}
       <div className={clsx('absolute', 'inset-0', 'overflow-hidden', 'pointer-events-none', '-z-10')}>
-        <div className={clsx('absolute', 'top-0', 'inset-x-0', 'h-[800px]', 'bg-[radial-gradient(ellipse_at_top,rgba(124,58,237,0.1)_0%,transparent_70%)]')} />
+        <div className={clsx('absolute', 'top-0', 'inset-x-0', 'h-[800px]', 'bg-[radial-gradient(ellipse_at_top,rgba(124,58,237,0.08)_0%,transparent_70%)]')} />
         <div className={clsx('absolute', 'top-40', 'left-1/4', 'w-[600px]', 'h-[600px]', 'bg-accent/5', 'rounded-full', 'blur-[140px]', 'animate-pulse-slow')} />
         <div className={clsx('absolute', 'bottom-20', 'right-10', 'w-[500px]', 'h-[500px]', 'bg-highlight/5', 'rounded-full', 'blur-[140px]')} />
       </div>
 
       {/* Hero Section */}
-      <section className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'pt-12', 'pb-20', 'text-center', 'relative', 'z-10')}>
-        <span className={clsx('inline-flex', 'items-center', 'gap-2', 'px-4', 'py-1.5', 'rounded-full', 'bg-white/[0.03]', 'border', 'border-white/[0.08]', 'text-sm', 'uppercase', 'tracking-[0.2em]', 'font-extrabold', 'text-accent', 'font-mono', 'mb-6', 'backdrop-blur-md')}>
+      <section className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'pt-8', 'sm:pt-12', 'pb-16', 'sm:pb-20', 'text-center', 'relative', 'z-10')}>
+        <span className={clsx('inline-flex', 'items-center', 'gap-2', 'px-4', 'py-1.5', 'rounded-full', 'bg-bg-secondary/80', 'border', 'border-border-primary/80', 'text-sm', 'uppercase', 'tracking-[0.2em]', 'font-extrabold', 'text-accent', 'font-mono', 'mb-6', 'backdrop-blur-md', 'shadow-sm')}>
           <Zap size={14} className={clsx('text-highlight', 'animate-pulse')} />
           Get In Touch
         </span>
         <AnimatedText 
           as="h1"
           segments={[
-            { text: "Let's Engineer Your " },
-            { text: "Next Breakthrough", className: "text-transparent bg-clip-text bg-gradient-to-r from-accent via-highlight to-accent bg-300% animate-gradient-flow block mt-2" }
+            { text: "Let's Build Your " },
+            { text: "Next Big Idea", className: "text-transparent bg-clip-text bg-gradient-to-r from-accent via-highlight to-accent bg-300% animate-gradient-flow block mt-2" }
           ]}
-          className={clsx('text-5xl', 'sm:text-7xl', 'font-display', 'font-bold', 'text-text-primary', 'mt-3', 'leading-[1.1]', 'tracking-tight')}
+          className={clsx('text-4xl', 'sm:text-6xl', 'lg:text-7xl', 'font-display', 'font-bold', 'text-text-primary', 'mt-3', 'leading-[1.1]', 'tracking-tight')}
         />
         <AnimatedSubText 
-          text="Request a scoping workshop with our technical leads. We will review your product parameters and deliver a structured initial architecture plan."
-          className={clsx('text-text-secondary', 'text-base', 'sm:text-lg', 'max-w-2xl', 'mx-auto', 'mt-6', 'leading-relaxed', 'font-sans', 'font-light')}
+          text="Reach out to discuss your project. We'll work with you to understand your goals and map out a clear plan to bring your vision to life."
+          className={clsx('text-text-secondary', 'text-base', 'sm:text-lg', 'max-w-2xl', 'mx-auto', 'mt-6', 'leading-relaxed', 'font-sans', 'font-medium')}
         />
       </section>
 
       {/* Main Layout */}
-      <section className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'mb-32', 'text-left', 'relative', 'z-10')}>
+      <section className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'mb-20', 'sm:mb-32', 'text-left', 'relative', 'z-10')}>
         <div className={clsx('grid', 'grid-cols-1', 'lg:grid-cols-12', 'gap-8', 'lg:gap-12', 'items-start', 'font-sans')}>
           
           {/* Left Column: Bento Box Info */}
           <div className={clsx('lg:col-span-5', 'space-y-6', 'sticky', 'top-32')}>
             
             {/* Corporate Info Card */}
-            <div className={clsx('glass-card', 'border', 'border-white/[0.08]', 'hover:border-white/[0.15]', 'bg-bg-card/40', 'backdrop-blur-xl', 'rounded-3xl', 'p-8', 'transition-all', 'shadow-xl', 'relative', 'overflow-hidden', 'group')}>
-              <div className={clsx('absolute', 'inset-0', 'bg-gradient-to-br', 'from-white/[0.02]', 'to-transparent', 'pointer-events-none')} />
-              <h3 className={clsx('text-2xl', 'font-bold', 'text-text-primary', 'font-display', 'mb-6', 'tracking-tight')}>Corporate Hub</h3>
-              <div className="space-y-6">
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5 }}
+              whileHover={{ y: -5 }}
+              className={clsx('glass-card', 'border', 'border-border-primary', 'bg-bg-card', 'backdrop-blur-xl', 'rounded-3xl', 'p-6', 'sm:p-8', 'transition-colors', 'duration-300', 'shadow-lg', 'hover:shadow-xl', 'relative', 'overflow-hidden', 'group')}
+            >
+              <div className={clsx('absolute', 'inset-0', 'bg-gradient-to-br', 'from-accent/5', 'to-transparent', 'pointer-events-none')} />
+              <h3 className={clsx('text-2xl', 'font-bold', 'text-text-primary', 'font-display', 'mb-8', 'tracking-tight')}>Corporate Hub</h3>
+              <div className={clsx('space-y-6', 'relative', 'z-10')}>
                 <div className={clsx('flex', 'items-start', 'gap-4')}>
-                  <div className={clsx('p-3', 'bg-white/[0.04]', 'border', 'border-white/[0.05]', 'rounded-xl', 'text-accent', 'shadow-sm')}><MapPin size={20} /></div>
+                  <div className={clsx('p-3', 'bg-bg-secondary', 'border', 'border-border-primary', 'rounded-xl', 'text-accent', 'shadow-sm')}><MapPin size={20} /></div>
                   <div>
                     <span className={clsx('block', 'text-xs', 'font-mono', 'font-semibold', 'text-text-muted', 'uppercase', 'tracking-widest')}>Global Virtual HQ</span>
-                    <span className={clsx('block', 'text-sm', 'text-text-secondary', 'mt-1', 'font-light', 'leading-relaxed')}>100% Remote Operation<br />Async & Borderless</span>
+                    <span className={clsx('block', 'text-sm', 'text-text-secondary', 'mt-1', 'font-medium', 'leading-relaxed')}>100% Remote Operation<br />Async & Borderless</span>
                   </div>
                 </div>
                 <div className={clsx('flex', 'items-start', 'gap-4')}>
-                  <div className={clsx('p-3', 'bg-white/[0.04]', 'border', 'border-white/[0.05]', 'rounded-xl', 'text-accent', 'shadow-sm')}><Mail size={20} /></div>
+                  <div className={clsx('p-3', 'bg-bg-secondary', 'border', 'border-border-primary', 'rounded-xl', 'text-accent', 'shadow-sm')}><Mail size={20} /></div>
                   <div>
                     <span className={clsx('block', 'text-xs', 'font-mono', 'font-semibold', 'text-text-muted', 'uppercase', 'tracking-widest')}>Email Correspondence</span>
-                    <a href="mailto:solutions@quantixx.com" className={clsx('block', 'text-sm', 'text-text-primary', 'hover:text-accent', 'mt-1', 'transition-colors', 'font-medium')}>solutions@quantixx.com</a>
+                    <a href="mailto:solutions@quantixx.com" className={clsx('block', 'text-sm', 'text-text-primary', 'hover:text-accent', 'mt-1', 'transition-colors', 'font-semibold')}>solutions@quantixx.com</a>
                   </div>
                 </div>
                 <div className={clsx('flex', 'items-start', 'gap-4')}>
-                  <div className={clsx('p-3', 'bg-white/[0.04]', 'border', 'border-white/[0.05]', 'rounded-xl', 'text-accent', 'shadow-sm')}><Phone size={20} /></div>
+                  <div className={clsx('p-3', 'bg-bg-secondary', 'border', 'border-border-primary', 'rounded-xl', 'text-accent', 'shadow-sm')}><Phone size={20} /></div>
                   <div>
                     <span className={clsx('block', 'text-xs', 'font-mono', 'font-semibold', 'text-text-muted', 'uppercase', 'tracking-widest')}>Phone Lines</span>
-                    <a href="tel:+18005556272" className={clsx('block', 'text-sm', 'text-text-primary', 'hover:text-accent', 'mt-1', 'transition-colors', 'font-medium')}>+1 (800) 555-6272</a>
+                    <a href="tel:+18005556272" className={clsx('block', 'text-sm', 'text-text-primary', 'hover:text-accent', 'mt-1', 'transition-colors', 'font-semibold')}>+1 (800) 555-6272</a>
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* SLA Card */}
-            <div className={clsx('glass-card', 'border', 'border-accent/20', 'bg-accent/5', 'backdrop-blur-md', 'rounded-2xl', 'p-6', 'flex', 'gap-4', 'items-center', 'relative', 'overflow-hidden', 'group', 'hover:border-accent/40', 'transition-colors', 'shadow-lg')}>
-              <div className={clsx('absolute', 'inset-0', 'bg-gradient-to-r', 'from-accent/0', 'via-accent/5', 'to-accent/0', 'translate-x-[-100%]', 'group-hover:translate-x-[100%]', 'transition-transform', 'duration-1000', 'pointer-events-none')} />
-              <div className={clsx('p-3', 'bg-accent/20', 'text-accent', 'rounded-xl', 'shrink-0', 'border', 'border-accent/20', 'shadow-[0_0_15px_var(--accent-glow)]')}>
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              whileHover={{ y: -5 }}
+              className={clsx('glass-card', 'border', 'border-accent/30', 'bg-accent/5', 'backdrop-blur-md', 'rounded-2xl', 'p-5', 'sm:p-6', 'flex', 'flex-col', 'sm:flex-row', 'gap-4', 'items-start', 'sm:items-center', 'relative', 'overflow-hidden', 'group', 'hover:border-accent/50', 'transition-colors', 'duration-300', 'shadow-md')}
+            >
+              <div className={clsx('absolute', 'inset-0', 'bg-gradient-to-r', 'from-accent/0', 'via-accent/10', 'to-accent/0', 'translate-x-[-100%]', 'group-hover:translate-x-[100%]', 'transition-transform', 'duration-1000', 'pointer-events-none')} />
+              <div className={clsx('p-3', 'bg-accent/10', 'text-accent', 'rounded-xl', 'shrink-0', 'border', 'border-accent/20', 'shadow-[0_0_15px_var(--accent-glow)]')}>
                 <Clock size={24} className="animate-pulse-slow" />
               </div>
-              <div>
+              <div className={clsx('relative', 'z-10')}>
                 <span className={clsx('block', 'text-sm', 'font-bold', 'text-text-primary', 'tracking-tight', 'font-display')}>4-Hour Response Guarantee</span>
-                <span className={clsx('block', 'text-xs', 'text-text-secondary', 'mt-1', 'font-light', 'leading-relaxed')}>Enterprise project inquiries receive immediate review during Western business hours.</span>
+                <span className={clsx('block', 'text-xs', 'text-text-secondary', 'mt-1', 'font-medium', 'leading-relaxed')}>Enterprise project inquiries receive immediate priority review.</span>
               </div>
-            </div>
+            </motion.div>
 
           </div>
 
           {/* Right Column: Premium Form */}
           <div className="lg:col-span-7">
-            <div className={clsx('glass-card', 'border', 'border-white/[0.08]', 'bg-bg-card/30', 'backdrop-blur-2xl', 'rounded-3xl', 'p-8', 'sm:p-12', 'relative', 'shadow-2xl', 'overflow-hidden', 'group')}>
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6 }}
+              className={clsx('glass-card', 'border', 'border-border-primary', 'bg-bg-card/90', 'backdrop-blur-2xl', 'rounded-3xl', 'p-6', 'sm:p-12', 'relative', 'shadow-2xl', 'overflow-hidden', 'group')}
+            >
               <div className={clsx('absolute', 'top-0', 'right-0', 'w-64', 'h-64', 'bg-accent/5', 'rounded-full', 'blur-[80px]', 'pointer-events-none', '-z-10', 'group-hover:bg-accent/10', 'transition-colors', 'duration-700')} />
               
               {!formSubmitted ? (
                 <div className={clsx('relative', 'z-10')}>
                   <h3 className={clsx('text-3xl', 'font-bold', 'font-display', 'text-text-primary', 'mb-3', 'tracking-tight')}>Project Scoping Inquiry</h3>
-                  <p className={clsx('text-sm', 'text-text-secondary', 'mb-8', 'leading-relaxed', 'font-light')}>
+                  <p className={clsx('text-sm', 'text-text-secondary', 'mb-8', 'leading-relaxed', 'font-medium')}>
                     Provide parameters for your software build or cloud integration. Our engineering lead will prepare an agenda for the technical discovery session.
                   </p>
 
-                  <form onSubmit={handleFormSubmit} className="space-y-6">
-                    <div className={clsx('grid', 'grid-cols-1', 'md:grid-cols-2', 'gap-6')}>
+                  <form onSubmit={handleFormSubmit} className={clsx('space-y-5', 'sm:space-y-6')}>
+                    <div className={clsx('grid', 'grid-cols-1', 'sm:grid-cols-2', 'gap-5', 'sm:gap-6')}>
                       <div className="space-y-2">
-                        <label className={clsx('block', 'text-xs', 'font-mono', 'font-semibold', 'text-text-muted', 'uppercase', 'tracking-widest', 'pl-1')}>Your Full Name</label>
+                        <label className={clsx('block', 'text-sm', 'font-semibold', 'text-text-secondary', 'pl-1')}>Your Full Name</label>
                         <input
                           type="text"
                           required
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          className={clsx('w-full', 'bg-white/[0.02]', 'hover:bg-white/[0.04]', 'border', 'border-white/[0.08]', 'focus:border-accent', 'focus:bg-white/[0.06]', 'rounded-xl', 'px-5', 'py-3.5', 'text-sm', 'text-text-primary', 'placeholder-text-muted/50', 'outline-none', 'transition-all', 'shadow-inner')}
+                          className={clsx('w-full', 'bg-bg-secondary', 'border', 'border-border-primary', 'focus:border-accent', 'focus:bg-bg-primary', 'rounded-xl', 'px-5', 'py-3.5', 'text-sm', 'text-text-primary', 'placeholder-text-muted', 'outline-none', 'transition-all', 'shadow-inner')}
                           placeholder="Bruce Wayne"
                         />
                       </div>
                       <div className="space-y-2">
-                        <label className={clsx('block', 'text-xs', 'font-mono', 'font-semibold', 'text-text-muted', 'uppercase', 'tracking-widest', 'pl-1')}>Business Email</label>
+                        <label className={clsx('block', 'text-sm', 'font-semibold', 'text-text-secondary', 'pl-1')}>Business Email</label>
                         <input
                           type="email"
                           required
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          className={clsx('w-full', 'bg-white/[0.02]', 'hover:bg-white/[0.04]', 'border', 'border-white/[0.08]', 'focus:border-accent', 'focus:bg-white/[0.06]', 'rounded-xl', 'px-5', 'py-3.5', 'text-sm', 'text-text-primary', 'placeholder-text-muted/50', 'outline-none', 'transition-all', 'shadow-inner')}
+                          className={clsx('w-full', 'bg-bg-secondary', 'border', 'border-border-primary', 'focus:border-accent', 'focus:bg-bg-primary', 'rounded-xl', 'px-5', 'py-3.5', 'text-sm', 'text-text-primary', 'placeholder-text-muted', 'outline-none', 'transition-all', 'shadow-inner')}
                           placeholder="bruce@waynecorp.com"
                         />
                       </div>
                     </div>
 
-                    <div className={clsx('grid', 'grid-cols-1', 'md:grid-cols-2', 'gap-6')}>
+                    <div className={clsx('grid', 'grid-cols-1', 'sm:grid-cols-2', 'gap-5', 'sm:gap-6')}>
                       <div className="space-y-2">
-                        <label className={clsx('block', 'text-xs', 'font-mono', 'font-semibold', 'text-text-muted', 'uppercase', 'tracking-widest', 'pl-1')}>Company Name</label>
+                        <label className={clsx('block', 'text-sm', 'font-semibold', 'text-text-secondary', 'pl-1')}>Company Name</label>
                         <input
                           type="text"
                           value={formData.company}
                           onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                          className={clsx('w-full', 'bg-white/[0.02]', 'hover:bg-white/[0.04]', 'border', 'border-white/[0.08]', 'focus:border-accent', 'focus:bg-white/[0.06]', 'rounded-xl', 'px-5', 'py-3.5', 'text-sm', 'text-text-primary', 'placeholder-text-muted/50', 'outline-none', 'transition-all', 'shadow-inner')}
+                          className={clsx('w-full', 'bg-bg-secondary', 'border', 'border-border-primary', 'focus:border-accent', 'focus:bg-bg-primary', 'rounded-xl', 'px-5', 'py-3.5', 'text-sm', 'text-text-primary', 'placeholder-text-muted', 'outline-none', 'transition-all', 'shadow-inner')}
                           placeholder="Wayne Enterprises"
                         />
                       </div>
                       <div className="space-y-2">
-                        <label className={clsx('block', 'text-xs', 'font-mono', 'font-semibold', 'text-text-muted', 'uppercase', 'tracking-widest', 'pl-1')}>Budget Framework</label>
+                        <label className={clsx('block', 'text-sm', 'font-semibold', 'text-text-secondary', 'pl-1')}>Budget Framework</label>
                         <div className="relative">
                           <select
                             value={formData.budget}
                             onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                            className={clsx('w-full', 'bg-white/[0.02]', 'hover:bg-white/[0.04]', 'border', 'border-white/[0.08]', 'focus:border-accent', 'focus:bg-white/[0.06]', 'rounded-xl', 'px-5', 'py-3.5', 'text-sm', 'text-text-primary', 'outline-none', 'transition-all', 'shadow-inner', 'appearance-none', 'cursor-pointer')}
+                            className={clsx('w-full', 'bg-bg-secondary', 'border', 'border-border-primary', 'focus:border-accent', 'focus:bg-bg-primary', 'rounded-xl', 'px-5', 'py-3.5', 'text-sm', 'text-text-primary', 'outline-none', 'transition-all', 'shadow-inner', 'appearance-none', 'cursor-pointer')}
                           >
                             <option value="$10,000 - $25,000" className={clsx('bg-bg-card', 'text-text-primary')}>$10,000 - $25,000</option>
                             <option value="$25,000 - $50,000" className={clsx('bg-bg-card', 'text-text-primary')}>$25,000 - $50,000</option>
@@ -194,25 +214,27 @@ export default function Contact() {
                     </div>
 
                     <div className="space-y-2">
-                      <label className={clsx('block', 'text-xs', 'font-mono', 'font-semibold', 'text-text-muted', 'uppercase', 'tracking-widest', 'pl-1')}>Build Requirements & Targets</label>
+                      <label className={clsx('block', 'text-sm', 'font-semibold', 'text-text-secondary', 'pl-1')}>Build Requirements & Targets</label>
                       <textarea
                         rows="5"
                         required
                         value={formData.details}
                         onChange={(e) => setFormData({ ...formData, details: e.target.value })}
-                        className={clsx('w-full', 'bg-white/[0.02]', 'hover:bg-white/[0.04]', 'border', 'border-white/[0.08]', 'focus:border-accent', 'focus:bg-white/[0.06]', 'rounded-xl', 'px-5', 'py-4', 'text-sm', 'text-text-primary', 'placeholder-text-muted/50', 'outline-none', 'resize-none', 'transition-all', 'shadow-inner')}
-                        placeholder="Tell us what you're planning to build (e.g. Next.js SaaS portal, AWS cloud cluster, vector DB search engine)..."
+                        className={clsx('w-full', 'bg-bg-secondary', 'border', 'border-border-primary', 'focus:border-accent', 'focus:bg-bg-primary', 'rounded-xl', 'px-5', 'py-4', 'text-sm', 'text-text-primary', 'placeholder-text-muted', 'outline-none', 'resize-none', 'transition-all', 'shadow-inner')}
+                        placeholder="Tell us what you're planning to build (e.g. Next.js SaaS portal, AWS cloud cluster)..."
                       />
                     </div>
 
-                    <button
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.95 }}
                       type="submit"
-                      className={clsx('w-full', 'relative', 'overflow-hidden', 'group', 'inline-flex', 'items-center', 'justify-center', 'gap-2', 'py-4', 'rounded-xl', 'text-sm', 'font-bold', 'bg-white', 'text-bg-primary', 'shadow-[0_0_30px_rgba(255,255,255,0.1)]', 'hover:shadow-[0_0_40px_rgba(255,255,255,0.2)]', 'transition-all', 'cursor-pointer', 'mt-4')}
+                      className={clsx('w-full', 'relative', 'overflow-hidden', 'group', 'inline-flex', 'items-center', 'justify-center', 'gap-2', 'py-4', 'rounded-xl', 'text-sm', 'font-bold', 'bg-accent', 'text-white', 'shadow-[0_4px_15px_var(--accent-glow)]', 'hover:shadow-[0_6px_25px_var(--accent-glow)]', 'transition-colors', 'duration-300', 'cursor-pointer', 'mt-4')}
                     >
                       <span className={clsx('relative', 'z-10')}>Send Project Details</span>
                       <ArrowUpRight size={16} className={clsx('relative', 'z-10', 'group-hover:translate-x-0.5', 'group-hover:-translate-y-0.5', 'transition-transform')} />
-                      <div className={clsx('absolute', 'inset-0', 'bg-gradient-to-r', 'from-white', 'via-gray-200', 'to-white', 'opacity-0', 'group-hover:opacity-100', 'transition-opacity', 'duration-300', 'pointer-events-none')} />
-                    </button>
+                      <div className={clsx('absolute', 'inset-0', 'bg-gradient-to-r', 'from-transparent', 'via-white/20', 'to-transparent', '-translate-x-full', 'group-hover:translate-x-full', 'transition-transform', 'duration-700', 'pointer-events-none')} />
+                    </motion.button>
                   </form>
                 </div>
               ) : (
@@ -225,48 +247,56 @@ export default function Contact() {
                     <CheckCircle size={36} className="animate-pulse" />
                   </div>
                   <h3 className={clsx('text-3xl', 'font-display', 'font-extrabold', 'text-text-primary', 'mb-3', 'tracking-tight')}>Inquiry Received</h3>
-                  <p className={clsx('text-text-secondary', 'text-sm', 'sm:text-base', 'max-w-sm', 'mx-auto', 'mb-8', 'leading-relaxed', 'font-sans', 'font-light')}>
-                    Thanks, <span className={clsx('text-text-primary', 'font-semibold')}>{formData.name}</span>. Our Senior Solution Engineer is reviewing your parameters for budget <span className={clsx('text-text-primary', 'font-semibold')}>{formData.budget}</span>. We will follow up with scheduling links shortly.
+                  <p className={clsx('text-text-secondary', 'text-sm', 'sm:text-base', 'max-w-sm', 'mx-auto', 'mb-8', 'leading-relaxed', 'font-sans', 'font-medium')}>
+                    Thanks, <span className={clsx('text-text-primary', 'font-bold')}>{formData.name}</span>. Our Senior Solution Engineer is reviewing your parameters for budget <span className={clsx('text-text-primary', 'font-bold')}>{formData.budget}</span>. We will follow up with scheduling links shortly.
                   </p>
-                  <button
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                     onClick={() => setFormSubmitted(false)}
-                    className={clsx('px-8', 'py-3', 'rounded-xl', 'text-sm', 'font-bold', 'bg-white/[0.05]', 'hover:bg-white/[0.1]', 'text-text-primary', 'border', 'border-white/[0.1]', 'hover:border-white/[0.2]', 'transition-all', 'cursor-pointer', 'backdrop-blur-md')}
+                    className={clsx('px-8', 'py-3', 'rounded-xl', 'text-sm', 'font-bold', 'bg-bg-secondary', 'hover:bg-bg-primary', 'text-text-primary', 'border', 'border-border-primary', 'hover:border-accent/40', 'transition-colors', 'duration-300', 'cursor-pointer', 'shadow-sm')}
                   >
                     Submit Another Inquiry
-                  </button>
+                  </motion.button>
                 </motion.div>
               )}
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Premium FAQ Section */}
-      <section className={clsx('max-w-4xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'text-left', 'relative', 'z-10', 'mb-20')}>
-        <div className={clsx('text-center', 'mb-16')}>
-          <span className={clsx('text-xs', 'uppercase', 'tracking-[0.2em]', 'font-extrabold', 'text-accent', 'bg-accent/10', 'px-3.5', 'py-1.5', 'rounded-full', 'inline-block', 'font-mono', 'border', 'border-accent/20')}>
+      <section className={clsx('max-w-4xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'text-left', 'relative', 'z-10', 'mb-16', 'sm:mb-20')}>
+        <div className={clsx('text-center', 'mb-12', 'sm:mb-16')}>
+          <span className={clsx('inline-flex', 'items-center', 'gap-2', 'px-4', 'py-1.5', 'rounded-full', 'bg-bg-secondary/80', 'border', 'border-border-primary/80', 'text-sm', 'uppercase', 'tracking-[0.2em]', 'font-extrabold', 'text-accent', 'font-mono', 'mb-6', 'backdrop-blur-md', 'shadow-sm')}>
+            <HelpCircle size={14} className={clsx('text-highlight', 'animate-pulse')} />
             Common Inquiries
           </span>
-          <h2 className={clsx('text-4xl', 'font-display', 'font-bold', 'text-text-primary', 'mt-6', 'tracking-tight')}>Frequently Asked Questions</h2>
+          <h2 className={clsx('text-3xl', 'sm:text-4xl', 'font-display', 'font-bold', 'text-text-primary', 'mt-4', 'tracking-tight')}>Frequently Asked Questions</h2>
         </div>
 
         <div className="space-y-4">
           {faqs.map((faq, i) => (
-            <div 
-              key={i} 
-              className={`glass-card bg-bg-card/20 backdrop-blur-md border rounded-2xl overflow-hidden font-sans transition-all duration-300 ${openFaq === i ? 'border-accent/40 shadow-[0_0_30px_var(--accent-glow)]' : 'border-white/[0.08] hover:border-white/[0.15]'}`}
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.4, delay: i * 0.05 }}
+              whileHover={{ y: -2 }}
+              className={`glass-card bg-bg-card backdrop-blur-md border rounded-2xl overflow-hidden font-sans transition-colors duration-300 shadow-sm ${openFaq === i ? 'border-accent/40 shadow-md' : 'border-border-primary hover:border-border-hover'}`}
             >
               <button
                 onClick={() => toggleFaq(i)}
-                className={clsx('w-full', 'flex', 'items-center', 'justify-between', 'p-6', 'text-left', 'font-semibold', 'text-text-secondary', 'hover:text-text-primary', 'transition-colors', 'cursor-pointer', 'outline-none')}
+                className={clsx('w-full', 'flex', 'items-center', 'justify-between', 'p-5', 'sm:p-6', 'text-left', 'font-semibold', 'text-text-secondary', 'hover:text-text-primary', 'transition-colors', 'cursor-pointer', 'outline-none')}
               >
-                <span className={clsx('text-sm', 'sm:text-base', 'flex', 'items-center', 'gap-4', 'font-display', 'tracking-tight', 'text-text-primary')}>
-                  <span className={`p-2 rounded-lg transition-colors duration-300 ${openFaq === i ? 'bg-accent/20 text-accent' : 'bg-white/[0.04] text-text-muted'}`}>
+                <span className={clsx('text-sm', 'sm:text-base', 'flex', 'items-center', 'gap-3', 'sm:gap-4', 'font-display', 'tracking-tight', 'text-text-primary', 'font-bold', 'pr-4')}>
+                  <span className={`p-2 rounded-lg transition-colors duration-300 ${openFaq === i ? 'bg-accent/10 text-accent' : 'bg-bg-secondary text-text-muted'}`}>
                     <HelpCircle size={18} />
                   </span>
                   {faq.q}
                 </span>
-                <div className={`p-1.5 rounded-full border transition-all duration-300 ${openFaq === i ? 'border-accent/30 bg-accent/10 text-accent' : 'border-transparent text-text-muted group-hover:border-white/[0.1]'}`}>
+                <div className={`p-1.5 rounded-full border transition-all duration-300 ${openFaq === i ? 'border-accent/30 bg-accent/10 text-accent' : 'border-transparent text-text-muted group-hover:border-border-primary bg-bg-secondary'}`}>
                   <ChevronDown size={18} className={`transition-transform duration-500 ${openFaq === i ? 'rotate-180' : ''}`} />
                 </div>
               </button>
@@ -279,13 +309,13 @@ export default function Contact() {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
                   >
-                    <div className={clsx('p-6', 'pt-0', 'text-sm', 'sm:text-base', 'text-text-secondary', 'leading-relaxed', 'font-light', 'border-t', 'border-white/[0.05]', 'mt-2')}>
+                    <div className={clsx('p-5', 'sm:p-6', 'pt-0', 'sm:pt-0', 'text-sm', 'sm:text-base', 'text-text-secondary', 'leading-relaxed', 'font-medium', 'border-t', 'border-border-primary', 'mt-2')}>
                       <div className="pt-4">{faq.a}</div>
                     </div>
                   </motion.div>
                 )}
               </AnimatePresence>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>

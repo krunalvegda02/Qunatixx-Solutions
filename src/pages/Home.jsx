@@ -42,66 +42,66 @@ export default function Home() {
   }, []);
 
   const stats = [
-    { value: '99.99%', label: 'Infrastructure Uptime', desc: 'Enterprise-grade SLA' },
-    { value: '80%', label: 'Manual Automation', desc: 'Repetitive workflows cut' },
-    { value: '+35%', label: 'Conversion Lift', desc: 'Optimized user experience' },
-    { value: '$12M+', label: 'Client Revenue Generated', desc: 'Measurable business impact' },
+    { value: '99.99%', label: 'Platform Reliability', desc: 'Enterprise-grade uptime' },
+    { value: '80%', label: 'Time Saved', desc: 'Automating repetitive workflows' },
+    { value: '+35%', label: 'User Engagement', desc: 'Beautiful, intuitive experiences' },
+    { value: '$12M+', label: 'Client Revenue', desc: 'Measurable business growth' },
   ];
 
   const services = [
     {
       title: 'Custom Software Development',
-      desc: 'Scalable, custom-engineered desktop and server applications tailored to optimize enterprise operations.',
+      desc: 'Tailored web and desktop applications built to solve your unique business challenges and scale seamlessly.',
       icon: Cpu,
       techs: ['Node.js', 'Go', 'Python', 'PostgreSQL', 'REST API'],
-      bullets: ['High-throughput database connections', 'Robust multi-threaded backend APIs', 'Secure transaction processing'],
+      bullets: ['Reliable data processing', 'Secure and fast backend APIs', 'Built for long-term growth'],
       visualType: 'software',
-      outcome: '$150k Annual Overhead Saved'
+      outcome: '$150k Annual Costs Saved'
     },
     {
-      title: 'UI/UX Engineering',
-      desc: 'Stunning user-centered interfaces modeled around core customer journeys.',
+      title: 'UI/UX Design & Strategy',
+      desc: 'Stunning, intuitive interfaces designed to delight your customers and make your brand stand out.',
       icon: Palette,
       techs: ['Figma', 'Framer Motion', 'TailwindCSS', 'WebGL', 'SVG'],
-      bullets: ['Interactive high-fidelity prototypes', 'Design systems and pattern libraries', 'Micro-interactions and gestures'],
+      bullets: ['High-fidelity interactive prototypes', 'Cohesive design systems', 'Engaging animations'],
       visualType: 'design',
-      outcome: '+35% Conversion Lift Verified'
+      outcome: '+35% Customer Retention'
     },
     {
-      title: 'Web & SaaS Solutions',
-      desc: 'Ultra-fast, responsive web apps and multi-tenant SaaS products designed with modern React frameworks.',
+      title: 'Modern Web Applications',
+      desc: 'Lightning-fast, responsive web apps and SaaS platforms that feel exactly like native software.',
       icon: Globe,
       techs: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind'],
-      bullets: ['High-speed server-side rendering', 'Multi-tenant subscription gateways', 'Real-time telemetry dashboards'],
+      bullets: ['Instant page load speeds', 'Secure user portals', 'Live data dashboards'],
       visualType: 'web',
-      outcome: '$12M+ Client Revenue Generated'
+      outcome: '$12M+ Revenue Generated'
     },
     {
-      title: 'Enterprise AI & Automation',
-      desc: 'Integrate LLMs, neural searches, and automated pipeline scripts to eliminate 90% of redundant operational work.',
+      title: 'AI & Business Automation',
+      desc: 'Integrate smart AI tools to handle tedious tasks, freeing your team to focus on what matters most.',
       icon: Zap,
       techs: ['OpenAI API', 'Python', 'FastAPI', 'LangChain', 'PyTorch'],
-      bullets: ['Custom-trained fine-tuning nodes', 'Agentic autonomous chains', 'AI-assisted semantic search'],
+      bullets: ['Custom AI chatbots and assistants', 'Automated document processing', 'Smart data search'],
       visualType: 'ai',
-      outcome: '80% Manual Workflows Cut'
+      outcome: '80% Manual Work Eliminated'
     },
     {
-      title: 'Cloud Infrastructure & DevOps',
-      desc: 'Automated CI/CD pipelines, container orchestration, and serverless architectures using IaC.',
+      title: 'Cloud & Infrastructure',
+      desc: 'Secure, reliable cloud hosting that automatically scales with your business traffic without breaking a sweat.',
       icon: Database,
       techs: ['AWS', 'Docker', 'Kubernetes', 'Terraform', 'CI/CD'],
-      bullets: ['Infrastructure as Code (IaC) configurations', 'Automated horizontal auto-scaling', 'Encrypted VPC network architectures'],
+      bullets: ['Zero-downtime deployments', 'Cost-optimized scaling', 'Bank-grade security networks'],
       visualType: 'cloud',
-      outcome: '99.99% Infrastructure Uptime SLA'
+      outcome: '99.99% Guaranteed Uptime'
     },
     {
-      title: 'Mobile Architecture',
-      desc: 'Top-tier cross-platform iOS & Android mobile platforms offering native-level visual performance.',
+      title: 'Mobile App Development',
+      desc: 'Beautiful iOS & Android applications that deliver a flawless experience on every device.',
       icon: Smartphone,
       techs: ['React Native', 'Flutter', 'Swift', 'Kotlin', 'SQLite'],
-      bullets: ['Native biometric device hooks', 'App Store and Google Play publishing', 'Local offline-first databases'],
+      bullets: ['App Store & Google Play launch', 'Offline mode support', 'Smooth native performance'],
       visualType: 'mobile',
-      outcome: 'Delivered 6 Weeks Ahead of Schedule'
+      outcome: 'Delivered 6 Weeks Early'
     },
   ];
 
@@ -111,8 +111,8 @@ export default function Home() {
       category: 'Frontend Library',
       color: 'rgba(97, 218, 251, 0.12)',
       glowColor: '#61DAFB',
-      role: 'High-Fidelity SPAs',
-      status: 'Core UI Framework',
+      role: 'Interactive Interfaces',
+      status: 'Beautiful Experiences',
       slug: 'react',
       group: 'frontend'
     },
@@ -121,8 +121,8 @@ export default function Home() {
       category: 'Server Rendering',
       color: 'rgba(255, 255, 255, 0.08)',
       glowColor: '#FFFFFF',
-      role: 'Production SaaS',
-      status: 'App Router Node',
+      role: 'Fast Loading Websites',
+      status: 'SEO Optimized',
       slug: 'nextdotjs',
       group: 'frontend'
     },
@@ -131,8 +131,8 @@ export default function Home() {
       category: 'Type Safety',
       color: 'rgba(49, 120, 198, 0.15)',
       glowColor: '#3178C6',
-      role: 'Type-Safe Codebase',
-      status: 'Strict Compilation',
+      role: 'Reliable Codebases',
+      status: 'Zero Crashes',
       slug: 'typescript',
       group: 'frontend'
     },
@@ -141,8 +141,8 @@ export default function Home() {
       category: 'Fluid Styling',
       color: 'rgba(56, 189, 248, 0.15)',
       glowColor: '#38BDF8',
-      role: 'Utility-First Styles',
-      status: 'Responsive Engine',
+      role: 'Custom Designs',
+      status: 'Pixel Perfect',
       slug: 'tailwindcss',
       group: 'frontend'
     },
@@ -151,8 +151,8 @@ export default function Home() {
       category: 'Backend Engine',
       color: 'rgba(51, 153, 51, 0.12)',
       glowColor: '#339933',
-      role: 'Async Server Nodes',
-      status: 'High Concurrency',
+      role: 'Fast Data Processing',
+      status: 'Handles High Traffic',
       slug: 'nodedotjs',
       group: 'backend'
     },
@@ -161,8 +161,8 @@ export default function Home() {
       category: 'AI & Data Processing',
       color: 'rgba(55, 118, 171, 0.15)',
       glowColor: '#3776AB',
-      role: 'AI Model Pipelines',
-      status: 'FastAPI Router',
+      role: 'Smart Automation',
+      status: 'AI Integration',
       slug: 'python',
       group: 'backend'
     },
@@ -171,8 +171,8 @@ export default function Home() {
       category: 'Primary Database',
       color: 'rgba(51, 103, 145, 0.15)',
       glowColor: '#4169E1',
-      role: 'Persistent Storage',
-      status: 'Row-Level Auditing',
+      role: 'Secure Data Storage',
+      status: 'Always Available',
       slug: 'postgresql',
       group: 'database'
     },
@@ -181,8 +181,8 @@ export default function Home() {
       category: 'Cloud Host',
       color: 'rgba(255, 153, 0, 0.15)',
       glowColor: '#FF9900',
-      role: 'Highly Scalable Ops',
-      status: 'VPC Cluster Host',
+      role: 'Reliable Hosting',
+      status: 'Grows With You',
       slug: 'amazonwebservices',
       group: 'devops'
     },
@@ -191,8 +191,8 @@ export default function Home() {
       category: 'Container Dev',
       color: 'rgba(36, 150, 237, 0.15)',
       glowColor: '#2496ED',
-      role: 'Isolated Clusters',
-      status: 'Microservice Build',
+      role: 'Consistent Environments',
+      status: 'Runs Anywhere',
       slug: 'docker',
       group: 'devops'
     },
@@ -201,8 +201,8 @@ export default function Home() {
       category: 'Orchestration',
       color: 'rgba(50, 108, 229, 0.15)',
       glowColor: '#326CE5',
-      role: 'Failover Orchestrator',
-      status: 'Dynamic Autoscale',
+      role: 'Automatic Scaling',
+      status: 'Zero Downtime',
       slug: 'kubernetes',
       group: 'devops'
     },
@@ -211,8 +211,8 @@ export default function Home() {
       category: 'IaC Framework',
       color: 'rgba(132, 79, 186, 0.15)',
       glowColor: '#844FBA',
-      role: 'Automated Deployments',
-      status: 'State Lock Sync',
+      role: 'Automated Setup',
+      status: 'Error-Free Systems',
       slug: 'terraform',
       group: 'devops'
     },
@@ -221,8 +221,8 @@ export default function Home() {
       category: 'Intelligent Models',
       color: 'rgba(16, 163, 127, 0.15)',
       glowColor: '#10A37F',
-      role: 'Agentic Cognitive Node',
-      status: 'Fine-Tuned Embeddings',
+      role: 'Smart Assistants',
+      status: 'Custom AI Tools',
       slug: 'openai',
       group: 'backend'
     },
@@ -231,8 +231,8 @@ export default function Home() {
       category: 'NoSQL Database',
       color: 'rgba(71, 162, 72, 0.15)',
       glowColor: '#47A248',
-      role: 'Document Store Sync',
-      status: 'Dynamic Schema',
+      role: 'Flexible Data',
+      status: 'High Speed',
       slug: 'mongodb',
       group: 'database'
     },
@@ -241,8 +241,8 @@ export default function Home() {
       category: 'Minimal Backend',
       color: 'rgba(255, 255, 255, 0.08)',
       glowColor: '#FFFFFF',
-      role: 'RESTful Middleware',
-      status: 'Node Router Engine',
+      role: 'Connecting Services',
+      status: 'Reliable APIs',
       slug: 'express',
       group: 'backend'
     },
@@ -251,8 +251,8 @@ export default function Home() {
       category: 'Cross-Platform SDK',
       color: 'rgba(2, 86, 155, 0.15)',
       glowColor: '#02569B',
-      role: 'Native Performance Mobile',
-      status: 'Skia Render Pipeline',
+      role: 'Cross-Platform Mobile',
+      status: 'Beautiful Apps',
       slug: 'flutter',
       group: 'mobile'
     },
@@ -261,8 +261,8 @@ export default function Home() {
       category: 'Hybrid Mobile',
       color: 'rgba(97, 218, 251, 0.12)',
       glowColor: '#61DAFB',
-      role: 'Native Component Hooks',
-      status: 'JS-to-Native Bridge',
+      role: 'Mobile Experiences',
+      status: 'Feels Native',
       slug: 'react',
       group: 'mobile'
     },
@@ -367,7 +367,7 @@ export default function Home() {
     <div className="relative overflow-hidden bg-bg-primary text-text-primary theme-transition bg-grid-tech">
       
       {/* HERO SECTION - Split-screen Landing Fold */}
-      <section className="relative w-full min-h-screen flex items-center pt-28 pb-20 overflow-hidden">
+      <section className="relative w-full min-h-screen flex items-center pt-24 pb-16 sm:pt-28 sm:pb-20 overflow-hidden">
         
         {/* Subtle Dot Grid Overlay */}
         <div 
@@ -383,7 +383,7 @@ export default function Home() {
         <div className="absolute bottom-[10%] right-[-10%] w-[700px] h-[700px] bg-gradient-to-br from-highlight/10 to-accent/5 rounded-full blur-[150px] pointer-events-none -z-10" />
 
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
 
             {/* LEFT COLUMN: BRAND MESSAGING & PROPOSITIONS */}
             <div className="col-span-12 lg:col-span-7 flex flex-col items-start text-left relative z-10">
@@ -419,7 +419,7 @@ export default function Home() {
                 animate="visible"
                 className="text-4xl sm:text-5xl lg:text-6xl xl:text-[4.25rem] font-display font-extrabold tracking-tight leading-[1.12] text-text-primary text-balance mb-4.5"
               >
-                {["Architecting"].map((word, wIdx) => (
+                {["Building"].map((word, wIdx) => (
                   <span key={`b-w-${wIdx}`} className="inline-block whitespace-nowrap mr-[0.25em]">
                     {word.split("").map((char, cIdx) => (
                       <motion.span
@@ -437,7 +437,7 @@ export default function Home() {
                 ))}
                 {" "}
                 <span className="accent-text-gradient text-glow inline-block mr-[0.25em]">
-                  {["High-Performance", "Platforms"].map((word, wIdx) => (
+                  {["Beautiful", "Software"].map((word, wIdx) => (
                     <span key={`dp-w-${wIdx}`} className="inline-block whitespace-nowrap mr-[0.25em]">
                       {word.split("").map((char, cIdx) => (
                         <motion.span
@@ -455,7 +455,7 @@ export default function Home() {
                   ))}
                 </span>
                 {" "}
-                {["That", "Scale", "Enterprises"].map((word, wIdx) => (
+                {["That", "Grows", "Your", "Business"].map((word, wIdx) => (
                   <span key={`sb-w-${wIdx}`} className="inline-block whitespace-nowrap mr-[0.25em]">
                     {word.split("").map((char, cIdx) => (
                       <motion.span
@@ -489,7 +489,7 @@ export default function Home() {
                 animate="visible"
                 className="text-base sm:text-lg text-text-secondary leading-relaxed max-w-2xl font-sans font-light mb-6"
               >
-                {"Quantixx Solutions helps startups, enterprises, and growing brands design, develop, and scale high-fidelity software, custom SaaS platforms, and automated workflow pipelines.".split(" ").map((word, i) => (
+                {"We partner with ambitious brands to design, build, and launch reliable web applications, mobile experiences, and automated tools that solve real problems.".split(" ").map((word, i) => (
                   <span key={`w-${i}`} className="inline-block mr-1">
                     <motion.span
                       variants={{
@@ -577,10 +577,10 @@ export default function Home() {
                 initial={{ opacity: 0, scale: 0.95, y: 30 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="w-full glass-card rounded-sm p-6 shadow-2xl relative border border-border-primary overflow-hidden"
+                className="w-full glass-card rounded-sm p-4 sm:p-6 shadow-2xl relative border border-border-primary overflow-hidden"
               >
                 {/* Mockup Header tab */}
-                <div className="flex justify-between items-center mb-6 pb-4 border-b border-border-primary">
+                <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center gap-3 sm:gap-0 mb-6 pb-4 border-b border-border-primary">
                   <div className="flex items-center gap-3">
                     {/* Traffic Light Dots */}
                     <div className="flex gap-1.5">
@@ -598,7 +598,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="flex justify-between items-baseline mb-2">
+                <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-baseline gap-1 sm:gap-0 mb-2">
                   <span className="text-xs text-text-secondary font-mono">System API Success Rate</span>
                   <span className="text-2xl font-bold font-display text-text-primary">99.98%</span>
                 </div>
@@ -639,18 +639,18 @@ export default function Home() {
                 </div>
 
                 {/* Bottom Core Stats Row */}
-                <div className="grid grid-cols-3 gap-3 mt-5">
-                  <div className="rounded-sm bg-bg-secondary/40 border border-border-primary p-3.5 text-center">
-                    <div className="text-xl sm:text-2xl font-bold font-display text-text-primary">100+</div>
-                    <div className="text-[10px] text-text-muted uppercase tracking-wider font-mono">Projects</div>
+                <div className="grid grid-cols-3 gap-2 sm:gap-3 mt-5">
+                  <div className="rounded-sm bg-bg-secondary/40 border border-border-primary p-2 sm:p-3.5 text-center">
+                    <div className="text-lg sm:text-2xl font-bold font-display text-text-primary">100+</div>
+                    <div className="text-[9px] sm:text-[10px] text-text-muted uppercase tracking-wider font-mono">Projects</div>
                   </div>
-                  <div className="rounded-sm bg-bg-secondary/40 border border-border-primary p-3.5 text-center">
-                    <div className="text-xl sm:text-2xl font-bold font-display text-text-primary">50+</div>
-                    <div className="text-[10px] text-text-muted uppercase tracking-wider font-mono">Clients</div>
+                  <div className="rounded-sm bg-bg-secondary/40 border border-border-primary p-2 sm:p-3.5 text-center">
+                    <div className="text-lg sm:text-2xl font-bold font-display text-text-primary">50+</div>
+                    <div className="text-[9px] sm:text-[10px] text-text-muted uppercase tracking-wider font-mono">Clients</div>
                   </div>
-                  <div className="rounded-sm bg-bg-secondary/40 border border-border-primary p-3.5 text-center">
-                    <div className="text-xl sm:text-2xl font-bold font-display text-text-primary">99%</div>
-                    <div className="text-[10px] text-text-muted uppercase tracking-wider font-mono">Success</div>
+                  <div className="rounded-sm bg-bg-secondary/40 border border-border-primary p-2 sm:p-3.5 text-center">
+                    <div className="text-lg sm:text-2xl font-bold font-display text-text-primary">99%</div>
+                    <div className="text-[9px] sm:text-[10px] text-text-muted uppercase tracking-wider font-mono">Success</div>
                   </div>
                 </div>
 
@@ -660,7 +660,7 @@ export default function Home() {
               
               {/* Floater 1: AI Automation */}
               <div 
-                className="absolute -left-10 top-12 pointer-events-none transition-transform duration-300 ease-out hidden sm:block"
+                className="absolute -left-2 sm:-left-10 top-4 sm:top-12 pointer-events-none transition-transform duration-300 ease-out scale-[0.65] sm:scale-100 origin-top-left z-20"
                 style={{ transform: `translate3d(${mousePos.x * 1.3}px, ${mousePos.y * 1.3}px, 0)` }}
               >
                 <motion.div 
@@ -680,7 +680,7 @@ export default function Home() {
 
               {/* Floater 2: Cloud Infrastructure */}
               <div 
-                className="absolute -right-8 top-[32%] pointer-events-none transition-transform duration-300 ease-out hidden sm:block"
+                className="absolute -right-2 sm:-right-8 top-[20%] sm:top-[32%] pointer-events-none transition-transform duration-300 ease-out scale-[0.65] sm:scale-100 origin-top-right z-20"
                 style={{ transform: `translate3d(${mousePos.x * 0.9}px, ${mousePos.y * 0.9}px, 0)` }}
               >
                 <motion.div 
@@ -700,7 +700,7 @@ export default function Home() {
 
               {/* Floater 3: Mobile Architecture */}
               <div 
-                className="absolute bottom-[-16px] left-[5%] pointer-events-none transition-transform duration-300 ease-out hidden sm:block"
+                className="absolute -bottom-4 sm:bottom-[-16px] left-[5%] pointer-events-none transition-transform duration-300 ease-out scale-[0.65] sm:scale-100 origin-bottom-left z-20"
                 style={{ transform: `translate3d(${mousePos.x * 1.5}px, ${mousePos.y * 1.5}px, 0)` }}
               >
                 <motion.div 
@@ -720,7 +720,7 @@ export default function Home() {
 
               {/* Floater 4: Web Architecture */}
               <div 
-                className="absolute bottom-12 -right-8 pointer-events-none transition-transform duration-300 ease-out hidden sm:block"
+                className="absolute bottom-6 sm:bottom-12 -right-2 sm:-right-8 pointer-events-none transition-transform duration-300 ease-out scale-[0.65] sm:scale-100 origin-bottom-right z-20"
                 style={{ transform: `translate3d(${mousePos.x * 1.2}px, ${mousePos.y * 1.2}px, 0)` }}
               >
                 <motion.div 
@@ -806,7 +806,7 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
           
           {/* LEFT COLUMN: Vertical Capabilities Navigation */}
-          <div className="col-span-12 lg:col-span-5 flex flex-col justify-center space-y-2.5">
+          <div className="col-span-12 lg:col-span-5 flex flex-col justify-center space-y-2.5 order-2 lg:order-1 mt-6 lg:mt-0">
             {services.map((svc, idx) => {
               const Icon = svc.icon;
               const isSelected = activeService === idx;
@@ -858,7 +858,7 @@ export default function Home() {
           </div>
 
           {/* RIGHT COLUMN: Interactive High-Fidelity Visual Panel */}
-          <div className="col-span-12 lg:col-span-7 flex">
+          <div className="col-span-12 lg:col-span-7 flex order-1 lg:order-2">
             <div className="w-full glass-card rounded-sm border border-border-primary p-6 sm:p-8 flex flex-col justify-between shadow-2xl relative overflow-hidden">
               
               <AnimatePresence mode="wait">

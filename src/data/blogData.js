@@ -1,4 +1,4 @@
-export const categories = ['All', 'Development', 'AI', 'Automation', 'Cloud', 'Business Growth', 'Technology Trends'];
+export const categories = ['All', 'Development', 'AI', 'Automation', 'Cloud', 'Technology Trends'];
 
 export const posts = [
   {
@@ -8,7 +8,7 @@ export const posts = [
     image: '/assets/blog/serverless-cloud.png',
     readTime: '6 Min Read',
     date: 'June 05, 2026',
-    desc: 'An in-depth review comparing traditional VMs with AWS Aurora Serverless and DynamoDB architectures for fluctuating enterprise workloads. We analyze the exact cost-to-performance ratio when migrating legacy monolithic databases to hyper-scalable serverless environments.',
+    desc: 'Learn how modern cloud technology can save your business money by automatically adjusting to your traffic needs, eliminating wasted server costs.',
     author: 'Jason Vance',
     content: `
 ## The Monolithic Bottleneck
@@ -49,7 +49,7 @@ If you are currently running heavily over-provisioned RDS instances or strugglin
     image: '/assets/blog/ai-rag.png',
     readTime: '8 Min Read',
     date: 'May 28, 2026',
-    desc: 'How utilizing semantic vector databases allows corporate support agents to query internal documentation safely and eliminate 90% of support tickets.',
+    desc: 'Discover how custom AI tools can instantly answer customer questions, reducing support tickets and saving your team valuable time.',
     author: 'Arthur Sterling',
     content: `
 ## The Support Ticket Avalanche
@@ -73,7 +73,7 @@ By deploying this directly inside Zendesk or Intercom via custom webhooks, enter
     image: '/assets/blog/mobile-code.png',
     readTime: '5 Min Read',
     date: 'May 14, 2026',
-    desc: 'Practical strategies to optimize JS thread load, eliminate memory leaks, and configure fast biometric authentication routes.',
+    desc: 'Practical tips to make your mobile app run faster and smoother, keeping your customers happy and engaged.',
     author: 'Meera Patel',
     content: `
 ## The Cost of a Dropped Frame
@@ -92,11 +92,11 @@ In mobile commerce, a delay of just 100 milliseconds can drop conversion rates b
   {
     id: 'brittle-monolith-cost',
     title: 'Why Enterprise Software Fails: The Hidden Cost of Brittle Monoliths',
-    category: 'Business Growth',
+    category: 'Development',
     image: '/assets/blog/serverless-cloud.png',
     readTime: '7 Min Read',
     date: 'April 29, 2026',
-    desc: 'Evaluating structural code rot and technical debt bottlenecks. Why investing in modular software engineering saves 3x development costs.',
+    desc: 'Understand why old software breaks down and how upgrading to a modern system can save you time and money in the long run.',
     author: 'Arthur Sterling',
     content: `
 ## The Legacy Trap
@@ -118,7 +118,7 @@ By migrating to a distributed architecture—using message brokers like Kafka or
     image: '/assets/blog/ai-rag.png',
     readTime: '6 Min Read',
     date: 'April 12, 2026',
-    desc: 'Step-by-step walkthrough mapping document parses, invoice metadata extraction, and Salesforce API syncing routines.',
+    desc: 'A guide to automating repetitive tasks like data entry so your team can focus on what really matters.',
     author: 'Jason Vance',
     content: `
 ## The Era of Manual Data Entry is Over
@@ -141,7 +141,7 @@ This pipeline can process 10,000 invoices an hour for literal pennies, freeing u
     image: '/assets/blog/mobile-code.png',
     readTime: '4 Min Read',
     date: 'March 24, 2026',
-    desc: 'Leveraging Server Actions, Edge runtimes, and optimized script loads to drop aggregate PageSpeed index durations under 1.2s.',
+    desc: 'Learn how to significantly speed up your website to improve user experience and boost your business growth.',
     author: 'Meera Patel',
     content: `
 ## The Vercel Ecosystem Advantage

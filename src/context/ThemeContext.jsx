@@ -5,9 +5,9 @@ const ThemeContext = createContext();
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(() => {
     if (typeof window !== 'undefined') {
-      return localStorage.getItem('quantixx-theme') || 'dark';
+      return localStorage.getItem('quantixx-theme') || 'light';
     }
-    return 'dark';
+    return 'light';
   });
 
   useEffect(() => {
