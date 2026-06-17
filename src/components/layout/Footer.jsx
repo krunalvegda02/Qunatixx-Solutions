@@ -50,7 +50,7 @@ export default function Footer() {
               <span className={clsx('block', 'text-xs', 'font-mono', 'text-text-muted', 'uppercase', 'tracking-widest', 'font-semibold')}>
                 Compliance & Security Framework
               </span>
-              <div className={clsx('flex', 'flex-wrap', 'gap-2')}>
+              <div className={clsx('flex', 'flex-nowrap', 'sm:flex-wrap', 'gap-2', 'overflow-x-auto', 'sm:overflow-visible', 'pb-3', 'sm:pb-0', 'scrollbar-hide', '-mx-4', 'px-4', 'sm:mx-0', 'sm:px-0', 'mask-linear-fade-right')}>
                 {[
                   { name: 'SOC2 Type II', active: true },
                   { name: 'ISO 27001', active: true },
@@ -59,7 +59,7 @@ export default function Footer() {
                 ].map((badge, idx) => (
                   <span 
                     key={idx}
-                    className={`px-3 py-1.5 rounded-sm text-xs font-mono font-medium border flex items-center gap-2 ${
+                    className={`shrink-0 px-3 py-1.5 rounded-sm text-xs font-mono font-medium border flex items-center gap-2 ${
                       badge.active 
                         ? 'bg-bg-secondary/60 border-border-primary/80 text-text-secondary' 
                         : 'bg-transparent border-dashed border-border-primary/40 text-text-muted'
@@ -73,56 +73,58 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Services (col-span-2) */}
-          <div className={clsx('lg:col-span-2', 'lg:pl-4')}>
-            <h4 className={clsx('text-sm', 'font-bold', 'uppercase', 'tracking-wider', 'text-text-primary', 'mb-6', 'font-display', 'flex', 'items-center', 'gap-2')}>
-              <span className={clsx('w-2', 'h-2', 'rounded-full', 'bg-accent')} />
-              Services
-            </h4>
-            <ul className="space-y-3.5">
-              {[
-                { name: 'Custom Software', href: '/services#custom-software' },
-                { name: 'Web Applications', href: '/services#web-apps' },
-                { name: 'Mobile App Dev', href: '/services#mobile-apps' },
-                { name: 'AI Engineering', href: '/services#ai' },
-                { name: 'Cloud & DevOps', href: '/services#cloud' },
-                { name: 'UI/UX Design', href: '/services#ui-ux' }
-              ].map((item, idx) => (
-                <li key={idx}>
-                  <Link to={item.href} className={clsx('text-sm', 'text-text-secondary', 'hover:text-accent', 'hover:translate-x-1', 'transition-all', 'inline-block', 'font-medium')}>
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Columns 2 & 3: Services and Company (Grouped for side-by-side mobile layout) */}
+          <div className={clsx('lg:col-span-4', 'grid', 'grid-cols-2', 'gap-8', 'lg:pl-4')}>
+            {/* Column 2: Services */}
+            <div>
+              <h4 className={clsx('text-xs', 'sm:text-sm', 'font-bold', 'uppercase', 'tracking-wider', 'text-text-primary', 'mb-5', 'sm:mb-6', 'font-display', 'flex', 'items-center', 'gap-2')}>
+                <span className={clsx('w-1.5', 'h-1.5', 'sm:w-2', 'sm:h-2', 'rounded-full', 'bg-accent')} />
+                Services
+              </h4>
+              <ul className="space-y-3.5">
+                {[
+                  { name: 'Custom Software', href: '/services#custom-software' },
+                  { name: 'Web Applications', href: '/services#web-apps' },
+                  { name: 'Mobile App Dev', href: '/services#mobile-apps' },
+                  { name: 'AI Engineering', href: '/services#ai' },
+                  { name: 'Cloud & DevOps', href: '/services#cloud' },
+                  { name: 'UI/UX Design', href: '/services#ui-ux' }
+                ].map((item, idx) => (
+                  <li key={idx}>
+                    <Link to={item.href} className={clsx('text-xs', 'sm:text-sm', 'text-text-secondary', 'hover:text-accent', 'hover:translate-x-1', 'transition-all', 'inline-block', 'font-medium')}>
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Column 3: Company (col-span-2) */}
-          <div className="lg:col-span-2">
-            <h4 className={clsx('text-sm', 'font-bold', 'uppercase', 'tracking-wider', 'text-text-primary', 'mb-6', 'font-display', 'flex', 'items-center', 'gap-2')}>
-              <span className={clsx('w-2', 'h-2', 'rounded-full', 'bg-highlight')} />
-              Company
-            </h4>
-            <ul className="space-y-3.5">
-              {[
-                { name: 'About Us', href: '/about' },
-                { name: 'Portfolio', href: '/portfolio' },
-                // { name: 'Careers', href: '/careers', badge: 'Hiring' },
-                { name: 'Insights Blog', href: '/blog' },
-                { name: 'Contact Architects', href: '/contact' }
-              ].map((item, idx) => (
-                <li key={idx}>
-                  <Link to={item.href} className={clsx('text-sm', 'text-text-secondary', 'hover:text-accent', 'hover:translate-x-1', 'transition-all', 'inline-flex', 'items-center', 'gap-2', 'font-medium')}>
-                    <span>{item.name}</span>
-                    {item.badge && (
-                      <span className={clsx('px-2', 'py-0.5', 'rounded-sm', 'text-[10px]', 'font-mono', 'font-bold', 'bg-highlight/10', 'text-highlight', 'border', 'border-highlight/25')}>
-                        {item.badge}
-                      </span>
-                    )}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            {/* Column 3: Company */}
+            <div>
+              <h4 className={clsx('text-xs', 'sm:text-sm', 'font-bold', 'uppercase', 'tracking-wider', 'text-text-primary', 'mb-5', 'sm:mb-6', 'font-display', 'flex', 'items-center', 'gap-2')}>
+                <span className={clsx('w-1.5', 'h-1.5', 'sm:w-2', 'sm:h-2', 'rounded-full', 'bg-highlight')} />
+                Company
+              </h4>
+              <ul className="space-y-3.5">
+                {[
+                  { name: 'About Us', href: '/about' },
+                  { name: 'Portfolio', href: '/portfolio' },
+                  { name: 'Insights Blog', href: '/blog' },
+                  { name: 'Contact Architects', href: '/contact' }
+                ].map((item, idx) => (
+                  <li key={idx}>
+                    <Link to={item.href} className={clsx('text-xs', 'sm:text-sm', 'text-text-secondary', 'hover:text-accent', 'hover:translate-x-1', 'transition-all', 'inline-flex', 'items-center', 'gap-2', 'font-medium')}>
+                      <span>{item.name}</span>
+                      {item.badge && (
+                        <span className={clsx('px-2', 'py-0.5', 'rounded-sm', 'text-[9px]', 'sm:text-[10px]', 'font-mono', 'font-bold', 'bg-highlight/10', 'text-highlight', 'border', 'border-highlight/25')}>
+                          {item.badge}
+                        </span>
+                      )}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           {/* Column 4: Newsletter & Contact Widget (col-span-3) */}
@@ -186,23 +188,23 @@ export default function Footer() {
         </div>
 
         {/* Lower Footer: Copyright, Status Indicator, Legal Links */}
-        <div className={clsx('flex', 'flex-col', 'lg:flex-row', 'justify-between', 'items-center', 'gap-6', 'pt-8', 'sm:pt-10', 'text-sm', 'text-text-secondary/80')}>
+        <div className={clsx('flex', 'flex-col', 'lg:flex-row', 'justify-between', 'items-center', 'gap-6', 'pt-10', 'sm:pt-12', 'text-xs', 'sm:text-sm', 'text-text-secondary/80')}>
           
           {/* Copyright & Core Location */}
-          <div className={clsx('flex', 'flex-col', 'sm:flex-row', 'items-center', 'gap-4', 'text-center', 'lg:text-left')}>
+          <div className={clsx('flex', 'flex-col', 'sm:flex-row', 'items-center', 'gap-4', 'text-center', 'lg:text-left', 'order-3', 'lg:order-1')}>
             <span>
               &copy; {currentYear} Quantixx Solutions Inc. All rights reserved.
             </span>
           </div>
 
-    
-          <div className={clsx('flex', 'items-center', 'gap-2', 'text-text-secondary', 'text-xs', 'font-medium')}>
-            <MapPin size={14} className="text-highlight" />
+          {/* Location / Status Indicator */}
+          <div className={clsx('flex', 'items-center', 'gap-2', 'text-text-secondary', 'text-[10px]', 'sm:text-xs', 'font-medium', 'px-3', 'py-1.5', 'rounded-full', 'bg-highlight/10', 'border', 'border-highlight/20', 'order-1', 'lg:order-2')}>
+            <MapPin size={12} className="text-highlight" />
             <span>San Francisco, CA HQ</span>
           </div>
 
           {/* Quick Legal links */}
-          <div className={clsx('flex', 'flex-wrap', 'justify-center', 'gap-4', 'sm:gap-6', 'font-medium', 'text-sm')}>
+          <div className={clsx('flex', 'flex-wrap', 'justify-center', 'gap-4', 'sm:gap-6', 'font-medium', 'text-xs', 'sm:text-sm', 'order-2', 'lg:order-3')}>
             <a href="#" className={clsx('hover:text-accent', 'transition-colors')}>Privacy Policy</a>
             <a href="#" className={clsx('hover:text-accent', 'transition-colors')}>Terms of Service</a>
             <a href="#" className={clsx('hover:text-accent', 'transition-colors')}>Security</a>

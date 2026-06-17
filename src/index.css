@@ -299,3 +299,12 @@ html.lenis, html.lenis body {
     cursor: none !important;
   }
 }
+
+/* Hide scrollbar for horizontal scrolling lists */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

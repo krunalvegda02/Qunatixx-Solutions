@@ -3,7 +3,7 @@ import { motion, useInView, useSpring, useTransform } from 'framer-motion';
 
 export const Counter = ({ value, className = "", duration = 2, delay = 0 }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const isInView = useInView(ref, { once: false, margin: "-50px" });
 
   // Safety check if value is undefined or not a string
   const strValue = String(value || "");
@@ -18,9 +18,12 @@ export const Counter = ({ value, className = "", duration = 2, delay = 0 }) => {
 
   useEffect(() => {
     if (isInView && match) {
-      setTimeout(() => {
+      const timer = setTimeout(() => {
         springValue.set(parseFloat(match[2]));
       }, delay * 1000);
+      return () => clearTimeout(timer);
+    } else if (!isInView && match) {
+      springValue.jump(0);
     }
   }, [isInView, match, springValue, delay]);
 
