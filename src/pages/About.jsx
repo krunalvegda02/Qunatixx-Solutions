@@ -155,7 +155,7 @@ export default function About() {
       </div>
 
       {/* Story & Philosophy Section */}
-      <section className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'mb-24', 'font-sans', 'relative', 'z-10')}>
+      <section className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'py-6', 'lg:py-10', 'font-sans', 'relative', 'z-10')}>
         <div className={clsx('grid', 'grid-cols-1', 'lg:grid-cols-2', 'gap-12', 'items-center')}>
 
           <motion.div 
@@ -227,7 +227,7 @@ export default function About() {
       </section>
 
       {/* Core Values Section */}
-      <section className={clsx('py-20', 'bg-bg-secondary/40', 'border-y', 'border-border-primary', 'mb-24', 'relative', 'z-10', 'backdrop-blur-sm')}>
+      <section className={clsx('py-12', 'lg:py-20', 'bg-bg-secondary/40', 'border-y', 'border-border-primary', 'relative', 'z-10', 'backdrop-blur-sm')}>
         <div className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'text-center')}>
           <div className="mb-16">
             <span className={clsx('text-xs', 'uppercase', 'tracking-wider', 'font-semibold', 'text-accent', 'font-mono')}>Commitment</span>
@@ -260,7 +260,7 @@ export default function About() {
       </section>
 
       {/* Engagement Guarantees Playbook */}
-      <section className={clsx('max-w-5xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'mb-24', 'relative', 'z-10')}>
+      <section className={clsx('max-w-5xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'py-6', 'lg:py-10', 'relative', 'z-10')}>
         <div className={clsx('text-center', 'mb-16')}>
           <span className={clsx('text-xs', 'uppercase', 'tracking-wider', 'font-semibold', 'text-accent', 'font-mono')}>Engagement Model</span>
           <h2 className={clsx('text-3xl', 'font-display', 'font-bold', 'text-text-primary', 'mt-2')}>How We Work with Clients</h2>
@@ -297,7 +297,7 @@ export default function About() {
       </section>
 
       {/* Leadership Section */}
-      <section className={clsx('max-w-6xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'mb-24', 'font-sans', 'relative', 'z-10')}>
+      <section className={clsx('max-w-6xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'py-6', 'lg:py-10', 'font-sans', 'relative', 'z-10')}>
         <div className={clsx('text-center', 'mb-20')}>
           <span className={clsx('text-xs', 'uppercase', 'tracking-[0.2em]', 'font-extrabold', 'text-accent', 'bg-accent/10', 'px-3.5', 'py-1.5', 'rounded-sm', 'inline-block')}>
             Our Leadership
@@ -444,7 +444,7 @@ export default function About() {
       </section>
 
       {/* About CTA */}
-      <section className={clsx('py-10', 'relative', 'z-10', 'max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'w-full', 'mt-10')}>
+      <section className={clsx('py-8', 'lg:py-12', 'relative', 'z-10', 'max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'w-full', 'mb-8', 'lg:mb-12')}>
         <div className={clsx('glass-card', 'border', 'border-white/[0.08]', 'rounded-xl', 'p-8', 'sm:p-12', 'shadow-2xl', 'relative', 'overflow-hidden', 'group', 'w-full', 'bg-gradient-to-br', 'from-bg-card/45', 'via-bg-card/20', 'to-accent/4', 'backdrop-blur-xl')}>
           {/* Inner ambient glows */}
           <div className={clsx('absolute', 'top-0', 'right-1/4', 'w-[350px]', 'h-[350px]', 'bg-accent/8', 'rounded-full', 'blur-[100px]', 'pointer-events-none', '-z-10', 'animate-pulse-slow')} />
@@ -498,24 +498,24 @@ export default function About() {
 
             {/* Right Column: Dynamic stats / trust values */}
             <div className={clsx('lg:col-span-5', 'w-full')}>
-              <div className={clsx('bg-bg-secondary/40', 'border', 'border-white/[0.05]', 'rounded-lg', 'p-5', 'shadow-inner', 'relative', 'overflow-hidden', 'backdrop-blur-md')}>
-                <span className={clsx('text-[9px]', 'font-mono', 'text-text-muted', 'uppercase', 'tracking-widest', 'block', 'mb-4')}>Our Guarantees</span>
-                <div className={clsx('space-y-3.5', 'font-mono', 'text-[9px]', 'text-text-secondary', 'font-light')}>
-                  <div className={clsx('flex', 'justify-between', 'border-b', 'border-border-primary/40', 'pb-1.5')}>
+              <div className={clsx('bg-bg-secondary/40', 'border', 'border-white/[0.05]', 'rounded-lg', 'p-6', 'sm:p-8', 'shadow-inner', 'relative', 'overflow-hidden', 'backdrop-blur-md')}>
+                <span className={clsx('text-xs', 'font-mono', 'text-text-muted', 'uppercase', 'tracking-widest', 'block', 'mb-6')}>Our Guarantees</span>
+                <div className={clsx('space-y-4', 'sm:space-y-5', 'text-sm', 'sm:text-base', 'text-text-secondary')}>
+                  <div className={clsx('flex', 'flex-col', 'sm:flex-row', 'sm:items-center', 'justify-between', 'gap-1', 'border-b', 'border-border-primary/40', 'pb-3')}>
                     <span className="text-text-muted">Response SLA:</span>
-                    <span className={clsx('text-text-primary', 'font-bold')}>&lt; 4 Hours</span>
+                    <span className={clsx('text-text-primary', 'font-semibold')}>&lt; 4 Hours</span>
                   </div>
-                  <div className={clsx('flex', 'justify-between', 'border-b', 'border-border-primary/40', 'pb-1.5')}>
+                  <div className={clsx('flex', 'flex-col', 'sm:flex-row', 'sm:items-center', 'justify-between', 'gap-1', 'border-b', 'border-border-primary/40', 'pb-3')}>
                     <span className="text-text-muted">Dev Channel:</span>
-                    <span className="text-accent">Direct Slack with Founders</span>
+                    <span className={clsx('text-accent', 'font-medium')}>Direct Slack with Founders</span>
                   </div>
-                  <div className={clsx('flex', 'justify-between', 'border-b', 'border-border-primary/40', 'pb-1.5')}>
+                  <div className={clsx('flex', 'flex-col', 'sm:flex-row', 'sm:items-center', 'justify-between', 'gap-1', 'border-b', 'border-border-primary/40', 'pb-3')}>
                     <span className="text-text-muted">Intellectual Property:</span>
-                    <span className={clsx('text-highlight', 'font-bold')}>100% Transfer Guarantee</span>
+                    <span className={clsx('text-highlight', 'font-semibold')}>100% Transfer Guarantee</span>
                   </div>
-                  <div className={clsx('flex', 'justify-between')}>
+                  <div className={clsx('flex', 'flex-col', 'sm:flex-row', 'sm:items-center', 'justify-between', 'gap-1')}>
                     <span className="text-text-muted">Virtual Security:</span>
-                    <span className={clsx('text-text-primary', 'font-bold')}>VPC & Cloud Encrypted</span>
+                    <span className={clsx('text-text-primary', 'font-semibold')}>VPC & Cloud Encrypted</span>
                   </div>
                 </div>
               </div>

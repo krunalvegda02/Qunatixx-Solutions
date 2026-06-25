@@ -2,6 +2,10 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Lenis from 'lenis';
 
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
 export default function SmoothScroll({ children }) {
   const { pathname } = useLocation();
 
@@ -21,14 +25,21 @@ export default function SmoothScroll({ children }) {
     }
 
     frameId = requestAnimationFrame(raf);
-
-    // Scroll to top on route change
-    lenis.scrollTo(0, { immediate: true });
+    window.lenis = lenis;
 
     return () => {
       cancelAnimationFrame(frameId);
       lenis.destroy();
+      delete window.lenis;
     };
+  }, []);
+
+  useEffect(() => {
+    // Force scroll to top immediately on route change
+    window.scrollTo(0, 0);
+    if (window.lenis) {
+      window.lenis.scrollTo(0, { immediate: true });
+    }
   }, [pathname]);
 
   return <>{children}</>;

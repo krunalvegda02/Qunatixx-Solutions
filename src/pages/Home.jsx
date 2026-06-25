@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Cpu, Globe, Database, Smartphone, Palette, Zap, TrendingUp, CheckCircle2, ChevronRight, Quote, Bot, Cloud, CheckCircle } from 'lucide-react';
+import { ArrowRight, Cpu, Globe, Database, Smartphone, Palette, Zap, TrendingUp, CheckCircle2, ChevronRight, Quote, Bot, Cloud, CheckCircle, Tag, LineChart } from 'lucide-react';
 import { Counter } from '../components/animations/Counter';
 import { VelocityScroll } from '../components/animations/VelocityScroll';
 import { useModal } from '../context/ModalContext';
@@ -59,7 +59,7 @@ export default function Home() {
     { value: '99.99%', label: 'Platform Reliability', desc: 'Enterprise-grade uptime' },
     { value: '80%', label: 'Time Saved', desc: 'Automating repetitive workflows' },
     { value: '+35%', label: 'User Engagement', desc: 'Beautiful, intuitive experiences' },
-    { value: '$12M+', label: 'Client Revenue', desc: 'Measurable business growth' },
+    { value: '₹12M+', label: 'Client Revenue', desc: 'Measurable business growth' },
   ];
 
   const services = [
@@ -70,7 +70,7 @@ export default function Home() {
       techs: ['Node.js', 'PostgreSQL', 'PrismaORM', 'Mongodb', 'Nestjs'],
       bullets: ['Reliable data processing', 'Secure and fast backend APIs', 'Built for long-term growth'],
       visualType: 'software',
-      outcome: '$150k Annual Costs Saved'
+      outcome: '₹150k Annual Costs Saved'
     },
     {
       title: 'UI/UX Design & Strategy',
@@ -88,7 +88,7 @@ export default function Home() {
       techs: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind'],
       bullets: ['Instant page load speeds', 'Secure user portals', 'Live data dashboards'],
       visualType: 'web',
-      outcome: '$12M+ Revenue Generated'
+      outcome: '₹12M+ Revenue Generated'
     },
     {
       title: 'AI & Business Automation',
@@ -284,7 +284,7 @@ export default function Home() {
 
   const testimonials = [
     {
-      quote: <span>Quantixx Solutions completely revamped our logistics portal. They <span className={clsx('text-highlight', 'font-bold')}>automated 80% of our manual tracking workflows</span>, which directly saved us over <span className={clsx('text-accent', 'font-bold')}>$150k in operational overhead</span> in just the first six months.</span>,
+      quote: <span>Quantixx Solutions completely revamped our logistics portal. They <span className={clsx('text-highlight', 'font-bold')}>automated 80% of our manual tracking workflows</span>, which directly saved us over <span className={clsx('text-accent', 'font-bold')}>₹150k in operational overhead</span> in just the first six months.</span>,
       author: "Sarah Jenkins",
       role: "VP of Operations",
       company: "DHL Logistics",
@@ -877,7 +877,7 @@ export default function Home() {
       </section>
 
       {/* SERVICES SECTION - Glassmorphic Auto-Scroll Carousel */}
-      <section className={clsx('py-16', 'lg:py-28', 'relative', 'overflow-hidden')}>
+      <section className={clsx('py-12', 'lg:py-20', 'relative', 'overflow-hidden')}>
 
         {/* Background atmosphere */}
         <div className={clsx('absolute', 'inset-0', 'bg-gradient-to-b', 'from-bg-primary', 'via-bg-secondary/20', 'to-bg-primary', 'pointer-events-none')} />
@@ -895,7 +895,7 @@ export default function Home() {
             transition={{ duration: 0.7 }}
             className={clsx('text-center', 'mb-14', 'space-y-4')}
           >
-            <span className={clsx('inline-flex', 'items-center', 'gap-2', 'text-xs', 'uppercase', 'tracking-[0.25em]', 'font-extrabold', 'text-accent', 'bg-accent/10', 'px-4', 'py-1.5', 'rounded-full', 'border', 'border-accent/20')}>
+            <span className={clsx('inline-flex', 'items-center', 'gap-1.5', 'text-xs', 'uppercase', 'tracking-[0.25em]', 'font-extrabold', 'text-accent', 'bg-accent/10', 'px-3.5', 'py-1.5', 'rounded-sm', 'border', 'border-accent/20', 'mb-6')}>
               <span className={clsx('w-1.5', 'h-1.5', 'rounded-full', 'bg-accent', 'animate-pulse')} />
               Engineering Capabilities
             </span>
@@ -1048,35 +1048,26 @@ export default function Home() {
               })}
             </Swiper>
 
-            {/* Controls row - Unified iOS Layout */}
-            <div className={clsx('flex', 'flex-col', 'items-center', 'gap-8', 'mt-12', 'w-full')}>
+            {/* Mobile Controls Stack (Hidden on Desktop) */}
+            <div className={clsx('flex', 'flex-col', 'items-center', 'justify-center', 'gap-5', 'my-2', 'lg:hidden', 'w-full')}>
+              {/* Centered Pagination Dots */}
+              <div className={clsx('services-pagination', 'flex', 'justify-center', 'gap-2', 'items-center', 'w-full', '[&_.swiper-pagination-bullet]:w-1.5', '[&_.swiper-pagination-bullet]:h-1.5', '[&_.swiper-pagination-bullet]:rounded-full', '[&_.swiper-pagination-bullet]:bg-text-muted', '[&_.swiper-pagination-bullet]:opacity-40', '[&_.swiper-pagination-bullet]:transition-all', '[&_.swiper-pagination-bullet]:duration-300', 'hover:[&_.swiper-pagination-bullet]:opacity-60', '[&_.swiper-pagination-bullet-active]:!bg-text-primary', '[&_.swiper-pagination-bullet-active]:!opacity-100', 'cursor-pointer')} />
               
-              {/* Pagination & Arrows Control Bar */}
-              <div className={clsx('flex', 'items-center', 'gap-6', 'px-6', 'py-2.5', 'rounded-full', 'bg-gradient-to-br', 'from-white/40', 'to-white/10', 'backdrop-blur-[32px]', 'border', 'border-white/40', 'shadow-[0_8px_32px_rgba(0,0,0,0.08)]')}>
-                <button
-                  onClick={() => servicesSwiperRef.current?.slidePrev()}
-                  aria-label="Previous service"
-                  className={clsx('w-8', 'h-8', 'rounded-full', 'flex', 'items-center', 'justify-center', 'text-text-secondary', 'hover:text-text-primary', 'hover:bg-text-primary/10', 'transition-all', 'cursor-pointer')}
-                >
-                  <ArrowRight size={16} className="rotate-180" />
-                </button>
-
-                {/* Simple Circular Pagination Dots */}
-                <div className={clsx('services-pagination', 'flex', 'gap-2.5', 'items-center', '[&_.swiper-pagination-bullet]:w-2.5', '[&_.swiper-pagination-bullet]:h-2.5', '[&_.swiper-pagination-bullet]:rounded-full', '[&_.swiper-pagination-bullet]:bg-text-primary/20', '[&_.swiper-pagination-bullet]:opacity-100', '[&_.swiper-pagination-bullet]:transition-all', '[&_.swiper-pagination-bullet]:duration-300', 'hover:[&_.swiper-pagination-bullet]:bg-text-primary/40', '[&_.swiper-pagination-bullet-active]:!bg-accent', '[&_.swiper-pagination-bullet-active]:shadow-[0_0_8px_var(--accent-glow)]', 'cursor-pointer')} />
-
-                <button
-                  onClick={() => servicesSwiperRef.current?.slideNext()}
-                  aria-label="Next service"
-                  className={clsx('w-8', 'h-8', 'rounded-full', 'flex', 'items-center', 'justify-center', 'text-text-secondary', 'hover:text-text-primary', 'hover:bg-text-primary/10', 'transition-all', 'cursor-pointer')}
-                >
-                  <ArrowRight size={16} />
-                </button>
-              </div>
-
-              {/* Enhanced Frosted Glass CTA Button */}
+              {/* Standalone Sleek Glass CTA Button */}
               <button
                 onClick={openModal}
-                className={clsx('px-8', 'py-3.5', 'rounded-[16px]', 'text-[14px]', 'font-bold', 'text-text-primary', 'bg-gradient-to-br', 'from-white/40', 'to-white/10', 'backdrop-blur-[32px]', 'border', 'border-white/40', 'shadow-[0_8px_32px_rgba(0,0,0,0.08)]', 'hover:border-white/60', 'hover:from-white/50', 'hover:to-white/20', 'hover:shadow-[0_12px_40px_rgba(0,0,0,0.12)]', 'hover:-translate-y-0.5', 'active:scale-[0.97]', 'active:translate-y-0', 'transition-all', 'duration-300', 'cursor-pointer', 'flex', 'items-center', 'gap-2.5', 'group/cta', 'whitespace-nowrap')}
+                className={clsx('px-6', 'sm:px-8', 'py-2.5', 'sm:py-3', 'rounded-full', 'text-sm', 'font-semibold', 'text-text-primary', 'bg-gradient-to-br', 'from-white/50', 'to-white/10', 'backdrop-blur-md', 'border', 'border-white/40', 'shadow-[0_8px_32px_rgba(0,0,0,0.05)]', 'hover:from-white/70', 'hover:to-white/30', 'hover:-translate-y-0.5', 'active:scale-95', 'transition-all', 'duration-300', 'cursor-pointer', 'flex', 'items-center', 'justify-center', 'gap-2', 'group/cta')}
+              >
+                Explore All Services
+                <ArrowRight size={14} className={clsx('group-hover/cta:translate-x-1', 'transition-transform')} />
+              </button>
+            </div>
+
+            {/* Desktop Only CTA Button */}
+            <div className={clsx('hidden', 'lg:flex', 'justify-center', 'mt-10', 'w-full')}>
+              <button
+                onClick={openModal}
+                className={clsx('px-8', 'py-3.5', 'rounded-full', 'text-sm', 'font-semibold', 'text-text-primary', 'bg-gradient-to-br', 'from-white/50', 'to-white/10', 'backdrop-blur-md', 'border', 'border-white/40', 'shadow-[0_8px_32px_rgba(0,0,0,0.05)]', 'hover:from-white/70', 'hover:to-white/30', 'hover:-translate-y-0.5', 'active:scale-95', 'transition-all', 'duration-300', 'cursor-pointer', 'flex', 'items-center', 'justify-center', 'gap-2', 'group/cta')}
               >
                 Explore All Services
                 <ArrowRight size={14} className={clsx('group-hover/cta:translate-x-1', 'transition-transform')} />
@@ -1089,7 +1080,7 @@ export default function Home() {
 
 
       {/* WHY QUANTIXX / METRICS & ENTERPRISE TRUST */}
-      <section className={clsx('py-16', 'md:py-24', 'xl:py-32', 'bg-bg-secondary/40', 'border-y', 'border-border-primary', 'relative', 'overflow-hidden')}>
+      <section className={clsx('py-12', 'lg:py-20', 'bg-bg-secondary/40', 'border-y', 'border-border-primary', 'relative', 'overflow-hidden')}>
 
         {/* Futuristic Grid / Radial Blur Backdrops */}
         <div className={clsx('absolute', 'inset-0', 'bg-[radial-gradient(var(--hero-dot-color)_1.2px,transparent_1.2px)]', '[background-size:32px_32px]', 'pointer-events-none', 'opacity-20')} />
@@ -1106,7 +1097,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className={clsx('text-center', 'mb-20', 'space-y-4')}
           >
-            <span className={clsx('text-xs', 'md:text-sm', 'uppercase', 'tracking-[0.25em]', 'font-extrabold', 'text-highlight', 'bg-highlight/10', 'px-3.5', 'py-1.5', 'rounded-sm')}>
+            <span className={clsx('inline-flex', 'items-center', 'gap-1.5', 'text-xs', 'uppercase', 'tracking-[0.25em]', 'font-extrabold', 'text-highlight', 'bg-highlight/10', 'px-3.5', 'py-1.5', 'rounded-sm', 'border', 'border-highlight/20', 'mb-6')}>
               Engineered for Performance
             </span>
             <h2 className={clsx('text-3xl', 'sm:text-4xl', 'md:text-5xl', 'xl:text-6xl', 'font-display', 'font-extrabold', 'text-text-primary', 'tracking-tight', 'max-w-4xl', 'mx-auto', 'leading-[1.1]')}>
@@ -1122,8 +1113,8 @@ export default function Home() {
             {/* LEFT COLUMN: Values Proposition Panel */}
             <div className={clsx('lg:col-span-4', 'flex', 'flex-col', 'justify-between', 'space-y-8', 'bg-bg-card/30', 'backdrop-blur-md', 'border', 'border-border-primary', 'rounded-sm', 'p-8', 'lg:p-10')}>
               <div className="space-y-6">
-                <span className={clsx('text-[10px]', 'md:text-xs', 'font-mono', 'uppercase', 'tracking-widest', 'text-accent', 'bg-accent/10', 'px-2.5', 'py-1', 'rounded-sm', 'w-fit')}>
-                  Standard Operating Baselines
+                <span className={clsx('inline-flex', 'items-center', 'gap-1.5', 'text-xs', 'uppercase', 'tracking-[0.25em]', 'font-extrabold', 'text-accent', 'bg-accent/10', 'px-3.5', 'py-1.5', 'rounded-sm', 'border', 'border-accent/20', 'mb-4')}>
+                  Standard Operating
                 </span>
                 <h3 className={clsx('text-2xl', 'sm:text-3xl', 'xl:text-4xl', 'font-display', 'font-bold', 'text-text-primary', 'leading-tight')}>
                   The Quantixx Assurance
@@ -1279,7 +1270,7 @@ export default function Home() {
 
                 <div className="my-8">
                   <div className={clsx('text-4xl', 'sm:text-5xl', 'font-display', 'font-extrabold', 'text-text-primary', 'tracking-tight')}>
-                    $12M+
+                    ₹12M+
                   </div>
                   <div className={clsx('text-sm', 'font-semibold', 'text-text-primary', 'mt-2')}>
                     Client Revenue Generated
@@ -1304,7 +1295,7 @@ export default function Home() {
       </section>
 
       {/* TECH ECOSYSTEM PREVIEW */}
-      <section className={clsx('py-16', 'lg:py-24', 'px-4', 'sm:px-6', 'lg:px-8', 'max-w-7xl', 'mx-auto', 'text-center', 'relative', 'overflow-hidden')}>
+      <section className={clsx('py-12', 'lg:py-20', 'px-4', 'sm:px-6', 'lg:px-8', 'max-w-7xl', 'mx-auto', 'text-center', 'relative', 'overflow-hidden')}>
 
         {/* Subtle Background Accent */}
         <div className={clsx('absolute', 'top-1/2', 'left-1/2', '-translate-x-1/2', '-translate-y-1/2', 'w-[500px]', 'h-[500px]', 'bg-accent/5', 'rounded-full', 'blur-[140px]', 'pointer-events-none', '-z-10')} />
@@ -1316,7 +1307,7 @@ export default function Home() {
           transition={{ duration: 0.8 }}
           className={clsx('mb-12', 'text-center', 'space-y-4')}
         >
-          <span className={clsx('text-xs', 'md:text-sm', 'uppercase', 'tracking-[0.25em]', 'font-extrabold', 'text-accent', 'bg-accent/10', 'px-3.5', 'py-1.5', 'rounded-sm')}>
+          <span className={clsx('inline-flex', 'items-center', 'gap-1.5', 'text-xs', 'uppercase', 'tracking-[0.25em]', 'font-extrabold', 'text-accent', 'bg-accent/10', 'px-3.5', 'py-1.5', 'rounded-sm', 'border', 'border-accent/20', 'mb-6')}>
             Modern Tech Stack
           </span>
           <h2 className={clsx('text-3xl', 'sm:text-4xl', 'md:text-5xl', 'xl:text-6xl', 'font-display', 'font-extrabold', 'text-text-primary', 'tracking-tight')}>
@@ -1427,7 +1418,7 @@ export default function Home() {
       </section>
 
       {/* TESTIMONIALS BENTO GRID */}
-      <section className={clsx('py-16', 'lg:py-24', 'bg-bg-secondary/10', 'border-t', 'border-border-primary', 'relative', 'overflow-hidden')}>
+      <section className={clsx('py-12', 'lg:py-20', 'bg-bg-secondary/10', 'border-t', 'border-border-primary', 'relative', 'overflow-hidden')}>
 
         {/* Subtle Decorative Lights */}
         <div className={clsx('absolute', 'top-1/4', 'left-10', 'w-96', 'h-96', 'bg-accent/5', 'rounded-full', 'blur-[120px]', 'pointer-events-none', '-z-10', 'animate-pulse-slow')} />
@@ -1441,7 +1432,7 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className={clsx('text-center', 'mb-16', 'md:mb-20', 'space-y-4')}
           >
-            <span className={clsx('inline-flex', 'items-center', 'gap-1.5', 'text-[10px]', 'md:text-xs', 'uppercase', 'tracking-[0.25em]', 'font-extrabold', 'text-accent', 'bg-accent/10', 'px-3', 'py-1.5', 'md:px-4', 'md:py-2', 'rounded-sm', 'border', 'border-accent/25')}>
+            <span className={clsx('inline-flex', 'items-center', 'gap-1.5', 'text-xs', 'uppercase', 'tracking-[0.25em]', 'font-extrabold', 'text-accent', 'bg-accent/10', 'px-3.5', 'py-1.5', 'rounded-sm', 'border', 'border-accent/20', 'mb-6')}>
               <span className={clsx('w-1.5', 'h-1.5', 'md:w-2', 'md:h-2', 'rounded-full', 'bg-accent', 'animate-pulse')} />
               Enterprise Proof
             </span>
@@ -1639,23 +1630,103 @@ export default function Home() {
               ))}
             </Swiper>
             
-            <div className={clsx('testimonials-deck-pagination', 'flex', 'gap-2', 'justify-center', 'w-full', 'mt-6', '[&_.swiper-pagination-bullet]:w-2', '[&_.swiper-pagination-bullet]:h-2', '[&_.swiper-pagination-bullet]:rounded-full', '[&_.swiper-pagination-bullet]:bg-border-hover', '[&_.swiper-pagination-bullet]:opacity-100', '[&_.swiper-pagination-bullet]:transition-all', '[&_.swiper-pagination-bullet-active]:bg-accent', '[&_.swiper-pagination-bullet-active]:!w-6', '[&_.swiper-pagination-bullet-active]:duration-300')} />
+            <div className={clsx('testimonials-deck-pagination', 'flex', 'gap-2', 'justify-center', 'w-full', 'mt-6', '[&_.swiper-pagination-bullet]:w-1.5', '[&_.swiper-pagination-bullet]:h-1.5', '[&_.swiper-pagination-bullet]:rounded-full', '[&_.swiper-pagination-bullet]:bg-text-muted', '[&_.swiper-pagination-bullet]:opacity-40', '[&_.swiper-pagination-bullet]:transition-all', '[&_.swiper-pagination-bullet-active]:opacity-100', '[&_.swiper-pagination-bullet-active]:bg-text-primary')} />
             
-            {/* Animated User Hint */}
-            <div className={clsx('mt-8', 'flex', 'items-center', 'justify-center', 'gap-2', 'text-text-muted', 'opacity-80')}>
-              <span className={clsx('text-[10px]', 'font-mono', 'uppercase', 'tracking-widest', 'font-bold')}>Swipe</span>
-              <div className={clsx('flex', '-space-x-1', 'animate-pulse')}>
-                <ChevronRight size={14} className="text-accent" />
-                <ChevronRight size={14} className={clsx('text-accent', 'opacity-50')} />
-              </div>
+            {/* Subtle User Hint */}
+            <div className={clsx('mt-4', 'flex', 'items-center', 'justify-center', 'text-text-muted', 'opacity-50')}>
+              <span className={clsx('text-[9px]', 'font-mono', 'uppercase', 'tracking-[0.25em]')}>Swipe to explore</span>
             </div>
           </div>
         </div>
       </section>
 
+      {/* EXCLUSIVE OFFERS SECTION: Digital Ticket Layout */}
+      <section className={clsx('py-12', 'lg:py-20', 'px-4', 'sm:px-6', 'lg:px-8', 'max-w-6xl', 'mx-auto', 'relative', 'z-10')}>
+        <div className={clsx('relative', 'w-full', 'rounded-2xl', 'overflow-hidden', 'bg-bg-card/30', 'border', 'border-accent/30', 'backdrop-blur-xl', 'flex', 'flex-col', 'lg:flex-row', 'shadow-[0_20px_50px_rgba(0,0,0,0.5)]')}>
+          {/* Ambient Glows */}
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_left,rgba(var(--color-accent),0.15)_0%,transparent_60%)] pointer-events-none" />
+          <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(ellipse_at_right,rgba(var(--color-highlight),0.1)_0%,transparent_60%)] pointer-events-none" />
+          
+          {/* Left Side: The Ticket Stub */}
+          <div className={clsx('p-8', 'lg:p-12', 'lg:w-[45%]', 'flex', 'flex-col', 'justify-center', 'relative', 'border-b', 'lg:border-b-0', 'lg:border-r', 'border-dashed', 'border-accent/40', 'bg-bg-primary/60')}>
+             {/* Ticket Cutouts */}
+             <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-8 h-8 rounded-full bg-bg-primary border-b border-l border-accent/40 hidden lg:block z-10" />
+             <div className="absolute bottom-0 right-0 translate-y-1/2 translate-x-1/2 w-8 h-8 rounded-full bg-bg-primary border-t border-l border-accent/40 hidden lg:block z-10" />
+             
+             <span className={clsx('inline-flex', 'items-center', 'gap-1.5', 'text-[10px]', 'uppercase', 'tracking-[0.25em]', 'font-extrabold', 'text-highlight', 'bg-highlight/10', 'px-3', 'py-1', 'rounded-sm', 'border', 'border-highlight/20', 'mb-6', 'w-fit')}>
+                <span className="w-1.5 h-1.5 rounded-full bg-highlight animate-pulse" /> First Time Partners
+             </span>
+             
+             <h2 className={clsx('text-4xl', 'lg:text-5xl', 'font-display', 'font-black', 'text-text-primary', 'leading-tight', 'tracking-tight', 'mb-4')}>
+               New Client <br className="hidden lg:inline"/>
+               <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-highlight">Welcome Pass</span>
+             </h2>
+             <p className="text-text-secondary font-mono text-xs sm:text-sm mb-10 opacity-70">
+               [ AUTH KEY: UNLOCKED ]
+             </p>
+             
+             <button onClick={openModal} className="w-full py-4 bg-accent hover:bg-accent-hover text-white rounded-md text-sm sm:text-base font-bold transition-all shadow-[0_0_20px_var(--accent-glow)] flex items-center justify-center gap-2 group cursor-pointer hover:-translate-y-1">
+                Activate Welcome Pass <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+             </button>
+          </div>
+
+          {/* Right Side: The Items */}
+          <div className={clsx('p-8', 'lg:p-12', 'lg:w-[55%]', 'flex', 'flex-col', 'justify-center', 'gap-8', 'relative', 'bg-bg-secondary/20')}>
+             
+             {/* Item 1 */}
+             <div className="flex items-start gap-4 group">
+               <div className="mt-1 w-12 h-12 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center text-accent shrink-0 group-hover:scale-110 group-hover:bg-accent/20 transition-all shadow-[0_0_15px_rgba(var(--color-accent),0.1)]">
+                  <LineChart size={20} />
+               </div>
+               <div>
+                 <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-1.5">
+                   <h3 className="text-lg sm:text-xl font-display font-bold text-text-primary">Free Project Audit</h3>
+                   <span className="text-[9px] sm:text-[10px] font-mono font-bold text-accent bg-accent/10 px-2 py-0.5 rounded-sm border border-accent/20">$2,500 Value</span>
+                 </div>
+                 <p className="text-sm text-text-secondary leading-relaxed">
+                   We'll review your current setup, identify hidden bottlenecks, and map out a clear path to scale your business.
+                 </p>
+               </div>
+             </div>
+
+             {/* Item 2 */}
+             <div className="flex items-start gap-4 group">
+               <div className="mt-1 w-12 h-12 rounded-lg bg-highlight/10 border border-highlight/20 flex items-center justify-center text-highlight shrink-0 group-hover:scale-110 group-hover:bg-highlight/20 transition-all shadow-[0_0_15px_rgba(var(--color-highlight),0.1)]">
+                  <Tag size={20} />
+               </div>
+               <div>
+                 <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-1.5">
+                   <h3 className="text-lg sm:text-xl font-display font-bold text-text-primary">15% Welcome Discount</h3>
+                   <span className="text-[9px] sm:text-[10px] font-mono font-bold text-highlight bg-highlight/10 px-2 py-0.5 rounded-sm border border-highlight/20">All Services</span>
+                 </div>
+                 <p className="text-sm text-text-secondary leading-relaxed">
+                   Partner with us for the first time and enjoy an exclusive 15% discount on your entire custom software or app development project.
+                 </p>
+               </div>
+             </div>
+
+             {/* Item 3 */}
+             <div className="flex items-start gap-4 group">
+               <div className="mt-1 w-12 h-12 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-500 shrink-0 group-hover:scale-110 group-hover:bg-emerald-500/20 transition-all shadow-[0_0_15px_rgba(16,185,129,0.1)]">
+                  <Cloud size={20} />
+               </div>
+               <div>
+                 <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-1.5">
+                   <h3 className="text-lg sm:text-xl font-display font-bold text-text-primary">Free Launch Setup</h3>
+                   <span className="text-[9px] sm:text-[10px] font-mono font-bold text-emerald-500 bg-emerald-500/10 px-2 py-0.5 rounded-sm border border-emerald-500/20">$1,500 Value</span>
+                 </div>
+                 <p className="text-sm text-text-secondary leading-relaxed">
+                   We will handle all the complex server hosting, domain configuration, and launch setup for free when you sign on for a full build.
+                 </p>
+               </div>
+             </div>
+          </div>
+        </div>
+      </section>
+
       {/* BOTTOM CTA */}
-      <section className={clsx('py-16', 'lg:py-24', 'px-4', 'sm:px-6', 'lg:px-8', 'max-w-7xl', 'mx-auto', 'relative', 'z-10')}>
-        <div className={clsx('relative', 'overflow-hidden', 'rounded-sm', 'border', 'border-border-primary', 'bg-bg-card/20', 'backdrop-blur-xl', 'p-8', 'sm:p-16', 'text-left', 'max-w-6xl', 'mx-auto', 'shadow-[0_30px_80px_var(--shadow-heavy)]', 'group')}>
+      <section className={clsx('py-12', 'lg:py-20', 'px-4', 'sm:px-6', 'lg:px-8', 'max-w-7xl', 'mx-auto', 'relative', 'z-10')}>
+        <div className={clsx('relative', 'overflow-hidden', 'rounded-sm', 'border', 'border-border-primary', 'bg-bg-card/20', 'backdrop-blur-xl', 'p-5', 'sm:p-10', 'lg:p-16', 'text-left', 'max-w-6xl', 'mx-auto', 'shadow-[0_30px_80px_var(--shadow-heavy)]', 'group')}>
 
           {/* background glows */}
           <div className={clsx('absolute', 'top-0', 'left-0', 'w-96', 'h-96', 'bg-accent/10', 'rounded-full', 'blur-[120px]', 'pointer-events-none', '-z-10', 'animate-pulse-slow')} />
@@ -1672,9 +1743,9 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: false, amount: 0.1 }}
               transition={{ duration: 0.6 }}
-              className={clsx('lg:col-span-7', 'space-y-6', 'text-center', 'lg:text-left')}
+              className={clsx('lg:col-span-7', 'space-y-6', 'text-left')}
             >
-              <span className={clsx('inline-flex', 'items-center', 'gap-1.5', 'text-[10px]', 'sm:text-xs', 'uppercase', 'tracking-[0.25em]', 'font-extrabold', 'text-highlight', 'bg-highlight/10', 'px-3', 'py-1.5', 'sm:px-4', 'sm:py-2', 'rounded-sm', 'border', 'border-highlight/20')}>
+              <span className={clsx('inline-flex', 'items-center', 'gap-1.5', 'text-xs', 'uppercase', 'tracking-[0.25em]', 'font-extrabold', 'text-highlight', 'bg-highlight/10', 'px-3.5', 'py-1.5', 'rounded-sm', 'border', 'border-highlight/20', 'mb-6')}>
                 <span className={clsx('w-1.5', 'h-1.5', 'rounded-full', 'bg-highlight', 'animate-pulse')} />
                 Let's Collaborate
               </span>
@@ -1686,18 +1757,18 @@ export default function Home() {
               </p>
 
               {/* Trust & SLA Badges */}
-              <div className={clsx('grid', 'grid-cols-1', 'sm:grid-cols-3', 'gap-4', 'sm:gap-6', 'pt-6', 'border-t', 'border-border-primary/60', 'text-center', 'lg:text-left')}>
+              <div className={clsx('grid', 'grid-cols-3', 'gap-2', 'sm:gap-6', 'pt-6', 'border-t', 'border-border-primary/60', 'text-left')}>
                 <div>
-                  <span className={clsx('block', 'text-[9px]', 'sm:text-[10px]', 'font-mono', 'text-text-secondary/60', 'uppercase', 'tracking-widest')}>SLA RESPONSE</span>
-                  <span className={clsx('block', 'text-xl', 'md:text-2xl', 'font-display', 'font-bold', 'text-text-primary', 'mt-1')}>&lt; 4 Hours</span>
+                  <span className={clsx('block', 'text-[8px]', 'sm:text-[10px]', 'font-mono', 'text-text-secondary/60', 'uppercase', 'tracking-widest')}>SLA RESPONSE</span>
+                  <span className={clsx('block', 'text-base', 'sm:text-xl', 'md:text-2xl', 'font-display', 'font-bold', 'text-text-primary', 'mt-1')}>&lt; 4 Hours</span>
                 </div>
                 <div>
-                  <span className={clsx('block', 'text-[9px]', 'sm:text-[10px]', 'font-mono', 'text-text-secondary/60', 'uppercase', 'tracking-widest')}>BLUEPRINT DELIVERY</span>
-                  <span className={clsx('block', 'text-xl', 'md:text-2xl', 'font-display', 'font-bold', 'text-text-primary', 'mt-1')}>48 Hours</span>
+                  <span className={clsx('block', 'text-[8px]', 'sm:text-[10px]', 'font-mono', 'text-text-secondary/60', 'uppercase', 'tracking-widest')}>DELIVERY</span>
+                  <span className={clsx('block', 'text-base', 'sm:text-xl', 'md:text-2xl', 'font-display', 'font-bold', 'text-text-primary', 'mt-1')}>48 Hours</span>
                 </div>
                 <div>
-                  <span className={clsx('block', 'text-[9px]', 'sm:text-[10px]', 'font-mono', 'text-text-secondary/60', 'uppercase', 'tracking-widest')}>CLIENT rating</span>
-                  <span className={clsx('block', 'text-xl', 'md:text-2xl', 'font-display', 'font-bold', 'text-emerald-400', 'mt-1')}>4.98/5.00</span>
+                  <span className={clsx('block', 'text-[8px]', 'sm:text-[10px]', 'font-mono', 'text-text-secondary/60', 'uppercase', 'tracking-widest')}>RATING</span>
+                  <span className={clsx('block', 'text-base', 'sm:text-xl', 'md:text-2xl', 'font-display', 'font-bold', 'text-emerald-400', 'mt-1')}>4.98/5.0</span>
                 </div>
               </div>
             </motion.div>
@@ -1717,8 +1788,8 @@ export default function Home() {
                 <div className={clsx('absolute', 'bottom-0', 'right-0', 'w-8', 'h-8', 'border-b-2', 'border-r-2', 'border-highlight/40', 'rounded-sm-br-lg')} />
 
                 <div className="mb-6">
-                  <span className={clsx('text-[9px]', 'sm:text-[10px]', 'font-mono', 'text-text-secondary/80', 'uppercase', 'tracking-widest', 'block', 'mb-3', 'text-center', 'sm:text-left')}>Select Project Category</span>
-                  <div className={clsx('grid', 'grid-cols-1', 'sm:grid-cols-2', 'gap-2', 'sm:gap-3')}>
+                  <span className={clsx('text-[9px]', 'sm:text-[10px]', 'font-mono', 'text-text-secondary/80', 'uppercase', 'tracking-widest', 'block', 'mb-3', 'text-left')}>Select Project Category</span>
+                  <div className={clsx('grid', 'grid-cols-2', 'gap-2', 'sm:gap-3')}>
                     {[
                       { id: 'saas', label: 'SaaS Platform', color: 'accent' },
                       { id: 'mobile', label: 'Mobile Apps', color: 'highlight' },
@@ -1728,13 +1799,13 @@ export default function Home() {
                       <button
                         key={tab.id}
                         onClick={() => setCtaCategory(tab.id)}
-                        className={`px-3 py-3 sm:px-4 sm:py-3.5 rounded-sm text-[11px] sm:text-xs font-bold text-left transition-all duration-300 border flex flex-row sm:flex-col justify-between sm:h-24 items-center sm:items-start relative overflow-hidden cursor-pointer ${ctaCategory === tab.id
+                        className={`p-3 sm:px-4 sm:py-3.5 rounded-sm text-[10px] sm:text-xs font-bold text-left transition-all duration-300 border flex flex-col justify-between h-auto min-h-[64px] sm:min-h-0 sm:h-24 items-start relative overflow-hidden cursor-pointer ${ctaCategory === tab.id
                           ? 'bg-accent border-accent text-white shadow-[0_0_15px_rgba(124,58,237,0.35)]'
                           : 'bg-bg-secondary/40 border-border-primary/80 text-text-secondary hover:text-text-primary hover:border-border-hover'
                           }`}
                       >
-                        <span className="block">{tab.label}</span>
-                        <div className={clsx('flex', 'justify-between', 'items-center', 'w-auto', 'sm:w-full', 'mt-0', 'sm:mt-2', 'gap-2')}>
+                        <span className={clsx('block', 'leading-tight')}>{tab.label}</span>
+                        <div className={clsx('flex', 'justify-between', 'items-center', 'w-full', 'mt-2', 'gap-2')}>
                           <span className={clsx('text-[8px]', 'font-mono', 'opacity-60', 'hidden', 'sm:block')}>
                             {tab.id === 'saas' && 'React / Node.js'}
                             {tab.id === 'mobile' && 'React Native'}

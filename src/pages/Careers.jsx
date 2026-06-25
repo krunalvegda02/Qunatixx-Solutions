@@ -16,7 +16,7 @@ export default function Careers() {
   const benefits = [
     { title: 'Remote-First Culture', desc: 'Work from anywhere in the world. We coordinate via async pipelines so you manage your own hours.', icon: Globe },
     { title: 'Health & Wellness', desc: 'Complete premium medical, dental, and vision coverages, alongside annual gym/fitness allowances.', icon: Heart },
-    { title: 'Continuous Learning', desc: '$2,000 annual budget for books, courses, code bootcamps, and technical conference tickets.', icon: BookOpen },
+    { title: 'Continuous Learning', desc: '₹2,000 annual budget for books, courses, code bootcamps, and technical conference tickets.', icon: BookOpen },
     { title: 'Premium Gear Setup', desc: 'We ship a brand new MacBook Pro, high-resolution monitor, and ergonomic desk gear stipend.', icon: Gift },
   ];
 
@@ -27,7 +27,7 @@ export default function Careers() {
       department: 'Frontend Engineering',
       location: 'Remote (US / Europe)',
       type: 'Full-time',
-      salary: '$130k - $160k + Equity',
+      salary: '₹130k - ₹160k + Equity',
       requirements: [
         '5+ years professional JavaScript/TypeScript and React experience.',
         'Deep understanding of Next.js server actions, routing models, and TailwindCSS.',
@@ -41,7 +41,7 @@ export default function Careers() {
       department: 'DevOps & Systems',
       location: 'Remote (Global)',
       type: 'Full-time',
-      salary: '$140k - $175k + Equity',
+      salary: '₹140k - ₹175k + Equity',
       requirements: [
         '4+ years architecting secure AWS infrastructure setups.',
         'Expert-level automation in Terraform, Kubernetes, and Docker environments.',
@@ -55,7 +55,7 @@ export default function Careers() {
       department: 'AI & Data Systems',
       location: 'Remote (Global)',
       type: 'Full-time',
-      salary: '$150k - $185k + Equity',
+      salary: '₹150k - ₹185k + Equity',
       requirements: [
         '3+ years implementing Large Language Model APIs (OpenAI, HuggingFace).',
         'Strong production coding skills in Python, FastAPI, and LangChain.',
@@ -69,7 +69,7 @@ export default function Careers() {
       department: 'Design System',
       location: 'Remote (US / Europe)',
       type: 'Full-time',
-      salary: '$110k - $140k',
+      salary: '₹110k - ₹140k',
       requirements: [
         '4+ years designing high-fidelity dashboards and desktop portals in Figma.',
         'Proven skill drafting structured, reusable Figma design libraries.',
@@ -103,7 +103,7 @@ export default function Careers() {
       <div className="absolute bottom-20 left-10 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[140px] pointer-events-none -z-10" />
 
       {/* Header */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16 text-center">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6 lg:pb-10 text-center">
         <span className="text-xs uppercase tracking-wider font-semibold text-accent">
           Join Our Mission
         </span>
@@ -117,7 +117,7 @@ export default function Careers() {
       </section>
 
       {/* Benefits Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 text-center">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-10 text-center">
         <div className="mb-16">
           <span className="text-xs uppercase tracking-wider font-semibold text-accent">Why Quantixx</span>
           <h2 className="text-3xl font-display font-bold text-text-primary mt-2">Work Culture & Benefits</h2>
@@ -140,7 +140,7 @@ export default function Careers() {
       </section>
 
       {/* Open Positions Accordion Grid */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 text-left">
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-10 text-left">
         <div className="text-center mb-16">
           <span className="text-xs uppercase tracking-wider font-semibold text-accent">Hiring Board</span>
           <h2 className="text-3xl font-display font-bold text-text-primary mt-2">Active Open Positions</h2>

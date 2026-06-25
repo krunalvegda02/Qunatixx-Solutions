@@ -12,14 +12,14 @@ export default function Contact() {
     name: '',
     email: '',
     company: '',
-    budget: '$25,000 - $50,000',
+    budget: '₹25,000 - ₹50,000',
     details: ''
   });
 
   const faqs = [
     {
       q: 'What is your typical project scope?',
-      a: 'We generally partner with companies on projects starting around $10,000 up to $100,000+. This includes complete scoping documents, full engineering sprints, and code handover.'
+      a: 'We generally partner with companies on projects starting around ₹10,000 up to ₹100,000+. This includes complete scoping documents, full engineering sprints, and code handover.'
     },
     {
       q: 'How long does a custom web or mobile development project take?',
@@ -57,7 +57,7 @@ export default function Contact() {
       </div>
 
       {/* Hero Section */}
-      <section className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'pt-8', 'sm:pt-12', 'pb-16', 'sm:pb-20', 'text-left', 'sm:text-center', 'relative', 'z-10')}>
+      <section className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'pb-6', 'lg:pb-10', 'text-left', 'sm:text-center', 'relative', 'z-10')}>
         <span className={clsx('inline-flex', 'items-center', 'gap-2', 'px-4', 'py-1.5', 'rounded-full', 'bg-bg-secondary/80', 'border', 'border-border-primary/80', 'text-sm', 'uppercase', 'tracking-[0.2em]', 'font-extrabold', 'text-accent', 'font-mono', 'mb-6', 'backdrop-blur-md', 'shadow-sm')}>
           <Zap size={14} className={clsx('text-highlight', 'animate-pulse')} />
           Get In Touch
@@ -77,7 +77,7 @@ export default function Contact() {
       </section>
 
       {/* Main Layout */}
-      <section className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'mb-20', 'sm:mb-32', 'text-left', 'relative', 'z-10')}>
+      <section className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'py-6', 'lg:py-10', 'text-left', 'relative', 'z-10')}>
         <div className={clsx('grid', 'grid-cols-1', 'lg:grid-cols-12', 'gap-8', 'lg:gap-12', 'items-start', 'font-sans')}>
           
           {/* Left Column: Bento Box Info */}
@@ -203,10 +203,10 @@ export default function Contact() {
                             onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
                             className={clsx('w-full', 'bg-bg-secondary', 'border', 'border-border-primary', 'focus:border-accent', 'focus:bg-bg-primary', 'rounded-xl', 'px-5', 'py-3.5', 'text-sm', 'text-text-primary', 'outline-none', 'transition-all', 'shadow-inner', 'appearance-none', 'cursor-pointer')}
                           >
-                            <option value="$10,000 - $25,000" className={clsx('bg-bg-card', 'text-text-primary')}>$10,000 - $25,000</option>
-                            <option value="$25,000 - $50,000" className={clsx('bg-bg-card', 'text-text-primary')}>$25,000 - $50,000</option>
-                            <option value="$50,000 - $100,000" className={clsx('bg-bg-card', 'text-text-primary')}>$50,000 - $100,000</option>
-                            <option value="$100,000+" className={clsx('bg-bg-card', 'text-text-primary')}>$100,000+</option>
+                            <option value="₹10,000 - ₹25,000" className={clsx('bg-bg-card', 'text-text-primary')}>₹10,000 - ₹25,000</option>
+                            <option value="₹25,000 - ₹50,000" className={clsx('bg-bg-card', 'text-text-primary')}>₹25,000 - ₹50,000</option>
+                            <option value="₹50,000 - ₹100,000" className={clsx('bg-bg-card', 'text-text-primary')}>₹50,000 - ₹100,000</option>
+                            <option value="₹100,000+" className={clsx('bg-bg-card', 'text-text-primary')}>₹100,000+</option>
                           </select>
                           <ChevronDown size={16} className={clsx('absolute', 'right-5', 'top-1/2', '-translate-y-1/2', 'text-text-muted', 'pointer-events-none')} />
                         </div>
@@ -266,7 +266,7 @@ export default function Contact() {
       </section>
 
       {/* Premium FAQ Section */}
-      <section className={clsx('max-w-4xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'text-left', 'relative', 'z-10', 'mb-16', 'sm:mb-20')}>
+      <section className={clsx('max-w-4xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'text-left', 'relative', 'z-10', 'py-8', 'lg:py-12', 'mb-8', 'lg:mb-12')}>
         <div className={clsx('text-center', 'mb-12', 'sm:mb-16')}>
           <span className={clsx('inline-flex', 'items-center', 'gap-2', 'px-4', 'py-1.5', 'rounded-full', 'bg-bg-secondary/80', 'border', 'border-border-primary/80', 'text-sm', 'uppercase', 'tracking-[0.2em]', 'font-extrabold', 'text-accent', 'font-mono', 'mb-6', 'backdrop-blur-md', 'shadow-sm')}>
             <HelpCircle size={14} className={clsx('text-highlight', 'animate-pulse')} />

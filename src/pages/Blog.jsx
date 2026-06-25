@@ -33,7 +33,7 @@ export default function Blog() {
       </div>
 
       {/* Header */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-10 sm:pb-16 text-left sm:text-center relative z-10">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6 lg:pb-10 text-left sm:text-center relative z-10">
         <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-bg-secondary/80 border border-border-primary text-xs sm:text-sm uppercase tracking-[0.2em] font-extrabold text-accent font-mono mb-4 sm:mb-6 backdrop-blur-md">
           <Sparkles size={14} className="text-highlight animate-pulse" />
           Quantixx Insights
@@ -53,7 +53,7 @@ export default function Blog() {
       </section>
 
       {/* Search and Category Filters */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 sm:mb-16 relative z-10">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-10 relative z-10">
         <div className="glass-card bg-bg-card/40 backdrop-blur-md border border-border-primary rounded-2xl p-3 sm:p-4 flex flex-col lg:flex-row lg:items-center justify-between gap-4 sm:gap-6 shadow-xl">
           
           {/* Categories select tabs */}
@@ -93,7 +93,7 @@ export default function Blog() {
       </section>
 
       {/* Blog Display Area */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-10 relative z-10">
         {filteredPosts.length > 0 ? (
           <div className="space-y-6 sm:space-y-8 lg:space-y-10">
             

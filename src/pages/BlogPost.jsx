@@ -111,7 +111,7 @@ export default function BlogPost() {
         style={{ scaleX }}
       />
       
-      <div className="relative pt-32 pb-32 bg-bg-primary text-text-primary theme-transition min-h-screen">
+      <div className="relative pt-24 sm:pt-32 pb-16 sm:pb-32 bg-bg-primary text-text-primary theme-transition min-h-screen">
       
       {/* Ambient Glows */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
@@ -136,36 +136,36 @@ export default function BlogPost() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="glass-card border border-white/[0.05] bg-bg-card/30 backdrop-blur-2xl rounded-sm p-8 sm:p-12 mb-16 shadow-2xl relative overflow-hidden"
+          className="glass-card border border-white/[0.05] bg-bg-card/30 backdrop-blur-2xl rounded-sm p-5 sm:p-8 md:p-12 mb-10 sm:mb-16 shadow-2xl relative overflow-hidden"
         >
           {/* Internal Glow */}
           <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-highlight/10 rounded-full blur-[80px] pointer-events-none -z-10" />
 
           {post.image && (
-            <div className="w-full aspect-[21/9] sm:aspect-[3/1] rounded-sm overflow-hidden mb-10 border border-white/[0.05] shadow-lg relative group">
+            <div className="w-full aspect-[16/9] sm:aspect-[3/1] rounded-sm overflow-hidden mb-6 sm:mb-10 border border-white/[0.05] shadow-lg relative group">
                <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
                <div className="absolute inset-0 bg-gradient-to-t from-bg-card/40 to-transparent pointer-events-none" />
             </div>
           )}
 
-          <div className="flex items-center gap-4 text-xs text-text-secondary mb-6 font-mono">
-            <span className="flex items-center gap-1.5 px-3 py-1 rounded-sm bg-accent/10 text-accent uppercase tracking-widest font-bold border border-accent/20">
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-[10px] sm:text-xs text-text-secondary mb-4 sm:mb-6 font-mono">
+            <span className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-sm bg-accent/10 text-accent uppercase tracking-widest font-bold border border-accent/20">
               <Tag size={12} /> {post.category}
             </span>
             <span className="flex items-center gap-1.5"><Calendar size={12} /> {post.date}</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold text-text-primary tracking-tight leading-[1.15] mb-8">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-text-primary tracking-tight leading-[1.15] mb-6 sm:mb-8">
             {post.title}
           </h1>
 
-          <div className="flex items-center gap-4 pt-8 border-t border-border-primary/50">
-            <div className="w-12 h-12 rounded-sm border border-border-primary bg-gradient-to-tr from-accent/20 to-highlight/20 flex items-center justify-center font-display font-bold text-lg text-text-primary">
+          <div className="flex items-center gap-4 pt-6 sm:pt-8 border-t border-border-primary/50">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 rounded-sm border border-border-primary bg-gradient-to-tr from-accent/20 to-highlight/20 flex items-center justify-center font-display font-bold text-base sm:text-lg text-text-primary">
               {post.author.split(' ').pop().charAt(0)}
             </div>
             <div>
-              <span className="block text-base font-bold text-text-primary">{post.author}</span>
-              <span className="block text-xs text-text-muted font-mono uppercase tracking-wider flex items-center gap-1 mt-1">
+              <span className="block text-sm sm:text-base font-bold text-text-primary">{post.author}</span>
+              <span className="block text-[10px] sm:text-xs text-text-muted font-mono uppercase tracking-wider flex items-center gap-1 mt-0.5 sm:mt-1">
                 <Clock size={12} /> {post.readTime}
               </span>
             </div>
@@ -173,7 +173,7 @@ export default function BlogPost() {
         </motion.div>
 
         {/* Content & Sidebar Grid */}
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 sm:gap-16 relative">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-16 relative">
           
           {/* Sticky Executive Summary Sidebar (Left) */}
           <div className="hidden lg:block lg:col-span-3 relative">
@@ -218,7 +218,7 @@ export default function BlogPost() {
             className="lg:col-span-9 font-sans max-w-4xl"
           >
             {/* Intro description */}
-            <p className="text-xl text-text-primary font-light leading-relaxed mb-12 pb-12 border-b border-border-primary/50">
+            <p className="text-lg sm:text-xl text-text-primary font-light leading-relaxed mb-8 sm:mb-12 pb-8 sm:pb-12 border-b border-border-primary/50">
               {post.desc}
             </p>
 
