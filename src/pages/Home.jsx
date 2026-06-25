@@ -551,7 +551,7 @@ export default function Home() {
                 {["Web Engineering", "Mobile Platforms", "AI Integration", "Cloud Ops", "SaaS Infrastructure", "UI/UX Systems"].map((item, i) => (
                   <span
                     key={i}
-                    className={clsx('px-3.5', 'py-1.5', 'rounded-sm', 'text-xs', 'font-medium', 'bg-bg-secondary/40', 'border', 'border-border-primary', 'text-text-secondary', 'select-none')}
+                    className={clsx('flex-1', 'text-center', 'px-3.5', 'py-1.5', 'rounded-sm', 'text-xs', 'font-medium', 'bg-bg-secondary/40', 'border', 'border-border-primary', 'text-text-secondary', 'select-none')}
                   >
                     {item}
                   </span>

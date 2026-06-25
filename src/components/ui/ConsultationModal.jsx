@@ -38,7 +38,7 @@ export default function ConsultationModal() {
   return (
     <AnimatePresence>
       {isModalOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-0 sm:p-4">
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -54,7 +54,7 @@ export default function ConsultationModal() {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.95, opacity: 0, y: 20 }}
             transition={{ type: 'spring', damping: 25, stiffness: 350 }}
-            className="relative w-full max-w-2xl bg-bg-elevated border border-border-primary rounded-sm overflow-hidden z-10 shadow-[0_30px_70px_var(--shadow-heavy)] theme-transition font-sans"
+            className="relative w-full max-w-2xl h-full sm:h-auto max-h-[100dvh] sm:max-h-[90vh] bg-bg-elevated border-0 sm:border border-border-primary rounded-none sm:rounded-sm overflow-y-auto z-10 shadow-[0_30px_70px_var(--shadow-heavy)] theme-transition font-sans flex flex-col"
           >
             {/* Top Glow bar */}
             <div className="h-1.5 w-full bg-accent" />
@@ -148,7 +148,7 @@ export default function ConsultationModal() {
                     <label className="block text-xs font-semibold text-text-secondary uppercase tracking-wider mb-2">
                       Estimated Budget Range
                     </label>
-                    <div className="grid grid-cols-3 gap-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                       {['$10k - $25k', '$25k - $50k', '$50k - $100k+'].map((budgetOption) => (
                         <button
                           key={budgetOption}
@@ -179,14 +179,14 @@ export default function ConsultationModal() {
                     />
                   </div>
 
-                  <div className="flex items-center justify-between pt-2 border-t border-border-primary">
-                    <div className="flex items-center gap-2 text-xs text-text-secondary">
+                  <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-border-primary">
+                    <div className="flex items-center gap-2 text-xs text-text-secondary order-2 sm:order-1">
                       <Clock size={14} className="text-accent" />
                       <span>Response within 4 business hours</span>
                     </div>
                     <button
                       type="submit"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-sm text-sm font-semibold bg-accent hover:bg-accent-hover text-white shadow-[0_0_20px_var(--accent-glow)] transition-all cursor-pointer"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-sm text-sm font-semibold bg-accent hover:bg-accent-hover text-white shadow-[0_0_20px_var(--accent-glow)] transition-all cursor-pointer order-1 sm:order-2"
                     >
                       <span>Submit Request</span>
                       <Send size={14} />

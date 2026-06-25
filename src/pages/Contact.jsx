@@ -57,7 +57,7 @@ export default function Contact() {
       </div>
 
       {/* Hero Section */}
-      <section className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'pt-8', 'sm:pt-12', 'pb-16', 'sm:pb-20', 'text-center', 'relative', 'z-10')}>
+      <section className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'pt-8', 'sm:pt-12', 'pb-16', 'sm:pb-20', 'text-left', 'sm:text-center', 'relative', 'z-10')}>
         <span className={clsx('inline-flex', 'items-center', 'gap-2', 'px-4', 'py-1.5', 'rounded-full', 'bg-bg-secondary/80', 'border', 'border-border-primary/80', 'text-sm', 'uppercase', 'tracking-[0.2em]', 'font-extrabold', 'text-accent', 'font-mono', 'mb-6', 'backdrop-blur-md', 'shadow-sm')}>
           <Zap size={14} className={clsx('text-highlight', 'animate-pulse')} />
           Get In Touch
@@ -72,7 +72,7 @@ export default function Contact() {
         />
         <AnimatedSubText 
           text="Reach out to discuss your project. We'll work with you to understand your goals and map out a clear plan to bring your vision to life."
-          className={clsx('text-text-secondary', 'text-base', 'sm:text-lg', 'max-w-2xl', 'mx-auto', 'mt-6', 'leading-relaxed', 'font-sans', 'font-medium')}
+          className={clsx('text-text-secondary', 'text-base', 'sm:text-lg', 'max-w-2xl', 'sm:mx-auto', 'mt-6', 'leading-relaxed', 'font-sans', 'font-medium', 'text-left', 'sm:text-center')}
         />
       </section>
 

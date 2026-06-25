@@ -41,7 +41,7 @@ export const AnimatedText = ({ segments, className = "", as: Component = "h1", d
                       ))}
                     </span>
                   )}
-                  {wIdx < words.length - 1 && <span className="inline-block whitespace-pre">{" "}</span>}
+                  {wIdx < words.length - 1 && " "}
                 </React.Fragment>
               ))}
             </span>

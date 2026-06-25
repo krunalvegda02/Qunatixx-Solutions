@@ -155,7 +155,7 @@ export default function Services() {
       <div className="absolute top-[45%] left-[-15%] w-[600px] h-[600px] bg-gradient-to-tr from-highlight/5 to-accent/5 rounded-full blur-[150px] pointer-events-none -z-10" />
 
       {/* 1. HERO HEADER FOLD */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 text-center relative z-10">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 text-left sm:text-center relative z-10">
         <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.08] text-sm uppercase tracking-[0.2em] font-extrabold text-accent font-mono mb-6 backdrop-blur-md">
           <Cpu size={14} className="text-highlight animate-pulse" />
           Core Capabilities
@@ -166,11 +166,11 @@ export default function Services() {
             { text: "Software Solutions Built to " },
             { text: "Grow Your Business", className: "accent-text-gradient" }
           ]}
-          className="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold text-text-primary mt-4 max-w-4xl mx-auto leading-tight tracking-tight text-balance"
+          className="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold text-text-primary mt-4 max-w-4xl sm:mx-auto leading-tight tracking-tight text-balance"
         />
         <AnimatedSubText 
           text="Explore our range of services. We partner with you to build reliable software, intelligent AI tools, and beautiful web applications that solve real challenges."
-          className="text-sm sm:text-base text-text-secondary max-w-2xl mx-auto mt-5 leading-relaxed font-light font-sans text-balance"
+          className="text-sm sm:text-base text-text-secondary max-w-2xl sm:mx-auto mt-5 leading-relaxed font-light font-sans text-balance text-left sm:text-center"
         />
 
         {/* Dynamic Category Filters & Interactive Search Control Center */}

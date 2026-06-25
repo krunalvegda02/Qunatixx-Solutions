@@ -33,7 +33,7 @@ export default function Blog() {
       </div>
 
       {/* Header */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-10 sm:pb-16 text-center relative z-10">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-10 sm:pb-16 text-left sm:text-center relative z-10">
         <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-bg-secondary/80 border border-border-primary text-xs sm:text-sm uppercase tracking-[0.2em] font-extrabold text-accent font-mono mb-4 sm:mb-6 backdrop-blur-md">
           <Sparkles size={14} className="text-highlight animate-pulse" />
           Quantixx Insights
@@ -48,7 +48,7 @@ export default function Blog() {
         />
         <AnimatedSubText 
           text="Helpful articles, guides, and stories from our team to help you make the best decisions for your business."
-          className="text-text-secondary text-sm sm:text-base md:text-lg max-w-2xl mx-auto mt-4 sm:mt-6 leading-relaxed font-sans font-medium px-4"
+          className="text-text-secondary text-sm sm:text-base md:text-lg max-w-2xl sm:mx-auto mt-4 sm:mt-6 leading-relaxed font-sans font-medium px-4 text-left sm:text-center"
         />
       </section>
 

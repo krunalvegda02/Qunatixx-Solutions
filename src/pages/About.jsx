@@ -9,17 +9,17 @@ export default function About() {
   const { openModal } = useModal();
 
   const values = [
-    { title: 'Technical Integrity', desc: 'We build clean, reliable software designed to grow with your business and withstand heavy traffic without failing.', icon: Cpu },
-    { title: 'Absolute Transparency', desc: 'No guesswork. You get direct access to our testing servers, daily updates, and a dedicated Slack channel with the development team.', icon: Shield },
-    { title: 'Security First', desc: 'We build best-in-class security and compliance measures directly into our workflows from day one to keep your data safe.', icon: Key },
-    { title: 'True Partnership', desc: 'We act as your dedicated technical partners. You work directly with the experts who are building your systems.', icon: Users },
+    { title: 'Technical Integrity', desc: 'We build clean, reliable software designed to grow with your business and never let you down.', icon: Cpu },
+    { title: 'Absolute Transparency', desc: 'No guesswork or hidden fees. You get full access to our work, daily progress updates, and a direct line to our team.', icon: Shield },
+    { title: 'Security First', desc: 'We build industry-leading security and compliance measures directly into our workflows from day one to keep your data completely safe.', icon: Key },
+    { title: 'True Partnership', desc: 'We act as your dedicated technical partners. You work directly with the experts who are building your systems, ensuring your vision is perfectly realized.', icon: Users },
   ];
 
   const playbook = [
-    { step: '01', title: 'Consultation & Mutual NDA', desc: 'We sign mutual NDAs to protect your ideas. We then review your challenges and deliver a free, detailed project blueprint within 48 hours.' },
-    { step: '02', title: 'Direct Communication', desc: 'No account managers or sales layers. You communicate directly via Slack with the engineers building your product, with daily updates.' },
-    { step: '03', title: 'Continuous Review', desc: 'We work in rapid cycles. You get access to testing environments so you can review the product live as we build it.' },
-    { step: '04', title: '100% IP Ownership', desc: 'Upon launch, we hand over complete ownership of all code, servers, and documentation so you are never locked in.' }
+    { step: '01', title: 'Consultation & Mutual NDA', desc: 'We sign an NDA immediately to protect your ideas. Then, we listen to your needs and provide a free, detailed project roadmap.' },
+    { step: '02', title: 'Direct Communication', desc: 'You communicate directly with the engineers building your product. We keep you in the loop with daily updates—no account managers, no delays.' },
+    { step: '03', title: 'Continuous Review', desc: 'We build in rapid, visible stages. You get live access to test and review your product as we build it, ensuring it meets your exact vision.' },
+    { step: '04', title: '100% IP Ownership', desc: 'You own everything. Upon launch, we hand over complete ownership of all code, servers, and assets. No vendor lock-in, ever.' }
   ];
 
   const leadership = [
@@ -68,7 +68,7 @@ export default function About() {
       {/* 1. HERO HEADER FOLD */}
       <div className={clsx('relative', 'w-full', 'bg-gradient-to-b', 'from-bg-primary', 'to-bg-secondary/30', 'pt-14', 'pb-32', 'sm:pb-48', 'border-b', 'border-border-primary/50')}>
         <div className={clsx('absolute', 'bottom-0', 'left-1/2', '-translate-x-1/2', 'w-3/4', 'h-[1px]', 'bg-gradient-to-r', 'from-transparent', 'via-accent/40', 'to-transparent')} />
-        <section className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'text-center', 'relative', 'z-10')}>
+        <section className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'text-left', 'sm:text-center', 'relative', 'z-10')}>
           <span className={clsx('inline-flex', 'items-center', 'gap-2', 'px-4', 'py-1.5', 'rounded-full', 'bg-white/[0.03]', 'border', 'border-white/[0.08]', 'text-sm', 'uppercase', 'tracking-[0.2em]', 'font-extrabold', 'text-accent', 'font-mono', 'mb-6', 'backdrop-blur-md')}>
             <Globe size={14} className={clsx('text-highlight', 'animate-pulse')} />
             Company Profile
@@ -76,14 +76,14 @@ export default function About() {
           <AnimatedText 
             as="h1"
             segments={[
-              { text: "Senior Engineers Building for " },
-              { text: "Reliability & Scale", className: "accent-text-gradient" }
+              { text: "Your Dedicated Team of " },
+              { text: "Software Engineering Partners", className: "accent-text-gradient" }
             ]}
-            className={clsx('text-4xl', 'sm:text-5xl', 'lg:text-6xl', 'font-display', 'font-extrabold', 'text-text-primary', 'mt-4', 'max-w-4xl', 'mx-auto', 'leading-tight', 'tracking-tight', 'text-balance')}
+            className={clsx('text-4xl', 'sm:text-5xl', 'lg:text-6xl', 'font-display', 'font-extrabold', 'text-text-primary', 'mt-4', 'max-w-4xl', 'sm:mx-auto', 'leading-tight', 'tracking-tight', 'text-balance')}
           />
           <AnimatedSubText 
-            text="We are a remote-first, virtual systems engineering studio. We partner with teams globally to deploy secure software architectures, cloud infrastructures, and automated AI workflows."
-            className={clsx('text-sm', 'sm:text-base', 'text-text-secondary', 'max-w-2xl', 'mx-auto', 'mt-5', 'leading-relaxed', 'font-light', 'font-sans', 'text-balance', 'text-center')}
+            text="We are an expert team of software engineers dedicated to turning your complex challenges into scalable, secure, and intuitive digital solutions. We prioritize your success and peace of mind over everything else."
+            className={clsx('text-sm', 'sm:text-base', 'text-text-secondary', 'max-w-2xl', 'sm:mx-auto', 'mt-5', 'leading-relaxed', 'font-light', 'font-sans', 'text-balance', 'text-left', 'sm:text-center')}
           />
         </section>
       </div>
@@ -167,10 +167,10 @@ export default function About() {
           >
             <h2 className={clsx('text-2xl', 'sm:text-3xl', 'font-display', 'font-bold', 'text-text-primary')}>Our Story & Core Philosophy</h2>
             <p className={clsx('text-xs', 'sm:text-sm', 'text-text-secondary', 'leading-relaxed', 'font-light')}>
-              We founded Quantixx as a virtual, remote-first systems lab to solve the biggest bottleneck in product development: agency communication black holes and brittle architectures. By keeping our team lightweight and engineer-focused, we work directly on your codebase with zero administrative overhead.
+              We founded Quantixx to solve the biggest frustrations in product development: unreliable communication, hidden fees, and poorly built software. By eliminating middlemen, we ensure you work directly with the experts building your product, saving you time, money, and frustration.
             </p>
             <p className={clsx('text-xs', 'sm:text-sm', 'text-text-secondary', 'leading-relaxed', 'font-light')}>
-              We focus entirely on software craftsmanship, clean code architecture, and transparent communication. By operating virtually, we collaborate with builders and enterprises worldwide, delivering high-performance platforms that scale effortlessly.
+              We focus entirely on delivering high-quality software and maintaining complete transparency with you every step of the way. When you succeed, we succeed.
             </p>
             <motion.div 
               whileHover={{ scale: 1.01 }}
@@ -181,7 +181,7 @@ export default function About() {
                 <Flame size={18} />
               </div>
               <span className={clsx('text-xs', 'text-text-secondary', 'leading-relaxed', 'font-light')}>
-                "Our mission is simple: design and engineer software that stands the test of high-traffic scale and operates securely under any load."
+                "Our mission is simple: design and engineer software that solves your most complex problems, operates securely, and helps your business thrive."
               </span>
             </motion.div>
           </motion.div>
@@ -201,7 +201,7 @@ export default function About() {
               <div className={clsx('w-10', 'h-10', 'rounded-lg', 'bg-accent/10', 'text-accent', 'flex', 'items-center', 'justify-center', 'mb-4', 'group-hover:scale-110', 'transition-transform')}><Target size={20} /></div>
               <h3 className={clsx('text-lg', 'font-bold', 'text-text-primary', 'mb-2', 'font-display')}>Our Mission</h3>
               <p className={clsx('text-xs', 'sm:text-sm', 'text-text-secondary', 'leading-relaxed', 'font-light')}>
-                To engineer custom software architectures and deploy integrations that accelerate enterprise operational speed, improve security barriers, and drive measurable revenue lifts.
+                To build robust, intuitive software solutions that solve your biggest operational challenges, secure your data, and help your business grow faster.
               </p>
             </motion.div>
 
@@ -218,7 +218,7 @@ export default function About() {
               <div className={clsx('w-10', 'h-10', 'rounded-lg', 'bg-highlight/10', 'text-highlight', 'flex', 'items-center', 'justify-center', 'mb-4', 'group-hover:scale-110', 'transition-transform')}><Shield size={20} /></div>
               <h3 className={clsx('text-lg', 'font-bold', 'text-text-primary', 'mb-2', 'font-display')}>Our Vision</h3>
               <p className={clsx('text-xs', 'sm:text-sm', 'text-text-secondary', 'leading-relaxed', 'font-light')}>
-                To be the primary global technology partner trusted by enterprise businesses to solve complex structural automation, software engineering, and AI integration tasks.
+                To be the most trusted technology partner for businesses worldwide, known for our technical excellence, transparent communication, and unwavering commitment to client success.
               </p>
             </motion.div>
           </div>
