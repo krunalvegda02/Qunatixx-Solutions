@@ -16,7 +16,7 @@ export default function Footer() {
 
   return (
     <footer className={clsx('relative', 'bg-bg-secondary/50', 'backdrop-blur-2xl', 'border-t', 'border-border-primary', 'pt-16', 'sm:pt-20', 'pb-10', 'sm:pb-12', 'overflow-hidden', 'theme-transition', 'font-sans')}>
-      
+
       {/* Subtle Grid overlay */}
       <div className={clsx('absolute', 'inset-0', 'bg-[linear-gradient(rgba(255,255,255,0.003)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.003)_1px,transparent_1px)]', 'bg-[size:40px_40px]', 'pointer-events-none', 'opacity-35')} />
 
@@ -25,10 +25,10 @@ export default function Footer() {
       <div className={clsx('absolute', 'bottom-0', 'right-1/4', 'w-[600px]', 'h-[600px]', 'bg-highlight/3', 'rounded-full', 'blur-[150px]', 'pointer-events-none', '-z-10')} />
 
       <div className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'relative', 'z-10')}>
-        
+
         {/* Upper Footer: Main Sitemap Columns */}
         <div className={clsx('grid', 'grid-cols-1', 'sm:grid-cols-2', 'lg:grid-cols-12', 'gap-10', 'lg:gap-12', 'pb-12', 'sm:pb-16', 'border-b', 'border-border-primary/60')}>
-          
+
           {/* Column 1: Brand Info & Compliance Badges (col-span-5) */}
           <div className={clsx('lg:col-span-5', 'space-y-6')}>
             <Link to="/" className={clsx('flex', 'items-center', 'gap-2.5', 'group')}>
@@ -40,7 +40,7 @@ export default function Footer() {
                 <span className={clsx('block', 'text-[8px]', 'uppercase', 'tracking-[0.28em]', 'text-highlight', 'font-bold', '-mt-0.5')}>Solutions</span>
               </div>
             </Link>
-            
+
             <p className={clsx('text-base', 'text-text-secondary', 'max-w-sm', 'leading-relaxed', 'font-sans')}>
               Engineering enterprise-grade software products, bespoke cloud infrastructures, and custom digital platforms built under compliance-ready structures.
             </p>
@@ -57,13 +57,12 @@ export default function Footer() {
                   { name: 'GDPR Compliant', active: true },
                   { name: 'HIPAA Ready', active: false }
                 ].map((badge, idx) => (
-                  <span 
+                  <span
                     key={idx}
-                    className={`shrink-0 px-3 py-1.5 rounded-sm text-xs font-mono font-medium border flex items-center gap-2 ${
-                      badge.active 
-                        ? 'bg-bg-secondary/60 border-border-primary/80 text-text-secondary' 
+                    className={`shrink-0 px-3 py-1.5 rounded-sm text-xs font-mono font-medium border flex items-center gap-2 ${badge.active
+                        ? 'bg-bg-secondary/60 border-border-primary/80 text-text-secondary'
                         : 'bg-transparent border-dashed border-border-primary/40 text-text-muted'
-                    }`}
+                      }`}
                   >
                     <ShieldCheck size={12} className={badge.active ? 'text-highlight' : 'text-text-muted'} />
                     {badge.name}
@@ -169,11 +168,11 @@ export default function Footer() {
                 ].map((social, idx) => {
                   const Icon = social.icon;
                   return (
-                    <a 
+                    <a
                       key={idx}
-                      href={social.url} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className={clsx('p-2.5', 'bg-bg-secondary/40', 'hover:bg-accent/10', 'border', 'border-border-primary', 'hover:border-accent/40', 'text-text-secondary', 'hover:text-accent', 'rounded-sm', 'transition-all', 'flex', 'items-center', 'justify-center', 'shadow-sm')}
                       aria-label={social.label}
                     >
@@ -189,7 +188,7 @@ export default function Footer() {
 
         {/* Lower Footer: Copyright, Status Indicator, Legal Links */}
         <div className={clsx('flex', 'flex-col', 'lg:flex-row', 'justify-between', 'items-center', 'gap-6', 'pt-10', 'sm:pt-12', 'text-xs', 'sm:text-sm', 'text-text-secondary/80')}>
-          
+
           {/* Copyright & Core Location */}
           <div className={clsx('flex', 'flex-col', 'sm:flex-row', 'items-center', 'gap-4', 'text-center', 'lg:text-left', 'order-3', 'lg:order-1')}>
             <span>
@@ -197,11 +196,7 @@ export default function Footer() {
             </span>
           </div>
 
-          {/* Location / Status Indicator */}
-          <div className={clsx('flex', 'items-center', 'gap-2', 'text-text-secondary', 'text-[10px]', 'sm:text-xs', 'font-medium', 'px-3', 'py-1.5', 'rounded-full', 'bg-highlight/10', 'border', 'border-highlight/20', 'order-1', 'lg:order-2')}>
-            <MapPin size={12} className="text-highlight" />
-            <span>San Francisco, CA HQ</span>
-          </div>
+       
 
           {/* Quick Legal links */}
           <div className={clsx('flex', 'flex-wrap', 'justify-center', 'gap-4', 'sm:gap-6', 'font-medium', 'text-xs', 'sm:text-sm', 'order-2', 'lg:order-3')}>

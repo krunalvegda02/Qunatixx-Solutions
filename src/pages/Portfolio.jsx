@@ -3,13 +3,19 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { AnimatedText } from '../components/animations/AnimatedText';
 import { AnimatedSubText } from '../components/animations/AnimatedSubText';
 import { Counter } from '../components/animations/Counter';
-import { 
-  Filter, Calendar, BarChart3, Settings, ShieldCheck, ArrowUpRight, X, Clock, 
-  HelpCircle, Lightbulb, CheckCircle2, Search, Cpu, Database, Terminal, 
+import {
+  Filter, Calendar, BarChart3, Settings, ShieldCheck, ArrowUpRight, X, Clock,
+  HelpCircle, Lightbulb, CheckCircle2, Search, Cpu, Database, Terminal,
   Activity, Sparkles, TrendingUp, Target
 } from 'lucide-react';
 import { useModal } from '../context/ModalContext';
 import clsx from 'clsx';
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } }
+};
+
 
 const ProjectMockup = ({ projectId }) => {
   return (
@@ -74,7 +80,7 @@ const ProjectMockup = ({ projectId }) => {
           <div className={clsx('flex', 'items-center', 'justify-between', 'my-auto', 'py-1', 'text-[7px]', 'font-mono', 'relative')}>
             <div className={clsx('absolute', 'left-6', 'right-6', 'top-1/2', '-translate-y-1/2', 'h-0.5', 'bg-border-primary', '-z-10')} />
             <div className={clsx('absolute', 'left-[30%]', 'right-[30%]', 'top-1/2', '-translate-y-1/2', 'h-0.5', 'bg-gradient-to-r', 'from-accent', 'to-highlight', '-z-10')} />
-            
+
             <div className={clsx('flex', 'flex-col', 'items-center', 'gap-0.5')}>
               <div className={clsx('w-7', 'h-7', 'rounded-md', 'bg-bg-primary', 'border', 'border-border-primary', 'flex', 'items-center', 'justify-center', 'text-xs')}>
                 📄
@@ -253,7 +259,7 @@ export default function Portfolio() {
 
   const filteredProjects = projects.filter(project => {
     const matchesFilter = selectedFilter === 'All' || project.category.includes(selectedFilter);
-    const matchesSearch = 
+    const matchesSearch =
       project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       project.shortDesc.toLowerCase().includes(searchQuery.toLowerCase()) ||
       project.techStack.some(tech => tech.toLowerCase().includes(searchQuery.toLowerCase())) ||
@@ -294,7 +300,7 @@ export default function Portfolio() {
           } else {
             setHoveredCard(null);
           }
-          
+
           ticking = false;
         });
         ticking = true;
@@ -303,7 +309,7 @@ export default function Portfolio() {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('touchmove', handleScroll, { passive: true });
-    
+
     // Initial check
     handleScroll();
 
@@ -313,45 +319,71 @@ export default function Portfolio() {
     };
   }, [filteredProjects]);
 
-return (
-    <div className={clsx('relative', 'overflow-hidden', 'bg-bg-primary', 'text-text-primary', 'theme-transition', 'bg-grid-tech', 'pt-28', 'pb-16', 'min-h-screen')}>
-      
-      {/* Ambient background glows */}
-      <div className={clsx('absolute', 'top-[8%]', 'right-[-12%]', 'w-[500px]', 'h-[500px]', 'bg-gradient-to-br', 'from-accent/5', 'to-highlight/5', 'rounded-full', 'blur-[140px]', 'pointer-events-none', '-z-10', 'animate-pulse-slow')} />
-      <div className={clsx('absolute', 'top-[45%]', 'left-[-15%]', 'w-[600px]', 'h-[600px]', 'bg-gradient-to-tr', 'from-highlight/5', 'to-accent/5', 'rounded-full', 'blur-[150px]', 'pointer-events-none', '-z-10')} />
+  return (
+    <motion.div
+      className={clsx('relative', 'overflow-hidden', 'bg-bg-primary', 'text-text-primary', 'theme-transition', 'pt-28', 'pb-0', 'min-h-screen')}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
 
-      {/* 1. HERO HEADER FOLD */}
-      <section className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'pb-6', 'lg:pb-10', 'text-left', 'sm:text-center', 'relative', 'z-10', 'flex', 'flex-col', 'items-start', 'sm:items-center', 'justify-center', 'min-h-[35vh]', 'lg:min-h-[45vh]')}>
+      {/* ── PROFESSIONAL HERO ── */}
+      <section className={clsx('relative', 'pt-16', 'pb-12', 'lg:pt-20', 'lg:pb-12', 'overflow-hidden', 'border-b', 'border-border-primary/50', 'bg-bg-secondary/20')}>
         
-        {/* Extra intense glows specifically for hero focal point */}
-        <div className={clsx('absolute', 'top-1/2', 'left-1/2', '-translate-x-1/2', '-translate-y-1/2', 'w-[80vw]', 'sm:w-[500px]', 'h-[300px]', 'bg-accent/15', 'rounded-full', 'blur-[100px]', 'pointer-events-none', '-z-10')} />
-        
+        {/* Animated grid background */}
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <span className={clsx('inline-flex', 'items-center', 'gap-2', 'px-3', 'sm:px-4', 'py-1.5', 'sm:py-2', 'rounded-full', 'bg-accent/5', 'border', 'border-accent/20', 'text-[10px]', 'sm:text-xs', 'uppercase', 'tracking-[0.2em]', 'font-extrabold', 'text-accent', 'font-mono', 'mb-6', 'sm:mb-8', 'backdrop-blur-md', 'shadow-[0_0_20px_rgba(var(--color-accent),0.15)]')}>
-            <Target size={14} className={clsx('text-highlight', 'animate-pulse')} />
-            Case Studies
-          </span>
-        </motion.div>
-
-        <AnimatedText 
-          as="h1"
-          segments={[
-            { text: "Success Stories Built for\n" },
-            { text: "Real Business Impact", className: "accent-text-gradient" }
-          ]}
-          className={clsx('text-4xl', 'sm:text-5xl', 'lg:text-7xl', 'font-display', 'font-black', 'text-text-primary', 'mt-2', 'max-w-4xl', 'sm:mx-auto', 'leading-[1.1]', 'tracking-tight', 'text-balance', 'whitespace-pre-line')}
+          className={clsx('absolute', 'inset-0', 'opacity-[0.03]')}
+          style={{ backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)', backgroundSize: '40px 40px' }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.03 }}
+          transition={{ duration: 2 }}
         />
         
-        <AnimatedSubText 
-          text="Explore the real business outcomes and measurable growth behind our successful client partnerships."
-          className={clsx('text-base', 'sm:text-lg', 'lg:text-xl', 'text-text-secondary', 'max-w-2xl', 'sm:mx-auto', 'mt-6', 'sm:mt-8', 'leading-relaxed', 'font-light', 'font-sans', 'text-balance', 'sm:text-center')}
-        />
-      </section>
+        <div className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'relative', 'z-10', 'text-center')}>
 
+          {/* Badge */}
+          <motion.div
+            custom={0}
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+          >
+            <span className={clsx('inline-flex', 'items-center', 'justify-center', 'gap-2', 'px-4', 'py-1.5', 'text-xs', 'font-bold', 'uppercase', 'tracking-widest', 'text-text-secondary', 'border', 'border-border-primary', 'rounded-full', 'bg-bg-primary', 'mb-8', 'shadow-sm')}>
+              <Target size={14} className="text-highlight" />
+              Case Studies
+            </span>
+          </motion.div>
+
+          {/* H1 — word-by-word reveal */}
+          <motion.h1
+            className={clsx('text-4xl', 'md:text-5xl', 'lg:text-7xl', 'font-display', 'font-extrabold', 'text-text-primary', 'leading-tight', 'tracking-tight', 'max-w-5xl', 'mx-auto')}
+            custom={0.1}
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+          >
+            Success Stories Built for <br className={clsx('hidden', 'md:block')} />
+            <motion.span
+              className="text-accent"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            >
+              Real Business Impact.
+            </motion.span>
+          </motion.h1>
+
+          <motion.p
+            className={clsx('text-lg', 'sm:text-xl', 'text-text-secondary', 'max-w-3xl', 'mx-auto', 'mt-8', 'leading-relaxed')}
+            custom={0.25}
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+          >
+            Explore the real business outcomes and measurable growth behind our successful client partnerships.
+          </motion.p>
+        </div>
+      </section>
       {/* Search & Filter Controls Panel */}
       <section className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'py-6', 'lg:py-10')}>
         <div className={clsx('flex', 'flex-col', 'lg:flex-row', 'gap-5', 'justify-between', 'items-center', 'bg-bg-card/40', 'backdrop-blur-xl', 'p-4', 'rounded-2xl', 'border', 'border-border-primary', 'shadow-lg')}>
@@ -376,11 +408,10 @@ return (
                     }, 50);
                   }
                 }}
-                className={`flex-1 justify-center px-3 py-1.5 text-xs font-mono font-bold rounded-md border transition-all cursor-pointer select-none flex items-center gap-1.5 shadow-sm ${
-                  selectedFilter === filter
+                className={`flex-1 justify-center px-3 py-1.5 text-xs font-mono font-bold rounded-md border transition-all cursor-pointer select-none flex items-center gap-1.5 shadow-sm ${selectedFilter === filter
                     ? 'border-accent bg-accent/10 text-text-primary shadow-[0_0_12px_var(--accent-glow)]'
                     : 'border-border-primary bg-bg-secondary/40 text-text-secondary hover:text-text-primary hover:border-border-hover'
-                }`}
+                  }`}
               >
                 <span>{filter}</span>
                 <span className={clsx('text-[9px]', 'opacity-60', 'bg-bg-primary/60', 'px-1.5', 'py-0.25', 'rounded-full', 'font-mono')}>
@@ -416,7 +447,7 @@ return (
 
       {/* Projects Grid */}
       <section id="projects-grid" className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'py-6', 'lg:py-10')}>
-        <motion.div 
+        <motion.div
           layout
           className={clsx('grid', 'grid-cols-1', 'md:grid-cols-2', 'lg:grid-cols-3', 'gap-6', 'perspective-1000')}
           onMouseLeave={() => setHoveredCard(null)}
@@ -425,119 +456,119 @@ return (
             {filteredProjects.map((project) => {
               const isHovered = hoveredCard === project.id;
               const isOtherHovered = hoveredCard !== null && hoveredCard !== project.id;
-              
+
               return (
-              <motion.div
-                layoutId={`card-${project.id}`}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.5, ease: [0.2, 0.8, 0.2, 1] }}
-                key={project.id}
-                onClick={() => {
-                  // On mobile, first tap highlights, second tap opens. On desktop, click immediately opens.
-                  if (window.innerWidth < 1024) {
-                    if (hoveredCard !== project.id) {
-                      setHoveredCard(project.id);
+                <motion.div
+                  layoutId={`card-${project.id}`}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.5, ease: [0.2, 0.8, 0.2, 1] }}
+                  key={project.id}
+                  onClick={() => {
+                    // On mobile, first tap highlights, second tap opens. On desktop, click immediately opens.
+                    if (window.innerWidth < 1024) {
+                      if (hoveredCard !== project.id) {
+                        setHoveredCard(project.id);
+                      } else {
+                        setActiveProject(project);
+                      }
                     } else {
                       setActiveProject(project);
                     }
-                  } else {
-                    setActiveProject(project);
-                  }
-                }}
-                onMouseEnter={() => setHoveredCard(project.id)}
-                className={`portfolio-card bg-bg-card border border-border-primary rounded-xl p-5 lg:p-6 flex flex-col justify-between min-h-[320px] lg:min-h-[420px] cursor-pointer group/card transition-all duration-500 ease-out overflow-visible relative ${isHovered ? 'z-50 scale-[1.03] -translate-y-4 border-accent shadow-[0_0_80px_rgba(var(--color-accent),0.4)]' : 'z-0'} ${isOtherHovered ? 'opacity-30 blur-[4px]' : 'opacity-100 blur-none'}`}
-                data-id={project.id}
-              >
-                {/* Background & Glows (Contained) */}
-                <div className={clsx('absolute', 'inset-0', 'bg-gradient-to-b', 'from-bg-card', 'to-bg-card/95', 'rounded-xl', 'overflow-hidden', 'pointer-events-none', '-z-10')}>
-                  <div className={clsx('absolute', 'top-0', 'right-0', 'w-32', 'h-32', 'bg-gradient-to-bl', 'from-accent/5', 'to-transparent', 'group-hover/card:from-accent/20', 'transition-all', 'duration-500')} />
-                  <div className={clsx('absolute', 'inset-0', 'bg-gradient-to-tr', 'from-white/0', 'via-white/[0.04]', 'to-white/0', 'opacity-0', 'group-hover/card:opacity-100', 'transition-opacity', 'duration-500', 'mix-blend-overlay')} />
-                </div>
-
-                {/* Extreme Hover Out-of-Bounds Points */}
-                <div className={clsx('absolute', 'inset-0', 'pointer-events-none', 'z-50')}>
-                  {project.impact.map((imp, i) => {
-                    const activeTransforms = [
-                      "-translate-x-3 -translate-y-8 lg:-translate-x-16 lg:-translate-y-12 opacity-100 scale-90 lg:scale-100",
-                      "translate-x-3 -translate-y-4 lg:translate-x-20 lg:translate-y-2 opacity-100 scale-90 lg:scale-100",
-                      "-translate-x-2 translate-y-8 lg:-translate-x-10 lg:translate-y-16 opacity-100 scale-90 lg:scale-100"
-                    ];
-                    const inactiveTransforms = "translate-x-0 translate-y-0 opacity-0 scale-50";
-                    const origins = [
-                      "top-[-10px] left-2 lg:left-0",
-                      "top-1/3 right-2 lg:right-0",
-                      "bottom-[-10px] left-2 lg:left-0"
-                    ];
-                    return (
-                      <div 
-                        key={i} 
-                        className={`absolute ${origins[i]} transition-all duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)] transform w-max max-w-[200px] sm:max-w-[240px] lg:max-w-[280px] z-50 ${isHovered ? activeTransforms[i] : inactiveTransforms}`}
-                        style={{ transitionDelay: `${100 + i * 150}ms` }}
-                      >
-                        <div className={clsx('bg-bg-primary/90', 'backdrop-blur-2xl', 'border', 'border-border-primary', 'p-3', 'lg:p-4', 'rounded-xl', 'shadow-[0_20px_50px_var(--shadow-heavy)]')}>
-                          <span className={clsx('text-sm', 'sm:text-base', 'lg:text-lg', 'font-display', 'font-black', 'bg-clip-text', 'text-transparent', 'bg-gradient-to-br', 'from-text-primary', 'to-accent', 'leading-tight')}>
-                            {imp}
-                          </span>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-                
-                <div>
-                  {/* Category Pill */}
-                  <div className={clsx('flex', 'flex-wrap', 'gap-1.5', 'mb-4')}>
-                    {project.category.map((cat, i) => (
-                      <span key={i} className={clsx('px-2', 'py-0.5', 'rounded-sm', 'text-[8px]', 'font-mono', 'tracking-wider', 'uppercase', 'bg-bg-secondary', 'text-text-secondary', 'border', 'border-border-primary')}>
-                        {cat}
-                      </span>
-                    ))}
+                  }}
+                  onMouseEnter={() => setHoveredCard(project.id)}
+                  className={`portfolio-card bg-bg-card border border-border-primary rounded-xl p-5 lg:p-6 flex flex-col justify-between min-h-[320px] lg:min-h-[420px] cursor-pointer group/card transition-all duration-500 ease-out overflow-visible relative ${isHovered ? 'z-50 scale-[1.03] -translate-y-4 border-accent shadow-[0_0_80px_rgba(var(--color-accent),0.4)]' : 'z-0'} ${isOtherHovered ? 'opacity-30 blur-[4px]' : 'opacity-100 blur-none'}`}
+                  data-id={project.id}
+                >
+                  {/* Background & Glows (Contained) */}
+                  <div className={clsx('absolute', 'inset-0', 'bg-gradient-to-b', 'from-bg-card', 'to-bg-card/95', 'rounded-xl', 'overflow-hidden', 'pointer-events-none', '-z-10')}>
+                    <div className={clsx('absolute', 'top-0', 'right-0', 'w-32', 'h-32', 'bg-gradient-to-bl', 'from-accent/5', 'to-transparent', 'group-hover/card:from-accent/20', 'transition-all', 'duration-500')} />
+                    <div className={clsx('absolute', 'inset-0', 'bg-gradient-to-tr', 'from-white/0', 'via-white/[0.04]', 'to-white/0', 'opacity-0', 'group-hover/card:opacity-100', 'transition-opacity', 'duration-500', 'mix-blend-overlay')} />
                   </div>
 
-                  <motion.h3 layoutId={`title-${project.id}`} className={clsx('text-lg', 'lg:text-xl', 'font-display', 'font-bold', 'text-text-primary', 'group-hover/card:text-accent', 'transition-colors', 'duration-500', 'mb-1', 'lg:mb-2', 'relative', 'z-10', 'transform', 'group-hover/card:translate-x-1')}>
-                    {project.title}
-                  </motion.h3>
+                  {/* Extreme Hover Out-of-Bounds Points */}
+                  <div className={clsx('absolute', 'inset-0', 'pointer-events-none', 'z-50')}>
+                    {project.impact.map((imp, i) => {
+                      const activeTransforms = [
+                        "-translate-x-3 -translate-y-8 lg:-translate-x-16 lg:-translate-y-12 opacity-100 scale-90 lg:scale-100",
+                        "translate-x-3 -translate-y-4 lg:translate-x-20 lg:translate-y-2 opacity-100 scale-90 lg:scale-100",
+                        "-translate-x-2 translate-y-8 lg:-translate-x-10 lg:translate-y-16 opacity-100 scale-90 lg:scale-100"
+                      ];
+                      const inactiveTransforms = "translate-x-0 translate-y-0 opacity-0 scale-50";
+                      const origins = [
+                        "top-[-10px] left-2 lg:left-0",
+                        "top-1/3 right-2 lg:right-0",
+                        "bottom-[-10px] left-2 lg:left-0"
+                      ];
+                      return (
+                        <div
+                          key={i}
+                          className={`absolute ${origins[i]} transition-all duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)] transform w-max max-w-[200px] sm:max-w-[240px] lg:max-w-[280px] z-50 ${isHovered ? activeTransforms[i] : inactiveTransforms}`}
+                          style={{ transitionDelay: `${100 + i * 150}ms` }}
+                        >
+                          <div className={clsx('bg-bg-primary/90', 'backdrop-blur-2xl', 'border', 'border-border-primary', 'p-3', 'lg:p-4', 'rounded-xl', 'shadow-[0_20px_50px_var(--shadow-heavy)]')}>
+                            <span className={clsx('text-sm', 'sm:text-base', 'lg:text-lg', 'font-display', 'font-black', 'bg-clip-text', 'text-transparent', 'bg-gradient-to-br', 'from-text-primary', 'to-accent', 'leading-tight')}>
+                              {imp}
+                            </span>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
 
-                  <div className={clsx('grid', "[grid-template-areas:'stack']", 'mb-3', 'lg:mb-4', 'h-14', 'lg:h-16')}>
-                    {/* Default Description */}
-                    <motion.p layoutId={`desc-${project.id}`} className={clsx('[grid-area:stack]', 'text-[11px]', 'lg:text-xs', 'text-text-secondary', 'leading-relaxed', 'font-sans', 'font-light', 'relative', 'z-10', 'transform', 'transition-all', 'duration-500', 'group-hover/card:opacity-0', 'group-hover/card:-translate-y-2', 'line-clamp-2', 'lg:line-clamp-none')}>
-                      {project.shortDesc}
-                    </motion.p>
+                  <div>
+                    {/* Category Pill */}
+                    <div className={clsx('flex', 'flex-wrap', 'gap-1.5', 'mb-4')}>
+                      {project.category.map((cat, i) => (
+                        <span key={i} className={clsx('px-2', 'py-0.5', 'rounded-sm', 'text-[8px]', 'font-mono', 'tracking-wider', 'uppercase', 'bg-bg-secondary', 'text-text-secondary', 'border', 'border-border-primary')}>
+                          {cat}
+                        </span>
+                      ))}
+                    </div>
 
-                    {/* Hover Highlight Data Reveal */}
-                    <div className={clsx('[grid-area:stack]', 'z-10', 'opacity-0', 'pointer-events-none', 'group-hover/card:opacity-100', 'transform', 'translate-y-4', 'group-hover/card:translate-y-0', 'transition-all', 'duration-500', 'delay-100', 'flex', 'flex-col', 'justify-center', 'gap-1.5', 'lg:gap-2')}>
+                    <motion.h3 layoutId={`title-${project.id}`} className={clsx('text-lg', 'lg:text-xl', 'font-display', 'font-bold', 'text-text-primary', 'group-hover/card:text-accent', 'transition-colors', 'duration-500', 'mb-1', 'lg:mb-2', 'relative', 'z-10', 'transform', 'group-hover/card:translate-x-1')}>
+                      {project.title}
+                    </motion.h3>
+
+                    <div className={clsx('grid', "[grid-template-areas:'stack']", 'mb-3', 'lg:mb-4', 'h-14', 'lg:h-16')}>
+                      {/* Default Description */}
+                      <motion.p layoutId={`desc-${project.id}`} className={clsx('[grid-area:stack]', 'text-[11px]', 'lg:text-xs', 'text-text-secondary', 'leading-relaxed', 'font-sans', 'font-light', 'relative', 'z-10', 'transform', 'transition-all', 'duration-500', 'group-hover/card:opacity-0', 'group-hover/card:-translate-y-2', 'line-clamp-2', 'lg:line-clamp-none')}>
+                        {project.shortDesc}
+                      </motion.p>
+
+                      {/* Hover Highlight Data Reveal */}
+                      {/* <div className={clsx('[grid-area:stack]', 'z-10', 'opacity-0', 'pointer-events-none', 'group-hover/card:opacity-100', 'transform', 'translate-y-4', 'group-hover/card:translate-y-0', 'transition-all', 'duration-500', 'delay-100', 'flex', 'flex-col', 'justify-center', 'gap-1.5', 'lg:gap-2')}>
                       {project.impact.slice(0, 2).map((imp, i) => (
                         <div key={i} className={clsx('flex', 'items-start', 'gap-1.5', 'lg:gap-2', 'text-[9px]', 'lg:text-[10px]', 'font-bold', 'text-text-primary', 'bg-highlight/5', 'border', 'border-highlight/20', 'px-2', 'lg:px-2.5', 'py-1', 'lg:py-1.5', 'rounded-sm', 'shadow-[0_0_15px_rgba(var(--color-highlight),0.1)]', 'backdrop-blur-sm')}>
                           <TrendingUp size={12} className={clsx('text-highlight', 'shrink-0', 'mt-0.5')} />
                           <span className="leading-tight">{imp}</span>
                         </div>
                       ))}
+                    </div> */}
+                    </div>
+
+                    {/* High-Fidelity UI Graphic Mockups ("Screenshots") */}
+                    <motion.div layoutId={`mockup-${project.id}`} className={clsx('transform', 'group-hover/card:scale-[1.02]', 'group-hover/card:-translate-y-1', 'transition-all', 'duration-500', 'delay-100', 'relative', 'z-10')}>
+                      <ProjectMockup projectId={project.id} />
+                    </motion.div>
+                  </div>
+
+                  {/* Outcome Badge */}
+                  <div className={clsx('mt-3', 'lg:mt-4', 'pt-3', 'lg:pt-4', 'border-t', 'border-border-primary', 'flex', 'flex-col', 'justify-between', 'gap-3', 'lg:gap-4', 'group-hover/card:border-accent/30', 'transition-colors', 'duration-500')}>
+                    <div className={clsx('bg-bg-primary', 'border', 'border-highlight/20', 'rounded-md', 'p-2', 'lg:p-2.5', 'text-left', 'transform', 'group-hover/card:-translate-y-1', 'group-hover/card:border-highlight/60', 'group-hover/card:shadow-[0_0_20px_rgba(var(--color-highlight),0.2)]', 'transition-all', 'duration-500', 'delay-150')}>
+                      <span className={clsx('block', 'text-[7px]', 'lg:text-[8px]', 'uppercase', 'tracking-wider', 'text-highlight', 'font-bold', 'font-mono')}>Business Outcome</span>
+                      <span className={clsx('block', 'text-[10px]', 'lg:text-xs', 'font-bold', 'text-text-primary', 'mt-0.5', 'group-hover/card:text-highlight', 'transition-colors', 'duration-500', 'truncate')}>
+                        <Counter value={project.metric} />
+                      </span>
+                    </div>
+                    <div className={clsx('flex', 'justify-between', 'items-center', 'text-[10px]', 'lg:text-xs', 'font-semibold', 'text-text-secondary', 'group-hover/card:text-accent', 'transition-colors', 'duration-500', 'relative', 'z-10', 'transform', 'group-hover/card:translate-x-1', 'delay-200')}>
+                      <span>View Case Study</span>
+                      <ArrowUpRight size={14} className={clsx('group-hover/card:translate-x-1', 'group-hover/card:-translate-y-1', 'transition-transform')} />
                     </div>
                   </div>
-
-                  {/* High-Fidelity UI Graphic Mockups ("Screenshots") */}
-                  <motion.div layoutId={`mockup-${project.id}`} className={clsx('transform', 'group-hover/card:scale-[1.02]', 'group-hover/card:-translate-y-1', 'transition-all', 'duration-500', 'delay-100', 'relative', 'z-10')}>
-                    <ProjectMockup projectId={project.id} />
-                  </motion.div>
-                </div>
-
-                {/* Outcome Badge */}
-                <div className={clsx('mt-3', 'lg:mt-4', 'pt-3', 'lg:pt-4', 'border-t', 'border-border-primary', 'flex', 'flex-col', 'justify-between', 'gap-3', 'lg:gap-4', 'group-hover/card:border-accent/30', 'transition-colors', 'duration-500')}>
-                  <div className={clsx('bg-bg-primary', 'border', 'border-highlight/20', 'rounded-md', 'p-2', 'lg:p-2.5', 'text-left', 'transform', 'group-hover/card:-translate-y-1', 'group-hover/card:border-highlight/60', 'group-hover/card:shadow-[0_0_20px_rgba(var(--color-highlight),0.2)]', 'transition-all', 'duration-500', 'delay-150')}>
-                    <span className={clsx('block', 'text-[7px]', 'lg:text-[8px]', 'uppercase', 'tracking-wider', 'text-highlight', 'font-bold', 'font-mono')}>Business Outcome</span>
-                    <span className={clsx('block', 'text-[10px]', 'lg:text-xs', 'font-bold', 'text-text-primary', 'mt-0.5', 'group-hover/card:text-highlight', 'transition-colors', 'duration-500', 'truncate')}>
-                      <Counter value={project.metric} />
-                    </span>
-                  </div>
-                  <div className={clsx('flex', 'justify-between', 'items-center', 'text-[10px]', 'lg:text-xs', 'font-semibold', 'text-text-secondary', 'group-hover/card:text-accent', 'transition-colors', 'duration-500', 'relative', 'z-10', 'transform', 'group-hover/card:translate-x-1', 'delay-200')}>
-                    <span>View Case Study</span>
-                    <ArrowUpRight size={14} className={clsx('group-hover/card:translate-x-1', 'group-hover/card:-translate-y-1', 'transition-transform')} />
-                  </div>
-                </div>
-              </motion.div>
+                </motion.div>
               );
             })}
           </AnimatePresence>
@@ -576,7 +607,7 @@ return (
               {/* Left Column: Visuals & Core Info */}
               <div data-lenis-prevent="true" className={clsx('w-full', 'shrink-0', 'lg:w-2/5', 'bg-bg-elevated', 'pt-16', 'px-6', 'pb-6', 'sm:p-8', 'lg:p-12', 'border-b', 'lg:border-b-0', 'lg:border-r', 'border-border-primary', 'relative', 'overflow-hidden', 'lg:overflow-y-auto', 'custom-scrollbar', 'min-h-0', 'flex', 'flex-col')}>
                 <div className={clsx('absolute', 'top-0', 'left-0', 'w-64', 'h-64', 'bg-accent/10', 'rounded-full', 'blur-[80px]', 'pointer-events-none')} />
-                
+
                 <div className={clsx('relative', 'z-10', 'flex-1', 'flex', 'flex-col')}>
                   <div className={clsx('flex', 'flex-wrap', 'gap-2', 'mb-4', 'lg:mb-6')}>
                     {activeProject.category.map((cat, i) => (
@@ -585,11 +616,11 @@ return (
                       </span>
                     ))}
                   </div>
-                  
+
                   <motion.h3 layoutId={`title-${activeProject.id}`} className={clsx('text-2xl', 'sm:text-3xl', 'lg:text-4xl', 'font-display', 'font-extrabold', 'text-text-primary', 'mb-3', 'lg:mb-4', 'leading-tight', 'tracking-tight')}>
                     {activeProject.title}
                   </motion.h3>
-                  
+
                   <motion.p layoutId={`desc-${activeProject.id}`} className={clsx('text-sm', 'text-text-secondary', 'leading-relaxed', 'mb-8')}>
                     {activeProject.shortDesc}
                   </motion.p>
@@ -606,16 +637,16 @@ return (
                   </div>
 
                   <motion.div layoutId={`mockup-${activeProject.id}`} className={clsx('relative', 'z-10', 'w-full', 'mt-12', 'mb-4')}>
-                     <div className={clsx('w-full', 'scale-110', 'sm:scale-125', 'origin-bottom')}>
-                       <ProjectMockup projectId={activeProject.id} />
-                     </div>
+                    <div className={clsx('w-full', 'scale-110', 'sm:scale-125', 'origin-bottom')}>
+                      <ProjectMockup projectId={activeProject.id} />
+                    </div>
                   </motion.div>
                 </div>
               </div>
 
               {/* Right Column: Detailed Case Study Content */}
               <div data-lenis-prevent="true" className={clsx('w-full', 'shrink-0', 'lg:w-3/5', 'p-6', 'sm:p-8', 'lg:p-12', 'bg-bg-card', 'lg:overflow-y-auto', 'custom-scrollbar', 'min-h-0')}>
-                
+
                 {/* Metric Box */}
                 <div className={clsx('bg-gradient-to-br', 'from-bg-primary', 'to-accent/5', 'border', 'border-accent/20', 'rounded-lg', 'p-6', 'mb-10', 'shadow-lg', 'mt-2', 'lg:mt-0')}>
                   <span className={clsx('block', 'text-[10px]', 'uppercase', 'tracking-wider', 'text-accent', 'font-bold', 'font-mono')}>Business Outcome</span>
@@ -702,7 +733,7 @@ return (
           {/* Inner ambient glows */}
           <div className={clsx('absolute', 'top-0', 'right-1/4', 'w-[350px]', 'h-[350px]', 'bg-accent/8', 'rounded-full', 'blur-[100px]', 'pointer-events-none', '-z-10', 'animate-pulse-slow')} />
           <div className={clsx('absolute', 'bottom-0', 'right-10', 'w-[250px]', 'h-[250px]', 'bg-highlight/8', 'rounded-full', 'blur-[80px]', 'pointer-events-none', '-z-10')} />
-          
+
           {/* Inner Grid Visualizer */}
           <div className={clsx('absolute', 'inset-0', 'bg-[linear-gradient(rgba(255,255,255,0.005)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.005)_1px,transparent_1px)]', 'bg-[size:30px_30px]', 'pointer-events-none', 'opacity-40', '-z-10')} />
 
@@ -710,7 +741,7 @@ return (
             {/* Left Column: Core Pitch */}
             <div className={clsx('lg:col-span-7', 'text-left', 'space-y-5')}>
               <span className={clsx('text-[9px]', 'font-mono', 'font-bold', 'uppercase', 'tracking-[0.2em]', 'text-accent', 'bg-accent/10', 'px-3', 'py-1.5', 'rounded-sm', 'border', 'border-accent/20', 'inline-flex', 'items-center', 'gap-1.5')}>
-                <ShieldCheck size={11} className={clsx('text-highlight', 'animate-pulse')} /> 
+                <ShieldCheck size={11} className={clsx('text-highlight', 'animate-pulse')} />
                 100% CODE OWNERSHIP GUARANTEE
               </span>
               <h2 className={clsx('text-3xl', 'sm:text-4xl', 'font-display', 'font-extrabold', 'text-text-primary', 'tracking-tight', 'leading-tight')}>
@@ -719,7 +750,7 @@ return (
               <p className={clsx('text-xs', 'sm:text-sm', 'text-text-secondary', 'max-w-xl', 'leading-relaxed', 'font-sans', 'font-light')}>
                 Speak directly with our expert team. We'll listen to your challenges, suggest the best path forward, and provide a clear, detailed project roadmap—completely free of charge.
               </p>
-              
+
               {/* Trust points */}
               <div className={clsx('flex', 'flex-wrap', 'gap-x-6', 'gap-y-3', 'pt-4', 'border-t', 'border-border-primary/50', 'text-[10px]', 'sm:text-xs', 'font-mono', 'text-text-secondary')}>
                 <div className={clsx('flex', 'items-center', 'gap-1.5')}>
@@ -775,6 +806,6 @@ return (
         </div>
       </section>
 
-    </div>
+    </motion.div>
   );
 }

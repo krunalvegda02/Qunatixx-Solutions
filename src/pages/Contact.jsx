@@ -5,8 +5,15 @@ import { AnimatedSubText } from '../components/animations/AnimatedSubText';
 import { Mail, Phone, MapPin, ChevronDown, CheckCircle, Clock, Zap, ArrowUpRight, HelpCircle } from 'lucide-react';
 import clsx from 'clsx';
 
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } }
+};
+
 export default function Contact() {
   const [formSubmitted, setFormSubmitted] = useState(false);
+
   const [openFaq, setOpenFaq] = useState(null);
   const [formData, setFormData] = useState({
     name: '',
@@ -47,33 +54,69 @@ export default function Contact() {
   };
 
   return (
-    <div className={clsx('relative', 'pt-24', 'pb-20', 'bg-bg-primary', 'text-text-primary', 'theme-transition')}>
-      
-      {/* Premium Ambient Background Effects */}
-      <div className={clsx('absolute', 'inset-0', 'overflow-hidden', 'pointer-events-none', '-z-10')}>
-        <div className={clsx('absolute', 'top-0', 'inset-x-0', 'h-[800px]', 'bg-[radial-gradient(ellipse_at_top,rgba(124,58,237,0.08)_0%,transparent_70%)]')} />
-        <div className={clsx('absolute', 'top-40', 'left-1/4', 'w-[600px]', 'h-[600px]', 'bg-accent/5', 'rounded-full', 'blur-[140px]', 'animate-pulse-slow')} />
-        <div className={clsx('absolute', 'bottom-20', 'right-10', 'w-[500px]', 'h-[500px]', 'bg-highlight/5', 'rounded-full', 'blur-[140px]')} />
-      </div>
+    <motion.div
+      className={clsx('relative', 'overflow-hidden', 'bg-bg-primary', 'text-text-primary', 'theme-transition', 'pt-28', 'pb-0', 'min-h-screen')}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
 
-      {/* Hero Section */}
-      <section className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'pb-6', 'lg:pb-10', 'text-left', 'sm:text-center', 'relative', 'z-10')}>
-        <span className={clsx('inline-flex', 'items-center', 'gap-2', 'px-4', 'py-1.5', 'rounded-full', 'bg-bg-secondary/80', 'border', 'border-border-primary/80', 'text-sm', 'uppercase', 'tracking-[0.2em]', 'font-extrabold', 'text-accent', 'font-mono', 'mb-6', 'backdrop-blur-md', 'shadow-sm')}>
-          <Zap size={14} className={clsx('text-highlight', 'animate-pulse')} />
-          Get In Touch
-        </span>
-        <AnimatedText 
-          as="h1"
-          segments={[
-            { text: "Let's Build Your " },
-            { text: "Next Big Idea", className: "text-transparent bg-clip-text bg-gradient-to-r from-accent via-highlight to-accent bg-300% animate-gradient-flow block mt-2" }
-          ]}
-          className={clsx('text-4xl', 'sm:text-6xl', 'lg:text-7xl', 'font-display', 'font-bold', 'text-text-primary', 'mt-3', 'leading-[1.1]', 'tracking-tight')}
+      {/* ── PROFESSIONAL HERO ── */}
+      <section className="relative pt-16 pb-12 lg:pt-20 lg:pb-12 overflow-hidden border-b border-border-primary/50 bg-bg-secondary/20">
+        
+        {/* Animated grid background */}
+        <motion.div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{ backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)', backgroundSize: '40px 40px' }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.03 }}
+          transition={{ duration: 2 }}
         />
-        <AnimatedSubText 
-          text="Reach out to discuss your project. We'll work with you to understand your goals and map out a clear plan to bring your vision to life."
-          className={clsx('text-text-secondary', 'text-base', 'sm:text-lg', 'max-w-2xl', 'sm:mx-auto', 'mt-6', 'leading-relaxed', 'font-sans', 'font-medium', 'text-left', 'sm:text-center')}
-        />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+
+          {/* Badge */}
+          <motion.div
+            custom={0}
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+          >
+            <span className="inline-flex items-center justify-center gap-2 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-text-secondary border border-border-primary rounded-full bg-bg-primary mb-8 shadow-sm">
+              <Zap size={14} className="text-highlight" />
+              Get In Touch
+            </span>
+          </motion.div>
+
+          {/* H1 — word-by-word reveal */}
+          <motion.h1
+            className="text-4xl md:text-5xl lg:text-7xl font-display font-extrabold text-text-primary leading-tight tracking-tight max-w-5xl mx-auto"
+            custom={0.1}
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+          >
+            Let's Build Your <br className="hidden md:block" />
+            <motion.span
+              className="text-accent"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            >
+              Next Big Idea.
+            </motion.span>
+          </motion.h1>
+
+          <motion.p
+            className="text-lg sm:text-xl text-text-secondary max-w-3xl mx-auto mt-8 leading-relaxed"
+            custom={0.25}
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+          >
+            Reach out to discuss your project. We'll work with you to understand your goals and map out a clear plan to bring your vision to life.
+          </motion.p>
+        </div>
       </section>
 
       {/* Main Layout */}
@@ -320,6 +363,6 @@ export default function Contact() {
         </div>
       </section>
 
-    </div>
+    </motion.div>
   );
 }

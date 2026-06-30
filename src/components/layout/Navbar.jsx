@@ -53,7 +53,7 @@ export default function Navbar() {
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ type: "spring", stiffness: 120, damping: 18, delay: 0.1 }}
-        className={clsx('fixed', 'top-4', 'left-0', 'w-full', 'z-50', 'px-4', 'sm:px-6', 'pointer-events-none')}
+        className={clsx('fixed', 'top-4', 'left-0', 'w-full', 'z-[9999]', 'px-4', 'sm:px-6', 'pointer-events-none')}
       >
         <nav className={clsx('mx-auto', 'max-w-7xl', 'w-full', 'glass', 'border', 'border-border-primary', 'rounded-full', 'shadow-2xl', 'backdrop-blur-xl', 'theme-transition', 'px-6', 'pointer-events-auto', isOpen ? 'bg-bg-primary/95 border-transparent shadow-none' : '')}>
           <div className={clsx('flex', 'justify-between', 'items-center', 'h-16', 'sm:h-18')}>
@@ -225,7 +225,7 @@ export default function Navbar() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
               onClick={() => setIsOpen(false)}
-              className={clsx('fixed', 'inset-0', 'z-[45]', 'bg-bg-primary/60', 'backdrop-blur-md', 'lg:hidden')}
+              className={clsx('fixed', 'inset-0', 'z-[9998]', 'bg-bg-primary/60', 'backdrop-blur-md', 'lg:hidden')}
             />
 
             {/* Floating Glass Bento Box */}
@@ -234,7 +234,7 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -10, scale: 0.95 }}
               transition={{ type: "spring", stiffness: 350, damping: 25 }}
-              className={clsx('fixed', 'top-24', 'left-4', 'right-4', 'max-h-[80vh]', 'z-[50]', 'bg-bg-card/90', 'backdrop-blur-3xl', 'border', 'border-border-primary/80', 'rounded-[32px]', 'shadow-[0_30px_80px_rgba(0,0,0,0.2)]', 'lg:hidden', 'flex', 'flex-col', 'overflow-y-auto')}
+              className={clsx('fixed', 'top-24', 'left-4', 'right-4', 'max-h-[80vh]', 'z-[9999]', 'bg-bg-card/90', 'backdrop-blur-3xl', 'border', 'border-border-primary/80', 'rounded-[32px]', 'shadow-[0_30px_80px_rgba(0,0,0,0.2)]', 'lg:hidden', 'flex', 'flex-col', 'overflow-y-auto')}
             >
               {/* Ambient Inner Glow */}
               <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-accent/10 to-transparent pointer-events-none" />

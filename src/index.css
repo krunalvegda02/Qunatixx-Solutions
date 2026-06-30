@@ -308,3 +308,38 @@ html.lenis, html.lenis body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+@keyframes spin-slow {
+  100% { transform: rotate(360deg); }
+}
+@keyframes spin-slow-reverse {
+  100% { transform: rotate(-360deg); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes float-sm {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+@keyframes dash-flow {
+  to { stroke-dashoffset: -20; }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.svg-pulse-slow { animation: pulse-slow 4s ease-in-out infinite; transform-origin: center; }
+.svg-spin-slow { animation: spin-slow 12s linear infinite; transform-origin: center; }
+.svg-spin-reverse { animation: spin-slow-reverse 12s linear infinite; transform-origin: center; }
+.svg-float { animation: float 6s ease-in-out infinite; }
+.svg-float-sm { animation: float-sm 4s ease-in-out infinite; }
+.svg-dash-flow { animation: dash-flow 1s linear infinite; }
+.svg-blink { animation: blink 1.5s steps(2, start) infinite; }
+.svg-glow-pulse { animation: pulse-slow 3s ease-in-out infinite; }

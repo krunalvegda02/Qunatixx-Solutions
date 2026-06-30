@@ -1,9 +1,17 @@
+import clsx from 'clsx';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Heart, Globe, BookOpen, Gift, Briefcase, ChevronRight, X, Send, Paperclip, MapPin, Clock, DollarSign } from 'lucide-react';
 
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } }
+};
+
 export default function Careers() {
   const [activeRole, setActiveRole] = useState(null);
+
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -96,24 +104,69 @@ export default function Careers() {
   };
 
   return (
-    <div className="relative pt-20 pb-20 bg-bg-primary text-text-primary theme-transition">
-      
-      {/* Decorative Glow */}
-      <div className="absolute top-20 right-10 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[140px] pointer-events-none -z-10" />
-      <div className="absolute bottom-20 left-10 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[140px] pointer-events-none -z-10" />
+    <motion.div
+      className={clsx('relative', 'overflow-hidden', 'bg-bg-primary', 'text-text-primary', 'theme-transition', 'pt-28', 'pb-0', 'min-h-screen')}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
 
-      {/* Header */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6 lg:pb-10 text-center">
-        <span className="text-xs uppercase tracking-wider font-semibold text-accent">
-          Join Our Mission
-        </span>
-        <h1 className="text-4xl sm:text-5xl font-display font-bold text-text-primary mt-3 leading-tight">
-          Build the Future With Us <br />
-          <span className="secondary-text-gradient text-glow">Join Our Team</span>
-        </h1>
-        <p className="text-text-secondary text-sm sm:text-base max-w-2xl mx-auto mt-4 leading-relaxed font-sans">
-          We are a passionate team of builders, designers, and problem-solvers. We value creativity, collaboration, and the freedom to work from anywhere.
-        </p>
+      {/* ── PROFESSIONAL HERO ── */}
+      <section className="relative pt-16 pb-12 lg:pt-20 lg:pb-12 overflow-hidden border-b border-border-primary/50 bg-bg-secondary/20">
+        
+        {/* Animated grid background */}
+        <motion.div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{ backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)', backgroundSize: '40px 40px' }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.03 }}
+          transition={{ duration: 2 }}
+        />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+
+          {/* Badge */}
+          <motion.div
+            custom={0}
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+          >
+            <span className="inline-flex items-center justify-center gap-2 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-text-secondary border border-border-primary rounded-full bg-bg-primary mb-8 shadow-sm">
+              <Briefcase size={14} className="text-highlight" />
+              Join Our Mission
+            </span>
+          </motion.div>
+
+          {/* H1 — word-by-word reveal */}
+          <motion.h1
+            className="text-4xl md:text-5xl lg:text-7xl font-display font-extrabold text-text-primary leading-tight tracking-tight max-w-5xl mx-auto"
+            custom={0.1}
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+          >
+            Build the Future With Us <br className="hidden md:block" />
+            <motion.span
+              className="text-accent"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            >
+              Join Our Team.
+            </motion.span>
+          </motion.h1>
+
+          <motion.p
+            className="text-lg sm:text-xl text-text-secondary max-w-3xl mx-auto mt-8 leading-relaxed"
+            custom={0.25}
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+          >
+            We are a passionate team of builders, designers, and problem-solvers. We value creativity, collaboration, and the freedom to work from anywhere.
+          </motion.p>
+        </div>
       </section>
 
       {/* Benefits Section */}
@@ -306,6 +359,6 @@ export default function Careers() {
         )}
       </AnimatePresence>
 
-    </div>
+    </motion.div>
   );
 }

@@ -1671,51 +1671,85 @@ export default function Home() {
           </div>
 
           {/* Right Side: The Items */}
-          <div className={clsx('p-8', 'lg:p-12', 'lg:w-[55%]', 'flex', 'flex-col', 'justify-center', 'gap-8', 'relative', 'bg-bg-secondary/20')}>
+          <div className={clsx('p-8', 'lg:p-12', 'lg:w-[55%]', 'flex', 'flex-col', 'justify-center', 'gap-12', 'relative', 'bg-bg-secondary/10', 'overflow-hidden')}>
              
-             {/* Item 1 */}
-             <div className="flex items-start gap-4 group">
-               <div className="mt-1 w-12 h-12 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center text-accent shrink-0 group-hover:scale-110 group-hover:bg-accent/20 transition-all shadow-[0_0_15px_rgba(var(--color-accent),0.1)]">
-                  <LineChart size={20} />
+             {/* Dynamic connector line */}
+             <div className="absolute left-[3.25rem] sm:left-[4.25rem] top-12 bottom-12 w-px bg-gradient-to-b from-accent via-highlight to-emerald-500 opacity-20 hidden md:block" />
+
+             {/* Offer 1: Free Project Audit */}
+             <div className="flex flex-col md:flex-row items-start md:items-center gap-6 group relative">
+               <div className="relative shrink-0 z-10 w-24 h-24 sm:w-32 sm:h-32 transition-transform duration-500 group-hover:scale-105 group-hover:-rotate-2">
+                 <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-[0_0_15px_rgba(var(--color-accent),0.3)]">
+                   <rect x="10" y="15" width="80" height="70" rx="8" fill="#1E1E2E" stroke="rgba(var(--color-accent), 0.8)" strokeWidth="2" />
+                   <rect x="10" y="15" width="80" height="20" rx="8" fill="rgba(var(--color-accent), 0.1)" />
+                   <circle cx="20" cy="25" r="3" fill="#FF5F56" />
+                   <circle cx="28" cy="25" r="3" fill="#FFBD2E" />
+                   <circle cx="36" cy="25" r="3" fill="#27C93F" />
+                   <path d="M 20 70 L 35 50 L 50 60 L 75 35" fill="none" stroke="rgba(var(--color-highlight), 1)" strokeWidth="3" />
+                   <circle cx="75" cy="35" r="4" fill="rgba(var(--color-highlight), 1)" className="animate-pulse" />
+                   <rect x="25" y="45" width="10" height="25" rx="2" fill="rgba(var(--color-accent), 0.5)" />
+                   <rect x="45" y="55" width="10" height="15" rx="2" fill="rgba(var(--color-accent), 0.5)" />
+                   <rect x="65" y="30" width="10" height="40" rx="2" fill="rgba(var(--color-highlight), 0.8)" />
+                 </svg>
                </div>
-               <div>
-                 <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-1.5">
-                   <h3 className="text-lg sm:text-xl font-display font-bold text-text-primary">Free Project Audit</h3>
-                   <span className="text-[9px] sm:text-[10px] font-mono font-bold text-accent bg-accent/10 px-2 py-0.5 rounded-sm border border-accent/20">$2,500 Value</span>
+               <div className="relative z-10">
+                 <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-2">
+                   <h3 className="text-xl sm:text-2xl font-display font-bold text-text-primary group-hover:text-accent transition-colors">Free Project Audit</h3>
+                   <span className="text-[10px] sm:text-xs font-mono font-bold text-accent bg-accent/10 px-2.5 py-1 rounded-sm border border-accent/20">$2,500 Value</span>
                  </div>
-                 <p className="text-sm text-text-secondary leading-relaxed">
-                   We'll review your current setup, identify hidden bottlenecks, and map out a clear path to scale your business.
+                 <p className="text-sm sm:text-base text-text-secondary leading-relaxed max-w-md font-light">
+                   We'll review your current setup, identify hidden bottlenecks, and map out a clear path to scale your business with full technical blueprints.
                  </p>
                </div>
              </div>
 
-             {/* Item 2 */}
-             <div className="flex items-start gap-4 group">
-               <div className="mt-1 w-12 h-12 rounded-lg bg-highlight/10 border border-highlight/20 flex items-center justify-center text-highlight shrink-0 group-hover:scale-110 group-hover:bg-highlight/20 transition-all shadow-[0_0_15px_rgba(var(--color-highlight),0.1)]">
-                  <Tag size={20} />
+             {/* Offer 2: 15% Welcome Discount */}
+             <div className="flex flex-col md:flex-row items-start md:items-center gap-6 group relative">
+               <div className="relative shrink-0 z-10 w-24 h-24 sm:w-32 sm:h-32 transition-transform duration-500 group-hover:scale-105 group-hover:rotate-2">
+                 <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-[0_0_15px_rgba(var(--color-highlight),0.3)]">
+                   <path d="M 15 40 L 40 15 L 85 15 L 85 85 L 15 85 Z" fill="#1E1E2E" stroke="rgba(var(--color-highlight), 0.8)" strokeWidth="2" strokeLinejoin="round" />
+                   <rect x="35" y="30" width="35" height="6" rx="3" fill="rgba(var(--color-highlight), 0.5)" />
+                   <rect x="35" y="45" width="20" height="6" rx="3" fill="rgba(var(--color-highlight), 0.5)" />
+                   <circle cx="35" cy="70" r="12" fill="none" stroke="rgba(var(--color-accent), 0.8)" strokeWidth="3" strokeDasharray="4 4" className="animate-spin-slow" />
+                   <text x="35" y="74" fontSize="12" fill="rgba(var(--color-accent), 1)" textAnchor="middle" fontWeight="bold">%</text>
+                   <path d="M 60 60 L 75 75" fill="none" stroke="rgba(var(--color-highlight), 1)" strokeWidth="3" strokeLinecap="round" />
+                   <path d="M 75 60 L 60 75" fill="none" stroke="rgba(var(--color-highlight), 1)" strokeWidth="3" strokeLinecap="round" />
+                 </svg>
                </div>
-               <div>
-                 <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-1.5">
-                   <h3 className="text-lg sm:text-xl font-display font-bold text-text-primary">15% Welcome Discount</h3>
-                   <span className="text-[9px] sm:text-[10px] font-mono font-bold text-highlight bg-highlight/10 px-2 py-0.5 rounded-sm border border-highlight/20">All Services</span>
+               <div className="relative z-10">
+                 <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-2">
+                   <h3 className="text-xl sm:text-2xl font-display font-bold text-text-primary group-hover:text-highlight transition-colors">15% Welcome Discount</h3>
+                   <span className="text-[10px] sm:text-xs font-mono font-bold text-highlight bg-highlight/10 px-2.5 py-1 rounded-sm border border-highlight/20">All Services</span>
                  </div>
-                 <p className="text-sm text-text-secondary leading-relaxed">
+                 <p className="text-sm sm:text-base text-text-secondary leading-relaxed max-w-md font-light">
                    Partner with us for the first time and enjoy an exclusive 15% discount on your entire custom software or app development project.
                  </p>
                </div>
              </div>
 
-             {/* Item 3 */}
-             <div className="flex items-start gap-4 group">
-               <div className="mt-1 w-12 h-12 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-500 shrink-0 group-hover:scale-110 group-hover:bg-emerald-500/20 transition-all shadow-[0_0_15px_rgba(16,185,129,0.1)]">
-                  <Cloud size={20} />
+             {/* Offer 3: Free Launch Setup */}
+             <div className="flex flex-col md:flex-row items-start md:items-center gap-6 group relative">
+               <div className="relative shrink-0 z-10 w-24 h-24 sm:w-32 sm:h-32 transition-transform duration-500 group-hover:scale-105 group-hover:-rotate-2">
+                 <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+                   <rect x="25" y="20" width="50" height="70" rx="4" fill="#1E1E2E" stroke="rgba(16, 185, 129, 0.8)" strokeWidth="2" />
+                   <rect x="30" y="30" width="40" height="15" rx="2" fill="rgba(16, 185, 129, 0.1)" stroke="rgba(16, 185, 129, 0.5)" strokeWidth="1" />
+                   <rect x="30" y="55" width="40" height="15" rx="2" fill="rgba(16, 185, 129, 0.1)" stroke="rgba(16, 185, 129, 0.5)" strokeWidth="1" />
+                   <circle cx="38" cy="37.5" r="3" fill="#27C93F" className="animate-pulse" />
+                   <circle cx="38" cy="62.5" r="3" fill="#27C93F" className="animate-pulse" />
+                   <line x1="48" y1="37.5" x2="65" y2="37.5" stroke="rgba(16, 185, 129, 0.6)" strokeWidth="2" strokeLinecap="round" />
+                   <line x1="48" y1="62.5" x2="60" y2="62.5" stroke="rgba(16, 185, 129, 0.6)" strokeWidth="2" strokeLinecap="round" />
+                   <path d="M 15 40 Q 25 15 50 15 T 85 40" fill="none" stroke="rgba(16, 185, 129, 0.4)" strokeWidth="1" strokeDasharray="3 3" />
+                   <circle cx="15" cy="40" r="4" fill="rgba(16, 185, 129, 0.8)" />
+                   <circle cx="85" cy="40" r="4" fill="rgba(16, 185, 129, 0.8)" />
+                   <circle cx="50" cy="15" r="4" fill="rgba(16, 185, 129, 0.8)" />
+                 </svg>
                </div>
-               <div>
-                 <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-1.5">
-                   <h3 className="text-lg sm:text-xl font-display font-bold text-text-primary">Free Launch Setup</h3>
-                   <span className="text-[9px] sm:text-[10px] font-mono font-bold text-emerald-500 bg-emerald-500/10 px-2 py-0.5 rounded-sm border border-emerald-500/20">$1,500 Value</span>
+               <div className="relative z-10">
+                 <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-2">
+                   <h3 className="text-xl sm:text-2xl font-display font-bold text-text-primary group-hover:text-emerald-500 transition-colors">Free Launch Setup</h3>
+                   <span className="text-[10px] sm:text-xs font-mono font-bold text-emerald-500 bg-emerald-500/10 px-2.5 py-1 rounded-sm border border-emerald-500/20">$1,500 Value</span>
                  </div>
-                 <p className="text-sm text-text-secondary leading-relaxed">
+                 <p className="text-sm sm:text-base text-text-secondary leading-relaxed max-w-md font-light">
                    We will handle all the complex server hosting, domain configuration, and launch setup for free when you sign on for a full build.
                  </p>
                </div>
