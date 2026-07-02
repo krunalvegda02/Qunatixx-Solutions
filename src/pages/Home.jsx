@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useMotionValue, useTransform, useMotionTemplate } from 'framer-motion';
 import { ArrowRight, Cpu, Globe, Database, Smartphone, Palette, Zap, TrendingUp, CheckCircle2, ChevronRight, Quote, Bot, Cloud, CheckCircle, Tag, LineChart } from 'lucide-react';
 import { Counter } from '../components/animations/Counter';
 import { VelocityScroll } from '../components/animations/VelocityScroll';
@@ -14,6 +14,44 @@ import 'swiper/css/effect-cards';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import clsx from 'clsx';
+
+const PremiumHoverCard = ({ children, className, ...props }) => {
+  let mouseX = useMotionValue(0);
+  let mouseY = useMotionValue(0);
+
+  function handleMouseMove({ currentTarget, clientX, clientY }) {
+    let { left, top } = currentTarget.getBoundingClientRect();
+    mouseX.set(clientX - left);
+    mouseY.set(clientY - top);
+  }
+
+  return (
+    <motion.div
+      {...props}
+      className={clsx(
+        "group/card relative rounded-2xl bg-bg-primary border border-border-primary transition-all duration-300 overflow-hidden",
+        className
+      )}
+      onMouseMove={handleMouseMove}
+    >
+      <motion.div
+        className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition duration-500 group-hover/card:opacity-100 z-0"
+        style={{
+          background: useMotionTemplate`
+            radial-gradient(
+              400px circle at ${mouseX}px ${mouseY}px,
+              rgba(255,255,255,0.1),
+              transparent 80%
+            )
+          `,
+        }}
+      />
+      <div className="relative z-10 p-8 flex flex-col items-start text-left h-full">
+        {children}
+      </div>
+    </motion.div>
+  );
+};
 
 export default function Home() {
   const { openModal } = useModal();
@@ -197,7 +235,7 @@ export default function Home() {
       glowColor: '#FF9900',
       role: 'Reliable Hosting',
       status: 'Grows With You',
-      slug: 'amazonwebservices',
+      slug: 'amazonaws',
       group: 'devops'
     },
     {
@@ -857,8 +895,8 @@ export default function Home() {
         </div>
 
         {/* Infinite marquee container */}
-        <div className={clsx('flex', 'w-full', 'overflow-hidden', 'select-none')}>
-          <div className={clsx('flex', 'shrink-0', 'gap-8', 'sm:gap-16', 'pr-8', 'sm:pr-16', 'py-2', 'animate-marquee', 'whitespace-nowrap', 'min-w-full', 'items-center', 'justify-around')}>
+        <div className={clsx('flex', 'w-full', 'overflow-hidden', 'select-none', 'transform-gpu')}>
+          <div className={clsx('flex', 'shrink-0', 'gap-8', 'sm:gap-16', 'pr-8', 'sm:pr-16', 'py-2', 'animate-marquee', 'whitespace-nowrap', 'min-w-full', 'items-center', 'justify-around', 'will-change-transform', 'transform-gpu')}>
             {['Vercel', 'AWS', 'Stripe', 'OpenAI', 'Linear', 'Cloudflare', 'DigitalOcean', 'Framer', 'Webflow'].map((brand, i) => (
               <span key={i} className={clsx('text-lg', 'sm:text-2xl', 'font-bold', 'font-display', 'text-text-secondary/60', 'hover:text-text-primary', 'transition-colors', 'uppercase', 'tracking-[0.15em]', 'flex', 'items-center', 'gap-2')}>
                 <span className={clsx('w-1.5', 'h-1.5', 'rounded-full', 'bg-accent')} />
@@ -866,7 +904,7 @@ export default function Home() {
               </span>
             ))}
           </div>
-          <div className={clsx('flex', 'shrink-0', 'gap-8', 'sm:gap-16', 'pr-8', 'sm:pr-16', 'py-2', 'animate-marquee', 'whitespace-nowrap', 'min-w-full', 'items-center', 'justify-around')} aria-hidden="true">
+          <div className={clsx('flex', 'shrink-0', 'gap-8', 'sm:gap-16', 'pr-8', 'sm:pr-16', 'py-2', 'animate-marquee', 'whitespace-nowrap', 'min-w-full', 'items-center', 'justify-around', 'will-change-transform', 'transform-gpu')} aria-hidden="true">
             {['Vercel', 'AWS', 'Stripe', 'OpenAI', 'Linear', 'Cloudflare', 'DigitalOcean', 'Framer', 'Webflow'].map((brand, i) => (
               <span key={i} className={clsx('text-lg', 'sm:text-2xl', 'font-bold', 'font-display', 'text-text-secondary/60', 'hover:text-text-primary', 'transition-colors', 'uppercase', 'tracking-[0.15em]', 'flex', 'items-center', 'gap-2')}>
                 <span className={clsx('w-1.5', 'h-1.5', 'rounded-full', 'bg-accent')} />
@@ -883,31 +921,147 @@ export default function Home() {
 
 
       {/* EXCLUSIVE OFFERS SECTION: Premium Layout */}
-      <section className={clsx('py-16', 'lg:py-24', 'px-4', 'sm:px-6', 'lg:px-8', 'max-w-7xl', 'mx-auto', 'relative', 'z-10')}>
-        <div className={clsx('relative', 'w-full', 'rounded-[32px]', 'overflow-hidden', 'bg-bg-card/20', 'border', 'border-border-primary', 'backdrop-blur-2xl', 'p-8', 'lg:p-16', 'shadow-[0_20px_80px_rgba(0,0,0,0.3)]', 'group')}>
+      <motion.section 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={{
+          hidden: {},
+          visible: { transition: { staggerChildren: 0.1 } }
+        }}
+        className={clsx('py-12', 'lg:py-24', 'px-4', 'sm:px-6', 'lg:px-8', 'max-w-7xl', 'mx-auto', 'relative', 'z-10')}
+      >
+        <div className={clsx('relative', 'w-full', 'rounded-[32px]', 'overflow-hidden', 'bg-bg-card', 'border', 'border-border-primary', 'p-5', 'sm:p-8', 'lg:p-16', 'shadow-2xl', 'group')}>
           
-          {/* Ambient Background & Glows */}
-          <div className={clsx('absolute', 'inset-0', 'bg-[radial-gradient(ellipse_at_top,rgba(var(--color-accent),0.1)_0%,transparent_50%)]', 'pointer-events-none')} />
-          <div className={clsx('absolute', '-top-24', '-right-24', 'w-96', 'h-96', 'bg-highlight/10', 'rounded-full', 'blur-[100px]', 'pointer-events-none')} />
-          <div className={clsx('absolute', '-bottom-24', '-left-24', 'w-96', 'h-96', 'bg-accent/10', 'rounded-full', 'blur-[100px]', 'pointer-events-none')} />
+          {/* Minimalist Tech Background */}
+          <div className={clsx('absolute', 'inset-0', 'bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)]', 'bg-[size:32px_32px]', 'opacity-50', 'pointer-events-none')} />
           
-          <div className={clsx('relative', 'z-10', 'flex', 'flex-col', 'items-center', 'text-center', 'mb-12', 'lg:mb-16')}>
-            <span className={clsx('inline-flex', 'items-center', 'gap-2', 'text-[11px]', 'uppercase', 'tracking-[0.25em]', 'font-bold', 'text-text-primary', 'bg-white/5', 'px-4', 'py-1.5', 'rounded-full', 'border', 'border-white/10', 'mb-6', 'shadow-sm')}>
-              <span className={clsx('w-2', 'h-2', 'rounded-full', 'bg-highlight', 'animate-pulse')} /> Exclusive For New Partners
-            </span>
-            <h2 className={clsx('text-4xl', 'md:text-5xl', 'lg:text-6xl', 'font-display', 'font-black', 'text-text-primary', 'leading-tight', 'tracking-tight', 'mb-4')}>
-              Client <span className={clsx('text-transparent', 'bg-clip-text', 'bg-gradient-to-r', 'from-accent', 'to-highlight')}>Welcome Pass</span>
-            </h2>
-            <p className={clsx('text-sm', 'sm:text-base', 'text-text-secondary', 'max-w-2xl', 'mx-auto', 'font-light', 'leading-relaxed')}>
-              Partner with Quantixx and instantly unlock thousands of dollars in foundational engineering value. We set you up for long-term success from day one.
-            </p>
+          <div className={clsx('relative', 'z-10', 'grid', 'grid-cols-1', 'lg:grid-cols-2', 'gap-10', 'lg:gap-16', 'items-center', 'mb-12', 'lg:mb-20')}>
+            
+            {/* Left: Text Content */}
+            <motion.div 
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+              }}
+              className={clsx('flex', 'flex-col', 'items-start', 'text-left', 'order-1')}
+            >
+              <span className={clsx('inline-flex', 'items-center', 'gap-2', 'text-[11px]', 'uppercase', 'tracking-[0.25em]', 'font-bold', 'text-text-primary', 'bg-white/5', 'px-4', 'py-1.5', 'rounded-full', 'border', 'border-white/10', 'mb-6', 'shadow-sm')}>
+                <span className={clsx('w-2', 'h-2', 'rounded-full', 'bg-highlight', 'animate-pulse')} /> Exclusive For New Partners
+              </span>
+              <h2 className={clsx('text-4xl', 'md:text-5xl', 'lg:text-6xl', 'font-display', 'font-black', 'text-text-primary', 'leading-tight', 'tracking-tight', 'mb-6')}>
+                Client <span className={clsx('text-transparent', 'bg-clip-text', 'bg-gradient-to-r', 'from-accent', 'to-highlight')}>Welcome Pass</span>
+              </h2>
+              <p className={clsx('text-sm', 'sm:text-base', 'text-text-secondary', 'font-light', 'leading-relaxed', 'mb-8', 'max-w-xl')}>
+                Partner with Quantixx and instantly unlock thousands of dollars in foundational engineering value. We set you up for long-term success from day one with premium audits, massive discounts, and free infrastructure setup.
+              </p>
+              
+              {/* Premium Outline CTA Button */}
+              <button 
+                onClick={openModal} 
+                className={clsx(
+                  'relative', 'w-full', 'sm:w-auto', 'px-8', 'py-4', 'rounded-xl', 'group',
+                  'bg-transparent', 'border-2', 'border-text-primary',
+                  'text-sm', 'font-bold', 'text-text-primary', 'transition-all', 'duration-300',
+                  'hover:bg-text-primary', 'hover:text-bg-primary', 'hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)]',
+                  'hover:-translate-y-1', 'flex', 'items-center', 'justify-center', 'gap-3'
+                )}
+              >
+                <span className="relative z-10 flex items-center gap-2">
+                  Activate Pass <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
+                </span>
+              </button>
+            </motion.div>
+
+            {/* Right: Clean Professional Dashboard Widget */}
+            <motion.div 
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+              }}
+              className={clsx('relative', 'flex', 'w-full', 'max-w-md', 'mx-auto', 'lg:mx-0', 'lg:ml-auto', 'order-2')}
+            >
+              
+              <div className={clsx(
+                'w-full', 'rounded-2xl', 'bg-bg-primary', 'border', 'border-border-primary', 
+                'p-6', 'sm:p-8', 'shadow-2xl'
+              )}>
+                
+                <div className={clsx('flex', 'items-center', 'justify-between', 'mb-8', 'pb-6', 'border-b', 'border-border-primary')}>
+                  <div className={clsx('flex', 'items-center', 'gap-4')}>
+                    <div className={clsx('w-10', 'h-10', 'sm:w-12', 'sm:h-12', 'rounded-lg', 'bg-text-primary', 'text-bg-primary', 'flex', 'items-center', 'justify-center', 'shadow-md')}>
+                      <CheckCircle2 size={20} className="sm:w-6 sm:h-6" />
+                    </div>
+                    <div>
+                      <div className={clsx('text-[10px]', 'font-mono', 'text-text-muted', 'tracking-widest', 'uppercase', 'mb-1')}>Authorization</div>
+                      <div className={clsx('text-sm', 'sm:text-base', 'font-bold', 'text-text-primary', 'tracking-tight')}>New Partner Status</div>
+                    </div>
+                  </div>
+                  <div className={clsx('px-2.5', 'py-1', 'rounded-full', 'bg-emerald-500/10', 'text-emerald-500', 'border', 'border-emerald-500/20', 'text-[9px]', 'sm:text-[10px]', 'font-mono', 'font-bold', 'flex', 'items-center', 'gap-1.5')}>
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" /> VERIFIED
+                  </div>
+                </div>
+
+                <div className={clsx('space-y-5', 'sm:space-y-6', 'mb-8')}>
+                   <motion.div 
+                     variants={{ hidden: { opacity: 0, x: -10 }, visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" } } }}
+                     className={clsx('flex', 'justify-between', 'items-center', 'group')}
+                   >
+                      <span className={clsx('text-xs', 'sm:text-sm', 'text-text-secondary', 'font-medium', 'group-hover:text-text-primary', 'transition-colors')}>Comprehensive Audit</span>
+                      <span className={clsx('text-xs', 'sm:text-sm', 'font-mono', 'font-semibold', 'text-text-primary')}>$2,500</span>
+                   </motion.div>
+                   
+                   <motion.div 
+                     variants={{ hidden: { opacity: 0, x: -10 }, visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" } } }}
+                     className={clsx('flex', 'justify-between', 'items-center', 'group')}
+                   >
+                      <span className={clsx('text-xs', 'sm:text-sm', 'text-text-secondary', 'font-medium', 'group-hover:text-text-primary', 'transition-colors')}>Infrastructure Setup</span>
+                      <span className={clsx('text-xs', 'sm:text-sm', 'font-mono', 'font-semibold', 'text-text-primary')}>$1,500</span>
+                   </motion.div>
+                   
+                   <motion.div 
+                     variants={{ hidden: { opacity: 0, x: -10 }, visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" } } }}
+                     className={clsx('flex', 'justify-between', 'items-center', 'group')}
+                   >
+                      <span className={clsx('text-xs', 'sm:text-sm', 'text-text-secondary', 'font-medium', 'group-hover:text-text-primary', 'transition-colors')}>Initial Build Discount</span>
+                      <span className={clsx('text-xs', 'sm:text-sm', 'font-mono', 'font-semibold', 'text-highlight')}>15% OFF</span>
+                   </motion.div>
+                </div>
+
+                <div className={clsx('pt-6', 'border-t', 'border-border-primary', 'flex', 'items-end', 'justify-between')}>
+                   <div>
+                     <div className={clsx('text-[9px]', 'sm:text-[10px]', 'text-text-muted', 'uppercase', 'tracking-widest', 'font-mono', 'mb-2')}>Total Unlocked Value</div>
+                     <div className={clsx('text-3xl', 'sm:text-4xl', 'font-display', 'font-black', 'text-text-primary', 'tracking-tight')}>$4,000+</div>
+                   </div>
+                   <div className={clsx('w-10', 'h-10', 'sm:w-12', 'sm:h-12', 'flex', 'items-center', 'justify-center', 'text-text-muted', 'opacity-30')}>
+                      <Cpu size={28} className="sm:w-8 sm:h-8" />
+                   </div>
+                </div>
+
+              </div>
+            </motion.div>
           </div>
 
           {/* 3-Column Offers Grid */}
-          <div className={clsx('grid', 'grid-cols-1', 'md:grid-cols-3', 'gap-6', 'lg:gap-8', 'mb-12', 'lg:mb-16', 'relative', 'z-10')}>
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.1 } }
+            }}
+            className={clsx('grid', 'grid-cols-1', 'md:grid-cols-3', 'gap-6', 'lg:gap-8', 'mb-12', 'lg:mb-16', 'relative', 'z-10')}
+          >
             
             {/* Offer 1 */}
-            <div className={clsx('flex', 'flex-col', 'items-start', 'text-left', 'p-8', 'rounded-2xl', 'bg-bg-primary', 'border', 'border-border-primary', 'hover:border-accent/30', 'transition-all', 'duration-300', 'group/card')}>
+            <PremiumHoverCard 
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } }
+              }}
+              className="hover:border-accent/40"
+            >
               <div className={clsx('w-12', 'h-12', 'rounded-xl', 'bg-accent/10', 'text-accent', 'flex', 'items-center', 'justify-center', 'mb-6', 'border', 'border-accent/20', 'group-hover/card:scale-110', 'group-hover/card:bg-accent/20', 'transition-transform')}>
                 <LineChart size={24} strokeWidth={1.5} />
               </div>
@@ -916,10 +1070,16 @@ export default function Home() {
               <p className={clsx('text-sm', 'text-text-secondary', 'leading-relaxed', 'font-light')}>
                 Deep-dive review of your current setup, identifying hidden bottlenecks, and mapping a clear technical blueprint to scale your business.
               </p>
-            </div>
+            </PremiumHoverCard>
 
             {/* Offer 2 */}
-            <div className={clsx('flex', 'flex-col', 'items-start', 'text-left', 'p-8', 'rounded-2xl', 'bg-bg-primary', 'border', 'border-border-primary', 'hover:border-highlight/30', 'transition-all', 'duration-300', 'group/card')}>
+            <PremiumHoverCard 
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } }
+              }}
+              className="hover:border-highlight/40"
+            >
               <div className={clsx('w-12', 'h-12', 'rounded-xl', 'bg-highlight/10', 'text-highlight', 'flex', 'items-center', 'justify-center', 'mb-6', 'border', 'border-highlight/20', 'group-hover/card:scale-110', 'group-hover/card:bg-highlight/20', 'transition-transform')}>
                 <Tag size={24} strokeWidth={1.5} />
               </div>
@@ -928,10 +1088,16 @@ export default function Home() {
               <p className={clsx('text-sm', 'text-text-secondary', 'leading-relaxed', 'font-light')}>
                 Enjoy an exclusive 15% rate reduction on your entire custom software, web app, or mobile development project.
               </p>
-            </div>
+            </PremiumHoverCard>
 
             {/* Offer 3 */}
-            <div className={clsx('flex', 'flex-col', 'items-start', 'text-left', 'p-8', 'rounded-2xl', 'bg-bg-primary', 'border', 'border-border-primary', 'hover:border-emerald-500/30', 'transition-all', 'duration-300', 'group/card')}>
+            <PremiumHoverCard 
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } }
+              }}
+              className="hover:border-emerald-500/40"
+            >
               <div className={clsx('w-12', 'h-12', 'rounded-xl', 'bg-emerald-500/10', 'text-emerald-500', 'flex', 'items-center', 'justify-center', 'mb-6', 'border', 'border-emerald-500/20', 'group-hover/card:scale-110', 'group-hover/card:bg-emerald-500/20', 'transition-transform')}>
                 <Zap size={24} strokeWidth={1.5} />
               </div>
@@ -940,9 +1106,9 @@ export default function Home() {
               <p className={clsx('text-sm', 'text-text-secondary', 'leading-relaxed', 'font-light')}>
                 We handle the complex server hosting, domain configuration, and launch logistics entirely for free when you sign on for a full build.
               </p>
-            </div>
+            </PremiumHoverCard>
 
-          </div>
+          </motion.div>
 
           <div className={clsx('flex', 'justify-center', 'relative', 'z-20')}>
             <button 
@@ -959,7 +1125,7 @@ export default function Home() {
             </button>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* SERVICES SECTION - Glassmorphic Auto-Scroll Carousel */}
       <section className={clsx('py-12', 'lg:py-20', 'relative', 'overflow-hidden')}>
