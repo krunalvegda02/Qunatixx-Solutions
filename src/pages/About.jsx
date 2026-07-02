@@ -88,74 +88,57 @@ export default function About() {
         </section>
       </div>
 
-      {/* LIVE OPERATIONS DASHBOARD CARD (Overlap) */}
-      <div className={clsx('relative', 'w-full', 'px-4', 'sm:px-6', 'lg:px-8', 'max-w-7xl', 'mx-auto', 'z-20', '-mt-16', 'sm:-mt-24', 'mb-20', 'sm:mb-32')}>
+      {/* MINIMALIST PREMIUM B2B BLOCK (Overlap) */}
+      <div className={clsx('relative', 'w-full', 'px-4', 'sm:px-6', 'lg:px-8', 'max-w-6xl', 'mx-auto', 'z-20', '-mt-16', 'sm:-mt-20', 'mb-16', 'sm:mb-24')}>
         <motion.div 
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className={clsx('glass-card', 'bg-bg-card/90', 'backdrop-blur-3xl', 'border', 'border-border-primary', 'rounded-3xl', 'shadow-2xl', 'overflow-hidden', 'relative')}
+          transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          className={clsx('grid', 'grid-cols-1', 'md:grid-cols-2', 'bg-bg-card', 'border', 'border-border-primary', 'rounded-2xl', 'shadow-sm', 'overflow-hidden')}
         >
-          {/* Top glowing edge line */}
-          <div className={clsx('absolute', 'top-0', 'left-0', 'w-full', 'h-[1px]', 'bg-gradient-to-r', 'from-transparent', 'via-accent/40', 'to-transparent')} />
-          {/* Ambient glows inside card */}
-          <div className={clsx('absolute', '-top-32', '-left-32', 'w-64', 'h-64', 'bg-accent/10', 'rounded-full', 'blur-[60px]', 'pointer-events-none')} />
           
-          <div className={clsx('grid', 'grid-cols-1', 'lg:grid-cols-3', 'divide-y', 'lg:divide-y-0', 'lg:divide-x', 'divide-border-primary/50', 'relative', 'z-10')}>
+          {/* Left Block */}
+          <div className={clsx('p-8', 'md:p-12', 'border-b', 'md:border-b-0', 'md:border-r', 'border-border-primary', 'flex', 'flex-col', 'justify-start', 'space-y-6', 'group')}>
+            <div className="flex items-center gap-3">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              <span className="text-[10px] font-mono font-semibold tracking-[0.15em] text-text-muted uppercase">Availability Status</span>
+            </div>
             
-            {/* 1. Status & Availability */}
-            <div className={clsx('p-6', 'sm:p-8', 'lg:p-10', 'space-y-5', 'flex', 'flex-col', 'justify-center')}>
-              <span className={clsx('text-[10px]', 'font-mono', 'text-text-muted', 'uppercase', 'tracking-widest', 'block', 'flex', 'items-center', 'gap-2')}>
-                <Zap size={12} className="text-accent" /> Availability
-              </span>
-              
-              <div className={clsx('flex', 'items-start', 'gap-4')}>
-                <span className={clsx('relative', 'flex', 'h-3.5', 'w-3.5', 'mt-1', 'shrink-0')}>
-                  <span className={clsx('animate-ping', 'absolute', 'inline-flex', 'h-full', 'w-full', 'rounded-full', 'bg-emerald-400', 'opacity-75')}></span>
-                  <span className={clsx('relative', 'inline-flex', 'rounded-full', 'h-3.5', 'w-3.5', 'bg-emerald-500')}></span>
-                </span>
-                <div>
-                  <span className={clsx('block', 'text-base', 'sm:text-lg', 'font-bold', 'text-text-primary', 'font-display', 'tracking-tight')}>Available for Projects</span>
-                  <span className={clsx('block', 'text-xs', 'text-text-secondary', 'font-mono', 'mt-1.5', 'leading-relaxed')}>We currently have capacity to onboard 1 new enterprise partner.</span>
-                </div>
-              </div>
+            <div className="space-y-4">
+              <h3 className="text-2xl sm:text-3xl font-display font-medium text-text-primary tracking-tight leading-snug">
+                Accepting new enterprise partners.
+              </h3>
+              <p className="text-sm text-text-secondary font-sans leading-relaxed font-light">
+                Our engineering bandwidth is carefully managed. We currently have capacity to architect and build <strong className="text-text-primary font-medium">1 new platform</strong> this quarter.
+              </p>
             </div>
-
-            {/* 2. Core Stack */}
-            <div className={clsx('p-6', 'sm:p-8', 'lg:p-10', 'space-y-5', 'flex', 'flex-col', 'justify-center')}>
-              <span className={clsx('text-[10px]', 'font-mono', 'text-text-muted', 'uppercase', 'tracking-widest', 'block', 'flex', 'items-center', 'gap-2')}>
-                <Cpu size={12} className="text-highlight" /> Core Technologies
-              </span>
-              <div className={clsx('flex', 'flex-wrap', 'gap-2.5')}>
-                {['Next.js', 'React Native', 'AWS Cloud', 'Node / Go', 'PostgreSQL', 'Pinecone'].map(tech => (
-                  <motion.span 
-                    key={tech} 
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    className={clsx('px-3', 'py-1.5', 'rounded-lg', 'text-[10px]', 'font-mono', 'font-bold', 'text-text-primary', 'bg-bg-secondary/60', 'border', 'border-border-primary/60', 'hover:border-accent/40', 'transition-colors', 'cursor-pointer', 'shadow-sm')}
-                  >
-                    {tech}
-                  </motion.span>
-                ))}
-              </div>
-            </div>
-
-            {/* 3. Direct Contact */}
-            <div className={clsx('p-6', 'sm:p-8', 'lg:p-10', 'space-y-5', 'flex', 'flex-col', 'justify-center')}>
-              <span className={clsx('text-[10px]', 'font-mono', 'text-text-muted', 'uppercase', 'tracking-widest', 'block', 'flex', 'items-center', 'gap-2')}>
-                <MessageSquare size={12} className="text-accent" /> Communication
-              </span>
-              <div>
-                 <span className={clsx('block', 'text-base', 'sm:text-lg', 'font-bold', 'text-text-primary', 'font-display', 'tracking-tight')}>Talk Directly to Engineers</span>
-                 <span className={clsx('block', 'text-xs', 'text-text-secondary', 'leading-relaxed', 'mt-2', 'font-light')}>No account managers or middle-men. When you reach out, you speak directly with the developers building your product.</span>
-              </div>
-            </div>
-
           </div>
+
+          {/* Right Block */}
+          <div className={clsx('p-8', 'md:p-12', 'flex', 'flex-col', 'justify-start', 'space-y-6')}>
+            <div className="flex items-center gap-3">
+              <MessageSquare size={12} className="text-text-muted" />
+              <span className="text-[10px] font-mono font-semibold tracking-[0.15em] text-text-muted uppercase">Direct Communication</span>
+            </div>
+            
+            <div className="space-y-4">
+              <h3 className="text-2xl sm:text-3xl font-display font-medium text-text-primary tracking-tight leading-snug">
+                No middle-men. <br className="hidden lg:block"/>Just engineers.
+              </h3>
+              <p className="text-sm text-text-secondary font-sans leading-relaxed font-light">
+                We don't use account managers. When you partner with us, you speak directly to the senior developers who are actively writing your code.
+              </p>
+            </div>
+          </div>
+
         </motion.div>
       </div>
 
       {/* Story & Philosophy Section */}
-      <section className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'py-16', 'lg:py-24', 'font-sans', 'relative', 'z-10')}>
+      <section className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'py-12', 'lg:py-16', 'font-sans', 'relative', 'z-10')}>
         <div className={clsx('grid', 'grid-cols-1', 'lg:grid-cols-2', 'gap-12', 'items-center')}>
 
           <motion.div 
@@ -260,7 +243,9 @@ export default function About() {
       </section>
 
       {/* Engagement Guarantees Playbook */}
-      <section className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'py-16', 'lg:py-24', 'relative', 'z-10')}>
+      <div className="w-full bg-bg-secondary/40 border-y border-border-primary/50 relative overflow-hidden mt-8 mb-8">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-accent/5 rounded-[100%] blur-[80px] pointer-events-none -z-10" />
+        <section className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'py-12', 'lg:py-16', 'relative', 'z-10')}>
         <div className={clsx('text-center', 'mb-16')}>
           <span className={clsx('text-xs', 'uppercase', 'tracking-wider', 'font-semibold', 'text-accent', 'font-mono')}>Engagement Model</span>
           <h2 className={clsx('text-3xl', 'font-display', 'font-bold', 'text-text-primary', 'mt-2')}>How We Work with Clients</h2>
@@ -270,7 +255,7 @@ export default function About() {
         </div>
 
         {/* Playbook track */}
-        <div className={clsx('relative', 'border-l', 'border-border-primary', 'pl-6', 'sm:pl-10', 'space-y-10', 'max-w-4xl', 'mx-auto', 'text-left', 'font-sans')}>
+        <div className={clsx('relative', 'border-l', 'border-border-primary', 'pl-6', 'sm:pl-10', 'space-y-8', 'max-w-4xl', 'mx-auto', 'text-left', 'font-sans')}>
           {playbook.map((item, i) => (
             <motion.div 
               key={i} 
@@ -294,10 +279,11 @@ export default function About() {
             </motion.div>
           ))}
         </div>
-      </section>
+        </section>
+      </div>
 
       {/* Leadership Section */}
-      <section className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'py-16', 'lg:py-24', 'font-sans', 'relative', 'z-10')}>
+      <section className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'py-12', 'lg:py-16', 'font-sans', 'relative', 'z-10')}>
         <div className={clsx('text-center', 'mb-20')}>
           <span className={clsx('text-xs', 'uppercase', 'tracking-[0.2em]', 'font-extrabold', 'text-accent', 'bg-accent/10', 'px-3.5', 'py-1.5', 'rounded-sm', 'inline-block')}>
             Our Leadership
@@ -444,7 +430,7 @@ export default function About() {
       </section>
 
       {/* About CTA */}
-      <section className={clsx('py-16', 'lg:py-24', 'relative', 'z-10', 'max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'w-full', 'mb-8', 'lg:mb-12')}>
+      <section className={clsx('py-12', 'lg:py-16', 'relative', 'z-10', 'max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'w-full', 'mb-8', 'lg:mb-12')}>
         <div className={clsx('glass-card', 'border', 'border-white/[0.08]', 'rounded-xl', 'p-8', 'sm:p-12', 'shadow-2xl', 'relative', 'overflow-hidden', 'group', 'w-full', 'bg-gradient-to-br', 'from-bg-card/45', 'via-bg-card/20', 'to-accent/4', 'backdrop-blur-xl')}>
           {/* Inner ambient glows */}
           <div className={clsx('absolute', 'top-0', 'right-1/4', 'w-[350px]', 'h-[350px]', 'bg-accent/8', 'rounded-full', 'blur-[100px]', 'pointer-events-none', '-z-10', 'animate-pulse-slow')} />
