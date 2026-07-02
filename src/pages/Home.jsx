@@ -46,7 +46,7 @@ const PremiumHoverCard = ({ children, className, ...props }) => {
           `,
         }}
       />
-      <div className="relative z-10 p-8 flex flex-col items-start text-left h-full">
+      <div className="relative z-10 p-5 sm:p-8 flex flex-col items-start text-left h-full">
         {children}
       </div>
     </motion.div>
@@ -601,7 +601,7 @@ export default function Home() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
-                className={clsx('grid', 'grid-cols-2', 'gap-x-8', 'gap-y-3', 'pt-6', 'border-t', 'border-border-primary', 'w-full')}
+                className={clsx('grid', 'grid-cols-1', 'sm:grid-cols-2', 'gap-x-4', 'sm:gap-x-8', 'gap-y-3', 'pt-6', 'border-t', 'border-border-primary', 'w-full')}
               >
                 {[
                   "Enterprise Security",

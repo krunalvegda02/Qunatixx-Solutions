@@ -89,7 +89,7 @@ export default function About() {
       </div>
 
       {/* LIVE OPERATIONS DASHBOARD CARD (Overlap) */}
-      <div className={clsx('relative', 'w-full', 'px-4', 'sm:px-6', 'lg:px-8', 'max-w-6xl', 'mx-auto', 'z-20', '-mt-16', 'sm:-mt-24', 'mb-20', 'sm:mb-32')}>
+      <div className={clsx('relative', 'w-full', 'px-4', 'sm:px-6', 'lg:px-8', 'max-w-7xl', 'mx-auto', 'z-20', '-mt-16', 'sm:-mt-24', 'mb-20', 'sm:mb-32')}>
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -155,7 +155,7 @@ export default function About() {
       </div>
 
       {/* Story & Philosophy Section */}
-      <section className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'py-6', 'lg:py-10', 'font-sans', 'relative', 'z-10')}>
+      <section className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'py-16', 'lg:py-24', 'font-sans', 'relative', 'z-10')}>
         <div className={clsx('grid', 'grid-cols-1', 'lg:grid-cols-2', 'gap-12', 'items-center')}>
 
           <motion.div 
@@ -260,7 +260,7 @@ export default function About() {
       </section>
 
       {/* Engagement Guarantees Playbook */}
-      <section className={clsx('max-w-5xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'py-6', 'lg:py-10', 'relative', 'z-10')}>
+      <section className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'py-16', 'lg:py-24', 'relative', 'z-10')}>
         <div className={clsx('text-center', 'mb-16')}>
           <span className={clsx('text-xs', 'uppercase', 'tracking-wider', 'font-semibold', 'text-accent', 'font-mono')}>Engagement Model</span>
           <h2 className={clsx('text-3xl', 'font-display', 'font-bold', 'text-text-primary', 'mt-2')}>How We Work with Clients</h2>
@@ -270,7 +270,7 @@ export default function About() {
         </div>
 
         {/* Playbook track */}
-        <div className={clsx('relative', 'border-l', 'border-border-primary', 'pl-6', 'sm:pl-10', 'space-y-10', 'max-w-3xl', 'mx-auto', 'text-left', 'font-sans')}>
+        <div className={clsx('relative', 'border-l', 'border-border-primary', 'pl-6', 'sm:pl-10', 'space-y-10', 'max-w-4xl', 'mx-auto', 'text-left', 'font-sans')}>
           {playbook.map((item, i) => (
             <motion.div 
               key={i} 
@@ -297,7 +297,7 @@ export default function About() {
       </section>
 
       {/* Leadership Section */}
-      <section className={clsx('max-w-6xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'py-6', 'lg:py-10', 'font-sans', 'relative', 'z-10')}>
+      <section className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'py-16', 'lg:py-24', 'font-sans', 'relative', 'z-10')}>
         <div className={clsx('text-center', 'mb-20')}>
           <span className={clsx('text-xs', 'uppercase', 'tracking-[0.2em]', 'font-extrabold', 'text-accent', 'bg-accent/10', 'px-3.5', 'py-1.5', 'rounded-sm', 'inline-block')}>
             Our Leadership
@@ -310,7 +310,7 @@ export default function About() {
           </p>
         </div>
 
-        <div className={clsx('space-y-16', 'max-w-5xl', 'mx-auto')}>
+        <div className={clsx('grid', 'grid-cols-1', 'lg:grid-cols-2', 'gap-10', 'max-w-7xl', 'mx-auto')}>
           {leadership.map((lead, i) => {
             const isEven = i % 2 === 0;
             return (
@@ -329,15 +329,15 @@ export default function About() {
                 {/* Tech grid texture in card */}
                 <div className={clsx('absolute', 'inset-0', 'bg-[linear-gradient(rgba(255,255,255,0.003)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.003)_1px,transparent_1px)]', 'bg-[size:24px_24px]', 'pointer-events-none', 'opacity-30', '-z-10')} />
 
-                <div className={clsx('grid', 'grid-cols-1', 'lg:grid-cols-12', 'gap-8', 'lg:gap-12', 'items-center', 'relative', 'z-10')}>
+                <div className={clsx('flex', 'flex-col', 'gap-10', 'relative', 'z-10')}>
                   {/* Portrait side */}
-                  <div className={`lg:col-span-5 flex justify-center ${isEven ? 'lg:order-first' : 'lg:order-last'}`}>
+                  <div className="flex justify-center w-full">
                     <div className={clsx('relative', 'group/photo')}>
                       {/* Stylized Outer Glow Frame */}
                       <div className={clsx('absolute', '-inset-2', 'rounded-2xl', 'bg-gradient-to-tr', 'from-accent/20', 'to-highlight/20', 'opacity-0', 'group-hover/photo:opacity-100', 'blur-lg', 'transition', 'duration-700', '-z-10')} />
 
                       {/* Inner Photo Frame */}
-                      <div className={clsx('w-56', 'h-56', 'sm:w-64', 'sm:h-64', 'rounded-2xl', 'overflow-hidden', 'border', 'border-white/[0.08]', 'bg-bg-secondary', 'flex', 'items-center', 'justify-center', 'relative', 'shadow-2xl', 'aspect-square')}>
+                      <div className={clsx('w-64', 'h-64', 'sm:w-72', 'sm:h-72', 'rounded-3xl', 'overflow-hidden', 'border', 'border-white/[0.08]', 'bg-bg-secondary', 'flex', 'items-center', 'justify-center', 'relative', 'shadow-2xl', 'aspect-square')}>
                         {lead.photo ? (
                           <img
                             src={lead.photo}
@@ -367,7 +367,7 @@ export default function About() {
                   </div>
 
                   {/* Info Details side */}
-                  <div className={clsx('lg:col-span-7', 'text-left', 'space-y-6')}>
+                  <div className={clsx('text-left', 'space-y-6')}>
                     <div>
                       {/* Name & Socials */}
                       <div className={clsx('flex', 'flex-wrap', 'items-center', 'gap-4', 'justify-between')}>
@@ -444,7 +444,7 @@ export default function About() {
       </section>
 
       {/* About CTA */}
-      <section className={clsx('py-8', 'lg:py-12', 'relative', 'z-10', 'max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'w-full', 'mb-8', 'lg:mb-12')}>
+      <section className={clsx('py-16', 'lg:py-24', 'relative', 'z-10', 'max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'w-full', 'mb-8', 'lg:mb-12')}>
         <div className={clsx('glass-card', 'border', 'border-white/[0.08]', 'rounded-xl', 'p-8', 'sm:p-12', 'shadow-2xl', 'relative', 'overflow-hidden', 'group', 'w-full', 'bg-gradient-to-br', 'from-bg-card/45', 'via-bg-card/20', 'to-accent/4', 'backdrop-blur-xl')}>
           {/* Inner ambient glows */}
           <div className={clsx('absolute', 'top-0', 'right-1/4', 'w-[350px]', 'h-[350px]', 'bg-accent/8', 'rounded-full', 'blur-[100px]', 'pointer-events-none', '-z-10', 'animate-pulse-slow')} />
