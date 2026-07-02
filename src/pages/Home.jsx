@@ -847,6 +847,7 @@ export default function Home() {
         </div>
       </section>
 
+
       {/* TRUSTED BY MARQUEE */}
       <section className={clsx('py-12', 'border-y', 'border-border-primary', 'bg-bg-primary', 'overflow-hidden')}>
         <div className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'text-center', 'mb-6')}>
@@ -872,6 +873,90 @@ export default function Home() {
                 {brand}
               </span>
             ))}
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+
+      {/* EXCLUSIVE OFFERS SECTION: Premium Layout */}
+      <section className={clsx('py-16', 'lg:py-24', 'px-4', 'sm:px-6', 'lg:px-8', 'max-w-7xl', 'mx-auto', 'relative', 'z-10')}>
+        <div className={clsx('relative', 'w-full', 'rounded-[32px]', 'overflow-hidden', 'bg-bg-card/20', 'border', 'border-border-primary', 'backdrop-blur-2xl', 'p-8', 'lg:p-16', 'shadow-[0_20px_80px_rgba(0,0,0,0.3)]', 'group')}>
+          
+          {/* Ambient Background & Glows */}
+          <div className={clsx('absolute', 'inset-0', 'bg-[radial-gradient(ellipse_at_top,rgba(var(--color-accent),0.1)_0%,transparent_50%)]', 'pointer-events-none')} />
+          <div className={clsx('absolute', '-top-24', '-right-24', 'w-96', 'h-96', 'bg-highlight/10', 'rounded-full', 'blur-[100px]', 'pointer-events-none')} />
+          <div className={clsx('absolute', '-bottom-24', '-left-24', 'w-96', 'h-96', 'bg-accent/10', 'rounded-full', 'blur-[100px]', 'pointer-events-none')} />
+          
+          <div className={clsx('relative', 'z-10', 'flex', 'flex-col', 'items-center', 'text-center', 'mb-12', 'lg:mb-16')}>
+            <span className={clsx('inline-flex', 'items-center', 'gap-2', 'text-[11px]', 'uppercase', 'tracking-[0.25em]', 'font-bold', 'text-text-primary', 'bg-white/5', 'px-4', 'py-1.5', 'rounded-full', 'border', 'border-white/10', 'mb-6', 'shadow-sm')}>
+              <span className={clsx('w-2', 'h-2', 'rounded-full', 'bg-highlight', 'animate-pulse')} /> Exclusive For New Partners
+            </span>
+            <h2 className={clsx('text-4xl', 'md:text-5xl', 'lg:text-6xl', 'font-display', 'font-black', 'text-text-primary', 'leading-tight', 'tracking-tight', 'mb-4')}>
+              Client <span className={clsx('text-transparent', 'bg-clip-text', 'bg-gradient-to-r', 'from-accent', 'to-highlight')}>Welcome Pass</span>
+            </h2>
+            <p className={clsx('text-sm', 'sm:text-base', 'text-text-secondary', 'max-w-2xl', 'mx-auto', 'font-light', 'leading-relaxed')}>
+              Partner with Quantixx and instantly unlock thousands of dollars in foundational engineering value. We set you up for long-term success from day one.
+            </p>
+          </div>
+
+          {/* 3-Column Offers Grid */}
+          <div className={clsx('grid', 'grid-cols-1', 'md:grid-cols-3', 'gap-6', 'lg:gap-8', 'mb-12', 'lg:mb-16', 'relative', 'z-10')}>
+            
+            {/* Offer 1 */}
+            <div className={clsx('flex', 'flex-col', 'items-start', 'text-left', 'p-8', 'rounded-2xl', 'bg-bg-primary', 'border', 'border-border-primary', 'hover:border-accent/30', 'transition-all', 'duration-300', 'group/card')}>
+              <div className={clsx('w-12', 'h-12', 'rounded-xl', 'bg-accent/10', 'text-accent', 'flex', 'items-center', 'justify-center', 'mb-6', 'border', 'border-accent/20', 'group-hover/card:scale-110', 'group-hover/card:bg-accent/20', 'transition-transform')}>
+                <LineChart size={24} strokeWidth={1.5} />
+              </div>
+              <h3 className={clsx('text-xl', 'font-display', 'font-bold', 'text-text-primary', 'mb-2')}>Comprehensive Audit</h3>
+              <div className={clsx('text-[10px]', 'font-mono', 'font-bold', 'text-accent', 'bg-accent/10', 'px-2.5', 'py-1', 'rounded-sm', 'mb-4', 'border', 'border-accent/20')}>$2,500 VALUE</div>
+              <p className={clsx('text-sm', 'text-text-secondary', 'leading-relaxed', 'font-light')}>
+                Deep-dive review of your current setup, identifying hidden bottlenecks, and mapping a clear technical blueprint to scale your business.
+              </p>
+            </div>
+
+            {/* Offer 2 */}
+            <div className={clsx('flex', 'flex-col', 'items-start', 'text-left', 'p-8', 'rounded-2xl', 'bg-bg-primary', 'border', 'border-border-primary', 'hover:border-highlight/30', 'transition-all', 'duration-300', 'group/card')}>
+              <div className={clsx('w-12', 'h-12', 'rounded-xl', 'bg-highlight/10', 'text-highlight', 'flex', 'items-center', 'justify-center', 'mb-6', 'border', 'border-highlight/20', 'group-hover/card:scale-110', 'group-hover/card:bg-highlight/20', 'transition-transform')}>
+                <Tag size={24} strokeWidth={1.5} />
+              </div>
+              <h3 className={clsx('text-xl', 'font-display', 'font-bold', 'text-text-primary', 'mb-2')}>15% Welcome Discount</h3>
+              <div className={clsx('text-[10px]', 'font-mono', 'font-bold', 'text-highlight', 'bg-highlight/10', 'px-2.5', 'py-1', 'rounded-sm', 'mb-4', 'border', 'border-highlight/20')}>ALL SERVICES</div>
+              <p className={clsx('text-sm', 'text-text-secondary', 'leading-relaxed', 'font-light')}>
+                Enjoy an exclusive 15% rate reduction on your entire custom software, web app, or mobile development project.
+              </p>
+            </div>
+
+            {/* Offer 3 */}
+            <div className={clsx('flex', 'flex-col', 'items-start', 'text-left', 'p-8', 'rounded-2xl', 'bg-bg-primary', 'border', 'border-border-primary', 'hover:border-emerald-500/30', 'transition-all', 'duration-300', 'group/card')}>
+              <div className={clsx('w-12', 'h-12', 'rounded-xl', 'bg-emerald-500/10', 'text-emerald-500', 'flex', 'items-center', 'justify-center', 'mb-6', 'border', 'border-emerald-500/20', 'group-hover/card:scale-110', 'group-hover/card:bg-emerald-500/20', 'transition-transform')}>
+                <Zap size={24} strokeWidth={1.5} />
+              </div>
+              <h3 className={clsx('text-xl', 'font-display', 'font-bold', 'text-text-primary', 'mb-2')}>Free Launch Setup</h3>
+              <div className={clsx('text-[10px]', 'font-mono', 'font-bold', 'text-emerald-500', 'bg-emerald-500/10', 'px-2.5', 'py-1', 'rounded-sm', 'mb-4', 'border', 'border-emerald-500/20')}>$1,500 VALUE</div>
+              <p className={clsx('text-sm', 'text-text-secondary', 'leading-relaxed', 'font-light')}>
+                We handle the complex server hosting, domain configuration, and launch logistics entirely for free when you sign on for a full build.
+              </p>
+            </div>
+
+          </div>
+
+          <div className={clsx('flex', 'justify-center', 'relative', 'z-20')}>
+            <button 
+              onClick={openModal} 
+              className={clsx(
+                'px-10', 'py-4', 'sm:py-5', 'bg-text-primary', 'text-bg-primary', 'rounded-full', 
+                'text-sm', 'sm:text-base', 'font-bold', 'transition-all', 'duration-300', 
+                'shadow-[0_10px_40px_rgba(var(--color-accent),0.15)]', 'hover:shadow-[0_15px_50px_rgba(var(--color-accent),0.25)]', 
+                'hover:-translate-y-1', 'flex', 'items-center', 'justify-center', 'gap-3', 'group/btn'
+              )}
+            >
+              Activate Your Welcome Pass 
+              <ArrowRight size={18} className={clsx('group-hover/btn:translate-x-1.5', 'transition-transform')} />
+            </button>
           </div>
         </div>
       </section>
@@ -962,88 +1047,88 @@ export default function Home() {
                             boxShadow: `0 12px 48px ${c.glow}, 0 1px 0 rgba(255,255,255,0.08) inset`,
                           }}
                         >
-                        {/* Top shimmer line */}
-                        <div className={clsx('absolute', 'top-0', 'left-[8%]', 'right-[8%]', 'h-px', 'bg-gradient-to-r', 'from-transparent', 'via-white/25', 'to-transparent')} />
+                          {/* Top shimmer line */}
+                          <div className={clsx('absolute', 'top-0', 'left-[8%]', 'right-[8%]', 'h-px', 'bg-gradient-to-r', 'from-transparent', 'via-white/25', 'to-transparent')} />
 
-                        {/* Corner accents */}
-                        <div className={clsx('absolute', 'top-0', 'left-0', 'w-14', 'h-14', 'border-t-[1.5px]', 'border-l-[1.5px]', 'rounded-tl-[24px]', 'opacity-40', 'transition-opacity', 'duration-300', 'group-hover:opacity-80')} style={{ borderColor: c.border }} />
-                        <div className={clsx('absolute', 'bottom-0', 'right-0', 'w-14', 'h-14', 'border-b-[1.5px]', 'border-r-[1.5px]', 'rounded-br-[24px]', 'opacity-20', 'transition-opacity', 'duration-300', 'group-hover:opacity-60')} style={{ borderColor: c.border }} />
+                          {/* Corner accents */}
+                          <div className={clsx('absolute', 'top-0', 'left-0', 'w-14', 'h-14', 'border-t-[1.5px]', 'border-l-[1.5px]', 'rounded-tl-[24px]', 'opacity-40', 'transition-opacity', 'duration-300', 'group-hover:opacity-80')} style={{ borderColor: c.border }} />
+                          <div className={clsx('absolute', 'bottom-0', 'right-0', 'w-14', 'h-14', 'border-b-[1.5px]', 'border-r-[1.5px]', 'rounded-br-[24px]', 'opacity-20', 'transition-opacity', 'duration-300', 'group-hover:opacity-60')} style={{ borderColor: c.border }} />
 
-                        {/* Hover radial glow */}
-                        <div
-                          className={clsx('absolute', 'inset-0', 'opacity-0', 'group-hover:opacity-100', 'transition-opacity', 'duration-700', 'pointer-events-none', 'rounded-[24px]')}
-                          style={{ background: `radial-gradient(circle at 50% 0%, ${c.glow}, transparent 70%)` }}
-                        />
-
-                        <div className={clsx('relative', 'z-10', 'p-5', 'sm:p-7', 'flex', 'flex-col', 'h-full')}>
-
-                          {/* Header row */}
-                          <div className={clsx('flex', 'items-start', 'justify-between', 'mb-4', 'sm:mb-5')}>
-                            <div className={`w-12 h-12 rounded-[14px] flex items-center justify-center border ${c.iconCls} shrink-0`}>
-                              <Icon size={22} />
-                            </div>
-                            <span className={clsx('text-[9px]', 'font-mono', 'font-bold', 'tracking-[0.2em]', 'text-text-muted', 'bg-bg-secondary/70', 'border', 'border-border-primary/60', 'px-2.5', 'py-1', 'rounded-full', 'select-none')}>
-                              0{idx + 1} / 0{services.length}
-                            </span>
-                          </div>
-
-                          {/* Title */}
-                          <h3 className={clsx('text-base', 'sm:text-lg', 'font-display', 'font-extrabold', 'text-text-primary', 'mb-2', 'leading-snug')}>
-                            {svc.title}
-                          </h3>
-
-                          {/* Description */}
-                          <p className={clsx('text-xs', 'sm:text-sm', 'text-text-secondary', 'font-light', 'leading-relaxed', 'mb-4')}>
-                            {svc.desc}
-                          </p>
-
-                          {/* Outcome pill */}
+                          {/* Hover radial glow */}
                           <div
-                            className={clsx('inline-flex', 'items-center', 'gap-2', 'px-3', 'py-1', 'sm:px-3.5', 'sm:py-1.5', 'rounded-full', 'text-[9px]', 'sm:text-[10.5px]', 'font-bold', 'font-mono', 'mb-4', 'sm:mb-5', 'w-fit', 'shadow-sm')}
-                            style={{ background: c.glow, border: `1px solid ${c.border}` }}
-                          >
-                            <span className={clsx('w-1.5', 'h-1.5', 'rounded-full', 'shrink-0', 'shadow-sm')} style={{ backgroundColor: c.border.replace('0.3', '0.8') }} />
-                            <span className={clsx('text-text-primary/90', 'tracking-wide')}>{svc.outcome}</span>
-                          </div>
+                            className={clsx('absolute', 'inset-0', 'opacity-0', 'group-hover:opacity-100', 'transition-opacity', 'duration-700', 'pointer-events-none', 'rounded-[24px]')}
+                            style={{ background: `radial-gradient(circle at 50% 0%, ${c.glow}, transparent 70%)` }}
+                          />
 
-                          {/* Bullet points */}
-                          <div className={clsx('space-y-2', 'sm:space-y-3', 'mb-5', 'sm:mb-6', 'flex-1')}>
-                            {svc.bullets.map((bullet, bIdx) => (
-                              <div key={bIdx} className={clsx('flex', 'items-start', 'gap-2.5', 'sm:gap-3')}>
-                                <div
-                                  className={clsx('w-4', 'h-4', 'mt-0.5', 'rounded-full', 'flex', 'items-center', 'justify-center', 'shrink-0')}
-                                  style={{ background: c.glow, border: `1px solid ${c.border}` }}
-                                >
-                                  <CheckCircle2 size={10} style={{ color: c.border.replace('0.3', '1') }} />
-                                </div>
-                                <span className={clsx('text-[13px]', 'sm:text-sm', 'text-text-secondary', 'font-medium', 'leading-relaxed')}>{bullet}</span>
+                          <div className={clsx('relative', 'z-10', 'p-5', 'sm:p-7', 'flex', 'flex-col', 'h-full')}>
+
+                            {/* Header row */}
+                            <div className={clsx('flex', 'items-start', 'justify-between', 'mb-4', 'sm:mb-5')}>
+                              <div className={`w-12 h-12 rounded-[14px] flex items-center justify-center border ${c.iconCls} shrink-0`}>
+                                <Icon size={22} />
                               </div>
-                            ))}
-                          </div>
+                              <span className={clsx('text-[9px]', 'font-mono', 'font-bold', 'tracking-[0.2em]', 'text-text-muted', 'bg-bg-secondary/70', 'border', 'border-border-primary/60', 'px-2.5', 'py-1', 'rounded-full', 'select-none')}>
+                                0{idx + 1} / 0{services.length}
+                              </span>
+                            </div>
 
-                          {/* Tech stack */}
-                          <div className={clsx('pt-4', 'border-t', 'border-white/[0.06]')}>
-                            <span className={clsx('block', 'text-[9px]', 'uppercase', 'tracking-[0.2em]', 'text-text-muted', 'font-mono', 'mb-2.5')}>Stack</span>
-                            <div className={clsx('flex', 'flex-wrap', 'gap-1.5')}>
-                              {svc.techs.map((tech, tIdx) => (
-                                <span
-                                  key={tIdx}
-                                  className={clsx('px-2.5', 'py-1', 'rounded-full', 'text-[10px]', 'font-semibold', 'font-mono')}
-                                  style={{
-                                    background: 'rgba(255,255,255,0.04)',
-                                    border: '1px solid rgba(255,255,255,0.08)',
-                                    color: 'var(--text-secondary)'
-                                  }}
-                                >
-                                  {tech}
-                                </span>
+                            {/* Title */}
+                            <h3 className={clsx('text-base', 'sm:text-lg', 'font-display', 'font-extrabold', 'text-text-primary', 'mb-2', 'leading-snug')}>
+                              {svc.title}
+                            </h3>
+
+                            {/* Description */}
+                            <p className={clsx('text-xs', 'sm:text-sm', 'text-text-secondary', 'font-light', 'leading-relaxed', 'mb-4')}>
+                              {svc.desc}
+                            </p>
+
+                            {/* Outcome pill */}
+                            <div
+                              className={clsx('inline-flex', 'items-center', 'gap-2', 'px-3', 'py-1', 'sm:px-3.5', 'sm:py-1.5', 'rounded-full', 'text-[9px]', 'sm:text-[10.5px]', 'font-bold', 'font-mono', 'mb-4', 'sm:mb-5', 'w-fit', 'shadow-sm')}
+                              style={{ background: c.glow, border: `1px solid ${c.border}` }}
+                            >
+                              <span className={clsx('w-1.5', 'h-1.5', 'rounded-full', 'shrink-0', 'shadow-sm')} style={{ backgroundColor: c.border.replace('0.3', '0.8') }} />
+                              <span className={clsx('text-text-primary/90', 'tracking-wide')}>{svc.outcome}</span>
+                            </div>
+
+                            {/* Bullet points */}
+                            <div className={clsx('space-y-2', 'sm:space-y-3', 'mb-5', 'sm:mb-6', 'flex-1')}>
+                              {svc.bullets.map((bullet, bIdx) => (
+                                <div key={bIdx} className={clsx('flex', 'items-start', 'gap-2.5', 'sm:gap-3')}>
+                                  <div
+                                    className={clsx('w-4', 'h-4', 'mt-0.5', 'rounded-full', 'flex', 'items-center', 'justify-center', 'shrink-0')}
+                                    style={{ background: c.glow, border: `1px solid ${c.border}` }}
+                                  >
+                                    <CheckCircle2 size={10} style={{ color: c.border.replace('0.3', '1') }} />
+                                  </div>
+                                  <span className={clsx('text-[13px]', 'sm:text-sm', 'text-text-secondary', 'font-medium', 'leading-relaxed')}>{bullet}</span>
+                                </div>
                               ))}
                             </div>
-                          </div>
 
+                            {/* Tech stack */}
+                            <div className={clsx('pt-4', 'border-t', 'border-white/[0.06]')}>
+                              <span className={clsx('block', 'text-[9px]', 'uppercase', 'tracking-[0.2em]', 'text-text-muted', 'font-mono', 'mb-2.5')}>Stack</span>
+                              <div className={clsx('flex', 'flex-wrap', 'gap-1.5')}>
+                                {svc.techs.map((tech, tIdx) => (
+                                  <span
+                                    key={tIdx}
+                                    className={clsx('px-2.5', 'py-1', 'rounded-full', 'text-[10px]', 'font-semibold', 'font-mono')}
+                                    style={{
+                                      background: 'rgba(255,255,255,0.04)',
+                                      border: '1px solid rgba(255,255,255,0.08)',
+                                      color: 'var(--text-secondary)'
+                                    }}
+                                  >
+                                    {tech}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+
+                          </div>
                         </div>
-                      </div>
-                    </motion.div>
+                      </motion.div>
                     )}
                   </SwiperSlide>
                 );
@@ -1054,7 +1139,7 @@ export default function Home() {
             <div className={clsx('flex', 'flex-col', 'items-center', 'justify-center', 'gap-5', 'my-2', 'lg:hidden', 'w-full')}>
               {/* Centered Pagination Dots */}
               <div className={clsx('services-pagination', 'flex', 'justify-center', 'gap-2', 'items-center', 'w-full', '[&_.swiper-pagination-bullet]:w-1.5', '[&_.swiper-pagination-bullet]:h-1.5', '[&_.swiper-pagination-bullet]:rounded-full', '[&_.swiper-pagination-bullet]:bg-text-muted', '[&_.swiper-pagination-bullet]:opacity-40', '[&_.swiper-pagination-bullet]:transition-all', '[&_.swiper-pagination-bullet]:duration-300', 'hover:[&_.swiper-pagination-bullet]:opacity-60', '[&_.swiper-pagination-bullet-active]:!bg-text-primary', '[&_.swiper-pagination-bullet-active]:!opacity-100', 'cursor-pointer')} />
-              
+
               {/* Standalone Sleek Glass CTA Button */}
               <button
                 onClick={openModal}
@@ -1407,7 +1492,7 @@ export default function Home() {
                     <span className={clsx('block', 'text-sm', 'font-black', 'text-text-primary', 'tracking-tight', 'font-display')}>{tech.name}</span>
                     <div className={clsx('flex', 'justify-between', 'items-center', 'mt-1')}>
                       <span className={clsx('text-[9px]', 'text-text-muted', 'font-mono', 'truncate')}>{tech.category}</span>
-                    
+
                       {/* <span className={clsx('text-[8px]', 'font-mono', 'text-highlight', 'bg-highlight/10', 'px-1.5', 'py-0.25', 'rounded-sm')}>PROD</span> */}
                     </div>
                   </div>
@@ -1564,7 +1649,7 @@ export default function Home() {
               {testimonials.map((t, idx) => (
                 <SwiperSlide key={`mobile-test-${idx}`} className="h-auto">
                   <div className={clsx('relative', 'overflow-hidden', 'rounded-lg', 'p-6', 'bg-bg-primary', 'border', 'border-border-primary', 'shadow-2xl', 'flex', 'flex-col', 'justify-between', 'h-full', 'w-full')}>
-                    
+
                     {/* Top Bar: Company Logo & Rating */}
                     <div className={clsx('flex', 'justify-between', 'items-start', 'w-full', 'gap-4', 'relative', 'z-10', 'mb-6')}>
                       <div className={clsx('flex', 'gap-1', 'select-none')}>
@@ -1631,9 +1716,9 @@ export default function Home() {
                 </SwiperSlide>
               ))}
             </Swiper>
-            
+
             <div className={clsx('testimonials-deck-pagination', 'flex', 'gap-2', 'justify-center', 'w-full', 'mt-6', '[&_.swiper-pagination-bullet]:w-1.5', '[&_.swiper-pagination-bullet]:h-1.5', '[&_.swiper-pagination-bullet]:rounded-full', '[&_.swiper-pagination-bullet]:bg-text-muted', '[&_.swiper-pagination-bullet]:opacity-40', '[&_.swiper-pagination-bullet]:transition-all', '[&_.swiper-pagination-bullet-active]:opacity-100', '[&_.swiper-pagination-bullet-active]:bg-text-primary')} />
-            
+
             {/* Subtle User Hint */}
             <div className={clsx('mt-4', 'flex', 'items-center', 'justify-center', 'text-text-muted', 'opacity-50')}>
               <span className={clsx('text-[9px]', 'font-mono', 'uppercase', 'tracking-[0.25em]')}>Swipe to explore</span>
@@ -1642,123 +1727,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* EXCLUSIVE OFFERS SECTION: Digital Ticket Layout */}
-      <section className={clsx('py-12', 'lg:py-20', 'px-4', 'sm:px-6', 'lg:px-8', 'max-w-6xl', 'mx-auto', 'relative', 'z-10')}>
-        <div className={clsx('relative', 'w-full', 'rounded-2xl', 'overflow-hidden', 'bg-bg-card/30', 'border', 'border-accent/30', 'backdrop-blur-xl', 'flex', 'flex-col', 'lg:flex-row', 'shadow-[0_20px_50px_rgba(0,0,0,0.5)]')}>
-          {/* Ambient Glows */}
-          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_left,rgba(var(--color-accent),0.15)_0%,transparent_60%)] pointer-events-none" />
-          <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(ellipse_at_right,rgba(var(--color-highlight),0.1)_0%,transparent_60%)] pointer-events-none" />
-          
-          {/* Left Side: The Ticket Stub */}
-          <div className={clsx('p-8', 'lg:p-12', 'lg:w-[45%]', 'flex', 'flex-col', 'justify-center', 'relative', 'border-b', 'lg:border-b-0', 'lg:border-r', 'border-dashed', 'border-accent/40', 'bg-bg-primary/60')}>
-             {/* Ticket Cutouts */}
-             <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-8 h-8 rounded-full bg-bg-primary border-b border-l border-accent/40 hidden lg:block z-10" />
-             <div className="absolute bottom-0 right-0 translate-y-1/2 translate-x-1/2 w-8 h-8 rounded-full bg-bg-primary border-t border-l border-accent/40 hidden lg:block z-10" />
-             
-             <span className={clsx('inline-flex', 'items-center', 'gap-1.5', 'text-[10px]', 'uppercase', 'tracking-[0.25em]', 'font-extrabold', 'text-highlight', 'bg-highlight/10', 'px-3', 'py-1', 'rounded-sm', 'border', 'border-highlight/20', 'mb-6', 'w-fit')}>
-                <span className="w-1.5 h-1.5 rounded-full bg-highlight animate-pulse" /> First Time Partners
-             </span>
-             
-             <h2 className={clsx('text-4xl', 'lg:text-5xl', 'font-display', 'font-black', 'text-text-primary', 'leading-tight', 'tracking-tight', 'mb-4')}>
-               New Client <br className="hidden lg:inline"/>
-               <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-highlight">Welcome Pass</span>
-             </h2>
-             <p className="text-text-secondary font-mono text-xs sm:text-sm mb-10 opacity-70">
-               [ AUTH KEY: UNLOCKED ]
-             </p>
-             
-             <button onClick={openModal} className="w-full py-4 bg-accent hover:bg-accent-hover text-white rounded-md text-sm sm:text-base font-bold transition-all shadow-[0_0_20px_var(--accent-glow)] flex items-center justify-center gap-2 group cursor-pointer hover:-translate-y-1">
-                Activate Welcome Pass <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-             </button>
-          </div>
-
-          {/* Right Side: The Items */}
-          <div className={clsx('p-8', 'lg:p-12', 'lg:w-[55%]', 'flex', 'flex-col', 'justify-center', 'gap-12', 'relative', 'bg-bg-secondary/10', 'overflow-hidden')}>
-             
-             {/* Dynamic connector line */}
-             <div className="absolute left-[3.25rem] sm:left-[4.25rem] top-12 bottom-12 w-px bg-gradient-to-b from-accent via-highlight to-emerald-500 opacity-20 hidden md:block" />
-
-             {/* Offer 1: Free Project Audit */}
-             <div className="flex flex-col md:flex-row items-start md:items-center gap-6 group relative">
-               <div className="relative shrink-0 z-10 w-24 h-24 sm:w-32 sm:h-32 transition-transform duration-500 group-hover:scale-105 group-hover:-rotate-2">
-                 <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-[0_0_15px_rgba(var(--color-accent),0.3)]">
-                   <rect x="10" y="15" width="80" height="70" rx="8" fill="#1E1E2E" stroke="rgba(var(--color-accent), 0.8)" strokeWidth="2" />
-                   <rect x="10" y="15" width="80" height="20" rx="8" fill="rgba(var(--color-accent), 0.1)" />
-                   <circle cx="20" cy="25" r="3" fill="#FF5F56" />
-                   <circle cx="28" cy="25" r="3" fill="#FFBD2E" />
-                   <circle cx="36" cy="25" r="3" fill="#27C93F" />
-                   <path d="M 20 70 L 35 50 L 50 60 L 75 35" fill="none" stroke="rgba(var(--color-highlight), 1)" strokeWidth="3" />
-                   <circle cx="75" cy="35" r="4" fill="rgba(var(--color-highlight), 1)" className="animate-pulse" />
-                   <rect x="25" y="45" width="10" height="25" rx="2" fill="rgba(var(--color-accent), 0.5)" />
-                   <rect x="45" y="55" width="10" height="15" rx="2" fill="rgba(var(--color-accent), 0.5)" />
-                   <rect x="65" y="30" width="10" height="40" rx="2" fill="rgba(var(--color-highlight), 0.8)" />
-                 </svg>
-               </div>
-               <div className="relative z-10">
-                 <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-2">
-                   <h3 className="text-xl sm:text-2xl font-display font-bold text-text-primary group-hover:text-accent transition-colors">Free Project Audit</h3>
-                   <span className="text-[10px] sm:text-xs font-mono font-bold text-accent bg-accent/10 px-2.5 py-1 rounded-sm border border-accent/20">$2,500 Value</span>
-                 </div>
-                 <p className="text-sm sm:text-base text-text-secondary leading-relaxed max-w-md font-light">
-                   We'll review your current setup, identify hidden bottlenecks, and map out a clear path to scale your business with full technical blueprints.
-                 </p>
-               </div>
-             </div>
-
-             {/* Offer 2: 15% Welcome Discount */}
-             <div className="flex flex-col md:flex-row items-start md:items-center gap-6 group relative">
-               <div className="relative shrink-0 z-10 w-24 h-24 sm:w-32 sm:h-32 transition-transform duration-500 group-hover:scale-105 group-hover:rotate-2">
-                 <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-[0_0_15px_rgba(var(--color-highlight),0.3)]">
-                   <path d="M 15 40 L 40 15 L 85 15 L 85 85 L 15 85 Z" fill="#1E1E2E" stroke="rgba(var(--color-highlight), 0.8)" strokeWidth="2" strokeLinejoin="round" />
-                   <rect x="35" y="30" width="35" height="6" rx="3" fill="rgba(var(--color-highlight), 0.5)" />
-                   <rect x="35" y="45" width="20" height="6" rx="3" fill="rgba(var(--color-highlight), 0.5)" />
-                   <circle cx="35" cy="70" r="12" fill="none" stroke="rgba(var(--color-accent), 0.8)" strokeWidth="3" strokeDasharray="4 4" className="animate-spin-slow" />
-                   <text x="35" y="74" fontSize="12" fill="rgba(var(--color-accent), 1)" textAnchor="middle" fontWeight="bold">%</text>
-                   <path d="M 60 60 L 75 75" fill="none" stroke="rgba(var(--color-highlight), 1)" strokeWidth="3" strokeLinecap="round" />
-                   <path d="M 75 60 L 60 75" fill="none" stroke="rgba(var(--color-highlight), 1)" strokeWidth="3" strokeLinecap="round" />
-                 </svg>
-               </div>
-               <div className="relative z-10">
-                 <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-2">
-                   <h3 className="text-xl sm:text-2xl font-display font-bold text-text-primary group-hover:text-highlight transition-colors">15% Welcome Discount</h3>
-                   <span className="text-[10px] sm:text-xs font-mono font-bold text-highlight bg-highlight/10 px-2.5 py-1 rounded-sm border border-highlight/20">All Services</span>
-                 </div>
-                 <p className="text-sm sm:text-base text-text-secondary leading-relaxed max-w-md font-light">
-                   Partner with us for the first time and enjoy an exclusive 15% discount on your entire custom software or app development project.
-                 </p>
-               </div>
-             </div>
-
-             {/* Offer 3: Free Launch Setup */}
-             <div className="flex flex-col md:flex-row items-start md:items-center gap-6 group relative">
-               <div className="relative shrink-0 z-10 w-24 h-24 sm:w-32 sm:h-32 transition-transform duration-500 group-hover:scale-105 group-hover:-rotate-2">
-                 <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]">
-                   <rect x="25" y="20" width="50" height="70" rx="4" fill="#1E1E2E" stroke="rgba(16, 185, 129, 0.8)" strokeWidth="2" />
-                   <rect x="30" y="30" width="40" height="15" rx="2" fill="rgba(16, 185, 129, 0.1)" stroke="rgba(16, 185, 129, 0.5)" strokeWidth="1" />
-                   <rect x="30" y="55" width="40" height="15" rx="2" fill="rgba(16, 185, 129, 0.1)" stroke="rgba(16, 185, 129, 0.5)" strokeWidth="1" />
-                   <circle cx="38" cy="37.5" r="3" fill="#27C93F" className="animate-pulse" />
-                   <circle cx="38" cy="62.5" r="3" fill="#27C93F" className="animate-pulse" />
-                   <line x1="48" y1="37.5" x2="65" y2="37.5" stroke="rgba(16, 185, 129, 0.6)" strokeWidth="2" strokeLinecap="round" />
-                   <line x1="48" y1="62.5" x2="60" y2="62.5" stroke="rgba(16, 185, 129, 0.6)" strokeWidth="2" strokeLinecap="round" />
-                   <path d="M 15 40 Q 25 15 50 15 T 85 40" fill="none" stroke="rgba(16, 185, 129, 0.4)" strokeWidth="1" strokeDasharray="3 3" />
-                   <circle cx="15" cy="40" r="4" fill="rgba(16, 185, 129, 0.8)" />
-                   <circle cx="85" cy="40" r="4" fill="rgba(16, 185, 129, 0.8)" />
-                   <circle cx="50" cy="15" r="4" fill="rgba(16, 185, 129, 0.8)" />
-                 </svg>
-               </div>
-               <div className="relative z-10">
-                 <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-2">
-                   <h3 className="text-xl sm:text-2xl font-display font-bold text-text-primary group-hover:text-emerald-500 transition-colors">Free Launch Setup</h3>
-                   <span className="text-[10px] sm:text-xs font-mono font-bold text-emerald-500 bg-emerald-500/10 px-2.5 py-1 rounded-sm border border-emerald-500/20">$1,500 Value</span>
-                 </div>
-                 <p className="text-sm sm:text-base text-text-secondary leading-relaxed max-w-md font-light">
-                   We will handle all the complex server hosting, domain configuration, and launch setup for free when you sign on for a full build.
-                 </p>
-               </div>
-             </div>
-          </div>
-        </div>
-      </section>
 
       {/* BOTTOM CTA */}
       <section className={clsx('py-12', 'lg:py-20', 'px-4', 'sm:px-6', 'lg:px-8', 'max-w-7xl', 'mx-auto', 'relative', 'z-10')}>
