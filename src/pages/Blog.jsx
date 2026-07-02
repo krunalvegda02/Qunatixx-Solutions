@@ -23,17 +23,18 @@ export default function Blog() {
   const gridPosts = filteredPosts.slice(1);
 
   return (
-    <div className="relative pt-24 pb-24 bg-bg-primary text-text-primary theme-transition min-h-screen overflow-hidden">
+    <div className="relative pt-28 pb-16 bg-bg-primary text-text-primary theme-transition min-h-screen overflow-hidden bg-grid-tech">
       
       {/* Premium Ambient Background Effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
-        <div className="absolute top-0 inset-x-0 h-[800px] bg-[radial-gradient(ellipse_at_top,rgba(var(--color-accent-rgb),0.08)_0%,transparent_70%)]" />
-        <div className="absolute top-64 right-0 lg:right-1/4 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-highlight/5 rounded-full blur-[80px] sm:blur-[140px] animate-pulse-slow" />
-        <div className="absolute bottom-40 left-0 lg:left-10 w-[250px] sm:w-[500px] h-[250px] sm:h-[500px] bg-accent/5 rounded-full blur-[80px] sm:blur-[140px]" />
+        <div className="absolute top-[8%] right-[-12%] w-[500px] h-[500px] bg-gradient-to-br from-accent/5 to-highlight/5 rounded-full blur-[140px] pointer-events-none animate-pulse-slow" />
+        <div className="absolute top-[45%] left-[-15%] w-[600px] h-[600px] bg-gradient-to-tr from-highlight/5 to-accent/5 rounded-full blur-[150px] pointer-events-none" />
       </div>
 
-      {/* Header */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6 lg:pb-10 text-left sm:text-center relative z-10">
+      {/* HERO HEADER FOLD */}
+      <div className="relative w-full bg-gradient-to-b from-bg-primary to-bg-secondary/30 pt-14 pb-32 sm:pb-48 border-b border-border-primary/50">
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left sm:text-center relative z-10">
         <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-bg-secondary/80 border border-border-primary text-xs sm:text-sm uppercase tracking-[0.2em] font-extrabold text-accent font-mono mb-4 sm:mb-6 backdrop-blur-md">
           <Sparkles size={14} className="text-highlight animate-pulse" />
           Quantixx Insights
@@ -52,8 +53,10 @@ export default function Blog() {
         />
       </section>
 
-      {/* Search and Category Filters */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-10 relative z-10">
+      </div> {/* End Hero Header Fold */}
+
+      {/* Search and Category Filters (Overlap) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 -mt-16 sm:-mt-24 mb-12 sm:mb-16">
         <div className="glass-card bg-bg-card/40 backdrop-blur-md border border-border-primary rounded-2xl p-3 sm:p-4 flex flex-col lg:flex-row lg:items-center justify-between gap-4 sm:gap-6 shadow-xl">
           
           {/* Categories select tabs */}
@@ -100,85 +103,92 @@ export default function Blog() {
             {/* Featured Post (Hero) */}
             <AnimatePresence mode="popLayout">
               {featuredPost && (
-                <motion.article
+                                <motion.article
                   layout
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.95 }}
-                  whileHover={{ scale: 1.01 }}
-                  whileTap={{ scale: 0.98 }}
-                  transition={{ duration: 0.5, ease: [0.04, 0.62, 0.23, 0.98] }}
                   onClick={() => navigate('/blog/' + featuredPost.id)}
-                  className="glass-card border border-border-primary hover:border-accent/30 bg-bg-card/60 backdrop-blur-2xl rounded-3xl p-6 sm:p-8 lg:p-12 flex flex-col md:flex-row gap-6 sm:gap-8 lg:gap-12 items-center relative overflow-hidden transition-colors duration-300 shadow-xl hover:shadow-[0_20px_60px_var(--shadow-heavy)] group cursor-pointer"
+                  className="group flex flex-col border border-border-primary bg-bg-card hover:border-accent/50 cursor-pointer overflow-hidden transition-colors duration-500 rounded-none"
                 >
-                  {/* Internal Glow on Hover */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-accent/5 rounded-full blur-[80px] sm:blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none -z-10" />
-
-                  {/* Image for Mobile (Top) & Desktop (Right) */}
-                  {featuredPost.image ? (
-                    <div className="w-full md:w-1/3 aspect-[16/9] md:aspect-[4/3] max-w-[400px] md:order-2 rounded-2xl border border-border-primary relative overflow-hidden shadow-inner group-hover:border-accent/40 transition-colors shrink-0">
-                      <img src={featuredPost.image} alt={featuredPost.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-bg-card/60 to-transparent pointer-events-none" />
-                    </div>
-                  ) : (
-                    <div className="w-full md:w-1/3 aspect-[16/9] md:aspect-square max-w-[300px] md:order-2 rounded-2xl border border-border-primary bg-bg-secondary/50 relative overflow-hidden flex items-center justify-center shadow-inner group-hover:border-accent/30 transition-colors shrink-0">
-                      <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent opacity-50" />
-                      <BookOpen size={48} className="text-text-muted/30 group-hover:text-accent/40 transition-colors duration-700 group-hover:scale-110 sm:w-16 sm:h-16" />
-                    </div>
-                  )}
-
-                  <div className="flex-1 space-y-4 sm:space-y-6 relative z-10 md:order-1 w-full">
-                    <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-[10px] text-text-secondary font-mono">
-                      <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent/10 text-accent uppercase tracking-widest font-bold border border-accent/20">
-                        <Tag size={12} /> {featuredPost.category}
-                      </span>
-                      <span className="flex items-center gap-1.5"><Calendar size={12} /> {featuredPost.date}</span>
-                    </div>
-
-                    <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-display font-extrabold text-text-primary tracking-tight leading-[1.2] group-hover:text-accent transition-colors">
-                      {featuredPost.title}
-                    </h2>
-                    
-                    <p className="text-sm sm:text-base text-text-secondary leading-relaxed font-medium max-w-2xl line-clamp-3 sm:line-clamp-none">
-                      {featuredPost.desc}
-                    </p>
-
-                    <div className="pt-4 sm:pt-6 flex flex-wrap items-center justify-between gap-4 border-t border-border-primary/50 mt-4 sm:mt-0">
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-border-primary bg-gradient-to-tr from-bg-secondary to-bg-elevated flex items-center justify-center font-display font-bold text-xs sm:text-sm text-text-primary backdrop-blur-md shadow-sm">
-                          {featuredPost.author.split(' ').pop().charAt(0)}
-                        </div>
-                        <div>
-                          <span className="block text-xs sm:text-sm font-bold text-text-primary">{featuredPost.author}</span>
-                          <span className="block text-[9px] sm:text-[10px] text-text-muted font-mono uppercase tracking-wider flex items-center gap-1 mt-0.5">
-                            <Clock size={10} /> {featuredPost.readTime}
-                          </span>
-                        </div>
+                  {/* Top: Massive Cinematic Hero Image */}
+                  <div className="w-full aspect-video md:aspect-[21/9] lg:aspect-[2.5/1] overflow-hidden relative border-b border-border-primary group-hover:border-accent/30 transition-colors">
+                    {featuredPost.image ? (
+                      <img 
+                        src={featuredPost.image} 
+                        alt={featuredPost.title} 
+                        className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000" 
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-bg-secondary flex items-center justify-center">
+                        <BookOpen size={64} className="text-border-primary" />
                       </div>
-                      
-                      <span className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-bg-secondary/50 border border-border-primary group-hover:bg-accent text-text-secondary group-hover:text-white font-bold text-[10px] sm:text-xs flex items-center gap-1.5 sm:gap-2 transition-all shadow-md group-hover:shadow-[0_0_20px_rgba(var(--color-accent-rgb),0.4)]">
-                        Read Article <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform sm:w-3.5 sm:h-3.5" />
+                    )}
+                    {/* Vignette / Fade */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-bg-card via-transparent to-transparent opacity-80" />
+                    
+                    {/* Floating Meta Tag on Image */}
+                    <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 flex items-center gap-4">
+                      <span className="px-4 py-1.5 bg-accent text-white text-[10px] sm:text-xs font-mono uppercase tracking-widest font-bold shadow-2xl">
+                        Featured Insight
+                      </span>
+                      <span className="text-white/80 font-mono text-[10px] sm:text-xs uppercase tracking-widest backdrop-blur-md px-3 py-1 bg-black/40 border border-white/10">
+                        {featuredPost.category}
                       </span>
                     </div>
                   </div>
 
+                  {/* Bottom: Massive Typography Block */}
+                  <div className="p-6 md:p-10 lg:p-12 flex flex-col lg:flex-row gap-8 lg:gap-16 justify-between items-start bg-bg-card relative">
+                     {/* Title & Desc */}
+                     <div className="flex-1 max-w-4xl space-y-6">
+                        <h2 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-medium text-text-primary tracking-tight leading-[1.1] group-hover:text-accent transition-colors duration-500">
+                          {featuredPost.title}
+                        </h2>
+                        <p className="text-base sm:text-lg lg:text-xl text-text-secondary leading-relaxed font-sans max-w-3xl">
+                          {featuredPost.desc}
+                        </p>
+                     </div>
+
+                     {/* Author & Meta Sidebar */}
+                     <div className="w-full lg:w-64 shrink-0 flex flex-row lg:flex-col items-center lg:items-start justify-between lg:justify-start gap-6 border-t lg:border-t-0 lg:border-l border-border-primary pt-6 lg:pt-0 lg:pl-10">
+                        <div className="flex items-center gap-4">
+                           <div className="w-12 h-12 rounded-none bg-bg-secondary border border-border-primary flex items-center justify-center font-display font-bold text-lg text-text-primary">
+                             {featuredPost.author.split(' ').pop().charAt(0)}
+                           </div>
+                           <div>
+                              <div className="text-sm font-bold text-text-primary">{featuredPost.author}</div>
+                              <div className="text-xs text-text-muted font-mono mt-1 flex items-center gap-1.5">
+                                 <Calendar size={12} /> {featuredPost.date}
+                              </div>
+                           </div>
+                        </div>
+                        
+                        <div className="hidden lg:flex flex-col gap-4">
+                           <div className="text-xs text-text-muted font-mono uppercase tracking-widest flex items-center gap-2">
+                              <Clock size={12} /> {featuredPost.readTime}
+                           </div>
+                           <div className="h-px w-8 bg-border-primary" />
+                           <div className="flex items-center gap-2 text-text-secondary group-hover:text-accent font-bold text-xs uppercase tracking-widest font-mono transition-colors">
+                              Read Article <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform duration-300" />
+                           </div>
+                        </div>
+                     </div>
+                  </div>
                 </motion.article>
               )}
             </AnimatePresence>
 
-            {/* Asymmetrical Bento Grid */}
+            {/* Professional List View */}
             {gridPosts.length > 0 && (
               <motion.div 
                 layout
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 text-left"
+                className="flex flex-col text-left divide-y divide-border-primary border-t border-border-primary mt-12"
               >
                 <AnimatePresence mode="popLayout">
-                  {gridPosts.map((post, index) => {
-                    const isWide = index === 0 && gridPosts.length % 2 !== 0;
-                    return (
-                      <GridPostCard key={post.id} post={post} index={index} isWide={isWide} navigate={navigate} />
-                    );
-                  })}
+                  {gridPosts.map((post, index) => (
+                    <IndexPostRow key={post.id} post={post} index={index} navigate={navigate} />
+                  ))}
                 </AnimatePresence>
               </motion.div>
             )}
@@ -211,87 +221,65 @@ export default function Blog() {
   );
 }
 
-function GridPostCard({ post, index, isWide, navigate }) {
+function IndexPostRow({ post, index, navigate }) {
   const ref = useRef(null);
-  const isCentered = useInView(ref, { margin: "-35% 0px -35% 0px" });
 
   return (
     <motion.article
       ref={ref}
       layout
-      initial={{ opacity: 0, y: 30, scale: 0.95 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      initial={{ opacity: 0, y: 15 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      whileHover={{ y: -8, scale: 1.02 }}
-      whileTap={{ scale: 0.97 }}
-      exit={{ opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.4, delay: index < 3 ? index * 0.1 : 0 }}
+      transition={{ duration: 0.4, delay: index < 5 ? index * 0.05 : 0 }}
       onClick={() => navigate('/blog/' + post.id)}
-      className={clsx(
-        "glass-card backdrop-blur-xl rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 flex flex-col justify-between min-h-[300px] sm:min-h-[340px] hover:shadow-[0_20px_40px_var(--shadow-heavy)] transition-all duration-500 group font-sans relative overflow-hidden cursor-pointer",
-        isWide ? 'sm:col-span-2 lg:col-span-2' : '',
-        isCentered 
-          ? 'border border-accent/40 shadow-[0_15px_35px_rgba(var(--color-accent-rgb),0.15)] bg-bg-card/60 sm:border-border-primary sm:bg-bg-card/40 sm:shadow-none' 
-          : 'border border-border-primary bg-bg-card/40 opacity-70 scale-95 sm:opacity-100 sm:scale-100'
-      )}
+      className="group flex flex-col md:flex-row md:items-center justify-between gap-6 py-6 md:py-8 cursor-pointer border-b border-border-primary hover:bg-white/[0.02] transition-colors px-4 -mx-4 relative overflow-hidden"
     >
-      {/* Hover Ambient Glow */}
-      <div className={clsx(
-        "absolute -bottom-20 -right-20 w-48 sm:w-64 h-48 sm:h-64 bg-highlight/10 rounded-full blur-[60px] sm:blur-[80px] transition-opacity duration-500 pointer-events-none -z-10",
-        isCentered ? "opacity-100 sm:opacity-0 group-hover:opacity-100" : "opacity-0 group-hover:opacity-100"
-      )} />
+      {/* Date Col */}
+      <div className="w-full md:w-32 lg:w-40 shrink-0 flex items-center gap-2 text-[11px] font-mono text-text-muted uppercase tracking-widest group-hover:text-text-secondary transition-colors z-10">
+        <Calendar size={12} className="hidden md:block" />
+        {post.date}
+      </div>
 
-      <div className="relative z-10 flex-1 flex flex-col">
-        {post.image && (
-          <div className={clsx(
-            `w-full ${isWide ? 'h-48 sm:h-64 lg:h-72' : 'h-40 sm:h-48'} rounded-xl overflow-hidden mb-4 sm:mb-6 border relative transition-colors shrink-0`,
-            isCentered ? "border-accent/40 sm:border-border-primary group-hover:border-accent/40" : "border-border-primary group-hover:border-accent/40"
-          )}>
-            <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-            <div className="absolute inset-0 bg-gradient-to-t from-bg-card/40 to-transparent pointer-events-none" />
-          </div>
-        )}
-
-        <div className="flex flex-wrap items-center justify-between gap-2 text-[9px] sm:text-[10px] text-text-secondary mb-3 sm:mb-5 font-mono shrink-0">
-          <span className={clsx(
-            "flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 py-1 rounded-md bg-bg-secondary border uppercase tracking-wider font-bold transition-colors",
-            isCentered ? "border-accent/30 text-accent sm:border-border-primary sm:text-text-primary group-hover:border-accent/30 group-hover:text-accent" : "border-border-primary text-text-primary group-hover:border-accent/30 group-hover:text-accent"
-          )}>
-            <Tag size={10} /> {post.category}
-          </span>
-          <span className="flex items-center gap-1"><Calendar size={10} /> {post.date}</span>
-        </div>
-
-        <h3 className={clsx(
-          `font-bold transition-colors leading-snug mb-2 sm:mb-3 font-display tracking-tight ${isWide ? 'text-xl sm:text-2xl lg:text-3xl line-clamp-2' : 'text-lg sm:text-xl line-clamp-3'}`,
-          isCentered ? "text-accent sm:text-text-primary group-hover:text-accent" : "text-text-primary group-hover:text-accent"
-        )}>
+      {/* Title & Desc Col */}
+      <div className="flex-1 z-10 pr-4">
+        <h3 className="text-xl sm:text-2xl font-display font-medium text-text-primary tracking-tight mb-2 group-hover:text-accent transition-colors">
           {post.title}
         </h3>
-        <p className={`text-xs sm:text-sm text-text-secondary leading-relaxed font-medium ${isWide ? 'line-clamp-3 max-w-xl' : 'line-clamp-3'}`}>
-          {post.desc}
-        </p>
+        <div className="flex items-center gap-3">
+          <span className="px-2 py-0.5 text-[9px] font-mono font-bold uppercase tracking-widest border border-border-primary text-text-secondary group-hover:border-accent/40 group-hover:text-accent transition-colors bg-bg-secondary">
+            {post.category}
+          </span>
+          <p className="text-sm text-text-secondary font-sans line-clamp-1 max-w-xl">
+            {post.desc}
+          </p>
+        </div>
       </div>
 
-      {/* Footer metadata */}
-      <div className="pt-4 sm:pt-6 border-t border-border-primary/50 flex items-center justify-between mt-4 sm:mt-6 relative z-10">
-        <div className="flex items-center gap-2 sm:gap-3">
-          <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-border-primary bg-bg-secondary flex items-center justify-center font-bold text-[9px] sm:text-[10px] text-text-primary">
-            {post.author.split(' ').pop().charAt(0)}
-          </div>
-          <div className="text-[9px] sm:text-[10px]">
-            <span className="block text-text-primary font-bold">{post.author}</span>
-            <span className="block text-text-muted font-mono uppercase tracking-wider flex items-center gap-1 mt-0.5"><Clock size={8} sm:size={9} /> {post.readTime}</span>
+      {/* Cinematic Image Col (Right Side) */}
+      {post.image && (
+        <div className="hidden md:block w-48 lg:w-72 aspect-[21/9] shrink-0 border border-border-primary overflow-hidden relative z-10 bg-bg-secondary group-hover:border-accent/40 transition-colors">
+          <img 
+            src={post.image} 
+            alt={post.title} 
+            className="w-full h-full object-cover grayscale opacity-30 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" 
+          />
+          <div className="absolute inset-0 bg-bg-primary/40 group-hover:bg-transparent transition-colors duration-500 pointer-events-none" />
+          
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20">
+             <div className="w-8 h-8 bg-bg-primary/80 backdrop-blur-md border border-accent/50 text-accent flex items-center justify-center">
+                <ArrowRight size={14} className="-rotate-45" />
+             </div>
           </div>
         </div>
-        
-        <span className={clsx(
-          "w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center border rounded-full transition-all shadow-sm group-hover:shadow-md group-hover:bg-accent group-hover:border-accent group-hover:text-white",
-          isCentered ? "bg-accent border-accent text-white sm:bg-bg-secondary sm:border-border-primary sm:text-text-secondary" : "bg-bg-secondary border-border-primary text-text-secondary"
-        )}>
-          <ArrowRight size={12} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform sm:w-3.5 sm:h-3.5" />
-        </span>
-      </div>
+      )}
+      
+      {/* Mobile Image Fallback */}
+      {post.image && (
+         <div className="block md:hidden w-full aspect-video mt-2 border border-border-primary overflow-hidden relative group-hover:border-accent/40 transition-colors">
+            <img src={post.image} className="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" />
+         </div>
+      )}
     </motion.article>
   );
 }
