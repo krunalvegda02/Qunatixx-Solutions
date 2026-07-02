@@ -945,22 +945,23 @@ export default function Home() {
                 const c = accentColors[idx % accentColors.length];
                 return (
                   <SwiperSlide key={idx} className="h-auto">
-                    <motion.div
-                      whileHover={{ y: -6, scale: 1.015 }}
-                      transition={{ duration: 0.28, ease: 'easeOut' }}
-                      className="h-full"
-                    >
-                      {/* Glassmorphic card */}
-                      <div
-                        className={clsx('relative', 'rounded-[24px]', 'overflow-hidden', 'flex', 'flex-col', 'min-h-[380px]', 'sm:min-h-[480px]', 'cursor-pointer', 'group')}
-                        style={{
-                          background: 'linear-gradient(145deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 100%)',
-                          backdropFilter: 'blur(28px)',
-                          WebkitBackdropFilter: 'blur(28px)',
-                          border: `1px solid ${c.border}`,
-                          boxShadow: `0 12px 48px ${c.glow}, 0 1px 0 rgba(255,255,255,0.08) inset`,
-                        }}
+                    {({ isActive }) => (
+                      <motion.div
+                        whileHover={{ y: -6, scale: 1.015 }}
+                        transition={{ duration: 0.28, ease: 'easeOut' }}
+                        className="h-full"
                       >
+                        {/* Glassmorphic card */}
+                        <div
+                          className={clsx('relative', 'rounded-[24px]', 'overflow-hidden', 'flex', 'flex-col', 'min-h-[380px]', 'sm:min-h-[480px]', 'cursor-pointer', 'group', 'lg:bg-bg-primary')}
+                          style={{
+                            backgroundImage: 'linear-gradient(145deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 100%)',
+                            backdropFilter: 'blur(28px)',
+                            WebkitBackdropFilter: 'blur(28px)',
+                            border: `1px solid ${c.border}`,
+                            boxShadow: `0 12px 48px ${c.glow}, 0 1px 0 rgba(255,255,255,0.08) inset`,
+                          }}
+                        >
                         {/* Top shimmer line */}
                         <div className={clsx('absolute', 'top-0', 'left-[8%]', 'right-[8%]', 'h-px', 'bg-gradient-to-r', 'from-transparent', 'via-white/25', 'to-transparent')} />
 
@@ -1043,6 +1044,7 @@ export default function Home() {
                         </div>
                       </div>
                     </motion.div>
+                    )}
                   </SwiperSlide>
                 );
               })}
