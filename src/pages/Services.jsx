@@ -354,7 +354,7 @@ const servicesData = [
     badgeColor: 'accent',
     keyPoints: ['Secure-by-design systems', 'Custom modular APIs', 'Zero downtime guarantee', 'Full source code ownership'],
     technologies: ['Node.js', 'Go', 'Python', 'PostgreSQL', 'Docker'],
-    Illustration: SoftwareWidget,
+    Illustration: () => <img src="/software_engineering.png" alt="Software Engineering" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />,
   },
   {
     id: 'ai',
@@ -366,7 +366,7 @@ const servicesData = [
     badgeColor: 'purple',
     keyPoints: ['Custom AI chatbots & agents', 'Automated workflows', 'Smart data extraction', 'Private & secure guardrails'],
     technologies: ['OpenAI', 'LangChain', 'FastAPI', 'VectorDB', 'HuggingFace'],
-    Illustration: AIWidget,
+    Illustration: () => <img src="/ai_solutions.png" alt="AI Solutions" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />,
   },
   {
     id: 'web-apps',
@@ -378,7 +378,7 @@ const servicesData = [
     badgeColor: 'cyan',
     keyPoints: ['Ultra-fast load times (SEO)', 'Secure payment checkout', 'Admin management portal', 'Fully responsive layout'],
     technologies: ['React', 'Next.js', 'TypeScript', 'GraphQL', 'Vite'],
-    Illustration: WebWidget,
+    Illustration: () => <img src="/data_engineering.png" alt="Web Applications" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />,
   },
   {
     id: 'mobile-apps',
@@ -390,7 +390,7 @@ const servicesData = [
     badgeColor: 'purple',
     keyPoints: ['Single iOS + Android codebase', 'Offline mode support', 'Biometric authentication', 'Low battery usage'],
     technologies: ['React Native', 'Flutter', 'Swift', 'Kotlin', 'Firebase'],
-    Illustration: MobileWidget,
+    Illustration: () => <img src="/devops.png" alt="Mobile Apps" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />,
   },
   {
     id: 'cloud',
@@ -402,7 +402,7 @@ const servicesData = [
     badgeColor: 'cyan',
     keyPoints: ['Auto-scaling environments', 'VPC secure clustering', 'Automated backups', 'Real-time monitoring'],
     technologies: ['AWS', 'GCP', 'Terraform', 'Kubernetes', 'Datadog'],
-    Illustration: CloudWidget,
+    Illustration: () => <img src="/cloud_architecture.png" alt="Cloud Architecture" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />,
   },
   {
     id: 'ui-ux',
@@ -414,7 +414,7 @@ const servicesData = [
     badgeColor: 'accent',
     keyPoints: ['Interactive Figma prototypes', 'Custom component library', 'WCAG accessibility audits', 'Conversion-optimized layouts'],
     technologies: ['Figma', 'Adobe CC', 'Spline 3D', 'Lottie', 'Miro'],
-    Illustration: DesignWidget,
+    Illustration: () => <img src="/api_design.png" alt="API Design" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />,
   },
 ];
 
@@ -719,7 +719,7 @@ export default function Services() {
 
       {/* ── PROFESSIONAL B2B CTA ── */}
       <motion.section
-        className="relative py-16 sm:py-20 mt-12"
+        className="relative py-12 sm:py-16 mt-12"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-100px' }}
