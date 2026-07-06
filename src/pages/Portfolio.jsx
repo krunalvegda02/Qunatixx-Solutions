@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import { useModal } from '../context/ModalContext';
 import clsx from 'clsx';
+import { portfolioProjects } from '../data/portfolioData';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -17,140 +18,41 @@ const fadeUp = {
 };
 
 
-const ProjectMockup = ({ projectId }) => {
+const MediaViewer = ({ media, title }) => {
+  if (!media) return (
+    <div className="w-full h-full bg-bg-secondary flex items-center justify-center border border-border-primary rounded-lg overflow-hidden">
+      <span className="text-text-muted font-mono text-xs">NO MEDIA UPLOADED</span>
+    </div>
+  );
+
   return (
-    <>
-      {/* LogiRoute Mockup */}
-      {projectId === 'logiroute' && (
-        <div className={clsx('p-2', 'sm:p-3', 'bg-bg-secondary/60', 'border', 'border-border-primary', 'rounded-lg', 'flex', 'flex-col', 'justify-between', 'h-24', 'sm:h-36', 'overflow-hidden', 'relative', 'w-full', 'group-hover/card:border-accent/40', 'transition-colors', 'duration-500')}>
-          <div className={clsx('flex', 'items-center', 'gap-1', 'border-b', 'border-border-primary/50', 'pb-1.5', 'shrink-0')}>
-            <span className={clsx('w-1', 'h-1', 'rounded-full', 'bg-highlight/60')} />
-            <span className={clsx('w-1', 'h-1', 'rounded-full', 'bg-yellow-500/60')} />
-            <span className={clsx('w-1', 'h-1', 'rounded-full', 'bg-green-500/60')} />
-            <div className={clsx('ml-2', 'bg-bg-primary', 'border', 'border-border-primary/80', 'rounded-sm', 'text-[6px]', 'sm:text-[7px]', 'font-mono', 'text-text-muted', 'px-2', 'py-0.5', 'flex-1', 'max-w-[120px]', 'truncate', 'text-left', 'select-none')}>
-              logiroute.io/dispatch
-            </div>
-          </div>
-          <div className={clsx('flex-1', 'my-auto', 'flex', 'flex-col', 'gap-1.5', 'py-1', 'text-[7px]', 'font-mono')}>
-            <div className={clsx('bg-bg-primary', 'border', 'border-border-primary', 'p-1.5', 'rounded-sm', 'flex', 'items-center', 'justify-between', 'shadow-sm')}>
-              <span className={clsx('text-text-primary', 'font-bold')}>TRK-980 // Rotterdam</span>
-              <span className={clsx('text-[6px]', 'text-yellow-500', 'font-bold', 'bg-yellow-500/10', 'px-1.5', 'py-0.25', 'rounded-sm', 'flex', 'items-center', 'gap-0.5')}>
-                <span className={clsx('w-0.5', 'h-0.5', 'rounded-full', 'bg-yellow-500', 'animate-pulse')} /> IN TRANSIT
-              </span>
-            </div>
-            <div className={clsx('bg-bg-primary', 'border', 'border-border-primary', 'p-1.5', 'rounded-sm', 'flex', 'items-center', 'justify-between', 'shadow-sm')}>
-              <span className={clsx('text-text-primary', 'font-bold')}>TRK-402 // Hamburg</span>
-              <span className={clsx('text-[6px]', 'text-emerald-500', 'font-bold', 'bg-emerald-500/10', 'px-1.5', 'py-0.25', 'rounded-sm', 'flex', 'items-center', 'gap-0.5')}>
-                <span className={clsx('w-0.5', 'h-0.5', 'rounded-full', 'bg-emerald-500')} /> DELIVERED
-              </span>
-            </div>
-          </div>
-        </div>
+    <div className="w-full h-full border border-border-primary rounded-lg overflow-hidden relative group bg-bg-secondary flex items-center justify-center">
+      {media.type === 'video' ? (
+        <video 
+          src={media.url} 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          className="w-full h-full object-cover"
+          poster={media.fallbackImage}
+        />
+      ) : (
+        <img 
+          src={media.url} 
+          alt={title} 
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+          onError={(e) => {
+             e.target.style.display = 'none';
+             e.target.nextSibling.style.display = 'flex';
+          }}
+        />
       )}
-
-      {/* Finova Wallet Mockup */}
-      {projectId === 'finova' && (
-        <div className={clsx('p-2', 'bg-bg-secondary/60', 'border', 'border-border-primary', 'rounded-lg', 'flex', 'items-center', 'justify-center', 'h-36', 'overflow-hidden', 'relative', 'w-full')}>
-          <div className={clsx('w-40', 'h-[130%]', 'border', 'border-border-hover', 'bg-bg-primary', 'rounded-xl', 'p-1.5', 'flex', 'flex-col', 'justify-between', 'shadow-md', 'relative')}>
-            <div className={clsx('w-10', 'h-1', 'bg-border-primary', 'rounded-sm', 'mx-auto', 'mb-1', 'shrink-0')} />
-            <div className={clsx('flex-1', 'rounded-md', 'bg-bg-secondary/40', 'border', 'border-border-primary', 'p-1.5', 'flex', 'flex-col', 'justify-between', 'text-[7px]', 'font-mono')}>
-              <div className={clsx('text-center', 'my-auto', 'space-y-0.5')}>
-                <span className={clsx('block', 'text-[5px]', 'text-text-muted', 'uppercase', 'tracking-wider')}>BALANCE</span>
-                <span className={clsx('block', 'text-[11px]', 'font-extrabold', 'text-text-primary', 'font-display')}>₹8,450.00</span>
-                <span className={clsx('inline-block', 'text-[6px]', 'text-emerald-400', 'font-bold', 'bg-emerald-400/10', 'px-1.5', 'py-0.25', 'rounded-sm', 'mt-0.5')}>+35% Conversion</span>
-              </div>
-              <div className={clsx('border-t', 'border-border-primary/50', 'pt-1.5', 'flex', 'justify-between', 'items-center', 'text-[5px]', 'text-text-muted')}>
-                <span>KYC Audit</span>
-                <span className={clsx('text-emerald-500', 'font-bold', 'flex', 'items-center', 'gap-0.5')}>🟢 PASSED</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* OptimaFlow Mockup */}
-      {projectId === 'optimaflow' && (
-        <div className={clsx('p-3', 'bg-bg-secondary/60', 'border', 'border-border-primary', 'rounded-lg', 'flex', 'flex-col', 'justify-between', 'h-36', 'overflow-hidden', 'relative', 'w-full')}>
-          <div className={clsx('flex', 'justify-between', 'items-center', 'text-[8px]', 'font-mono', 'text-text-muted', 'border-b', 'border-border-primary/50', 'pb-1', 'shrink-0')}>
-            <span>AI DATA EXTRACTION</span>
-            <span className={clsx('flex', 'items-center', 'gap-1', 'text-emerald-500')}>
-              <span className={clsx('w-1', 'h-1', 'rounded-full', 'bg-emerald-500', 'animate-pulse')} /> ACTIVE
-            </span>
-          </div>
-          <div className={clsx('flex', 'items-center', 'justify-between', 'my-auto', 'py-1', 'text-[7px]', 'font-mono', 'relative')}>
-            <div className={clsx('absolute', 'left-6', 'right-6', 'top-1/2', '-translate-y-1/2', 'h-0.5', 'bg-border-primary', '-z-10')} />
-            <div className={clsx('absolute', 'left-[30%]', 'right-[30%]', 'top-1/2', '-translate-y-1/2', 'h-0.5', 'bg-gradient-to-r', 'from-accent', 'to-highlight', '-z-10')} />
-
-            <div className={clsx('flex', 'flex-col', 'items-center', 'gap-0.5')}>
-              <div className={clsx('w-7', 'h-7', 'rounded-md', 'bg-bg-primary', 'border', 'border-border-primary', 'flex', 'items-center', 'justify-center', 'text-xs')}>
-                📄
-              </div>
-              <span className={clsx('text-[5px]', 'text-text-muted')}>invoice.pdf</span>
-            </div>
-
-            <div className={clsx('flex', 'flex-col', 'items-center', 'gap-0.5')}>
-              <div className={clsx('w-8', 'h-8', 'rounded-full', 'bg-accent/10', 'border', 'border-accent/30', 'flex', 'items-center', 'justify-center', 'text-accent', 'shadow-sm', 'animate-pulse')}>
-                <Cpu size={12} />
-              </div>
-              <span className={clsx('text-[5px]', 'text-text-primary', 'font-bold')}>GPT-4</span>
-            </div>
-
-            <div className={clsx('flex', 'flex-col', 'items-center', 'gap-0.5')}>
-              <div className={clsx('w-7', 'h-7', 'rounded-md', 'bg-bg-primary', 'border', 'border-border-primary', 'flex', 'items-center', 'justify-center', 'text-xs')}>
-                ⚙️
-              </div>
-              <span className={clsx('text-[5px]', 'text-text-muted')}>Salesforce</span>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* ApexCloud Mockup */}
-      {projectId === 'apexcloud' && (
-        <div className={clsx('p-3', 'bg-bg-secondary/60', 'border', 'border-border-primary', 'rounded-lg', 'flex', 'flex-col', 'justify-between', 'h-36', 'overflow-hidden', 'relative', 'w-full')}>
-          <div className={clsx('flex', 'justify-between', 'items-center', 'text-[8px]', 'font-mono', 'text-text-muted', 'border-b', 'border-border-primary/50', 'pb-1', 'shrink-0')}>
-            <span>AWS SERVERLESS NODES</span>
-            <span className={clsx('flex', 'items-center', 'gap-1', 'text-emerald-500')}>
-              <span className={clsx('w-1', 'h-1', 'rounded-full', 'bg-emerald-500', 'animate-ping')} /> ONLINE
-            </span>
-          </div>
-          <div className={clsx('flex', 'flex-col', 'gap-1', 'my-auto', 'py-1', 'font-mono', 'text-[7px]')}>
-            <div className={clsx('bg-bg-primary', 'border', 'border-border-primary', 'p-1.5', 'rounded-sm', 'flex', 'items-center', 'justify-between', 'shadow-sm')}>
-              <span className={clsx('text-text-secondary', 'font-bold')}>Lambda Cluster</span>
-              <span className={clsx('text-accent', 'font-bold')}>Cost -40%</span>
-            </div>
-            <div className={clsx('bg-bg-primary', 'border', 'border-border-primary', 'p-1.5', 'rounded-sm', 'flex', 'items-center', 'justify-between', 'shadow-sm')}>
-              <span className={clsx('text-text-secondary', 'font-bold')}>DynamoDB Table</span>
-              <span className={clsx('text-emerald-500', 'font-bold')}>Latency 3ms</span>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* MediSync Mockup */}
-      {projectId === 'medisync' && (
-        <div className={clsx('p-3', 'bg-bg-secondary/60', 'border', 'border-border-primary', 'rounded-lg', 'flex', 'flex-col', 'justify-between', 'h-36', 'overflow-hidden', 'relative', 'w-full')}>
-          <div className={clsx('flex', 'justify-between', 'items-center', 'text-[8px]', 'font-mono', 'text-text-muted', 'border-b', 'border-border-primary/50', 'pb-1', 'shrink-0')}>
-            <span>CALENDAR SCHEDULER</span>
-            <span className={clsx('text-highlight', 'font-mono', 'flex', 'items-center', 'gap-0.5', 'text-[6px]')}>HIPAA SECURE</span>
-          </div>
-          <div className={clsx('grid', 'grid-cols-3', 'gap-1', 'my-auto', 'py-1', 'text-[7px]', 'font-mono')}>
-            <div className={clsx('bg-bg-primary', 'border', 'border-border-primary', 'p-1', 'rounded-sm', 'text-center')}>
-              <span className={clsx('block', 'text-text-muted', 'text-[5px]')}>MON 8</span>
-              <span className={clsx('text-text-secondary', 'font-bold')}>Filled</span>
-            </div>
-            <div className={clsx('bg-bg-primary', 'border', 'border-accent/25', 'bg-accent/5', 'p-1', 'rounded-sm', 'text-center')}>
-              <span className={clsx('block', 'text-accent', 'text-[5px]', 'font-bold')}>TUE 9</span>
-              <span className={clsx('text-text-primary', 'font-bold')}>10:30A</span>
-            </div>
-            <div className={clsx('bg-bg-primary', 'border', 'border-border-primary', 'p-1', 'rounded-sm', 'text-center', 'opacity-60')}>
-              <span className={clsx('block', 'text-text-muted', 'text-[5px]')}>WED 10</span>
-              <span className={clsx('text-text-secondary', 'font-bold')}>Open</span>
-            </div>
-          </div>
-        </div>
-      )}
-    </>
+      <div className="absolute inset-0 bg-bg-secondary hidden items-center justify-center pointer-events-none">
+          <span className="text-text-muted font-mono text-[10px]">MEDIA NOT FOUND</span>
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-t from-bg-card/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+    </div>
   );
 };
 
@@ -169,93 +71,7 @@ export default function Portfolio() {
     return projects.filter(p => p.category.includes(filter)).length;
   };
 
-  const projects = [
-    {
-      id: 'logiroute',
-      title: 'LogiRoute Portal',
-      category: ['Web Apps', 'Automation', 'SaaS'],
-      metric: 'Reduced manual work by 80%',
-      shortDesc: 'Automated global cargo dispatch schedule tracking and vendor invoicing.',
-      problem: 'LogiRoute was managing cargo schedules using shared Excel spreadsheets and email chains, which caused scheduling errors and billing delays.',
-      solution: 'We built a custom dispatch dashboard with GPS tracking and automated PDF invoice generation.',
-      techStack: ['React', 'Node.js', 'PostgreSQL', 'AWS', 'TailwindCSS'],
-      impact: [
-        'Automated 80% of manual scheduling tasks',
-        'Saved ₹150k in yearly administrative overhead',
-        'Reduced invoicing cycle from 14 days to instant'
-      ],
-      timeline: '3 Months',
-      results: 'Operational bottleneck solved completely. Dispatch speeds increased from hours to minutes, with zero lost cargo reports recorded in the first quarter of deployment.'
-    },
-    {
-      id: 'finova',
-      title: 'Finova Mobile Wallet',
-      category: ['Mobile Apps', 'SaaS', 'Enterprise'],
-      metric: 'Increased conversion rate by 35%',
-      shortDesc: 'Next-generation biometric payments wallet with streamlined onboarding.',
-      problem: 'Finova noticed a huge drop-off of customers during the registration phase because the verification process was too complicated.',
-      solution: 'We created a fast, beautiful mobile app with simple photo scanning and secure FaceID sign-ins to make signing up effortless.',
-      techStack: ['React Native', 'TypeScript', 'Node.js', 'Supabase', 'Stripe'],
-      impact: [
-        'Increased user conversion rates by 35%',
-        'KYC approval times reduced from 2 days to under 5 mins',
-        '4.8★ aggregate score on App Store & Google Play'
-      ],
-      timeline: '4 Months',
-      results: 'User growth accelerated by 300% post-launch, allowing Finova to successfully secure their Series-A funding round ahead of projection.'
-    },
-    {
-      id: 'optimaflow',
-      title: 'OptimaFlow Automator',
-      category: ['Automation', 'SaaS'],
-      metric: 'Automated 90% of repetitive tasks',
-      shortDesc: 'AI email parsing engine and automated CRM routing system.',
-      problem: 'Customer service staff spent 20 hours a week manually reading invoices and copying data into their CRM system by hand.',
-      solution: 'We developed a smart AI tool that instantly reads incoming documents and automatically enters the data perfectly every time.',
-      techStack: ['Python', 'LangChain', 'OpenAI GPT-4', 'Docker', 'FastAPI'],
-      impact: [
-        '90% of intake clerical work automated',
-        'Reduced entry error rate to absolute 0%',
-        'Freed 3 full-time employees to focus on client care'
-      ],
-      timeline: '2 Months',
-      results: 'Billing data entry bottleneck eliminated. Response time to user inquiries dropped from 18 hours to immediate confirmation emails.'
-    },
-    {
-      id: 'apexcloud',
-      title: 'Apex Serverless Infrastructure',
-      category: ['Cloud', 'Enterprise'],
-      metric: 'Reduced server costs by 40%',
-      shortDesc: 'Refactored monolithic hosting into highly scalable serverless nodes.',
-      problem: 'Apex was paying for oversized server hosting that sat idle for most of the day, wasting thousands of dollars a month.',
-      solution: 'We moved their application to a smart cloud infrastructure that automatically scales up when busy and turns down when quiet, saving money.',
-      techStack: ['AWS Lambda', 'Terraform', 'DynamoDB', 'API Gateway', 'Docker'],
-      impact: [
-        'Reduced monthly cloud hosting billing by 40%',
-        'Achieved 99.99% system availability with automated failovers',
-        'Scale response times dropped under 250 milliseconds'
-      ],
-      timeline: '2.5 Months',
-      results: 'System successfully handled a 4x traffic surge during black-friday sales with zero manual developer intervention and zero performance lag.'
-    },
-    {
-      id: 'medisync',
-      title: 'MediSync Platform',
-      category: ['Web Apps', 'Enterprise'],
-      metric: 'Scheduling speeds improved by 70%',
-      shortDesc: 'Compliance-ready patient medical portal and appointment router.',
-      problem: 'Clinic staff spent an average of 12 minutes per call checking insurance coverage and coordinating doctor calendars.',
-      solution: 'We built a secure, HIPAA-compliant scheduling platform that checks insurance instantly and automatically routes patients to the right specialist.',
-      techStack: ['Next.js', 'GraphQL', 'PostgreSQL', 'Docker', 'TailwindCSS'],
-      impact: [
-        '70% faster patient onboarding and scheduling',
-        '30% increase in daily clinic calendar utilization',
-        'Fully HIPAA compliance-ready infrastructure configuration'
-      ],
-      timeline: '5 Months',
-      results: 'Clinic operational capacity expanded instantly, allowing medical professionals to treat more patients daily with lower administrative drag.'
-    }
-  ];
+  const projects = portfolioProjects;
 
   const filteredProjects = projects.filter(project => {
     const matchesFilter = selectedFilter === 'All' || project.category.includes(selectedFilter);
@@ -531,6 +347,7 @@ export default function Portfolio() {
                     <motion.h3 layoutId={`title-${project.id}`} className={clsx('text-lg', 'lg:text-xl', 'font-display', 'font-bold', 'text-text-primary', 'group-hover/card:text-accent', 'transition-colors', 'duration-500', 'mb-1', 'lg:mb-2', 'relative', 'z-10', 'transform', 'group-hover/card:translate-x-1')}>
                       {project.title}
                     </motion.h3>
+                    <div className="text-xs text-text-muted font-mono mb-2 relative z-10">{project.company}</div>
 
                     <div className={clsx('grid', "[grid-template-areas:'stack']", 'mb-3', 'lg:mb-4', 'h-14', 'lg:h-16')}>
                       {/* Default Description */}
@@ -551,7 +368,7 @@ export default function Portfolio() {
 
                     {/* High-Fidelity UI Graphic Mockups ("Screenshots") */}
                     <motion.div layoutId={`mockup-${project.id}`} className={clsx('transform', 'group-hover/card:scale-[1.02]', 'group-hover/card:-translate-y-1', 'transition-all', 'duration-500', 'delay-100', 'relative', 'z-10')}>
-                      <ProjectMockup projectId={project.id} />
+                      <div className="h-32 sm:h-40 w-full"><MediaViewer media={project.media} title={project.title} /></div>
                     </motion.div>
                   </div>
 
@@ -617,9 +434,16 @@ export default function Portfolio() {
                     ))}
                   </div>
 
+                  <div className="text-sm text-text-muted font-mono mb-2">{activeProject.company}</div>
                   <motion.h3 layoutId={`title-${activeProject.id}`} className={clsx('text-2xl', 'sm:text-3xl', 'lg:text-4xl', 'font-display', 'font-extrabold', 'text-text-primary', 'mb-3', 'lg:mb-4', 'leading-tight', 'tracking-tight')}>
                     {activeProject.title}
                   </motion.h3>
+                  
+                  {activeProject.websiteLink && (
+                    <a href={activeProject.websiteLink} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-bg-secondary hover:bg-border-primary border border-border-primary rounded-md text-sm font-bold text-text-primary w-fit mb-6 transition-colors shadow-sm">
+                      Visit Live Website <ArrowUpRight size={14} />
+                    </a>
+                  )}
 
                   <motion.p layoutId={`desc-${activeProject.id}`} className={clsx('text-sm', 'text-text-secondary', 'leading-relaxed', 'mb-8')}>
                     {activeProject.shortDesc}
@@ -636,10 +460,8 @@ export default function Portfolio() {
                     </div>
                   </div>
 
-                  <motion.div layoutId={`mockup-${activeProject.id}`} className={clsx('relative', 'z-10', 'w-full', 'mt-12', 'mb-4')}>
-                    <div className={clsx('w-full', 'scale-110', 'sm:scale-125', 'origin-bottom')}>
-                      <ProjectMockup projectId={activeProject.id} />
-                    </div>
+                  <motion.div layoutId={`mockup-${activeProject.id}`} className="relative z-10 w-full mt-8 mb-4 h-48 sm:h-64 shadow-2xl">
+                    <MediaViewer media={activeProject.media} title={activeProject.title} />
                   </motion.div>
                 </div>
               </div>
@@ -647,13 +469,17 @@ export default function Portfolio() {
               {/* Right Column: Detailed Case Study Content */}
               <div data-lenis-prevent="true" className={clsx('w-full', 'shrink-0', 'lg:w-3/5', 'p-6', 'sm:p-8', 'lg:p-12', 'bg-bg-card', 'lg:overflow-y-auto', 'custom-scrollbar', 'min-h-0')}>
 
-                {/* Metric Box */}
-                <div className={clsx('bg-gradient-to-br', 'from-bg-primary', 'to-accent/5', 'border', 'border-accent/20', 'rounded-lg', 'p-6', 'mb-10', 'shadow-lg', 'mt-2', 'lg:mt-0')}>
-                  <span className={clsx('block', 'text-[10px]', 'uppercase', 'tracking-wider', 'text-accent', 'font-bold', 'font-mono')}>Business Outcome</span>
-                  <span className={clsx('block', 'text-2xl', 'font-bold', 'text-text-primary', 'mt-2', 'font-display')}>
-                    <Counter value={activeProject.metric} />
-                  </span>
-                </div>
+                {/* Project Stats Grid */}
+                {activeProject.stats && (
+                  <div className="grid grid-cols-3 gap-4 mb-10 mt-2 lg:mt-0">
+                    {activeProject.stats.map((stat, idx) => (
+                      <div key={idx} className="bg-bg-primary border border-border-primary rounded-lg p-4 shadow-sm">
+                        <span className="block text-[9px] uppercase tracking-wider text-text-muted font-mono mb-1">{stat.label}</span>
+                        <span className="block text-xl sm:text-2xl font-bold text-accent font-display">{stat.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
 
                 {/* Case details fields */}
                 <div className={clsx('space-y-10', 'text-left', 'font-sans')}>

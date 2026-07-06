@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { AnimatedText } from '../components/animations/AnimatedText';
 import { AnimatedSubText } from '../components/animations/AnimatedSubText';
-import { Target, Shield, Users, Flame, Cpu, ArrowUpRight, CheckCircle2, ShieldAlert, MessageSquare, Key, RefreshCw, Terminal, Globe, Zap } from 'lucide-react';
+import { Target, Shield, Users, Flame, Cpu, ArrowUpRight, CheckCircle2, ShieldAlert, MessageSquare, Key, RefreshCw, Terminal, Globe, Zap, Sparkles } from 'lucide-react';
 import { useModal } from '../context/ModalContext';
 import clsx from 'clsx';
 
@@ -9,50 +9,50 @@ export default function About() {
   const { openModal } = useModal();
 
   const values = [
-    { title: 'Technical Integrity', desc: 'We build clean, reliable software designed to grow with your business and never let you down.', icon: Cpu },
-    { title: 'Absolute Transparency', desc: 'No guesswork or hidden fees. You get full access to our work, daily progress updates, and a direct line to our team.', icon: Shield },
-    { title: 'Security First', desc: 'We build industry-leading security and compliance measures directly into our workflows from day one to keep your data completely safe.', icon: Key },
-    { title: 'True Partnership', desc: 'We act as your dedicated technical partners. You work directly with the experts who are building your systems, ensuring your vision is perfectly realized.', icon: Users },
+    { title: 'Built to Last', desc: 'We create clean, reliable software that grows alongside your business and never leaves you stranded.', icon: Cpu },
+    { title: 'Clear Communication', desc: 'No guesswork or hidden fees. You get simple daily updates and a direct line to the people actually building your project.', icon: MessageSquare },
+    { title: 'Safe & Secure', desc: 'We take your data seriously. We build top-tier security into everything we do from day one, so you can sleep easy.', icon: Key },
+    { title: 'True Partnership', desc: "We don't just write code; we partner with you. You will work directly with our friendly experts to turn your vision into reality.", icon: Users },
   ];
 
   const playbook = [
-    { step: '01', title: 'Consultation & Mutual NDA', desc: 'We sign an NDA immediately to protect your ideas. Then, we listen to your needs and provide a free, detailed project roadmap.' },
-    { step: '02', title: 'Direct Communication', desc: 'You communicate directly with the engineers building your product. We keep you in the loop with daily updates—no account managers, no delays.' },
-    { step: '03', title: 'Continuous Review', desc: 'We build in rapid, visible stages. You get live access to test and review your product as we build it, ensuring it meets your exact vision.' },
-    { step: '04', title: '100% IP Ownership', desc: 'You own everything. Upon launch, we hand over complete ownership of all code, servers, and assets. No vendor lock-in, ever.' }
+    { step: '01', title: 'Discovery & NDA', desc: 'We start by signing an NDA to ensure your ideas are fully protected. From there, we take the time to understand your vision and provide a clear, tailored technical roadmap at no cost.' },
+    { step: '02', title: 'Direct Collaboration', desc: 'You work directly with the senior engineers building your product. We eliminate middlemen and account managers so you always get clear, immediate answers about your project.' },
+    { step: '03', title: 'Transparent Development', desc: 'We build your software in rapid, interactive stages. You get live access to test and review your product as it comes to life, ensuring the final result perfectly matches your expectations.' },
+    { step: '04', title: 'Complete Ownership', desc: 'When we launch, you retain 100% ownership of your intellectual property. We hand over all source code, servers, and assets—guaranteeing zero vendor lock-in, ever.' }
   ];
 
   const leadership = [
     {
-      name: 'Arthur Sterling',
-      role: 'Co-Founder & Systems Architect',
-      bio: 'Arthur leads the system architecture and low-latency infrastructure design at Quantixx. Previously, he was a Lead Systems Architect designing payments engine internals at Stripe. He specializes in designing robust backend systems that handle billions of events per second with zero tolerance for downtime.',
-      photo: '/arthur_sterling.png',
-      initial: 'AS',
-      accentColor: 'cyan',
-      themeGradient: 'from-[#0EA5E9]/20 via-[#0EA5E9]/5 to-transparent',
-      quote: "Uptime isn't a goal; it's a structural requirement of modern business.",
-      focus: ["Distributed Architectures", "High-Availability Networking", "Rust & Go Development", "Stripe Engine Design"],
+      name: 'Krunal Vegda',
+      role: 'Co-Founder & CTO',
+      bio: 'As the technical architect behind Quantixx, Krunal ensures every digital product we build is highly secure, exceptionally fast, and engineered to scale seamlessly. From complex cloud infrastructures to robust full-stack applications, he transforms technical complexity into flawless, reliable performance.',
+      photo: '/krunal_vegda.png',
+      initial: 'KV',
+      accentColor: 'rose',
+      themeGradient: 'from-[#E11D48]/20 via-[#E11D48]/5 to-transparent',
+      quote: "Technology should never be a friction point. It should be the invisible engine that effortlessly powers your growth.",
+      focus: ["Cloud Infrastructure", "Full-Stack Architecture", "System Scalability", "Technical Leadership"],
       stats: [
-        { label: 'Latency SLA', value: '< 2.4ms' },
-        { label: 'Active Cluster', value: 'AWS us-west-2' },
-        { label: 'Primary Language', value: 'Rust / Go' }
+        { label: 'Infrastructure', value: 'Cloud Native' },
+        { label: 'Development', value: 'Full-Stack' },
+        { label: 'Expertise', value: 'Tech Leadership' }
       ]
     },
     {
-      name: 'Meera Patel',
-      role: 'Co-Founder & AI Operations Lead',
-      bio: 'Meera spearheads the cloud infrastructure, automation, and serverless AI orchestration pipelines. Prior to co-founding Quantixx, she was a Senior Cloud Developer at AWS, helping enterprise partners implement scalable serverless VPCs and secure vector database deployments.',
-      photo: '/meera_patel.png',
-      initial: 'MP',
-      accentColor: 'rose',
-      themeGradient: 'from-[#E11D48]/20 via-[#E11D48]/5 to-transparent',
-      quote: "We eliminate administrative drag to code directly with builders.",
-      focus: ["Serverless VPCs", "Vector RAG Pipelines", "Infrastructure as Code", "Terraform & AWS IAM"],
+      name: 'Abhishek Sharma',
+      role: 'Co-Founder & CEO',
+      bio: 'Abhishek bridges the critical gap between high-level business strategy and technical execution. With a specialized focus on Laravel, .NET, and intelligent automation, he designs AI-driven solutions that eliminate operational friction and accelerate your business growth.',
+      photo: '/abhishek_sharma.png',
+      initial: 'AS',
+      accentColor: 'cyan',
+      themeGradient: 'from-[#0EA5E9]/20 via-[#0EA5E9]/5 to-transparent',
+      quote: "True digital transformation isn't just about writing code—it's about engineering strategic leverage that redefines how your business scales.",
+      focus: ["AI & Automation Strategy", "Laravel Architecture", ".NET Enterprise Solutions", "Full-Stack Development"],
       stats: [
-        { label: 'Compute Setup', value: 'Serverless Auto-scale' },
-        { label: 'Vector Engine', value: 'Pinecone / pgvector' },
-        { label: 'Infrastructure', value: 'Terraform IaC' }
+        { label: 'Focus Area', value: 'AI / Automation' },
+        { label: 'Core Stack', value: 'Laravel / .NET' },
+        { label: 'Expertise', value: 'Enterprise Strategy' }
       ]
     }
   ];
@@ -82,7 +82,7 @@ export default function About() {
             className={clsx('text-4xl', 'sm:text-5xl', 'lg:text-6xl', 'font-display', 'font-extrabold', 'text-text-primary', 'mt-4', 'max-w-4xl', 'sm:mx-auto', 'leading-tight', 'tracking-tight', 'text-balance')}
           />
           <AnimatedSubText 
-            text="We are an expert team of software engineers dedicated to turning your complex challenges into scalable, secure, and intuitive digital solutions. We prioritize your success and peace of mind over everything else."
+            text="We are a friendly team of software experts dedicated to turning your ideas into beautiful, easy-to-use digital tools. We prioritize your success and peace of mind above everything else."
             className={clsx('text-sm', 'sm:text-base', 'text-text-secondary', 'max-w-2xl', 'sm:mx-auto', 'mt-5', 'leading-relaxed', 'font-light', 'font-sans', 'text-balance', 'text-left', 'sm:text-center')}
           />
         </section>
@@ -99,36 +99,33 @@ export default function About() {
           
           {/* Left Block */}
           <div className={clsx('p-8', 'md:p-12', 'border-b', 'md:border-b-0', 'md:border-r', 'border-border-primary', 'flex', 'flex-col', 'justify-start', 'space-y-6', 'group')}>
-            <div className="flex items-center gap-3">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              <span className="text-[10px] font-mono font-semibold tracking-[0.15em] text-text-muted uppercase">Availability Status</span>
+            <div className={clsx('flex', 'items-center', 'gap-3')}>
+              <Sparkles size={12} className="text-highlight animate-pulse" />
+              <span className={clsx('text-[10px]', 'font-mono', 'font-semibold', 'tracking-[0.15em]', 'text-highlight', 'uppercase')}>Limited Availability</span>
             </div>
             
             <div className="space-y-4">
-              <h3 className="text-2xl sm:text-3xl font-display font-medium text-text-primary tracking-tight leading-snug">
-                Accepting new enterprise partners.
+              <h3 className={clsx('text-2xl', 'sm:text-3xl', 'font-display', 'font-medium', 'text-text-primary', 'tracking-tight', 'leading-snug')}>
+                Accepting new client partners.
               </h3>
-              <p className="text-sm text-text-secondary font-sans leading-relaxed font-light">
-                Our engineering bandwidth is carefully managed. We currently have capacity to architect and build <strong className="text-text-primary font-medium">1 new platform</strong> this quarter.
+              <p className={clsx('text-sm', 'text-text-secondary', 'font-sans', 'leading-relaxed', 'font-light')}>
+                We keep our team focused so that every client gets our direct, undivided attention from start to finish.
               </p>
             </div>
           </div>
 
           {/* Right Block */}
           <div className={clsx('p-8', 'md:p-12', 'flex', 'flex-col', 'justify-start', 'space-y-6')}>
-            <div className="flex items-center gap-3">
+            <div className={clsx('flex', 'items-center', 'gap-3')}>
               <MessageSquare size={12} className="text-text-muted" />
-              <span className="text-[10px] font-mono font-semibold tracking-[0.15em] text-text-muted uppercase">Direct Communication</span>
+              <span className={clsx('text-[10px]', 'font-mono', 'font-semibold', 'tracking-[0.15em]', 'text-text-muted', 'uppercase')}>Direct Communication</span>
             </div>
             
             <div className="space-y-4">
-              <h3 className="text-2xl sm:text-3xl font-display font-medium text-text-primary tracking-tight leading-snug">
-                No middle-men. <br className="hidden lg:block"/>Just engineers.
+              <h3 className={clsx('text-2xl', 'sm:text-3xl', 'font-display', 'font-medium', 'text-text-primary', 'tracking-tight', 'leading-snug')}>
+                No middle-men. <br className={clsx('hidden', 'lg:block')}/>Just engineers.
               </h3>
-              <p className="text-sm text-text-secondary font-sans leading-relaxed font-light">
+              <p className={clsx('text-sm', 'text-text-secondary', 'font-sans', 'leading-relaxed', 'font-light')}>
                 We don't use account managers. When you partner with us, you speak directly to the senior developers who are actively writing your code.
               </p>
             </div>
@@ -243,8 +240,8 @@ export default function About() {
       </section>
 
       {/* Engagement Guarantees Playbook */}
-      <div className="w-full bg-bg-secondary/40 border-y border-border-primary/50 relative overflow-hidden mt-8 mb-8">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-accent/5 rounded-[100%] blur-[80px] pointer-events-none -z-10" />
+      <div className={clsx('w-full', 'bg-bg-secondary/40', 'border-y', 'border-border-primary/50', 'relative', 'overflow-hidden', 'mt-8', 'mb-8')}>
+        <div className={clsx('absolute', 'top-0', 'left-1/2', '-translate-x-1/2', 'w-[800px]', 'h-[300px]', 'bg-accent/5', 'rounded-[100%]', 'blur-[80px]', 'pointer-events-none', '-z-10')} />
         <section className={clsx('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8', 'py-12', 'lg:py-16', 'relative', 'z-10')}>
         <div className={clsx('text-center', 'mb-16')}>
           <span className={clsx('text-xs', 'uppercase', 'tracking-wider', 'font-semibold', 'text-accent', 'font-mono')}>Engagement Model</span>
@@ -317,7 +314,7 @@ export default function About() {
 
                 <div className={clsx('flex', 'flex-col', 'gap-10', 'relative', 'z-10')}>
                   {/* Portrait side */}
-                  <div className="flex justify-center w-full">
+                  <div className={clsx('flex', 'justify-center', 'w-full')}>
                     <div className={clsx('relative', 'group/photo')}>
                       {/* Stylized Outer Glow Frame */}
                       <div className={clsx('absolute', '-inset-2', 'rounded-2xl', 'bg-gradient-to-tr', 'from-accent/20', 'to-highlight/20', 'opacity-0', 'group-hover/photo:opacity-100', 'blur-lg', 'transition', 'duration-700', '-z-10')} />
@@ -347,7 +344,7 @@ export default function About() {
                       {/* Tech Role Accent Strip */}
                       <div className={`absolute -top-3 -right-3 px-3 py-1 rounded-lg text-[10px] font-mono font-bold tracking-widest uppercase border backdrop-blur-md shadow-lg ${lead.accentColor === 'cyan' ? 'bg-[#0EA5E9]/10 text-[#0EA5E9] border-[#0EA5E9]/20 shadow-[#0EA5E9]/5' : 'bg-[#E11D48]/10 text-[#E11D48] border-[#E11D48]/20 shadow-[#E11D48]/5'
                         }`}>
-                        {lead.accentColor === 'cyan' ? 'Architect' : 'AI Engineer'}
+                        {lead.name === 'Abhishek Sharma' ? 'AI & Automation' : 'Cloud Architecture'}
                       </div>
                     </div>
                   </div>
@@ -398,26 +395,26 @@ export default function About() {
                     </div>
 
                     {/* System Stats Block */}
-                    <div className={clsx('grid', 'grid-cols-3', 'gap-4', 'bg-bg-secondary/40', 'border', 'border-white/[0.04]', 'p-4', 'rounded-xl', 'font-mono', 'text-[10px]')}>
+                    <div className={clsx('grid', 'grid-cols-1', 'sm:grid-cols-3', 'gap-4', 'sm:gap-6', 'bg-bg-secondary/40', 'border', 'border-border-primary/50', 'p-5', 'sm:p-6', 'rounded-xl', 'mt-6')}>
                       {lead.stats.map((stat, idx) => (
-                        <div key={idx} className="space-y-1">
-                          <span className={clsx('text-text-muted', 'block', 'uppercase', 'tracking-wider', 'text-[8px]')}>{stat.label}</span>
-                          <span className={clsx('text-text-primary', 'font-bold', 'block', 'truncate')}>{stat.value}</span>
+                        <div key={idx} className={clsx('space-y-1', 'sm:space-y-1.5', 'border-l-2', 'border-accent/20', 'pl-3', 'hover:border-accent/60', 'transition-colors')}>
+                          <span className={clsx('text-text-muted', 'block', 'uppercase', 'tracking-widest', 'text-[10px]', 'font-mono', 'font-semibold')}>{stat.label}</span>
+                          <span className={clsx('text-text-primary', 'font-display', 'font-bold', 'text-sm', 'sm:text-base', 'truncate')}>{stat.value}</span>
                         </div>
                       ))}
                     </div>
 
-                    {/* Focus Badges */}
-                    <div className="space-y-2">
-                      <span className={clsx('text-[9px]', 'uppercase', 'tracking-widest', 'text-text-muted', 'font-mono', 'font-bold', 'block')}>Focus Domains</span>
-                      <div className={clsx('flex', 'flex-wrap', 'gap-2')}>
+                    {/* Focus Badges / Cards */}
+                    <div className="space-y-3 mt-8">
+                      <span className={clsx('text-[10px]', 'uppercase', 'tracking-[0.15em]', 'text-text-muted', 'font-mono', 'font-semibold', 'block')}>Core Focus Areas</span>
+                      <div className={clsx('grid', 'grid-cols-1', 'sm:grid-cols-2', 'gap-2', 'sm:gap-3')}>
                         {lead.focus.map((foc, idx) => (
-                          <span
+                          <div
                             key={idx}
-                            className={clsx('px-2.5', 'py-1', 'rounded-md', 'text-[10px]', 'font-mono', 'text-text-secondary', 'border', 'border-white/[0.05]', 'bg-white/[0.02]', 'hover:border-accent/20', 'hover:text-text-primary', 'transition-all', 'cursor-default')}
+                            className={clsx('px-4', 'py-2.5', 'rounded-lg', 'text-xs', 'sm:text-sm', 'font-sans', 'font-medium', 'text-center', 'text-text-secondary', 'border', 'border-border-primary/50', 'bg-bg-card', 'hover:bg-accent/5', 'hover:border-accent/40', 'hover:text-text-primary', 'hover:-translate-y-0.5', 'hover:shadow-lg', 'hover:shadow-accent/5', 'transition-all', 'duration-300', 'cursor-default', 'flex', 'items-center', 'justify-center')}
                           >
                             {foc}
-                          </span>
+                          </div>
                         ))}
                       </div>
                     </div>
