@@ -55,7 +55,7 @@ export default function Contact() {
 
   return (
     <motion.div
-      className={clsx('relative', 'overflow-hidden', 'bg-bg-primary', 'text-text-primary', 'theme-transition', 'pt-28', 'pb-0', 'min-h-screen')}
+      className={clsx('relative', 'overflow-x-clip', 'bg-bg-primary', 'text-text-primary', 'theme-transition', 'pt-28', 'pb-0', 'min-h-screen')}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -138,13 +138,7 @@ export default function Contact() {
               <div className={clsx('absolute', 'inset-0', 'bg-gradient-to-br', 'from-accent/5', 'to-transparent', 'pointer-events-none')} />
               <h3 className={clsx('text-2xl', 'font-bold', 'text-text-primary', 'font-display', 'mb-8', 'tracking-tight')}>Corporate Hub</h3>
               <div className={clsx('space-y-6', 'relative', 'z-10')}>
-                <div className={clsx('flex', 'items-start', 'gap-4')}>
-                  <div className={clsx('p-3', 'bg-bg-secondary', 'border', 'border-border-primary', 'rounded-xl', 'text-accent', 'shadow-sm')}><MapPin size={20} /></div>
-                  <div>
-                    <span className={clsx('block', 'text-xs', 'font-mono', 'font-semibold', 'text-text-muted', 'uppercase', 'tracking-widest')}>Global Virtual HQ</span>
-                    <span className={clsx('block', 'text-sm', 'text-text-secondary', 'mt-1', 'font-medium', 'leading-relaxed')}>100% Remote Operation<br />Async & Borderless</span>
-                  </div>
-                </div>
+
                 <div className={clsx('flex', 'items-start', 'gap-4')}>
                   <div className={clsx('p-3', 'bg-bg-secondary', 'border', 'border-border-primary', 'rounded-xl', 'text-accent', 'shadow-sm')}><Mail size={20} /></div>
                   <div>
@@ -164,14 +158,14 @@ export default function Contact() {
 
             {/* SLA Card */}
             <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, margin: "0px" }}
+              transition={{ duration: 0.4, delay: 0.1 }}
               whileHover={{ y: -5 }}
-              className={clsx('glass-card', 'border', 'border-accent/30', 'bg-accent/5', 'backdrop-blur-md', 'rounded-2xl', 'p-5', 'sm:p-6', 'flex', 'flex-col', 'sm:flex-row', 'gap-4', 'items-start', 'sm:items-center', 'relative', 'overflow-hidden', 'group', 'hover:border-accent/50', 'transition-colors', 'duration-300', 'shadow-md')}
+              className={clsx('glass-card', 'border', 'border-accent/30', 'bg-accent/5', 'backdrop-blur-md', 'rounded-2xl', 'p-5', 'sm:p-6', 'flex', 'flex-col', 'sm:flex-row', 'gap-4', 'items-start', 'sm:items-center', 'relative', 'overflow-hidden', 'group', 'hover:border-accent/50', 'transition-colors', 'duration-300', 'shadow-md', 'transform-gpu')}
             >
-              <div className={clsx('absolute', 'inset-0', 'bg-gradient-to-r', 'from-accent/0', 'via-accent/10', 'to-accent/0', 'translate-x-[-100%]', 'group-hover:translate-x-[100%]', 'transition-transform', 'duration-1000', 'pointer-events-none')} />
+              <div className={clsx('absolute', 'inset-0', 'bg-gradient-to-r', 'from-accent/0', 'via-accent/10', 'to-accent/0', 'translate-x-[-100%]', 'group-hover:translate-x-[100%]', 'transition-transform', 'duration-1000', 'pointer-events-none', 'transform-gpu')} />
               <div className={clsx('p-3', 'bg-accent/10', 'text-accent', 'rounded-xl', 'shrink-0', 'border', 'border-accent/20', 'shadow-[0_0_15px_var(--accent-glow)]')}>
                 <Clock size={24} className="animate-pulse-slow" />
               </div>
@@ -186,13 +180,13 @@ export default function Contact() {
           {/* Right Column: Premium Form */}
           <div className="lg:col-span-7">
             <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6 }}
-              className={clsx('glass-card', 'border', 'border-border-primary', 'bg-bg-card/90', 'backdrop-blur-2xl', 'rounded-3xl', 'p-6', 'sm:p-12', 'relative', 'shadow-2xl', 'overflow-hidden', 'group')}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, margin: "0px" }}
+              transition={{ duration: 0.4 }}
+              className={clsx('border', 'border-border-primary', 'bg-bg-card', 'rounded-3xl', 'p-6', 'sm:p-12', 'relative', 'shadow-xl', 'overflow-hidden', 'transform-gpu')}
             >
-              <div className={clsx('absolute', 'top-0', 'right-0', 'w-64', 'h-64', 'bg-accent/5', 'rounded-full', 'blur-[80px]', 'pointer-events-none', '-z-10', 'group-hover:bg-accent/10', 'transition-colors', 'duration-700')} />
+              <div className={clsx('absolute', 'top-0', 'right-0', 'w-64', 'h-64', 'bg-accent/5', 'rounded-full', 'pointer-events-none', '-z-10', 'transform-gpu')} />
               
               {!formSubmitted ? (
                 <div className={clsx('relative', 'z-10')}>

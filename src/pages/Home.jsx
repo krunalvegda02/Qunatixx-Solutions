@@ -1008,7 +1008,7 @@ export default function Home() {
                      className={clsx('flex', 'justify-between', 'items-center', 'group')}
                    >
                       <span className={clsx('text-xs', 'sm:text-sm', 'text-text-secondary', 'font-medium', 'group-hover:text-text-primary', 'transition-colors')}>Comprehensive Audit</span>
-                      <span className={clsx('text-xs', 'sm:text-sm', 'font-mono', 'font-semibold', 'text-text-primary')}>$2,500</span>
+                      <span className={clsx('text-xs', 'sm:text-sm', 'font-mono', 'font-semibold', 'text-text-primary')}>₹2,00,000</span>
                    </motion.div>
                    
                    <motion.div 
@@ -1016,7 +1016,7 @@ export default function Home() {
                      className={clsx('flex', 'justify-between', 'items-center', 'group')}
                    >
                       <span className={clsx('text-xs', 'sm:text-sm', 'text-text-secondary', 'font-medium', 'group-hover:text-text-primary', 'transition-colors')}>Infrastructure Setup</span>
-                      <span className={clsx('text-xs', 'sm:text-sm', 'font-mono', 'font-semibold', 'text-text-primary')}>$1,500</span>
+                      <span className={clsx('text-xs', 'sm:text-sm', 'font-mono', 'font-semibold', 'text-text-primary')}>₹1,20,000</span>
                    </motion.div>
                    
                    <motion.div 
@@ -1031,7 +1031,7 @@ export default function Home() {
                 <div className={clsx('pt-6', 'border-t', 'border-border-primary', 'flex', 'items-end', 'justify-between')}>
                    <div>
                      <div className={clsx('text-[9px]', 'sm:text-[10px]', 'text-text-muted', 'uppercase', 'tracking-widest', 'font-mono', 'mb-2')}>Total Unlocked Value</div>
-                     <div className={clsx('text-3xl', 'sm:text-4xl', 'font-display', 'font-black', 'text-text-primary', 'tracking-tight')}>$4,000+</div>
+                     <div className={clsx('text-3xl', 'sm:text-4xl', 'font-display', 'font-black', 'text-text-primary', 'tracking-tight')}>₹3,20,000+</div>
                    </div>
                    <div className={clsx('w-10', 'h-10', 'sm:w-12', 'sm:h-12', 'flex', 'items-center', 'justify-center', 'text-text-muted', 'opacity-30')}>
                       <Cpu size={28} className="sm:w-8 sm:h-8" />
@@ -1066,7 +1066,7 @@ export default function Home() {
                 <LineChart size={24} strokeWidth={1.5} />
               </div>
               <h3 className={clsx('text-xl', 'font-display', 'font-bold', 'text-text-primary', 'mb-2')}>Comprehensive Audit</h3>
-              <div className={clsx('text-[10px]', 'font-mono', 'font-bold', 'text-accent', 'bg-accent/10', 'px-2.5', 'py-1', 'rounded-sm', 'mb-4', 'border', 'border-accent/20')}>$2,500 VALUE</div>
+              <div className={clsx('text-[10px]', 'font-mono', 'font-bold', 'text-accent', 'bg-accent/10', 'px-2.5', 'py-1', 'rounded-sm', 'mb-4', 'border', 'border-accent/20')}>₹2,00,000 VALUE</div>
               <p className={clsx('text-sm', 'text-text-secondary', 'leading-relaxed', 'font-light')}>
                 Deep-dive review of your current setup, identifying hidden bottlenecks, and mapping a clear technical blueprint to scale your business.
               </p>
@@ -1102,7 +1102,7 @@ export default function Home() {
                 <Zap size={24} strokeWidth={1.5} />
               </div>
               <h3 className={clsx('text-xl', 'font-display', 'font-bold', 'text-text-primary', 'mb-2')}>Free Launch Setup</h3>
-              <div className={clsx('text-[10px]', 'font-mono', 'font-bold', 'text-emerald-500', 'bg-emerald-500/10', 'px-2.5', 'py-1', 'rounded-sm', 'mb-4', 'border', 'border-emerald-500/20')}>$1,500 VALUE</div>
+              <div className={clsx('text-[10px]', 'font-mono', 'font-bold', 'text-emerald-500', 'bg-emerald-500/10', 'px-2.5', 'py-1', 'rounded-sm', 'mb-4', 'border', 'border-emerald-500/20')}>₹1,20,000 VALUE</div>
               <p className={clsx('text-sm', 'text-text-secondary', 'leading-relaxed', 'font-light')}>
                 We handle the complex server hosting, domain configuration, and launch logistics entirely for free when you sign on for a full build.
               </p>

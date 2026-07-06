@@ -18,9 +18,16 @@ export default function CustomCursor() {
   const ringY = useSpring(mouseY, springConfig);
 
   useEffect(() => {
-    // Disable custom cursor on touch devices natively
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    if (isTouchDevice) return;
+    // Use robust check for touch devices
+    const isTouch = 
+      'ontouchstart' in window || 
+      navigator.maxTouchPoints > 0 || 
+      window.matchMedia('(pointer: coarse)').matches;
+      
+    if (isTouch) {
+      setIsVisible(false);
+      return;
+    }
 
     document.body.classList.add('custom-cursor-active');
     setIsVisible(true);
@@ -50,21 +57,33 @@ export default function CustomCursor() {
     const onMouseDown = () => setIsDown(true);
     const onMouseUp = () => setIsDown(false);
 
+    // Bulletproof: if a touch event fires, instantly hide the cursor
+    const onTouchStart = () => {
+      setIsVisible(false);
+      document.body.classList.remove('custom-cursor-active');
+    };
+
     window.addEventListener('mousemove', onMouseMove);
     window.addEventListener('mouseover', onMouseOver);
     window.addEventListener('mousedown', onMouseDown);
     window.addEventListener('mouseup', onMouseUp);
+    window.addEventListener('touchstart', onTouchStart, { passive: true });
 
     return () => {
       window.removeEventListener('mousemove', onMouseMove);
       window.removeEventListener('mouseover', onMouseOver);
       window.removeEventListener('mousedown', onMouseDown);
       window.removeEventListener('mouseup', onMouseUp);
+      window.removeEventListener('touchstart', onTouchStart);
       document.body.classList.remove('custom-cursor-active');
     };
   }, [mouseX, mouseY]);
 
   if (!isVisible) return null;
+
+  // Use state for dynamic offset based on hover state
+  const dotSize = isHovered ? 10 : 8;
+  const ringSize = isHovered ? 24 : 32;
 
   return (
     <>
@@ -73,13 +92,14 @@ export default function CustomCursor() {
         className="fixed top-0 left-0 rounded-full pointer-events-none z-[9999]"
         style={{ 
           x: mouseX, 
-          y: mouseY, 
-          translateX: '-50%', 
-          translateY: '-50%' 
+          y: mouseY,
+          // Center the dot exactly without double translateX
+          marginLeft: -dotSize / 2,
+          marginTop: -dotSize / 2,
         }}
         animate={{
-          width: isHovered ? 10 : 8,
-          height: isHovered ? 10 : 8,
+          width: dotSize,
+          height: dotSize,
           backgroundColor: isHovered ? 'var(--color-highlight)' : 'var(--color-accent)',
           boxShadow: isHovered ? '0 0 10px var(--color-highlight)' : '0 0 8px var(--color-accent-glow)',
           scale: isDown ? 0.9 : 1
@@ -92,19 +112,19 @@ export default function CustomCursor() {
         className="fixed top-0 left-0 border rounded-full pointer-events-none z-[9998]"
         style={{ 
           x: ringX, 
-          y: ringY, 
-          translateX: '-50%', 
-          translateY: '-50%' 
+          y: ringY,
+          // Center the ring exactly without double translateX
+          marginLeft: -ringSize / 2,
+          marginTop: -ringSize / 2,
         }}
         animate={{
-          width: isHovered ? 24 : 32,
-          height: isHovered ? 24 : 32,
-          borderWidth: isHovered ? 1.5 : 1,
-          borderColor: isHovered ? 'var(--color-highlight)' : 'rgba(124, 58, 237, 0.4)', // using purple accent fallback
-          backgroundColor: isHovered ? 'rgba(225, 29, 72, 0.08)' : 'transparent',
-          scale: isDown ? 0.75 : 1
+          width: ringSize,
+          height: ringSize,
+          borderColor: isHovered ? 'var(--color-highlight)' : 'var(--color-accent-glow)',
+          opacity: isDown ? 0.5 : 1,
+          scale: isDown ? 0.8 : 1
         }}
-        transition={{ duration: 0.15 }}
+        transition={{ duration: 0.2 }}
       />
     </>
   );

@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { AnimatedText } from '../components/animations/AnimatedText';
 import { AnimatedSubText } from '../components/animations/AnimatedSubText';
@@ -11,6 +11,14 @@ export default function Blog() {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState('All');
   const navigate = useNavigate();
+  
+  const featuredRef = useRef(null);
+  const isFeaturedInView = useInView(featuredRef, { margin: "-30% 0px -30% 0px" });
+  const [isTouch, setIsTouch] = useState(false);
+  
+  useEffect(() => {
+    setIsTouch(window.matchMedia('(pointer: coarse)').matches);
+  }, []);
 
   const filteredPosts = posts.filter(post => {
     const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
@@ -103,21 +111,24 @@ export default function Blog() {
             {/* Featured Post (Hero) */}
             <AnimatePresence mode="popLayout">
               {featuredPost && (
-                                <motion.article
+                <motion.article 
+                  ref={featuredRef}
+                  data-in-view={isTouch && isFeaturedInView}
                   layout
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
+                  exit={{ opacity: 0, scale: 0.98 }}
+                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                   onClick={() => navigate('/blog/' + featuredPost.id)}
-                  className="group flex flex-col border border-border-primary bg-bg-card hover:border-accent/50 cursor-pointer overflow-hidden transition-colors duration-500 rounded-none"
+                  className="group relative w-full border border-border-primary overflow-hidden cursor-pointer hover:shadow-2xl data-[in-view=true]:shadow-2xl transition-all duration-500 bg-bg-card flex flex-col"
                 >
                   {/* Top: Massive Cinematic Hero Image */}
-                  <div className="w-full aspect-video md:aspect-[21/9] lg:aspect-[2.5/1] overflow-hidden relative border-b border-border-primary group-hover:border-accent/30 transition-colors">
+                  <div className="w-full aspect-video md:aspect-[21/9] lg:aspect-[2.5/1] overflow-hidden relative border-b border-border-primary group-hover:border-accent/30 group-data-[in-view=true]:border-accent/30 transition-colors">
                     {featuredPost.image ? (
                       <img 
                         src={featuredPost.image} 
                         alt={featuredPost.title} 
-                        className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000" 
+                        className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 group-data-[in-view=true]:grayscale-0 group-data-[in-view=true]:opacity-100 group-data-[in-view=true]:scale-105 transition-all duration-1000" 
                       />
                     ) : (
                       <div className="w-full h-full bg-bg-secondary flex items-center justify-center">
@@ -142,7 +153,7 @@ export default function Blog() {
                   <div className="p-6 md:p-10 lg:p-12 flex flex-col lg:flex-row gap-8 lg:gap-16 justify-between items-start bg-bg-card relative">
                      {/* Title & Desc */}
                      <div className="flex-1 max-w-4xl space-y-6">
-                        <h2 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-medium text-text-primary tracking-tight leading-[1.1] group-hover:text-accent transition-colors duration-500">
+                        <h2 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-medium text-text-primary tracking-tight leading-[1.1] group-hover:text-accent group-data-[in-view=true]:text-accent transition-colors duration-500">
                           {featuredPost.title}
                         </h2>
                         <p className="text-base sm:text-lg lg:text-xl text-text-secondary leading-relaxed font-sans max-w-3xl">
@@ -169,8 +180,8 @@ export default function Blog() {
                               <Clock size={12} /> {featuredPost.readTime}
                            </div>
                            <div className="h-px w-8 bg-border-primary" />
-                           <div className="flex items-center gap-2 text-text-secondary group-hover:text-accent font-bold text-xs uppercase tracking-widest font-mono transition-colors">
-                              Read Article <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform duration-300" />
+                           <div className="flex items-center gap-2 text-text-secondary group-hover:text-accent group-data-[in-view=true]:text-accent font-bold text-xs uppercase tracking-widest font-mono transition-colors">
+                              Read Article <ArrowRight size={14} className="group-hover:translate-x-2 group-data-[in-view=true]:translate-x-2 transition-transform duration-300" />
                            </div>
                         </div>
                      </div>
@@ -223,31 +234,38 @@ export default function Blog() {
 
 function IndexPostRow({ post, index, navigate }) {
   const ref = useRef(null);
+  const isInView = useInView(ref, { margin: "-30% 0px -30% 0px" });
+  const [isTouch, setIsTouch] = useState(false);
+  
+  useEffect(() => {
+    setIsTouch(window.matchMedia('(pointer: coarse)').matches);
+  }, []);
 
   return (
     <motion.article
       ref={ref}
+      data-in-view={isTouch && isInView}
       layout
       initial={{ opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.4, delay: index < 5 ? index * 0.05 : 0 }}
       onClick={() => navigate('/blog/' + post.id)}
-      className="group flex flex-col md:flex-row md:items-center justify-between gap-6 py-6 md:py-8 cursor-pointer border-b border-border-primary hover:bg-white/[0.02] transition-colors px-4 -mx-4 relative overflow-hidden"
+      className="group flex flex-col md:flex-row md:items-center justify-between gap-6 py-6 md:py-8 cursor-pointer border-b border-border-primary hover:bg-white/[0.02] data-[in-view=true]:bg-white/[0.02] transition-colors px-4 -mx-4 relative overflow-hidden"
     >
       {/* Date Col */}
-      <div className="w-full md:w-32 lg:w-40 shrink-0 flex items-center gap-2 text-[11px] font-mono text-text-muted uppercase tracking-widest group-hover:text-text-secondary transition-colors z-10">
+      <div className="w-full md:w-32 lg:w-40 shrink-0 flex items-center gap-2 text-[11px] font-mono text-text-muted uppercase tracking-widest group-hover:text-text-secondary group-data-[in-view=true]:text-text-secondary transition-colors z-10">
         <Calendar size={12} className="hidden md:block" />
         {post.date}
       </div>
 
       {/* Title & Desc Col */}
       <div className="flex-1 z-10 pr-4">
-        <h3 className="text-xl sm:text-2xl font-display font-medium text-text-primary tracking-tight mb-2 group-hover:text-accent transition-colors">
+        <h3 className="text-xl sm:text-2xl font-display font-medium text-text-primary tracking-tight mb-2 group-hover:text-accent group-data-[in-view=true]:text-accent transition-colors">
           {post.title}
         </h3>
         <div className="flex items-center gap-3">
-          <span className="px-2 py-0.5 text-[9px] font-mono font-bold uppercase tracking-widest border border-border-primary text-text-secondary group-hover:border-accent/40 group-hover:text-accent transition-colors bg-bg-secondary">
+          <span className="px-2 py-0.5 text-[9px] font-mono font-bold uppercase tracking-widest border border-border-primary text-text-secondary group-hover:border-accent/40 group-hover:text-accent group-data-[in-view=true]:border-accent/40 group-data-[in-view=true]:text-accent transition-colors bg-bg-secondary">
             {post.category}
           </span>
           <p className="text-sm text-text-secondary font-sans line-clamp-1 max-w-xl">
@@ -258,15 +276,15 @@ function IndexPostRow({ post, index, navigate }) {
 
       {/* Cinematic Image Col (Right Side) */}
       {post.image && (
-        <div className="hidden md:block w-48 lg:w-72 aspect-[21/9] shrink-0 border border-border-primary overflow-hidden relative z-10 bg-bg-secondary group-hover:border-accent/40 transition-colors">
+        <div className="hidden md:block w-48 lg:w-72 aspect-[21/9] shrink-0 border border-border-primary overflow-hidden relative z-10 bg-bg-secondary group-hover:border-accent/40 group-data-[in-view=true]:border-accent/40 transition-colors">
           <img 
             src={post.image} 
             alt={post.title} 
-            className="w-full h-full object-cover grayscale opacity-30 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" 
+            className="w-full h-full object-cover grayscale opacity-30 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 group-data-[in-view=true]:grayscale-0 group-data-[in-view=true]:opacity-100 group-data-[in-view=true]:scale-105 transition-all duration-700" 
           />
-          <div className="absolute inset-0 bg-bg-primary/40 group-hover:bg-transparent transition-colors duration-500 pointer-events-none" />
+          <div className="absolute inset-0 bg-bg-primary/40 group-hover:bg-transparent group-data-[in-view=true]:bg-transparent transition-colors duration-500 pointer-events-none" />
           
-          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20">
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 group-data-[in-view=true]:opacity-100 transition-opacity duration-500 z-20">
              <div className="w-8 h-8 bg-bg-primary/80 backdrop-blur-md border border-accent/50 text-accent flex items-center justify-center">
                 <ArrowRight size={14} className="-rotate-45" />
              </div>
@@ -276,8 +294,8 @@ function IndexPostRow({ post, index, navigate }) {
       
       {/* Mobile Image Fallback */}
       {post.image && (
-         <div className="block md:hidden w-full aspect-video mt-2 border border-border-primary overflow-hidden relative group-hover:border-accent/40 transition-colors">
-            <img src={post.image} className="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" />
+         <div className="block md:hidden w-full aspect-video mt-2 border border-border-primary overflow-hidden relative group-hover:border-accent/40 group-data-[in-view=true]:border-accent/40 transition-colors">
+            <img src={post.image} className="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 group-data-[in-view=true]:grayscale-0 group-data-[in-view=true]:opacity-100 transition-all duration-700" />
          </div>
       )}
     </motion.article>

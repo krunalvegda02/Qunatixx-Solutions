@@ -33,7 +33,7 @@ export default function Careers() {
       id: 'sr-react',
       title: 'Senior React / Next.js Engineer',
       department: 'Frontend Engineering',
-      location: 'Remote (US / Europe)',
+      location: '100% Remote',
       type: 'Full-time',
       salary: '₹130k - ₹160k + Equity',
       requirements: [
@@ -47,7 +47,7 @@ export default function Careers() {
       id: 'cloud-arch',
       title: 'Solutions Cloud Architect (AWS)',
       department: 'DevOps & Systems',
-      location: 'Remote (Global)',
+      location: '100% Remote',
       type: 'Full-time',
       salary: '₹140k - ₹175k + Equity',
       requirements: [
@@ -61,7 +61,7 @@ export default function Careers() {
       id: 'ai-dev',
       title: 'AI Platform Engineer (Python)',
       department: 'AI & Data Systems',
-      location: 'Remote (Global)',
+      location: '100% Remote',
       type: 'Full-time',
       salary: '₹150k - ₹185k + Equity',
       requirements: [
@@ -75,7 +75,7 @@ export default function Careers() {
       id: 'product-designer',
       title: 'UI/UX Product Designer',
       department: 'Design System',
-      location: 'Remote (US / Europe)',
+      location: '100% Remote',
       type: 'Full-time',
       salary: '₹110k - ₹140k',
       requirements: [
