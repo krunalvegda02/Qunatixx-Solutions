@@ -472,7 +472,7 @@ export default function Home() {
                 className={clsx('text-4xl', 'sm:text-5xl', 'lg:text-6xl', 'xl:text-[4.25rem]', 'font-display', 'font-extrabold', 'tracking-tight', 'leading-[1.12]', 'text-text-primary', 'text-balance', 'mb-4.5')}
               >
                 {["Building"].map((word, wIdx) => (
-                  <span key={`b-w-${wIdx}`} className={clsx('inline-block', 'whitespace-nowrap', 'mr-[0.25em]')}>
+                  <span key={`b-w-${wIdx}`} className={clsx('inline-block', 'whitespace-nowrap', 'mr-[0.25em]', 'mb-2')}>
                     {word.split("").map((char, cIdx) => (
                       <motion.span
                         key={`b-c-${cIdx}`}
@@ -488,9 +488,9 @@ export default function Home() {
                   </span>
                 ))}
                 {" "}
-                <span className={clsx('accent-text-gradient', 'text-glow', 'inline-block', 'mr-[0.25em]')}>
+                <span className={clsx('accent-text-gradient', 'text-glow', 'inline')}>
                   {["Beautiful", "Software"].map((word, wIdx) => (
-                    <span key={`dp-w-${wIdx}`} className={clsx('inline-block', 'whitespace-nowrap', 'mr-[0.25em]')}>
+                    <span key={`dp-w-${wIdx}`} className={clsx('inline-block', 'whitespace-nowrap', 'mr-[0.25em]', 'mb-2')}>
                       {word.split("").map((char, cIdx) => (
                         <motion.span
                           key={`dp-c-${cIdx}`}
@@ -508,7 +508,7 @@ export default function Home() {
                 </span>
                 {" "}
                 {["That", "Grows", "Your", "Business"].map((word, wIdx) => (
-                  <span key={`sb-w-${wIdx}`} className={clsx('inline-block', 'whitespace-nowrap', 'mr-[0.25em]')}>
+                  <span key={`sb-w-${wIdx}`} className={clsx('inline-block', 'whitespace-nowrap', 'mr-[0.25em]', 'mb-2')}>
                     {word.split("").map((char, cIdx) => (
                       <motion.span
                         key={`sb-c-${cIdx}`}

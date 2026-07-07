@@ -31,14 +31,12 @@ export default function Footer() {
 
           {/* Column 1: Brand Info & Compliance Badges (col-span-5) */}
           <div className={clsx('lg:col-span-5', 'space-y-6')}>
-            <Link to="/" className={clsx('flex', 'items-center', 'gap-2.5', 'group')}>
-              <div className={clsx('w-9', 'h-9', 'rounded-sm', 'bg-gradient-to-br', 'from-accent', 'to-highlight', 'flex', 'items-center', 'justify-center', 'font-bold', 'text-base', 'text-white', 'shadow-[0_0_15px_var(--accent-glow)]', 'group-hover:scale-105', 'transition-transform')}>
-                Q
-              </div>
-              <div>
-                <span className={clsx('font-display', 'font-extrabold', 'text-lg', 'tracking-tight', 'text-text-primary')}>QUANTIXX</span>
-                <span className={clsx('block', 'text-[8px]', 'uppercase', 'tracking-[0.28em]', 'text-highlight', 'font-bold', '-mt-0.5')}>Solutions</span>
-              </div>
+            <Link to="/" className={clsx('flex', 'items-center', 'group')}>
+              <img 
+                src="/logo/horizon_logo.png" 
+                alt="Quantixx Solutions" 
+                className={clsx('h-8', 'sm:h-10', 'w-auto', 'object-contain', 'transition-transform', 'duration-300', 'group-hover:scale-[1.02]')} 
+              />
             </Link>
 
             <p className={clsx('text-base', 'text-text-secondary', 'max-w-sm', 'leading-relaxed', 'font-sans')}>

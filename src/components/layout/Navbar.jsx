@@ -65,15 +65,12 @@ export default function Navbar() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className={clsx('flex', 'items-center')}
             >
-              <Link to="/" className={clsx('flex', 'items-center', 'gap-2.5', 'group')}>
-                <div className={clsx('relative', 'flex', 'items-center', 'justify-center', 'w-9.5', 'h-9.5', 'rounded-xl', 'bg-gradient-to-br', 'from-accent', 'to-highlight', 'shadow-[0_0_15px_var(--accent-glow)]')}>
-                  <span className={clsx('font-bold', 'text-base', 'text-white', 'font-display')}>Q</span>
-                  <div className={clsx('absolute', 'inset-0', 'rounded-xl', 'bg-gradient-to-br', 'from-accent', 'to-highlight', 'opacity-0', 'group-hover:opacity-100', 'blur', 'transition-opacity', 'duration-300', 'pointer-events-none')} />
-                </div>
-                <div>
-                  <span className={clsx('font-display', 'font-extrabold', 'text-lg', 'tracking-tight', 'text-text-primary', 'group-hover:text-accent', 'transition-colors')}>QUANTIXX</span>
-                  <span className={clsx('block', 'text-[8px]', 'uppercase', 'tracking-[0.28em]', 'text-highlight', 'font-bold', '-mt-0.5')}>Solutions</span>
-                </div>
+              <Link to="/" className={clsx('flex', 'items-center', 'group')}>
+                <img 
+                  src="/logo/horizon_logo.png" 
+                  alt="Quantixx Solutions" 
+                  className={clsx('h-7', 'sm:h-9', 'w-auto', 'object-contain', 'transition-transform', 'duration-300', 'group-hover:scale-[1.02]')} 
+                />
               </Link>
             </motionFramer.div>
 
@@ -237,12 +234,12 @@ export default function Navbar() {
               className={clsx('fixed', 'top-24', 'left-4', 'right-4', 'max-h-[80vh]', 'z-[9999]', 'bg-bg-card/90', 'backdrop-blur-3xl', 'border', 'border-border-primary/80', 'rounded-[32px]', 'shadow-[0_30px_80px_rgba(0,0,0,0.2)]', 'lg:hidden', 'flex', 'flex-col', 'overflow-y-auto')}
             >
               {/* Ambient Inner Glow */}
-              <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-accent/10 to-transparent pointer-events-none" />
+              <div className={clsx('absolute', 'top-0', 'inset-x-0', 'h-40', 'bg-gradient-to-b', 'from-accent/10', 'to-transparent', 'pointer-events-none')} />
 
-              <div className="relative z-10 p-5 flex flex-col gap-5">
+              <div className={clsx('relative', 'z-10', 'p-5', 'flex', 'flex-col', 'gap-5')}>
                 
                 {/* Bento Grid: Main Links */}
-                <div className="grid grid-cols-2 gap-3">
+                <div className={clsx('grid', 'grid-cols-2', 'gap-3')}>
                   {navLinks.map((link, i) => (
                     <motionFramer.div
                       key={link.href}
@@ -258,9 +255,9 @@ export default function Navbar() {
                         {({ isActive }) => (
                           <>
                             {/* Hover Ambient Glow */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                            <div className={clsx('absolute', 'inset-0', 'bg-gradient-to-br', 'from-accent/5', 'to-transparent', 'opacity-0', 'group-hover:opacity-100', 'transition-opacity', 'duration-500', 'pointer-events-none')} />
                             
-                            <div className="flex justify-between items-start relative z-10">
+                            <div className={clsx('flex', 'justify-between', 'items-start', 'relative', 'z-10')}>
                               <span className={clsx('font-display', 'font-extrabold', 'text-xl', 'tracking-tight', isActive ? 'text-accent' : 'text-text-primary')}>{link.name}</span>
                               <ArrowUpRight size={16} className={clsx('transition-all', 'duration-300', 'group-hover:translate-x-0.5', 'group-hover:-translate-y-0.5', isActive ? 'text-accent' : 'text-text-muted group-hover:text-text-primary')} />
                             </div>
@@ -277,19 +274,19 @@ export default function Navbar() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2, duration: 0.3 }}
-                  className="rounded-2xl bg-bg-secondary/40 border border-border-primary/50 p-5"
+                  className={clsx('rounded-2xl', 'bg-bg-secondary/40', 'border', 'border-border-primary/50', 'p-5')}
                 >
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-bold uppercase tracking-widest text-text-muted">Capabilities</span>
+                  <div className={clsx('flex', 'items-center', 'justify-between', 'mb-4')}>
+                    <span className={clsx('text-xs', 'font-bold', 'uppercase', 'tracking-widest', 'text-text-muted')}>Capabilities</span>
                     <Cpu size={14} className="text-accent" />
                   </div>
-                  <div className="grid grid-cols-2 gap-y-4 gap-x-2">
+                  <div className={clsx('grid', 'grid-cols-2', 'gap-y-4', 'gap-x-2')}>
                     {servicesList.map((service, idx) => (
                       <Link
                         key={idx}
                         to={service.href}
                         onClick={() => setIsOpen(false)}
-                        className="text-sm font-semibold text-text-secondary hover:text-accent transition-colors"
+                        className={clsx('text-sm', 'font-semibold', 'text-text-secondary', 'hover:text-accent', 'transition-colors')}
                       >
                         {service.name}
                       </Link>
@@ -310,9 +307,9 @@ export default function Navbar() {
                     }}
                     className={clsx('w-full', 'relative', 'overflow-hidden', 'group', 'flex', 'justify-center', 'items-center', 'gap-2', 'py-4', 'rounded-2xl', 'text-sm', 'font-bold', 'bg-accent', 'text-white', 'shadow-[0_10px_30px_var(--accent-glow)]')}
                   >
-                    <span className="relative z-10">Book Technical Consultation</span>
-                    <ArrowUpRight size={16} className="relative z-10 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 pointer-events-none" />
+                    <span className={clsx('relative', 'z-10')}>Book Technical Consultation</span>
+                    <ArrowUpRight size={16} className={clsx('relative', 'z-10', 'group-hover:translate-x-0.5', 'group-hover:-translate-y-0.5', 'transition-transform')} />
+                    <div className={clsx('absolute', 'inset-0', 'bg-gradient-to-r', 'from-transparent', 'via-white/20', 'to-transparent', '-translate-x-full', 'group-hover:translate-x-full', 'transition-transform', 'duration-700', 'pointer-events-none')} />
                   </button>
                 </motionFramer.div>
 
