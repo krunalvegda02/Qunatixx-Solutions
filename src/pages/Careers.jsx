@@ -24,7 +24,7 @@ export default function Careers() {
   const benefits = [
     { title: 'Remote-First Culture', desc: 'Work from anywhere in the world. We coordinate via async pipelines so you manage your own hours.', icon: Globe },
     { title: 'Health & Wellness', desc: 'Complete premium medical, dental, and vision coverages, alongside annual gym/fitness allowances.', icon: Heart },
-    { title: 'Continuous Learning', desc: '₹2,000 annual budget for books, courses, code bootcamps, and technical conference tickets.', icon: BookOpen },
+    { title: 'Continuous Learning', desc: '₹1,000 annual budget for books, courses, code bootcamps, and technical conference tickets.', icon: BookOpen },
     { title: 'Premium Gear Setup', desc: 'We ship a brand new MacBook Pro, high-resolution monitor, and ergonomic desk gear stipend.', icon: Gift },
   ];
 
@@ -35,7 +35,7 @@ export default function Careers() {
       department: 'Frontend Engineering',
       location: '100% Remote',
       type: 'Full-time',
-      salary: '₹130k - ₹160k + Equity',
+      salary: '₹70k - ₹90k + Equity',
       requirements: [
         '5+ years professional JavaScript/TypeScript and React experience.',
         'Deep understanding of Next.js server actions, routing models, and TailwindCSS.',
@@ -49,7 +49,7 @@ export default function Careers() {
       department: 'DevOps & Systems',
       location: '100% Remote',
       type: 'Full-time',
-      salary: '₹140k - ₹175k + Equity',
+      salary: '₹80k - ₹100k + Equity',
       requirements: [
         '4+ years architecting secure AWS infrastructure setups.',
         'Expert-level automation in Terraform, Kubernetes, and Docker environments.',
@@ -63,7 +63,7 @@ export default function Careers() {
       department: 'AI & Data Systems',
       location: '100% Remote',
       type: 'Full-time',
-      salary: '₹150k - ₹185k + Equity',
+      salary: '₹90k - ₹110k + Equity',
       requirements: [
         '3+ years implementing Large Language Model APIs (OpenAI, HuggingFace).',
         'Strong production coding skills in Python, FastAPI, and LangChain.',
@@ -77,7 +77,7 @@ export default function Careers() {
       department: 'Design System',
       location: '100% Remote',
       type: 'Full-time',
-      salary: '₹110k - ₹140k',
+      salary: '₹60k - ₹80k',
       requirements: [
         '4+ years designing high-fidelity dashboards and desktop portals in Figma.',
         'Proven skill drafting structured, reusable Figma design libraries.',

@@ -5,7 +5,7 @@ import clsx from 'clsx';
 
 export default function FloatingWhatsApp() {
   const [isHovered, setIsHovered] = useState(false);
-  const whatsappUrl = "https://wa.me/1234567890?text=Hi%20Quantixx%20Solutions,%20I%20would%20like%20to%20discuss%20a%20project!";
+  const whatsappUrl = "https://wa.me/919427109237?text=Hi%20Quantixx%20Solutions,%20I%20would%20like%20to%20discuss%20a%20project!";
 
   return (
     <motion.a

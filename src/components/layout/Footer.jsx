@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import clsx from 'clsx';
 import { Mail, Phone, MapPin, Send, ShieldCheck, Activity } from 'lucide-react';
-import { FaGithub, FaTwitter, FaLinkedin, FaFacebook } from 'react-icons/fa';
+import { FaGithub, FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { useModal } from '../../context/ModalContext';
 
 export default function Footer() {
@@ -160,9 +160,9 @@ export default function Footer() {
               <div className={clsx('flex', 'items-center', 'gap-2.5')}>
                 {[
                   { icon: FaLinkedin, url: 'https://linkedin.com', label: 'LinkedIn' },
-                  { icon: FaGithub, url: 'https://github.com', label: 'GitHub' },
+                  { icon: FaGithub, url: 'https://github.com/QuantixxSolutions', label: 'GitHub' },
                   { icon: FaTwitter, url: 'https://twitter.com', label: 'Twitter' },
-                  { icon: FaFacebook, url: 'https://facebook.com', label: 'Facebook' }
+                  { icon: FaInstagram, url: 'https://www.instagram.com/quantixx.solutions?igsh=MXc3NnR5Y2dzeDNteg==', label: 'Instagram' }
                 ].map((social, idx) => {
                   const Icon = social.icon;
                   return (

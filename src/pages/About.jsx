@@ -1,9 +1,169 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { AnimatedText } from '../components/animations/AnimatedText';
 import { AnimatedSubText } from '../components/animations/AnimatedSubText';
-import { Target, Shield, Users, Flame, Cpu, ArrowUpRight, CheckCircle2, ShieldAlert, MessageSquare, Key, RefreshCw, Terminal, Globe, Zap, Sparkles } from 'lucide-react';
+import { Target, Mail, Phone, Shield, Users, Flame, Cpu, ArrowUpRight, CheckCircle2, ShieldAlert, MessageSquare, Key, RefreshCw, Terminal, Globe, Zap, Sparkles } from 'lucide-react';
 import { useModal } from '../context/ModalContext';
 import clsx from 'clsx';
+
+const FounderCard = ({ lead, i }) => {
+  const isEven = i % 2 === 0;
+  const ref = useRef(null);
+  const isInView = useInView(ref, { margin: "-30% 0px -30% 0px" });
+  const [isTouch, setIsTouch] = useState(false);
+
+  useEffect(() => {
+    setIsTouch(window.matchMedia('(pointer: coarse)').matches);
+  }, []);
+
+  return (
+    <motion.div
+      ref={ref}
+      data-in-view={isTouch && isInView}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.6 }}
+      className={clsx(
+        'glass-card border border-border-primary hover:border-accent/30 data-[in-view=true]:border-accent/30 rounded-3xl p-6 sm:p-8 lg:p-10 relative overflow-hidden group shadow-2xl transition-colors duration-500 bg-gradient-to-br from-bg-card/50 via-bg-card/20 to-transparent'
+      )}
+    >
+      {/* Asymmetrical background glows specific to each founder */}
+      <div className={`absolute top-0 ${isEven ? 'right-0' : 'left-0'} w-96 h-96 bg-gradient-to-br ${lead.themeGradient} rounded-full blur-[100px] pointer-events-none -z-10 transition-opacity duration-500 opacity-60 group-hover:opacity-100 group-data-[in-view=true]:opacity-100`} />
+      <div className={`absolute bottom-0 ${isEven ? 'left-1/4' : 'right-1/4'} w-72 h-72 bg-accent/4 rounded-full blur-[80px] pointer-events-none -z-10`} />
+
+      {/* Tech grid texture in card */}
+      <div className={clsx('absolute', 'inset-0', 'bg-[linear-gradient(rgba(255,255,255,0.003)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.003)_1px,transparent_1px)]', 'bg-[size:24px_24px]', 'pointer-events-none', 'opacity-30', '-z-10')} />
+
+      <div className={clsx('flex', 'flex-col', 'gap-10', 'relative', 'z-10')}>
+        {/* Portrait side */}
+        <div className={clsx('flex', 'justify-center', 'w-full')}>
+          <div className={clsx('relative', 'group/photo')}>
+            {/* Stylized Outer Glow Frame */}
+            <div className={clsx('absolute', '-inset-2', 'rounded-2xl', 'bg-gradient-to-tr', 'from-accent/20', 'to-highlight/20', 'opacity-0', 'group-hover/photo:opacity-100', 'group-data-[in-view=true]:opacity-100', 'blur-lg', 'transition', 'duration-700', '-z-10')} />
+
+            {/* Inner Photo Frame */}
+            <div className={clsx('w-64', 'h-64', 'sm:w-72', 'sm:h-72', 'rounded-3xl', 'overflow-hidden', 'border', 'border-white/[0.08]', 'bg-bg-secondary', 'flex', 'items-center', 'justify-center', 'relative', 'shadow-2xl', 'aspect-square')}>
+              {lead.photo ? (
+                <div className={clsx('w-full', 'h-full', lead.imageClass)}>
+                  <img
+                    src={lead.photo}
+                    alt={lead.name}
+                    className={clsx('w-full', 'h-full', 'object-cover', 'grayscale', 'group-hover/photo:grayscale-0', 'group-data-[in-view=true]:grayscale-0', 'transition-all', 'duration-700', 'scale-100', 'group-hover/photo:scale-105', 'group-data-[in-view=true]:scale-105')}
+                  />
+                </div>
+              ) : (
+                <span className={clsx('font-display', 'text-4xl', 'font-extrabold', 'text-text-primary')}>{lead.initial}</span>
+              )}
+
+              {/* Floating Status Indicator Badge */}
+              <div className={clsx('absolute', 'bottom-3', 'left-3', 'bg-bg-primary/90', 'backdrop-blur-md', 'border', 'border-white/[0.08]', 'px-3', 'py-1', 'rounded-full', 'flex', 'items-center', 'gap-1.5', 'shadow-md')}>
+                <span className={clsx('relative', 'flex', 'h-2', 'w-2')}>
+                  <span className={clsx('animate-ping', 'absolute', 'inline-flex', 'h-full', 'w-full', 'rounded-full', 'bg-emerald-400', 'opacity-75')}></span>
+                  <span className={clsx('relative', 'inline-flex', 'rounded-full', 'h-2', 'w-2', 'bg-emerald-500')}></span>
+                </span>
+                <span className={clsx('text-[9px]', 'font-mono', 'font-bold', 'text-text-primary', 'tracking-wider', 'uppercase')}>Active Staging</span>
+              </div>
+            </div>
+
+            {/* Tech Role Accent Strip */}
+            <div className={`absolute -top-3 -right-3 px-3 py-1 rounded-lg text-[10px] font-mono font-bold tracking-widest uppercase border backdrop-blur-md shadow-lg ${lead.accentColor === 'cyan' ? 'bg-[#0EA5E9]/10 text-[#0EA5E9] border-[#0EA5E9]/20 shadow-[#0EA5E9]/5' : 'bg-[#E11D48]/10 text-[#E11D48] border-[#E11D48]/20 shadow-[#E11D48]/5'
+              }`}>
+              {lead.name === 'Abhishek Sharma' ? 'AI & Automation' : 'Cloud Architecture'}
+            </div>
+          </div>
+        </div>
+
+        {/* Info Details side */}
+        <div className={clsx('text-left', 'space-y-6')}>
+          <div>
+            {/* Name & Socials */}
+            <div className={clsx('flex', 'flex-wrap', 'items-center', 'gap-4', 'justify-between')}>
+              <div>
+                <h3 className={clsx('text-2xl', 'sm:text-3xl', 'font-extrabold', 'font-display', 'text-text-primary', 'tracking-tight')}>
+                  {lead.name}
+                </h3>
+                <span className={clsx('text-xs', 'sm:text-sm', 'font-semibold', 'text-accent', 'font-mono', 'block', 'mt-1', 'mb-4', 'tracking-wider', 'uppercase')}>
+                  {lead.role}
+                </span>
+                
+                <div className={clsx('flex', 'flex-col', 'gap-2')}>
+                  {lead.email && (
+                    <a href={`mailto:${lead.email}`} className={clsx('text-sm', 'text-text-secondary', 'hover:text-accent', 'flex', 'items-center', 'gap-2', 'transition-colors')}>
+                      <Mail size={14} className="text-accent" /> {lead.email}
+                    </a>
+                  )}
+                  {lead.phone && (
+                    <a href={`tel:+91${lead.phone}`} className={clsx('text-sm', 'text-text-secondary', 'hover:text-accent', 'flex', 'items-center', 'gap-2', 'transition-colors')}>
+                      <Phone size={14} className="text-accent" /> +91 {lead.phone}
+                    </a>
+                  )}
+                </div>
+              </div>
+
+              {/* Social Icons */}
+              <div className={clsx('flex', 'gap-2')}>
+                
+                <a
+                  href="https://github.com/QuantixxSolutions"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={clsx('w-8', 'h-8', 'rounded-full', 'border', 'border-white/[0.06]', 'hover:border-white/[0.2]', 'hover:bg-white/[0.05]', 'text-text-secondary', 'hover:text-text-primary', 'flex', 'items-center', 'justify-center', 'transition-all', 'cursor-pointer')}
+                  aria-label={`${lead.name} GitHub`}
+                >
+                  <Terminal size={14} />
+                </a>
+                <a
+                  href="#"
+                  className={clsx('w-8', 'h-8', 'rounded-full', 'border', 'border-white/[0.06]', 'hover:border-white/[0.2]', 'hover:bg-white/[0.05]', 'text-text-secondary', 'hover:text-text-primary', 'flex', 'items-center', 'justify-center', 'transition-all', 'cursor-pointer')}
+                  aria-label={`${lead.name} LinkedIn`}
+                >
+                  <Globe size={14} />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Specialized Bio */}
+          <p className={clsx('text-xs', 'sm:text-sm', 'text-text-secondary', 'leading-relaxed', 'font-light', 'font-sans')}>
+            {lead.bio}
+          </p>
+
+          {/* Stylized Quote Banner */}
+          <div className={clsx('relative', 'pl-5', 'py-2', 'border-l-2', 'border-accent/40', 'bg-white/[0.01]', 'rounded-r-lg', 'pr-4', 'font-sans', 'italic', 'text-sm', 'sm:text-base', 'text-text-primary/95', 'leading-relaxed', 'font-light')}>
+            <span className={clsx('absolute', 'left-1.5', 'top-0', 'font-serif', 'text-3xl', 'text-accent/30', 'select-none')}>“</span>
+            {lead.quote}
+          </div>
+
+          {/* System Stats Block */}
+          <div className={clsx('grid', 'grid-cols-1', 'sm:grid-cols-3', 'gap-4', 'sm:gap-6', 'bg-bg-secondary/40', 'border', 'border-border-primary/50', 'p-5', 'sm:p-6', 'rounded-xl', 'mt-6')}>
+            {lead.stats.map((stat, idx) => (
+              <div key={idx} className={clsx('space-y-1', 'sm:space-y-1.5', 'border-l-2', 'border-accent/20', 'pl-3', 'hover:border-accent/60', 'transition-colors')}>
+                <span className={clsx('text-text-muted', 'block', 'uppercase', 'tracking-widest', 'text-[10px]', 'font-mono', 'font-semibold')}>{stat.label}</span>
+                <span className={clsx('text-text-primary', 'font-display', 'font-bold', 'text-sm', 'sm:text-base', 'truncate')}>{stat.value}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Focus Badges / Cards */}
+          <div className={clsx('space-y-3', 'mt-8')}>
+            <span className={clsx('text-[10px]', 'uppercase', 'tracking-[0.15em]', 'text-text-muted', 'font-mono', 'font-semibold', 'block')}>Core Focus Areas</span>
+            <div className={clsx('grid', 'grid-cols-1', 'sm:grid-cols-2', 'gap-2', 'sm:gap-3')}>
+              {lead.focus.map((foc, idx) => (
+                <div
+                  key={idx}
+                  className={clsx('px-4', 'py-2.5', 'rounded-lg', 'text-xs', 'sm:text-sm', 'font-sans', 'font-medium', 'text-center', 'text-text-secondary', 'border', 'border-border-primary/50', 'bg-bg-card', 'hover:bg-accent/5', 'hover:border-accent/40', 'hover:text-text-primary', 'hover:-translate-y-0.5', 'hover:shadow-lg', 'hover:shadow-accent/5', 'transition-all', 'duration-300', 'cursor-default', 'flex', 'items-center', 'justify-center')}
+                >
+                  {foc}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
 
 export default function About() {
   const { openModal } = useModal();
@@ -27,8 +187,10 @@ export default function About() {
       name: 'Krunal Vegda',
       role: 'Co-Founder & CTO',
       bio: 'As the technical architect behind Quantixx, Krunal ensures every digital product we build is highly secure, exceptionally fast, and engineered to scale seamlessly. From complex cloud infrastructures to robust full-stack applications, he transforms technical complexity into flawless, reliable performance.',
-      photo: '/krunal_vegda.png',
+      photo: '/founders/krunal_vegda.jpeg',
       initial: 'KV',
+      email: 'cto@quantix.solution',
+      phone: '9427109237',
       accentColor: 'rose',
       themeGradient: 'from-[#E11D48]/20 via-[#E11D48]/5 to-transparent',
       quote: "Technology should never be a friction point. It should be the invisible engine that effortlessly powers your growth.",
@@ -43,8 +205,11 @@ export default function About() {
       name: 'Abhishek Sharma',
       role: 'Co-Founder & CEO',
       bio: 'Abhishek bridges the critical gap between high-level business strategy and technical execution. With a specialized focus on Laravel, .NET, and intelligent automation, he designs AI-driven solutions that eliminate operational friction and accelerate your business growth.',
-      photo: '/abhishek_sharma.png',
+      photo: '/founders/abhishek_sharma.png',
+      imageClass: 'scale-[1.4] translate-y-4',
       initial: 'AS',
+      email: 'ceo@quantixx.solution',
+      phone: '9023743914',
       accentColor: 'cyan',
       themeGradient: 'from-[#0EA5E9]/20 via-[#0EA5E9]/5 to-transparent',
       quote: "True digital transformation isn't just about writing code—it's about engineering strategic leverage that redefines how your business scales.",
@@ -100,7 +265,7 @@ export default function About() {
           {/* Left Block */}
           <div className={clsx('p-8', 'md:p-12', 'border-b', 'md:border-b-0', 'md:border-r', 'border-border-primary', 'flex', 'flex-col', 'justify-start', 'space-y-6', 'group')}>
             <div className={clsx('flex', 'items-center', 'gap-3')}>
-              <Sparkles size={12} className="text-highlight animate-pulse" />
+              <Sparkles size={12} className={clsx('text-highlight', 'animate-pulse')} />
               <span className={clsx('text-[10px]', 'font-mono', 'font-semibold', 'tracking-[0.15em]', 'text-highlight', 'uppercase')}>Limited Availability</span>
             </div>
             
@@ -294,135 +459,9 @@ export default function About() {
         </div>
 
         <div className={clsx('grid', 'grid-cols-1', 'lg:grid-cols-2', 'gap-10', 'max-w-7xl', 'mx-auto')}>
-          {leadership.map((lead, i) => {
-            const isEven = i % 2 === 0;
-            return (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6 }}
-                className={clsx('glass-card', 'border', 'border-border-primary', 'hover:border-accent/30', 'rounded-3xl', 'p-6', 'sm:p-8', 'lg:p-10', 'relative', 'overflow-hidden', 'group', 'shadow-2xl', 'transition-colors', 'duration-500', 'bg-gradient-to-br', 'from-bg-card/50', 'via-bg-card/20', 'to-transparent')}
-              >
-                {/* Asymmetrical background glows specific to each founder */}
-                <div className={`absolute top-0 ${isEven ? 'right-0' : 'left-0'} w-96 h-96 bg-gradient-to-br ${lead.themeGradient} rounded-full blur-[100px] pointer-events-none -z-10 transition-opacity duration-500 opacity-60 group-hover:opacity-100`} />
-                <div className={`absolute bottom-0 ${isEven ? 'left-1/4' : 'right-1/4'} w-72 h-72 bg-accent/4 rounded-full blur-[80px] pointer-events-none -z-10`} />
-
-                {/* Tech grid texture in card */}
-                <div className={clsx('absolute', 'inset-0', 'bg-[linear-gradient(rgba(255,255,255,0.003)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.003)_1px,transparent_1px)]', 'bg-[size:24px_24px]', 'pointer-events-none', 'opacity-30', '-z-10')} />
-
-                <div className={clsx('flex', 'flex-col', 'gap-10', 'relative', 'z-10')}>
-                  {/* Portrait side */}
-                  <div className={clsx('flex', 'justify-center', 'w-full')}>
-                    <div className={clsx('relative', 'group/photo')}>
-                      {/* Stylized Outer Glow Frame */}
-                      <div className={clsx('absolute', '-inset-2', 'rounded-2xl', 'bg-gradient-to-tr', 'from-accent/20', 'to-highlight/20', 'opacity-0', 'group-hover/photo:opacity-100', 'blur-lg', 'transition', 'duration-700', '-z-10')} />
-
-                      {/* Inner Photo Frame */}
-                      <div className={clsx('w-64', 'h-64', 'sm:w-72', 'sm:h-72', 'rounded-3xl', 'overflow-hidden', 'border', 'border-white/[0.08]', 'bg-bg-secondary', 'flex', 'items-center', 'justify-center', 'relative', 'shadow-2xl', 'aspect-square')}>
-                        {lead.photo ? (
-                          <img
-                            src={lead.photo}
-                            alt={lead.name}
-                            className={clsx('w-full', 'h-full', 'object-cover', 'grayscale', 'group-hover/photo:grayscale-0', 'transition-all', 'duration-700', 'scale-100', 'group-hover/photo:scale-105')}
-                          />
-                        ) : (
-                          <span className={clsx('font-display', 'text-4xl', 'font-extrabold', 'text-text-primary')}>{lead.initial}</span>
-                        )}
-
-                        {/* Floating Status Indicator Badge */}
-                        <div className={clsx('absolute', 'bottom-3', 'left-3', 'bg-bg-primary/90', 'backdrop-blur-md', 'border', 'border-white/[0.08]', 'px-3', 'py-1', 'rounded-full', 'flex', 'items-center', 'gap-1.5', 'shadow-md')}>
-                          <span className={clsx('relative', 'flex', 'h-2', 'w-2')}>
-                            <span className={clsx('animate-ping', 'absolute', 'inline-flex', 'h-full', 'w-full', 'rounded-full', 'bg-emerald-400', 'opacity-75')}></span>
-                            <span className={clsx('relative', 'inline-flex', 'rounded-full', 'h-2', 'w-2', 'bg-emerald-500')}></span>
-                          </span>
-                          <span className={clsx('text-[9px]', 'font-mono', 'font-bold', 'text-text-primary', 'tracking-wider', 'uppercase')}>Active Staging</span>
-                        </div>
-                      </div>
-
-                      {/* Tech Role Accent Strip */}
-                      <div className={`absolute -top-3 -right-3 px-3 py-1 rounded-lg text-[10px] font-mono font-bold tracking-widest uppercase border backdrop-blur-md shadow-lg ${lead.accentColor === 'cyan' ? 'bg-[#0EA5E9]/10 text-[#0EA5E9] border-[#0EA5E9]/20 shadow-[#0EA5E9]/5' : 'bg-[#E11D48]/10 text-[#E11D48] border-[#E11D48]/20 shadow-[#E11D48]/5'
-                        }`}>
-                        {lead.name === 'Abhishek Sharma' ? 'AI & Automation' : 'Cloud Architecture'}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Info Details side */}
-                  <div className={clsx('text-left', 'space-y-6')}>
-                    <div>
-                      {/* Name & Socials */}
-                      <div className={clsx('flex', 'flex-wrap', 'items-center', 'gap-4', 'justify-between')}>
-                        <div>
-                          <h3 className={clsx('text-2xl', 'sm:text-3xl', 'font-extrabold', 'font-display', 'text-text-primary', 'tracking-tight')}>
-                            {lead.name}
-                          </h3>
-                          <span className={clsx('text-xs', 'sm:text-sm', 'font-semibold', 'text-accent', 'font-mono', 'block', 'mt-1', 'tracking-wider', 'uppercase')}>
-                            {lead.role}
-                          </span>
-                        </div>
-
-                        {/* Social Icons */}
-                        <div className={clsx('flex', 'gap-2')}>
-                          <a
-                            href="#"
-                            className={clsx('w-8', 'h-8', 'rounded-full', 'border', 'border-white/[0.06]', 'hover:border-white/[0.2]', 'hover:bg-white/[0.05]', 'text-text-secondary', 'hover:text-text-primary', 'flex', 'items-center', 'justify-center', 'transition-all', 'cursor-pointer')}
-                            aria-label={`${lead.name} GitHub`}
-                          >
-                            <Terminal size={14} />
-                          </a>
-                          <a
-                            href="#"
-                            className={clsx('w-8', 'h-8', 'rounded-full', 'border', 'border-white/[0.06]', 'hover:border-white/[0.2]', 'hover:bg-white/[0.05]', 'text-text-secondary', 'hover:text-text-primary', 'flex', 'items-center', 'justify-center', 'transition-all', 'cursor-pointer')}
-                            aria-label={`${lead.name} LinkedIn`}
-                          >
-                            <Globe size={14} />
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Specialized Bio */}
-                    <p className={clsx('text-xs', 'sm:text-sm', 'text-text-secondary', 'leading-relaxed', 'font-light', 'font-sans')}>
-                      {lead.bio}
-                    </p>
-
-                    {/* Stylized Quote Banner */}
-                    <div className={clsx('relative', 'pl-5', 'py-2', 'border-l-2', 'border-accent/40', 'bg-white/[0.01]', 'rounded-r-lg', 'pr-4', 'font-sans', 'italic', 'text-sm', 'sm:text-base', 'text-text-primary/95', 'leading-relaxed', 'font-light')}>
-                      <span className={clsx('absolute', 'left-1.5', 'top-0', 'font-serif', 'text-3xl', 'text-accent/30', 'select-none')}>“</span>
-                      {lead.quote}
-                    </div>
-
-                    {/* System Stats Block */}
-                    <div className={clsx('grid', 'grid-cols-1', 'sm:grid-cols-3', 'gap-4', 'sm:gap-6', 'bg-bg-secondary/40', 'border', 'border-border-primary/50', 'p-5', 'sm:p-6', 'rounded-xl', 'mt-6')}>
-                      {lead.stats.map((stat, idx) => (
-                        <div key={idx} className={clsx('space-y-1', 'sm:space-y-1.5', 'border-l-2', 'border-accent/20', 'pl-3', 'hover:border-accent/60', 'transition-colors')}>
-                          <span className={clsx('text-text-muted', 'block', 'uppercase', 'tracking-widest', 'text-[10px]', 'font-mono', 'font-semibold')}>{stat.label}</span>
-                          <span className={clsx('text-text-primary', 'font-display', 'font-bold', 'text-sm', 'sm:text-base', 'truncate')}>{stat.value}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Focus Badges / Cards */}
-                    <div className="space-y-3 mt-8">
-                      <span className={clsx('text-[10px]', 'uppercase', 'tracking-[0.15em]', 'text-text-muted', 'font-mono', 'font-semibold', 'block')}>Core Focus Areas</span>
-                      <div className={clsx('grid', 'grid-cols-1', 'sm:grid-cols-2', 'gap-2', 'sm:gap-3')}>
-                        {lead.focus.map((foc, idx) => (
-                          <div
-                            key={idx}
-                            className={clsx('px-4', 'py-2.5', 'rounded-lg', 'text-xs', 'sm:text-sm', 'font-sans', 'font-medium', 'text-center', 'text-text-secondary', 'border', 'border-border-primary/50', 'bg-bg-card', 'hover:bg-accent/5', 'hover:border-accent/40', 'hover:text-text-primary', 'hover:-translate-y-0.5', 'hover:shadow-lg', 'hover:shadow-accent/5', 'transition-all', 'duration-300', 'cursor-default', 'flex', 'items-center', 'justify-center')}
-                          >
-                            {foc}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
+          {leadership.map((lead, i) => (
+            <FounderCard key={i} lead={lead} i={i} />
+          ))}
         </div>
       </section>
 

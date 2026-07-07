@@ -19,14 +19,14 @@ export default function Contact() {
     name: '',
     email: '',
     company: '',
-    budget: '₹25,000 - ₹50,000',
+    budget: '₹10,000 - ₹25,000',
     details: ''
   });
 
   const faqs = [
     {
       q: 'What is your typical project scope?',
-      a: 'We generally partner with companies on projects starting around ₹10,000 up to ₹100,000+. This includes complete scoping documents, full engineering sprints, and code handover.'
+      a: 'We generally partner with companies on projects starting around ₹5,000 up to ₹50,000+. This includes complete scoping documents, full engineering sprints, and code handover.'
     },
     {
       q: 'How long does a custom web or mobile development project take?',
@@ -143,14 +143,14 @@ export default function Contact() {
                   <div className={clsx('p-3', 'bg-bg-secondary', 'border', 'border-border-primary', 'rounded-xl', 'text-accent', 'shadow-sm')}><Mail size={20} /></div>
                   <div>
                     <span className={clsx('block', 'text-xs', 'font-mono', 'font-semibold', 'text-text-muted', 'uppercase', 'tracking-widest')}>Email Correspondence</span>
-                    <a href="mailto:solutions@quantixx.com" className={clsx('block', 'text-sm', 'text-text-primary', 'hover:text-accent', 'mt-1', 'transition-colors', 'font-semibold')}>solutions@quantixx.com</a>
+                    <a href="mailto:info@quantixx.solutions" className={clsx('block', 'text-sm', 'text-text-primary', 'hover:text-accent', 'mt-1', 'transition-colors', 'font-semibold')}>info@quantixx.solutions</a>
                   </div>
                 </div>
                 <div className={clsx('flex', 'items-start', 'gap-4')}>
                   <div className={clsx('p-3', 'bg-bg-secondary', 'border', 'border-border-primary', 'rounded-xl', 'text-accent', 'shadow-sm')}><Phone size={20} /></div>
                   <div>
                     <span className={clsx('block', 'text-xs', 'font-mono', 'font-semibold', 'text-text-muted', 'uppercase', 'tracking-widest')}>Phone Lines</span>
-                    <a href="tel:+18005556272" className={clsx('block', 'text-sm', 'text-text-primary', 'hover:text-accent', 'mt-1', 'transition-colors', 'font-semibold')}>+1 (800) 555-6272</a>
+                    <a href="tel:+919427109237" className={clsx('block', 'text-sm', 'text-text-primary', 'hover:text-accent', 'mt-1', 'transition-colors', 'font-semibold')}>+91 9427109237 / +91 9023743914</a>
                   </div>
                 </div>
               </div>
@@ -240,10 +240,10 @@ export default function Contact() {
                             onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
                             className={clsx('w-full', 'bg-bg-secondary', 'border', 'border-border-primary', 'focus:border-accent', 'focus:bg-bg-primary', 'rounded-xl', 'px-5', 'py-3.5', 'text-sm', 'text-text-primary', 'outline-none', 'transition-all', 'shadow-inner', 'appearance-none', 'cursor-pointer')}
                           >
-                            <option value="₹10,000 - ₹25,000" className={clsx('bg-bg-card', 'text-text-primary')}>₹10,000 - ₹25,000</option>
+                            <option value="₹5,000 - ₹15,000" className={clsx('bg-bg-card', 'text-text-primary')}>₹5,000 - ₹15,000</option>
+                            <option value="₹15,000 - ₹25,000" className={clsx('bg-bg-card', 'text-text-primary')}>₹15,000 - ₹25,000</option>
                             <option value="₹25,000 - ₹50,000" className={clsx('bg-bg-card', 'text-text-primary')}>₹25,000 - ₹50,000</option>
-                            <option value="₹50,000 - ₹100,000" className={clsx('bg-bg-card', 'text-text-primary')}>₹50,000 - ₹100,000</option>
-                            <option value="₹100,000+" className={clsx('bg-bg-card', 'text-text-primary')}>₹100,000+</option>
+                            <option value="₹50,000+" className={clsx('bg-bg-card', 'text-text-primary')}>₹50,000+</option>
                           </select>
                           <ChevronDown size={16} className={clsx('absolute', 'right-5', 'top-1/2', '-translate-y-1/2', 'text-text-muted', 'pointer-events-none')} />
                         </div>

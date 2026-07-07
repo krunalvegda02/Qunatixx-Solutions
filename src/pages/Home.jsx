@@ -35,7 +35,7 @@ const PremiumHoverCard = ({ children, className, ...props }) => {
       onMouseMove={handleMouseMove}
     >
       <motion.div
-        className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition duration-500 group-hover/card:opacity-100 z-0"
+        className={clsx('pointer-events-none', 'absolute', '-inset-px', 'rounded-2xl', 'opacity-0', 'transition', 'duration-500', 'group-hover/card:opacity-100', 'z-0')}
         style={{
           background: useMotionTemplate`
             radial-gradient(
@@ -46,7 +46,7 @@ const PremiumHoverCard = ({ children, className, ...props }) => {
           `,
         }}
       />
-      <div className="relative z-10 p-5 sm:p-8 flex flex-col items-start text-left h-full">
+      <div className={clsx('relative', 'z-10', 'p-5', 'sm:p-8', 'flex', 'flex-col', 'items-start', 'text-left', 'h-full')}>
         {children}
       </div>
     </motion.div>
@@ -967,8 +967,8 @@ export default function Home() {
                   'hover:-translate-y-1', 'flex', 'items-center', 'justify-center', 'gap-3'
                 )}
               >
-                <span className="relative z-10 flex items-center gap-2">
-                  Activate Pass <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
+                <span className={clsx('relative', 'z-10', 'flex', 'items-center', 'gap-2')}>
+                  Activate Pass <ArrowRight size={18} className={clsx('group-hover:translate-x-1', 'transition-transform', 'duration-300')} />
                 </span>
               </button>
             </motion.div>
@@ -990,7 +990,7 @@ export default function Home() {
                 <div className={clsx('flex', 'items-center', 'justify-between', 'mb-8', 'pb-6', 'border-b', 'border-border-primary')}>
                   <div className={clsx('flex', 'items-center', 'gap-4')}>
                     <div className={clsx('w-10', 'h-10', 'sm:w-12', 'sm:h-12', 'rounded-lg', 'bg-text-primary', 'text-bg-primary', 'flex', 'items-center', 'justify-center', 'shadow-md')}>
-                      <CheckCircle2 size={20} className="sm:w-6 sm:h-6" />
+                      <CheckCircle2 size={20} className={clsx('sm:w-6', 'sm:h-6')} />
                     </div>
                     <div>
                       <div className={clsx('text-[10px]', 'font-mono', 'text-text-muted', 'tracking-widest', 'uppercase', 'mb-1')}>Authorization</div>
@@ -998,7 +998,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div className={clsx('px-2.5', 'py-1', 'rounded-full', 'bg-emerald-500/10', 'text-emerald-500', 'border', 'border-emerald-500/20', 'text-[9px]', 'sm:text-[10px]', 'font-mono', 'font-bold', 'flex', 'items-center', 'gap-1.5')}>
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" /> VERIFIED
+                    <span className={clsx('w-1.5', 'h-1.5', 'rounded-full', 'bg-emerald-500', 'animate-pulse')} /> VERIFIED
                   </div>
                 </div>
 
@@ -1008,7 +1008,7 @@ export default function Home() {
                      className={clsx('flex', 'justify-between', 'items-center', 'group')}
                    >
                       <span className={clsx('text-xs', 'sm:text-sm', 'text-text-secondary', 'font-medium', 'group-hover:text-text-primary', 'transition-colors')}>Comprehensive Audit</span>
-                      <span className={clsx('text-xs', 'sm:text-sm', 'font-mono', 'font-semibold', 'text-text-primary')}>₹2,00,000</span>
+                      <span className={clsx('text-xs', 'sm:text-sm', 'font-mono', 'font-semibold', 'text-text-primary')}>₹1,00,000</span>
                    </motion.div>
                    
                    <motion.div 
@@ -1016,7 +1016,7 @@ export default function Home() {
                      className={clsx('flex', 'justify-between', 'items-center', 'group')}
                    >
                       <span className={clsx('text-xs', 'sm:text-sm', 'text-text-secondary', 'font-medium', 'group-hover:text-text-primary', 'transition-colors')}>Infrastructure Setup</span>
-                      <span className={clsx('text-xs', 'sm:text-sm', 'font-mono', 'font-semibold', 'text-text-primary')}>₹1,20,000</span>
+                      <span className={clsx('text-xs', 'sm:text-sm', 'font-mono', 'font-semibold', 'text-text-primary')}>₹60,000</span>
                    </motion.div>
                    
                    <motion.div 
@@ -1031,10 +1031,10 @@ export default function Home() {
                 <div className={clsx('pt-6', 'border-t', 'border-border-primary', 'flex', 'items-end', 'justify-between')}>
                    <div>
                      <div className={clsx('text-[9px]', 'sm:text-[10px]', 'text-text-muted', 'uppercase', 'tracking-widest', 'font-mono', 'mb-2')}>Total Unlocked Value</div>
-                     <div className={clsx('text-3xl', 'sm:text-4xl', 'font-display', 'font-black', 'text-text-primary', 'tracking-tight')}>₹3,20,000+</div>
+                     <div className={clsx('text-3xl', 'sm:text-4xl', 'font-display', 'font-black', 'text-text-primary', 'tracking-tight')}>₹1,60,000+</div>
                    </div>
                    <div className={clsx('w-10', 'h-10', 'sm:w-12', 'sm:h-12', 'flex', 'items-center', 'justify-center', 'text-text-muted', 'opacity-30')}>
-                      <Cpu size={28} className="sm:w-8 sm:h-8" />
+                      <Cpu size={28} className={clsx('sm:w-8', 'sm:h-8')} />
                    </div>
                 </div>
 
@@ -1066,7 +1066,7 @@ export default function Home() {
                 <LineChart size={24} strokeWidth={1.5} />
               </div>
               <h3 className={clsx('text-xl', 'font-display', 'font-bold', 'text-text-primary', 'mb-2')}>Comprehensive Audit</h3>
-              <div className={clsx('text-[10px]', 'font-mono', 'font-bold', 'text-accent', 'bg-accent/10', 'px-2.5', 'py-1', 'rounded-sm', 'mb-4', 'border', 'border-accent/20')}>₹2,00,000 VALUE</div>
+              <div className={clsx('text-[10px]', 'font-mono', 'font-bold', 'text-accent', 'bg-accent/10', 'px-2.5', 'py-1', 'rounded-sm', 'mb-4', 'border', 'border-accent/20')}>₹1,00,000 VALUE</div>
               <p className={clsx('text-sm', 'text-text-secondary', 'leading-relaxed', 'font-light')}>
                 Deep-dive review of your current setup, identifying hidden bottlenecks, and mapping a clear technical blueprint to scale your business.
               </p>
@@ -1102,7 +1102,7 @@ export default function Home() {
                 <Zap size={24} strokeWidth={1.5} />
               </div>
               <h3 className={clsx('text-xl', 'font-display', 'font-bold', 'text-text-primary', 'mb-2')}>Free Launch Setup</h3>
-              <div className={clsx('text-[10px]', 'font-mono', 'font-bold', 'text-emerald-500', 'bg-emerald-500/10', 'px-2.5', 'py-1', 'rounded-sm', 'mb-4', 'border', 'border-emerald-500/20')}>₹1,20,000 VALUE</div>
+              <div className={clsx('text-[10px]', 'font-mono', 'font-bold', 'text-emerald-500', 'bg-emerald-500/10', 'px-2.5', 'py-1', 'rounded-sm', 'mb-4', 'border', 'border-emerald-500/20')}>₹60,000 VALUE</div>
               <p className={clsx('text-sm', 'text-text-secondary', 'leading-relaxed', 'font-light')}>
                 We handle the complex server hosting, domain configuration, and launch logistics entirely for free when you sign on for a full build.
               </p>
@@ -1774,11 +1774,6 @@ export default function Home() {
                       </div>
                     </div>
 
-                    {/* Audit stamp */}
-                    <div className={clsx('text-[9px]', 'font-mono', 'text-text-muted', 'select-none', 'flex', 'items-center', 'gap-1.5')}>
-                      <span className={clsx('w-1', 'h-1', 'rounded-full', 'bg-emerald-500', 'animate-ping')} />
-                      {t.verifiedDate.split('//')[0].trim()}
-                    </div>
                   </div>
 
                 </motion.div>
@@ -1999,7 +1994,7 @@ export default function Home() {
 
                 <div className={clsx('mt-4', 'text-center')}>
                   <span className={clsx('text-[10px]', 'text-text-muted', 'font-mono')}>
-                    Or direct email: <a href="mailto:solutions@quantixx.com" className={clsx('text-highlight', 'hover:underline')}>solutions@quantixx.com</a>
+                    Or direct email: <a href="mailto:info@quantixx.solutions" className={clsx('text-highlight', 'hover:underline')}>info@quantixx.solutions</a>
                   </span>
                 </div>
 
