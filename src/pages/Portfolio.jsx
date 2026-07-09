@@ -6,7 +6,7 @@ import { Counter } from '../components/animations/Counter';
 import {
   Filter, Calendar, BarChart3, Settings, ShieldCheck, ArrowUpRight, X, Clock,
   HelpCircle, Lightbulb, CheckCircle2, Search, Cpu, Database, Terminal,
-  Activity, Sparkles, TrendingUp, Target
+  Activity, Sparkles, TrendingUp, Target, ChevronLeft, ChevronRight
 } from 'lucide-react';
 import { useModal } from '../context/ModalContext';
 import clsx from 'clsx';
@@ -19,39 +19,81 @@ const fadeUp = {
 
 
 const MediaViewer = ({ media, title }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   if (!media) return (
-    <div className="w-full h-full bg-bg-secondary flex items-center justify-center border border-border-primary rounded-lg overflow-hidden">
-      <span className="text-text-muted font-mono text-xs">NO MEDIA UPLOADED</span>
+    <div className={clsx('w-full', 'h-full', 'bg-bg-secondary', 'flex', 'items-center', 'justify-center', 'border', 'border-border-primary', 'rounded-lg', 'overflow-hidden')}>
+      <span className={clsx('text-text-muted', 'font-mono', 'text-xs')}>NO MEDIA UPLOADED</span>
     </div>
   );
 
+  const images = media.gallery && media.gallery.length > 0 ? media.gallery : [media.url];
+  const isVideo = media.type === 'video' && (!media.gallery || media.gallery.length === 0);
+
+  const handleNext = (e) => {
+    e.stopPropagation();
+    setCurrentIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const handlePrev = (e) => {
+    e.stopPropagation();
+    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
   return (
-    <div className="w-full h-full border border-border-primary rounded-lg overflow-hidden relative group bg-bg-secondary flex items-center justify-center">
-      {media.type === 'video' ? (
+    <div className={clsx('w-full', 'h-full', 'border', 'border-border-primary', 'rounded-lg', 'overflow-hidden', 'relative', 'group', 'bg-bg-secondary', 'flex', 'items-center', 'justify-center')}>
+      {isVideo ? (
         <video 
           src={media.url} 
           autoPlay 
           loop 
           muted 
           playsInline 
-          className="w-full h-full object-cover"
+          className={clsx('w-full', 'h-full', 'object-cover')}
           poster={media.fallbackImage}
         />
       ) : (
         <img 
-          src={media.url} 
-          alt={title} 
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+          src={images[currentIndex]} 
+          alt={`${title} - image ${currentIndex + 1}`} 
+          className={clsx('w-full', 'h-full', 'object-cover', 'group-hover:scale-105', 'transition-transform', 'duration-700')} 
           onError={(e) => {
              e.target.style.display = 'none';
              e.target.nextSibling.style.display = 'flex';
           }}
         />
       )}
-      <div className="absolute inset-0 bg-bg-secondary hidden items-center justify-center pointer-events-none">
-          <span className="text-text-muted font-mono text-[10px]">MEDIA NOT FOUND</span>
+      
+      {/* Navigation arrows for gallery */}
+      {!isVideo && images.length > 1 && (
+        <>
+          <button 
+            onClick={handlePrev}
+            className={clsx('absolute', 'left-2', 'top-1/2', '-translate-y-1/2', 'w-8', 'h-8', 'flex', 'items-center', 'justify-center', 'rounded-full', 'bg-black/50', 'text-white', 'opacity-0', 'group-hover:opacity-100', 'transition-opacity', 'hover:bg-black/80', 'z-10')}
+          >
+            <ChevronLeft size={20} />
+          </button>
+          <button 
+            onClick={handleNext}
+            className={clsx('absolute', 'right-2', 'top-1/2', '-translate-y-1/2', 'w-8', 'h-8', 'flex', 'items-center', 'justify-center', 'rounded-full', 'bg-black/50', 'text-white', 'opacity-0', 'group-hover:opacity-100', 'transition-opacity', 'hover:bg-black/80', 'z-10')}
+          >
+            <ChevronRight size={20} />
+          </button>
+          <div className={clsx('absolute', 'bottom-3', 'left-1/2', '-translate-x-1/2', 'flex', 'gap-1.5', 'opacity-0', 'group-hover:opacity-100', 'transition-opacity', 'z-10')}>
+            {images.map((_, idx) => (
+              <div 
+                key={idx} 
+                className={clsx("w-1.5 h-1.5 rounded-full transition-colors", idx === currentIndex ? "bg-white" : "bg-white/40")}
+              />
+            ))}
+          </div>
+        </>
+      )}
+
+      <div className={clsx('absolute', 'inset-0', 'bg-bg-secondary', 'hidden', 'items-center', 'justify-center', 'pointer-events-none')}>
+          <span className={clsx('text-text-muted', 'font-mono', 'text-[10px]')}>MEDIA NOT FOUND</span>
       </div>
-      <div className="absolute inset-0 bg-gradient-to-t from-bg-card/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+      <div className={clsx('absolute', 'inset-0', 'bg-gradient-to-t', 'from-bg-card/80', 'via-transparent', 'to-transparent', 'opacity-0', 'group-hover:opacity-100', 'transition-opacity', 'pointer-events-none')} />
     </div>
   );
 };
@@ -64,7 +106,7 @@ export default function Portfolio() {
   const [hoveredCard, setHoveredCard] = useState(null);
 
 
-  const filters = ['All', 'Web Apps', 'Mobile Apps', 'Automation', 'Cloud', 'Enterprise', 'SaaS'];
+  const filters = ['All', 'Web', 'Mobile', 'Automation', 'Cloud', 'SaaS'];
 
   const getFilterCount = (filter) => {
     if (filter === 'All') return projects.length;
@@ -347,7 +389,7 @@ export default function Portfolio() {
                     <motion.h3 layoutId={`title-${project.id}`} className={clsx('text-lg', 'lg:text-xl', 'font-display', 'font-bold', 'text-text-primary', 'group-hover/card:text-accent', 'transition-colors', 'duration-500', 'mb-1', 'lg:mb-2', 'relative', 'z-10', 'transform', 'group-hover/card:translate-x-1')}>
                       {project.title}
                     </motion.h3>
-                    <div className="text-xs text-text-muted font-mono mb-2 relative z-10">{project.company}</div>
+                    <div className={clsx('text-xs', 'text-text-muted', 'font-mono', 'mb-2', 'relative', 'z-10')}>{project.company}</div>
 
                     <div className={clsx('grid', "[grid-template-areas:'stack']", 'mb-3', 'lg:mb-4', 'h-14', 'lg:h-16')}>
                       {/* Default Description */}
@@ -368,7 +410,7 @@ export default function Portfolio() {
 
                     {/* High-Fidelity UI Graphic Mockups ("Screenshots") */}
                     <motion.div layoutId={`mockup-${project.id}`} className={clsx('transform', 'group-hover/card:scale-[1.02]', 'group-hover/card:-translate-y-1', 'transition-all', 'duration-500', 'delay-100', 'relative', 'z-10')}>
-                      <div className="h-32 sm:h-40 w-full"><MediaViewer media={project.media} title={project.title} /></div>
+                      <div className={clsx('h-32', 'sm:h-40', 'w-full')}><MediaViewer media={project.media} title={project.title} /></div>
                     </motion.div>
                   </div>
 
@@ -434,13 +476,13 @@ export default function Portfolio() {
                     ))}
                   </div>
 
-                  <div className="text-sm text-text-muted font-mono mb-2">{activeProject.company}</div>
+                  <div className={clsx('text-sm', 'text-text-muted', 'font-mono', 'mb-2')}>{activeProject.company}</div>
                   <motion.h3 layoutId={`title-${activeProject.id}`} className={clsx('text-2xl', 'sm:text-3xl', 'lg:text-4xl', 'font-display', 'font-extrabold', 'text-text-primary', 'mb-3', 'lg:mb-4', 'leading-tight', 'tracking-tight')}>
                     {activeProject.title}
                   </motion.h3>
                   
                   {activeProject.websiteLink && (
-                    <a href={activeProject.websiteLink} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-bg-secondary hover:bg-border-primary border border-border-primary rounded-md text-sm font-bold text-text-primary w-fit mb-6 transition-colors shadow-sm">
+                    <a href={activeProject.websiteLink} target="_blank" rel="noreferrer" className={clsx('inline-flex', 'items-center', 'gap-2', 'px-4', 'py-2', 'bg-bg-secondary', 'hover:bg-border-primary', 'border', 'border-border-primary', 'rounded-md', 'text-sm', 'font-bold', 'text-text-primary', 'w-fit', 'mb-6', 'transition-colors', 'shadow-sm')}>
                       Visit Live Website <ArrowUpRight size={14} />
                     </a>
                   )}
@@ -460,7 +502,7 @@ export default function Portfolio() {
                     </div>
                   </div>
 
-                  <motion.div layoutId={`mockup-${activeProject.id}`} className="relative z-10 w-full mt-8 mb-4 h-48 sm:h-64 shadow-2xl">
+                  <motion.div layoutId={`mockup-${activeProject.id}`} className={clsx('relative', 'z-10', 'w-full', 'mt-8', 'mb-4', 'h-48', 'sm:h-64', 'shadow-2xl')}>
                     <MediaViewer media={activeProject.media} title={activeProject.title} />
                   </motion.div>
                 </div>
@@ -471,11 +513,11 @@ export default function Portfolio() {
 
                 {/* Project Stats Grid */}
                 {activeProject.stats && (
-                  <div className="grid grid-cols-3 gap-4 mb-10 mt-2 lg:mt-0">
+                  <div className={clsx('grid', 'grid-cols-3', 'gap-4', 'mb-10', 'mt-2', 'lg:mt-0')}>
                     {activeProject.stats.map((stat, idx) => (
-                      <div key={idx} className="bg-bg-primary border border-border-primary rounded-lg p-4 shadow-sm">
-                        <span className="block text-[9px] uppercase tracking-wider text-text-muted font-mono mb-1">{stat.label}</span>
-                        <span className="block text-xl sm:text-2xl font-bold text-accent font-display">{stat.value}</span>
+                      <div key={idx} className={clsx('bg-bg-primary', 'border', 'border-border-primary', 'rounded-lg', 'p-4', 'shadow-sm')}>
+                        <span className={clsx('block', 'text-[9px]', 'uppercase', 'tracking-wider', 'text-text-muted', 'font-mono', 'mb-1')}>{stat.label}</span>
+                        <span className={clsx('block', 'text-xl', 'sm:text-2xl', 'font-bold', 'text-accent', 'font-display')}>{stat.value}</span>
                       </div>
                     ))}
                   </div>

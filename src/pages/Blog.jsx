@@ -128,7 +128,7 @@ export default function Blog() {
                       <img 
                         src={featuredPost.image} 
                         alt={featuredPost.title} 
-                        className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 group-data-[in-view=true]:grayscale-0 group-data-[in-view=true]:opacity-100 group-data-[in-view=true]:scale-105 transition-all duration-1000" 
+                        className="w-full h-full object-cover grayscale-[20%] opacity-90 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 group-data-[in-view=true]:grayscale-0 group-data-[in-view=true]:opacity-100 group-data-[in-view=true]:scale-105 transition-all duration-1000" 
                       />
                     ) : (
                       <div className="w-full h-full bg-bg-secondary flex items-center justify-center">
@@ -280,7 +280,7 @@ function IndexPostRow({ post, index, navigate }) {
           <img 
             src={post.image} 
             alt={post.title} 
-            className="w-full h-full object-cover grayscale opacity-30 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 group-data-[in-view=true]:grayscale-0 group-data-[in-view=true]:opacity-100 group-data-[in-view=true]:scale-105 transition-all duration-700" 
+            className="w-full h-full object-cover grayscale-[30%] opacity-85 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 group-data-[in-view=true]:grayscale-0 group-data-[in-view=true]:opacity-100 group-data-[in-view=true]:scale-105 transition-all duration-700" 
           />
           <div className="absolute inset-0 bg-bg-primary/40 group-hover:bg-transparent group-data-[in-view=true]:bg-transparent transition-colors duration-500 pointer-events-none" />
           
@@ -295,7 +295,7 @@ function IndexPostRow({ post, index, navigate }) {
       {/* Mobile Image Fallback */}
       {post.image && (
          <div className="block md:hidden w-full aspect-video mt-2 border border-border-primary overflow-hidden relative group-hover:border-accent/40 group-data-[in-view=true]:border-accent/40 transition-colors">
-            <img src={post.image} className="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 group-data-[in-view=true]:grayscale-0 group-data-[in-view=true]:opacity-100 transition-all duration-700" />
+            <img src={post.image} className="w-full h-full object-cover grayscale-[30%] opacity-85 group-hover:grayscale-0 group-hover:opacity-100 group-data-[in-view=true]:grayscale-0 group-data-[in-view=true]:opacity-100 transition-all duration-700" />
          </div>
       )}
     </motion.article>
