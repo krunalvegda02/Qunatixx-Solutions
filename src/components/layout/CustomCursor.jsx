@@ -89,7 +89,7 @@ export default function CustomCursor() {
     <>
       {/* Exact position dot (zero latency) */}
       <motion.div
-        className="fixed top-0 left-0 rounded-full pointer-events-none z-[9999]"
+        className="fixed top-0 left-0 rounded-full pointer-events-none z-[99999]"
         style={{ 
           x: mouseX, 
           y: mouseY,
@@ -109,7 +109,7 @@ export default function CustomCursor() {
       
       {/* Trailing ring (smooth spring physics) */}
       <motion.div
-        className="fixed top-0 left-0 border rounded-full pointer-events-none z-[9998]"
+        className="fixed top-0 left-0 border rounded-full pointer-events-none z-[99998]"
         style={{ 
           x: ringX, 
           y: ringY,

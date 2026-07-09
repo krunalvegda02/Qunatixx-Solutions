@@ -322,46 +322,47 @@ export default function Home() {
 
   const testimonials = [
     {
-      quote: <span>Quantixx Solutions completely revamped our logistics portal. They <span className={clsx('text-highlight', 'font-bold')}>automated 80% of our manual tracking workflows</span>, which directly saved us over <span className={clsx('text-accent', 'font-bold')}>₹150k in operational overhead</span> in just the first six months.</span>,
-      author: "Sarah Jenkins",
-      role: "VP of Operations",
-      company: "DHL Logistics",
-      avatar: "SJ",
-      logo: 'dhl',
-      logoColor: '#FFCC00',
+      quote: <span>Quantixx Solutions built an incredibly powerful messaging platform for us. Their architecture easily handles <span className={clsx('text-highlight', 'font-bold')}>high-volume campaigns</span>, allowing us to reach our audience with <span className={clsx('text-accent', 'font-bold')}>lightning-fast delivery</span> and rich media.</span>,
+      author: "Vishal Sikarwar",
+      role: "CEO",
+      company: "Large Media",
+      avatar: "VS",
+      logo: 'rcssender',
+      logoColor: '#7C3AED',
+      logoUrl: '/reviewLogo/largemedua.jpg',
       rating: 5,
-      verifiedDate: 'Verified System Audit // May 2026',
-      metric: '80%',
-      metricLabel: 'Manual Labor Cut',
-      metricStatus: 'VERIFIED OVERHEAD'
+      verifiedDate: 'Verified Project Delivery // May 2026',
+      metric: '100k+',
+      metricLabel: 'Messages/Sec',
+      metricStatus: 'HIGH THROUGHPUT'
     },
     {
-      quote: <span>The engineering team at Quantixx has a level of <span className={clsx('text-highlight', 'font-bold')}>craftsmanship that is rare to find</span>. Their work on our custom SaaS platform has received praise from our major enterprise clients for <span className={clsx('text-accent', 'font-bold')}>speed and visual excellence</span>.</span>,
-      author: "Marcus Vance",
-      role: "Founder & CEO",
-      company: "Webflow",
-      avatar: "MV",
-      logo: 'webflow',
-      logoColor: '#4353FF',
+      quote: <span>They delivered a breathtaking, premium digital storefront for our import/export business. We got <span className={clsx('text-highlight', 'font-bold')}>flawless UI/UX</span> and a 100% SEO-friendly architecture, all while completely eliminating our <span className={clsx('text-accent', 'font-bold')}>server hosting costs</span>.</span>,
+      author: "Upendrasinh Parmar",
+      role: "Founder",
+      company: "Mitray Exim",
+      avatar: "UP",
+      logo: 'mitray',
+      logoColor: '#0EA5E9',
       rating: 5,
-      verifiedDate: 'Verified Integration Audit // April 2026',
-      metric: '99.99%',
-      metricLabel: 'SLA Reliability',
-      metricStatus: 'ACTIVE MONITOR'
+      verifiedDate: 'Verified Project Delivery // June 2026',
+      metric: '$0',
+      metricLabel: 'Hosting Costs',
+      metricStatus: 'OPTIMIZED DEPLOYMENT'
     },
     {
-      quote: <span>From day one, their communication was completely transparent and their technical architecture plan was highly solid. They delivered our core mobile app <span className={clsx('text-highlight', 'font-bold')}>six weeks ahead of schedule</span>.</span>,
-      author: "Elena Rostova",
-      role: "CTO",
-      company: "Stripe",
-      avatar: "ER",
-      logo: 'stripe',
-      logoColor: '#00D4B2',
+      quote: <span>Quantixx delivered a breathtaking, <span className={clsx('text-highlight', 'font-bold')}>premium brand identity and logo design</span> alongside our highly secure financial platform. They gave our clients real-time insights wrapped in an <span className={clsx('text-accent', 'font-bold')}>absolutely stunning UI/UX</span>.</span>,
+      author: "Himanshu Solanki",
+      role: "Co-Founder",
+      company: "The Richie Brothers",
+      avatar: "HS",
+      logo: 'cashapp',
+      logoColor: '#00D632',
       rating: 5,
-      verifiedDate: 'Verified App Store Audit // March 2026',
-      metric: '-6 Weeks',
-      metricLabel: 'Time-to-Market',
-      metricStatus: 'SHIPPED PROD'
+      verifiedDate: 'Verified Security Audit // July 2026',
+      metric: '100%',
+      metricLabel: 'Design & Security',
+      metricStatus: 'PREMIUM LAUNCH'
     },
     {
       quote: <span>Architecting high-frequency trading dashboards requires zero-latency rendering. Quantixx achieved this using React and Rust, pushing our application performance to <span className={clsx('text-highlight', 'font-bold')}>sub-10ms response times</span>.</span>,
@@ -1728,16 +1729,6 @@ export default function Home() {
                         </svg>
                       ))}
                     </div>
-
-                    {/* Brand logo tag */}
-                    <div className={clsx('flex', 'items-center', 'gap-2', 'bg-bg-secondary/80', 'border', 'border-border-primary/80', 'px-3', 'py-1.5', 'rounded-sm', 'shadow-sm')}>
-                      <img
-                        src={`https://cdn.simpleicons.org/${t.logo}/${t.logoColor.replace('#', '')}`}
-                        alt={t.company}
-                        className={clsx('h-3', 'sm:h-3.5', 'object-contain', 'opacity-90', 'select-none', 'pointer-events-none')}
-                      />
-                      <span className={clsx('text-[9px]', 'sm:text-[10px]', 'font-mono', 'font-extrabold', 'text-text-primary', 'tracking-wider', 'uppercase')}>{t.company}</span>
-                    </div>
                   </div>
 
                   {/* Core Quote Message */}
@@ -1770,7 +1761,7 @@ export default function Home() {
                       </div>
                       <div className="text-left">
                         <span className={clsx('block', 'text-[11px]', 'sm:text-xs', 'font-bold', 'text-text-primary', 'tracking-tight')}>{t.author}</span>
-                        <span className={clsx('block', 'text-[9px]', 'sm:text-[10px]', 'text-text-secondary', 'mt-0.5', 'font-mono')}>{t.role}</span>
+                        <span className={clsx('block', 'text-[9px]', 'sm:text-[10px]', 'text-text-secondary', 'mt-0.5', 'font-mono')}>{t.role}, {t.company}</span>
                       </div>
                     </div>
 
@@ -1819,16 +1810,6 @@ export default function Home() {
                             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                           </svg>
                         ))}
-                      </div>
-
-                      {/* Brand logo tag */}
-                      <div className={clsx('flex', 'items-center', 'gap-2', 'bg-bg-secondary/80', 'border', 'border-border-primary/80', 'px-3', 'py-1.5', 'rounded-sm', 'shadow-sm')}>
-                        <img
-                          src={`https://cdn.simpleicons.org/${t.logo}/${t.logoColor.replace('#', '')}`}
-                          alt={t.company}
-                          className={clsx('h-3', 'object-contain', 'opacity-90', 'select-none', 'pointer-events-none')}
-                        />
-                        <span className={clsx('text-[9px]', 'font-mono', 'font-extrabold', 'text-text-primary', 'tracking-wider', 'uppercase')}>{t.company}</span>
                       </div>
                     </div>
 

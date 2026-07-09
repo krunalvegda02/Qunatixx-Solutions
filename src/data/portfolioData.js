@@ -218,7 +218,6 @@ export const portfolioProjects = [
     "company": "Carp-Diem",
     "websiteLink": "https://carp-diem.vercel.app/",
     "category": [
-      "Static Website",
       "E-Commerce Showcase",
       "Fashion Sector",
       "Web"

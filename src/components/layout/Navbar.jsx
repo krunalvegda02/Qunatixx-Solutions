@@ -113,7 +113,7 @@ export default function Navbar() {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10, scale: 0.98 }}
                       transition={{ duration: 0.2 }}
-                      className={clsx('absolute', 'left-1/2', '-translate-x-1/2', 'mt-3', 'w-[600px]', 'bg-bg-elevated', 'border', 'border-border-primary', 'rounded-2xl', 'p-5', 'shadow-[0_20px_50px_var(--shadow-heavy)]', 'grid', 'grid-cols-2', 'gap-3', 'backdrop-blur-xl')}
+                      className={clsx('absolute', 'left-1/2', '-translate-x-1/2', 'mt-3', 'w-[600px]', 'bg-bg-glass', 'border', 'border-border-primary', 'rounded-2xl', 'p-5', 'shadow-[0_20px_50px_var(--shadow-heavy)]', 'grid', 'grid-cols-2', 'gap-3', 'backdrop-blur-3xl')}
                     >
                       {servicesList.map((service, idx) => {
                         const Icon = service.icon;
