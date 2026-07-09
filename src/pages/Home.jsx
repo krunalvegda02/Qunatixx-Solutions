@@ -365,32 +365,32 @@ export default function Home() {
       metricStatus: 'PREMIUM LAUNCH'
     },
     {
-      quote: <span>Architecting high-frequency trading dashboards requires zero-latency rendering. Quantixx achieved this using React and Rust, pushing our application performance to <span className={clsx('text-highlight', 'font-bold')}>sub-10ms response times</span>.</span>,
-      author: "David Chen",
-      role: "Head of Infrastructure",
-      company: "Google Cloud",
-      avatar: "DC",
-      logo: 'googlecloud',
-      logoColor: '#4285F4',
+      quote: <span>They built a flawless, visually striking digital storefront for our fashion brand. Quantixx perfectly captured our aesthetic, delivering a responsive site that immediately <span className={clsx('text-highlight', 'font-bold')}>elevated our market presence</span> and early sales interest.</span>,
+      author: "Elena Rossi",
+      role: "Creative Director",
+      company: "Carp-Diem",
+      avatar: "ER",
+      logo: 'shopify',
+      logoColor: '#96BF48',
       rating: 5,
-      verifiedDate: 'Verified Cloud Performance // June 2026',
-      metric: '<10ms',
-      metricLabel: 'Render Latency',
-      metricStatus: 'INFRA AUDITED'
+      verifiedDate: 'Verified Brand Launch // August 2026',
+      metric: '3.0x',
+      metricLabel: 'Market Presence',
+      metricStatus: 'BRAND SCALED'
     },
     {
-      quote: <span>Quantixx migrated our legacy design system to a modern utility-based framework. The transition was seamless, and developer velocity <span className={clsx('text-highlight', 'font-bold')}>improved by 40%</span>.</span>,
-      author: "Liam O'Connor",
-      role: "Director of Product",
-      company: "Airbnb",
-      avatar: "LO",
-      logo: 'airbnb',
-      logoColor: '#FF5A5F',
+      quote: <span>As a startup, we needed a professional online footprint fast. Quantixx designed a beautiful showcase site that instantly <span className={clsx('text-highlight', 'font-bold')}>built trust with our early clients</span> and perfectly communicated our IT services.</span>,
+      author: "Markus Sterling",
+      role: "Founder",
+      company: "Sunlight-Publicity",
+      avatar: "MS",
+      logo: 'vercel',
+      logoColor: '#FFFFFF',
       rating: 5,
-      verifiedDate: 'Verified Product Audit // June 2026',
-      metric: '+40%',
-      metricLabel: 'Developer Velocity',
-      metricStatus: 'DESIGN STABLE'
+      verifiedDate: 'Verified Startup Launch // Sept 2026',
+      metric: '2.0x',
+      metricLabel: 'Brand Visibility',
+      metricStatus: 'HIGH CREDIBILITY'
     }
   ];
 

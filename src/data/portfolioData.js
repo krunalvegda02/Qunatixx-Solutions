@@ -150,12 +150,12 @@ export const portfolioProjects = [
     ],
     "media": {
       "type": "image",
-      "url": "/projects/optimaflow/1.jpg",
+      "url": "/projects/optimaflow/1.png",
       "fallbackImage": "",
       "gallery": [
-        "/projects/optimaflow/1.jpg",
-        "/projects/optimaflow/2.jpg",
-        "/projects/optimaflow/3.jpg"
+        "/projects/optimaflow/1.png",
+        "/projects/optimaflow/2.png",
+        "/projects/optimaflow/3.png"
       ]
     }
   },
@@ -203,12 +203,11 @@ export const portfolioProjects = [
     ],
     "media": {
       "type": "image",
-      "url": "/projects/ExpertWeb/1.jpg",
+      "url": "/projects/ExpertWeb/1.png",
       "fallbackImage": "",
       "gallery": [
-        "/projects/ExpertWeb/1.jpg",
-        "/projects/ExpertWeb/2.jpg",
-        "/projects/ExpertWeb/3.jpg"
+        "/projects/ExpertWeb/1.png",
+        "/projects/ExpertWeb/2.png",
       ]
     }
   },
@@ -255,65 +254,46 @@ export const portfolioProjects = [
     ],
     "media": {
       "type": "image",
-      "url": "/projects/CarpDiem/1.jpg",
+      "url": "/projects/CarpDiem/1.png",
       "fallbackImage": "",
       "gallery": [
-        "/projects/CarpDiem/1.jpg",
-        "/projects/CarpDiem/2.jpg",
-        "/projects/CarpDiem/3.jpg"
+        "/projects/CarpDiem/1.png",
+        "/projects/CarpDiem/2.png",
+        "/projects/CarpDiem/3.png"
       ]
     }
   },
-  {
-    "id": "AGDigital",
-    "title": "AG-Digital Startup Website",
-    "company": "AG-Digital",
-    "websiteLink": "https://ag-digital.vercel.app/",
-    "category": [
-      "Static Website",
-      "Company Presence",
-      "Informational Website",
-      "Web"
-    ],
-    "metric": "Established online presence & service showcase",
-    "shortDesc": "A static showcase site presenting AG-Digital\u2019s IT services including websites, web-apps, mobile applications, and iOS solutions.",
-    "problem": "AG-Digital needed a professional online presence to highlight their wide range of IT services and build credibility with potential clients.",
-    "solution": "We created a responsive static site showcasing their service portfolio, company vision, and contact details to establish trust and visibility.",
-    "techStack": [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "jQuery"
-    ],
+    {
+    "id": "SunlightPublicity",
+    "title": "Sunlight-Publicity Startup Website",
+    "company": "Sunlight-Publicity",
+    "websiteLink": "https://sunlight-publicity.vercel.app/",
+    "category": ["Static Website", "Company Presence", "Informational Website"],
+    "metric": "Established online presence & brand credibility",
+    "shortDesc": "A static showcase site presenting Sunlight-Publicity’s IT services and startup profile.",
+    "problem": "Sunlight-Publicity needed a professional online presence to build trust and showcase their IT service offerings to potential clients.",
+    "solution": "We designed a responsive static site highlighting their services, vision, and contact details to establish credibility and visibility.",
+    "techStack": ["HTML", "CSS", "JavaScript", "jQuery"],
     "impact": [
-      "Created a professional digital footprint",
-      "Showcased diverse IT service offerings",
-      "Improved brand visibility among potential clients"
+        "Created a professional digital footprint",
+        "Improved brand visibility among potential clients",
+        "Enabled easy communication with customers"
     ],
     "timeline": "1 Day",
-    "results": "The site successfully positioned AG-Digital as a credible IT service provider, helping them attract inquiries and build trust with clients across multiple service domains.",
+    "results": "The site successfully created Sunlight-Publicity’s online presence, helping them showcase their startup identity and attract inquiries.",
     "stats": [
-      {
-        "label": "Market Presence",
-        "value": "2.5x"
-      },
-      {
-        "label": "Credibility",
-        "value": "High"
-      },
-      {
-        "label": "Service Visibility",
-        "value": "Enhanced"
-      }
+        { "label": "Market Presence", "value": "2.0x" },
+        { "label": "Credibility", "value": "High" },
+        { "label": "Engagement", "value": "Improved" }
     ],
     "media": {
       "type": "image",
-      "url": "/projects/AGDigital/1.jpg",
+      "url": "/projects/SunlightPublicity/1.png",
       "fallbackImage": "",
       "gallery": [
-        "/projects/AGDigital/1.jpg",
-        "/projects/AGDigital/2.jpg",
-        "/projects/AGDigital/3.jpg"
+        "/projects/SunlightPublicity/1.png",
+        "/projects/SunlightPublicity/2.png",
+        "/projects/SunlightPublicity/3.png"
       ]
     }
   }
