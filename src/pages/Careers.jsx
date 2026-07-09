@@ -1,7 +1,8 @@
 import clsx from 'clsx';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Heart, Globe, BookOpen, Gift, Briefcase, ChevronRight, X, Send, Paperclip, MapPin, Clock, DollarSign } from 'lucide-react';
+import { Loader2, Heart, Globe, BookOpen, Gift, Briefcase, ChevronRight, X, Send, Paperclip, MapPin, Clock, DollarSign } from 'lucide-react';
 
 
 const fadeUp = {
@@ -13,6 +14,8 @@ export default function Careers() {
   const [activeRole, setActiveRole] = useState(null);
 
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const form = useRef();
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -98,9 +101,26 @@ export default function Careers() {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    setTimeout(() => {
-      setFormSubmitted(true);
-    }, 600);
+    setIsLoading(true);
+
+    emailjs
+      .sendForm(
+        'service_cban87l',
+        'template_8j2t6sn',
+        form.current,
+        'wswI1zm7UYCeCRg3_'
+      )
+      .then(
+        () => {
+          setIsLoading(false);
+          setFormSubmitted(true);
+        },
+        (error) => {
+          console.error('FAILED...', error.text);
+          setIsLoading(false);
+          setFormSubmitted(true);
+        }
+      );
   };
 
   return (
@@ -274,12 +294,14 @@ export default function Careers() {
                     </ul>
                   </div>
 
-                  <form onSubmit={handleFormSubmit} className="space-y-4 pt-4 border-t border-border-primary">
+                  <form ref={form} onSubmit={handleFormSubmit} className="space-y-4 pt-4 border-t border-border-primary">
+                    <input type="hidden" name="role_applied" value={activeRole.title} />
                     <div>
                       <label className="block text-xs font-semibold text-text-secondary uppercase tracking-wider mb-2">Your Full Name *</label>
                       <input
                         type="text"
                         required
+                        name="user_name"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         className="w-full bg-bg-primary border border-border-primary focus:border-accent focus:ring-1 focus:ring-accent rounded-sm px-4 py-2.5 text-sm text-text-primary placeholder-text-muted outline-none"
@@ -291,6 +313,7 @@ export default function Careers() {
                       <input
                         type="email"
                         required
+                        name="user_email"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         className="w-full bg-bg-primary border border-border-primary focus:border-accent focus:ring-1 focus:ring-accent rounded-sm px-4 py-2.5 text-sm text-text-primary placeholder-text-muted outline-none"
@@ -302,6 +325,7 @@ export default function Careers() {
                       <input
                         type="url"
                         required
+                        name="github_url"
                         value={formData.github}
                         onChange={(e) => setFormData({ ...formData, github: e.target.value })}
                         className="w-full bg-bg-primary border border-border-primary focus:border-accent focus:ring-1 focus:ring-accent rounded-sm px-4 py-2.5 text-sm text-text-primary placeholder-text-muted outline-none"
@@ -313,6 +337,7 @@ export default function Careers() {
                       <textarea
                         rows="4"
                         required
+                        name="message"
                         value={formData.coverLetter}
                         onChange={(e) => setFormData({ ...formData, coverLetter: e.target.value })}
                         className="w-full bg-bg-primary border border-border-primary focus:border-accent focus:ring-1 focus:ring-accent rounded-sm px-4 py-2.5 text-sm text-text-primary placeholder-text-muted outline-none resize-none"
@@ -330,10 +355,11 @@ export default function Careers() {
 
                     <button
                       type="submit"
-                      className="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-sm text-sm font-bold bg-accent hover:bg-accent-hover text-white shadow-md cursor-pointer mt-4 transition-colors"
+                      disabled={isLoading}
+                      className={`w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-sm text-sm font-bold bg-accent hover:bg-accent-hover text-white shadow-md mt-4 transition-colors ${isLoading ? 'opacity-80 cursor-wait' : 'cursor-pointer'}`}
                     >
-                      <span>Submit Application</span>
-                      <Send size={14} />
+                      <span>{isLoading ? 'Sending...' : 'Submit Application'}</span>
+                      {isLoading ? <Loader2 size={14} className="animate-spin" /> : <Send size={14} />}
                     </button>
                   </form>
                 </div>

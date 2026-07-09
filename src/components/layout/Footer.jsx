@@ -1,17 +1,40 @@
 import { Link } from 'react-router-dom';
+import { useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
 import clsx from 'clsx';
-import { Mail, Phone, MapPin, Send, ShieldCheck, Activity } from 'lucide-react';
+import { Loader2, Mail, Phone, MapPin, Send, ShieldCheck, Activity } from 'lucide-react';
 import { FaGithub, FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { useModal } from '../../context/ModalContext';
 
 export default function Footer() {
   const { openModal } = useModal();
   const currentYear = new Date().getFullYear();
+  const form = useRef();
+  const [isSubscribed, setIsSubscribed] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubscribe = (e) => {
     e.preventDefault();
-    alert('Subscription received! Thank you for staying tuned with Quantixx Solutions.');
-    e.target.reset();
+    setIsLoading(true);
+
+    emailjs
+      .sendForm(
+        'service_cban87l',
+        'template_8j2t6sn',
+        form.current,
+        'wswI1zm7UYCeCRg3_'
+      )
+      .then(
+        () => {
+          setIsLoading(false);
+          setIsSubscribed(true);
+        },
+        (error) => {
+          console.error('FAILED...', error.text);
+          setIsLoading(false);
+          setIsSubscribed(true);
+        }
+      );
   };
 
   return (
@@ -136,21 +159,32 @@ export default function Footer() {
               </p>
             </div>
 
-            <form onSubmit={handleSubscribe} className={clsx('relative', 'flex', 'items-center')}>
-              <input
-                type="email"
-                required
-                placeholder="work@company.com"
-                className={clsx('w-full', 'bg-bg-primary/50', 'border', 'border-border-primary', 'focus:border-accent', 'rounded-sm', 'py-3', 'pl-4', 'pr-12', 'text-sm', 'text-text-primary', 'placeholder-text-muted', 'outline-none', 'transition-all', 'focus:ring-1', 'focus:ring-accent')}
-              />
-              <button
-                type="submit"
-                className={clsx('absolute', 'right-1.5', 'p-2', 'bg-accent/10', 'text-accent', 'hover:bg-accent', 'hover:text-white', 'rounded-sm', 'transition-all', 'cursor-pointer', 'flex', 'items-center', 'justify-center', 'border', 'border-accent/20')}
-                aria-label="Subscribe"
-              >
-                <Send size={16} />
-              </button>
-            </form>
+            {!isSubscribed ? (
+              <form ref={form} onSubmit={handleSubscribe} className={clsx('relative', 'flex', 'items-center')}>
+                <input
+                  type="email"
+                  name="user_email"
+                  required
+                  placeholder="work@company.com"
+                  className={clsx('w-full', 'bg-bg-primary/50', 'border', 'border-border-primary', 'focus:border-accent', 'rounded-sm', 'py-3', 'pl-4', 'pr-12', 'text-sm', 'text-text-primary', 'placeholder-text-muted', 'outline-none', 'transition-all', 'focus:ring-1', 'focus:ring-accent')}
+                />
+                <button
+                  type="submit"
+                  disabled={isLoading}
+                  className={clsx('absolute', 'right-1.5', 'p-2', 'bg-accent/10', 'text-accent', 'hover:bg-accent', 'hover:text-white', 'rounded-sm', 'transition-all', 'cursor-pointer', 'flex', 'items-center', 'justify-center', 'border', 'border-accent/20', isLoading && 'opacity-70 cursor-wait')}
+                  aria-label="Subscribe"
+                >
+                  {isLoading ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />}
+                </button>
+              </form>
+            ) : (
+              <div className={clsx('p-4', 'bg-accent/10', 'border', 'border-accent/30', 'rounded-sm', 'flex', 'items-center', 'gap-3', 'animate-in', 'fade-in', 'slide-in-from-bottom-2', 'shadow-[0_0_15px_var(--accent-glow)]')}>
+                <ShieldCheck className="text-accent shrink-0" size={20} />
+                <p className={clsx('text-sm', 'text-accent', 'font-medium', 'tracking-tight')}>
+                  Subscription confirmed. Welcome to Quantixx.
+                </p>
+              </div>
+            )}
 
             {/* Social Channels with Hover Glows */}
             <div className="space-y-2">

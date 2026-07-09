@@ -1,11 +1,14 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, CheckCircle, Send, Calendar, Clock } from 'lucide-react';
+import { Loader2, X, CheckCircle, Send, Calendar, Clock } from 'lucide-react';
 import { useModal } from '../../context/ModalContext';
 
 export default function ConsultationModal() {
   const { isModalOpen, closeModal } = useModal();
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const form = useRef();
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -17,9 +20,26 @@ export default function ConsultationModal() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setTimeout(() => {
-      setIsSubmitted(true);
-    }, 600);
+    setIsLoading(true);
+
+    emailjs
+      .sendForm(
+        'service_cban87l',
+        'template_8j2t6sn',
+        form.current,
+        'wswI1zm7UYCeCRg3_'
+      )
+      .then(
+        () => {
+          setIsLoading(false);
+          setIsSubmitted(true);
+        },
+        (error) => {
+          console.error('FAILED...', error.text);
+          setIsLoading(false);
+          setIsSubmitted(true);
+        }
+      );
   };
 
   const handleReset = () => {
@@ -82,7 +102,8 @@ export default function ConsultationModal() {
                   </p>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+                <form ref={form} onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+                  <input type="hidden" name="budget" value={formData.budget} />
                   <div className="grid grid-cols-2 gap-3 sm:gap-4">
                     <div>
                       <label className="block text-[10px] sm:text-xs font-semibold text-text-secondary uppercase tracking-wider mb-1.5 sm:mb-2">
@@ -91,6 +112,7 @@ export default function ConsultationModal() {
                       <input
                         type="text"
                         required
+                        name="user_name"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         className="w-full bg-bg-primary border border-border-primary focus:border-accent focus:ring-1 focus:ring-accent rounded-md px-3 py-2 sm:px-4 sm:py-2.5 text-xs sm:text-sm text-text-primary placeholder-text-muted outline-none transition-all"
@@ -104,6 +126,7 @@ export default function ConsultationModal() {
                       <input
                         type="email"
                         required
+                        name="user_email"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         className="w-full bg-bg-primary border border-border-primary focus:border-accent focus:ring-1 focus:ring-accent rounded-md px-3 py-2 sm:px-4 sm:py-2.5 text-xs sm:text-sm text-text-primary placeholder-text-muted outline-none transition-all"
@@ -119,6 +142,7 @@ export default function ConsultationModal() {
                       </label>
                       <input
                         type="text"
+                        name="company_name"
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                         className="w-full bg-bg-primary border border-border-primary focus:border-accent focus:ring-1 focus:ring-accent rounded-md px-3 py-2 sm:px-4 sm:py-2.5 text-xs sm:text-sm text-text-primary placeholder-text-muted outline-none transition-all"
@@ -130,6 +154,7 @@ export default function ConsultationModal() {
                         Project Type
                       </label>
                       <select
+                        name="service_requested"
                         value={formData.service}
                         onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                         className="w-full bg-bg-primary border border-border-primary focus:border-accent focus:ring-1 focus:ring-accent rounded-md px-3 py-2 sm:px-4 sm:py-2.5 text-[11px] sm:text-sm text-text-primary outline-none transition-all"
@@ -170,7 +195,8 @@ export default function ConsultationModal() {
                     </label>
                     <textarea
                       rows="2"
-                      value={formData.message}
+                      name="message"
+                        value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       className="w-full h-16 sm:h-20 bg-bg-primary border border-border-primary focus:border-accent focus:ring-1 focus:ring-accent rounded-md px-3 py-2 sm:px-4 sm:py-2.5 text-xs sm:text-sm text-text-primary placeholder-text-muted outline-none transition-all resize-none"
                       placeholder="Briefly describe what you're building..."
@@ -184,10 +210,11 @@ export default function ConsultationModal() {
                     </div>
                     <button
                       type="submit"
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md text-sm font-semibold bg-accent hover:bg-accent-hover text-white shadow-[0_0_20px_var(--accent-glow)] transition-all cursor-pointer"
+                      disabled={isLoading}
+                      className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md text-sm font-semibold bg-accent hover:bg-accent-hover text-white shadow-[0_0_20px_var(--accent-glow)] transition-all cursor-pointer ${isLoading ? 'opacity-80 cursor-wait' : ''}`}
                     >
-                      <span>Submit Request</span>
-                      <Send size={14} />
+                      <span>{isLoading ? 'Submitting...' : 'Submit Request'}</span>
+                      {isLoading ? <Loader2 size={14} className="animate-spin" /> : <Send size={14} />}
                     </button>
                   </div>
                 </form>

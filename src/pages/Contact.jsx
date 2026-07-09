@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import { motion, AnimatePresence } from 'framer-motion';
 import { AnimatedText } from '../components/animations/AnimatedText';
 import { AnimatedSubText } from '../components/animations/AnimatedSubText';
-import { Mail, Phone, MapPin, ChevronDown, CheckCircle, Clock, Zap, ArrowUpRight, HelpCircle } from 'lucide-react';
+import { Loader2, Mail, Phone, MapPin, ChevronDown, CheckCircle, Clock, Zap, ArrowUpRight, HelpCircle } from 'lucide-react';
 import clsx from 'clsx';
 
 
@@ -13,6 +14,8 @@ const fadeUp = {
 
 export default function Contact() {
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const form = useRef();
+  const [isLoading, setIsLoading] = useState(false);
 
   const [openFaq, setOpenFaq] = useState(null);
   const [formData, setFormData] = useState({
@@ -48,9 +51,26 @@ export default function Contact() {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    setTimeout(() => {
-      setFormSubmitted(true);
-    }, 600);
+    setIsLoading(true);
+
+    emailjs
+      .sendForm(
+        'service_cban87l',
+        'template_8j2t6sn',
+        form.current,
+        'wswI1zm7UYCeCRg3_'
+      )
+      .then(
+        () => {
+          setIsLoading(false);
+          setFormSubmitted(true);
+        },
+        (error) => {
+          console.error('FAILED...', error.text);
+          setIsLoading(false);
+          setFormSubmitted(true);
+        }
+      );
   };
 
   return (
@@ -124,7 +144,7 @@ export default function Contact() {
         <div className={clsx('grid', 'grid-cols-1', 'lg:grid-cols-12', 'gap-8', 'lg:gap-12', 'items-start', 'font-sans')}>
           
           {/* Left Column: Bento Box Info */}
-          <div className={clsx('lg:col-span-5', 'space-y-6', 'sticky', 'top-32')}>
+          <div className={clsx('lg:col-span-5', 'space-y-6', 'lg:sticky', 'lg:top-32')}>
             
             {/* Corporate Info Card */}
             <motion.div 
@@ -184,7 +204,7 @@ export default function Contact() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, margin: "0px" }}
               transition={{ duration: 0.4 }}
-              className={clsx('border', 'border-border-primary', 'bg-bg-card', 'rounded-3xl', 'p-6', 'sm:p-12', 'relative', 'shadow-xl', 'overflow-hidden', 'transform-gpu')}
+              className={clsx('border', 'border-border-primary', 'bg-bg-card/95', 'backdrop-blur-2xl', 'rounded-3xl', 'p-6', 'sm:p-12', 'relative', 'shadow-xl', 'overflow-hidden', 'transform-gpu')}
             >
               <div className={clsx('absolute', 'top-0', 'right-0', 'w-64', 'h-64', 'bg-accent/5', 'rounded-full', 'pointer-events-none', '-z-10', 'transform-gpu')} />
               
@@ -195,13 +215,14 @@ export default function Contact() {
                     Provide parameters for your software build or cloud integration. Our engineering lead will prepare an agenda for the technical discovery session.
                   </p>
 
-                  <form onSubmit={handleFormSubmit} className={clsx('space-y-5', 'sm:space-y-6')}>
+                  <form ref={form} onSubmit={handleFormSubmit} className={clsx('space-y-5', 'sm:space-y-6')}>
                     <div className={clsx('grid', 'grid-cols-1', 'sm:grid-cols-2', 'gap-5', 'sm:gap-6')}>
                       <div className="space-y-2">
                         <label className={clsx('block', 'text-sm', 'font-semibold', 'text-text-secondary', 'pl-1')}>Your Full Name</label>
                         <input
                           type="text"
                           required
+                          name="user_name"
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                           className={clsx('w-full', 'bg-bg-secondary', 'border', 'border-border-primary', 'focus:border-accent', 'focus:bg-bg-primary', 'rounded-xl', 'px-5', 'py-3.5', 'text-sm', 'text-text-primary', 'placeholder-text-muted', 'outline-none', 'transition-all', 'shadow-inner')}
@@ -213,6 +234,7 @@ export default function Contact() {
                         <input
                           type="email"
                           required
+                          name="user_email"
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           className={clsx('w-full', 'bg-bg-secondary', 'border', 'border-border-primary', 'focus:border-accent', 'focus:bg-bg-primary', 'rounded-xl', 'px-5', 'py-3.5', 'text-sm', 'text-text-primary', 'placeholder-text-muted', 'outline-none', 'transition-all', 'shadow-inner')}
@@ -226,6 +248,7 @@ export default function Contact() {
                         <label className={clsx('block', 'text-sm', 'font-semibold', 'text-text-secondary', 'pl-1')}>Company Name</label>
                         <input
                           type="text"
+                          name="company_name"
                           value={formData.company}
                           onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                           className={clsx('w-full', 'bg-bg-secondary', 'border', 'border-border-primary', 'focus:border-accent', 'focus:bg-bg-primary', 'rounded-xl', 'px-5', 'py-3.5', 'text-sm', 'text-text-primary', 'placeholder-text-muted', 'outline-none', 'transition-all', 'shadow-inner')}
@@ -236,6 +259,7 @@ export default function Contact() {
                         <label className={clsx('block', 'text-sm', 'font-semibold', 'text-text-secondary', 'pl-1')}>Budget Framework</label>
                         <div className="relative">
                           <select
+                            name="budget"
                             value={formData.budget}
                             onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
                             className={clsx('w-full', 'bg-bg-secondary', 'border', 'border-border-primary', 'focus:border-accent', 'focus:bg-bg-primary', 'rounded-xl', 'px-5', 'py-3.5', 'text-sm', 'text-text-primary', 'outline-none', 'transition-all', 'shadow-inner', 'appearance-none', 'cursor-pointer')}
@@ -255,7 +279,8 @@ export default function Contact() {
                       <textarea
                         rows="5"
                         required
-                        value={formData.details}
+                        name="message"
+                          value={formData.details}
                         onChange={(e) => setFormData({ ...formData, details: e.target.value })}
                         className={clsx('w-full', 'bg-bg-secondary', 'border', 'border-border-primary', 'focus:border-accent', 'focus:bg-bg-primary', 'rounded-xl', 'px-5', 'py-4', 'text-sm', 'text-text-primary', 'placeholder-text-muted', 'outline-none', 'resize-none', 'transition-all', 'shadow-inner')}
                         placeholder="Tell us what you're planning to build (e.g. Next.js SaaS portal, AWS cloud cluster)..."
@@ -263,14 +288,19 @@ export default function Contact() {
                     </div>
 
                     <motion.button
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.95 }}
+                      whileHover={isLoading ? {} : { scale: 1.02 }}
+                      whileTap={isLoading ? {} : { scale: 0.95 }}
                       type="submit"
-                      className={clsx('w-full', 'relative', 'overflow-hidden', 'group', 'inline-flex', 'items-center', 'justify-center', 'gap-2', 'py-4', 'rounded-xl', 'text-sm', 'font-bold', 'bg-accent', 'text-white', 'shadow-[0_4px_15px_var(--accent-glow)]', 'hover:shadow-[0_6px_25px_var(--accent-glow)]', 'transition-colors', 'duration-300', 'cursor-pointer', 'mt-4')}
+                      disabled={isLoading}
+                      className={clsx('w-full', 'relative', 'overflow-hidden', 'group', 'inline-flex', 'items-center', 'justify-center', 'gap-2', 'py-4', 'rounded-xl', 'text-sm', 'font-bold', 'bg-accent', 'text-white', 'shadow-[0_4px_15px_var(--accent-glow)]', 'hover:shadow-[0_6px_25px_var(--accent-glow)]', 'transition-colors', 'duration-300', 'mt-4', isLoading ? 'opacity-80 cursor-wait' : 'cursor-pointer')}
                     >
-                      <span className={clsx('relative', 'z-10')}>Send Project Details</span>
-                      <ArrowUpRight size={16} className={clsx('relative', 'z-10', 'group-hover:translate-x-0.5', 'group-hover:-translate-y-0.5', 'transition-transform')} />
-                      <div className={clsx('absolute', 'inset-0', 'bg-gradient-to-r', 'from-transparent', 'via-white/20', 'to-transparent', '-translate-x-full', 'group-hover:translate-x-full', 'transition-transform', 'duration-700', 'pointer-events-none')} />
+                      <span className={clsx('relative', 'z-10')}>{isLoading ? 'Sending...' : 'Send Project Details'}</span>
+                      {isLoading ? (
+                        <Loader2 size={16} className="animate-spin relative z-10" />
+                      ) : (
+                        <ArrowUpRight size={16} className={clsx('relative', 'z-10', 'group-hover:translate-x-0.5', 'group-hover:-translate-y-0.5', 'transition-transform')} />
+                      )}
+                      {!isLoading && <div className={clsx('absolute', 'inset-0', 'bg-gradient-to-r', 'from-transparent', 'via-white/20', 'to-transparent', '-translate-x-full', 'group-hover:translate-x-full', 'transition-transform', 'duration-700', 'pointer-events-none')} />}
                     </motion.button>
                   </form>
                 </div>
