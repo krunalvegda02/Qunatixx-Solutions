@@ -107,56 +107,67 @@ export const portfolioProjects = [
     }
   },
   {
-    "id": "optimaflow",
-    "title": "OptimaFlow Automator",
-    "company": "OptimaFlow Systems",
-    "websiteLink": "https://example.com/optimaflow",
-    "category": [
-      "Automation",
-      "SaaS",
-      "Web"
-    ],
-    "metric": "Automated 90% of repetitive tasks",
-    "shortDesc": "AI email parsing engine and automated CRM routing system.",
-    "problem": "Customer service staff spent 20 hours a week manually reading invoices and copying data into their CRM system by hand.",
-    "solution": "We developed a smart AI tool that instantly reads incoming documents and automatically enters the data perfectly every time.",
-    "techStack": [
-      "Python",
-      "LangChain",
-      "OpenAI GPT-4",
-      "Docker",
-      "FastAPI"
-    ],
+    "id": "HRMSSystem",
+    "title": "HRMS Employee Management",
+    "company": "Quantixx Solutions",
+    "websiteLink": "https://hrmsstzk.in/",
+    "category": ["SaaS",  "Mobile", "HRMS", "Web", "Employee Management"],
+    "metric": "Delivered complete HRMS solution with subscription plans",
+    "shortDesc": "A SaaS-based HRMS platform providing end-to-end employee management, payroll, tax compliance, and organizational workflows.",
+    "problem": "Startups and SMEs struggled with manual HR processes, tax updates, and employee data management, leading to inefficiencies and compliance risks.",
+    "solution": "We built a dynamic SaaS HRMS system with salary calculation, tax slab updates, TDS norms, attendance tracking, and role-based dashboards, available via subscription.",
+    "techStack": ["PHP", "Laravel", "SQL", "JavaScript", "jQuery", "Bootstrap"],
     "impact": [
-      "90% of intake clerical work automated",
-      "Reduced entry error rate to absolute 0%",
-      "Freed 3 full-time employees to focus on client care"
+        "Automated payroll and compliance handling",
+        "Reduced HR administrative workload by 70%",
+        "Enabled real-time employee data access and reporting"
     ],
-    "timeline": "2 Months",
-    "results": "Billing data entry bottleneck eliminated. Response time to user inquiries dropped from 18 hours to immediate confirmation emails.",
+    "timeline": "Ongoing Development & Deployment",
+    "results": "The SaaS HRMS system is actively used by our own startup and available for external clients via subscription, delivering reliability, compliance, and scalability.",
     "stats": [
-      {
-        "label": "Tasks Auto",
-        "value": "90%"
-      },
-      {
-        "label": "Error Rate",
-        "value": "0%"
-      },
-      {
-        "label": "Time Saved",
-        "value": "20h/wk"
-      }
+        { "label": "Efficiency Gain", "value": "70%" },
+        { "label": "Compliance Accuracy", "value": "100%" },
+        { "label": "Adoption", "value": "Growing" }
     ],
     "media": {
-      "type": "image",
-      "url": "/projects/optimaflow/1.png",
-      "fallbackImage": "",
-      "gallery": [
-        "/projects/optimaflow/1.png",
-        "/projects/optimaflow/2.png",
-        "/projects/optimaflow/3.png"
-      ]
+        "type": "image",
+        "url": "/projects/hrms-mock.jpeg",
+        "fallbackImage": "",
+        "gallery": [
+            "/projects/hrms-mock.jpeg"
+        ]
+    }
+  },
+  {
+    "id": "SwadSangam",
+    "title": "SwadSangam Restaurant Management",
+    "company": "SwadSangam",
+    "websiteLink": "https://swadsangam.store/",
+    "category": ["SaaS", "Mobile", "Restaurant Management", "Web",],
+    "metric": "Delivered complete restaurant management solution",
+    "shortDesc": "A SaaS-based platform providing end-to-end solutions for restaurant operations, including staff, billing, inventory, and customer service.",
+    "problem": "Restaurants in Ahmedabad faced challenges with manual operations, billing errors, staff coordination, and inventory mismanagement, leading to inefficiencies and customer dissatisfaction.",
+    "solution": "We built a dynamic SaaS restaurant management system with role-based dashboards for superadmin, admin, manager, chef, waiter, and cashier, integrated with mobile apps for seamless operations.",
+    "techStack": ["PHP", "Laravel", "SQL", "Flutter", "JavaScript", "Bootstrap"],
+    "impact": [
+        "Automated restaurant workflows across multiple roles",
+        "Reduced billing errors and improved service speed",
+        "Enabled real-time inventory and staff coordination"
+    ],
+    "timeline": "Ongoing Development & Deployment",
+    "results": "SwadSangam is now a leading restaurant management solution in Ahmedabad, helping restaurants streamline operations, improve customer satisfaction, and scale efficiently.",
+    "stats": [
+        { "label": "Operational Efficiency", "value": "85%" },
+        { "label": "Customer Satisfaction", "value": "High" },
+        { "label": "Adoption", "value": "Growing rapidly" }
+    ],
+    "media": {
+        "type": "image",
+        "url": "/projects/swadsangam-mock.jpeg",
+        "fallbackImage": "",
+        "gallery": [
+            "/projects/swadsangam-mock.jpeg"
+        ]
     }
   },
   {
